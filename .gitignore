@@ -1,0 +1,7 @@
+# JS
+node_modules
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
