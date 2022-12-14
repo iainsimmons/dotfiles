@@ -11,7 +11,7 @@ export ZSH="/Users/isimmons/.oh-my-zsh"
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
-plugins=(git node macos python extract fzf fast-syntax-highlighting zsh-autosuggestions z.lua)
+plugins=(git node macos python docker extract fzf fast-syntax-highlighting zsh-autosuggestions z.lua)
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -51,7 +51,8 @@ alias git_sync="git pull -r && git push"
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias pn=pnpm
 sshkey () { mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa; }
-
+alias zshrc='vim ~/.zshrc'
+alias zource='source ~/.zshrc'
 autoload -U promptinit; promptinit
 
 export PATH="$PATH:$HOME/.rvm/bin"
