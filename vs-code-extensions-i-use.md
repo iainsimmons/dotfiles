@@ -16,7 +16,7 @@ List of extensions I use, inspired by [Wes Bos' dotfiles](https://github.com/wes
 -   [html-css-class-completion](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
 -   [html-snippets](https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets)
 -   [html-tag-wrapper](https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper)
--   [HTMLHint](https://marketplace.visualstudio.com/items?itemName=mkaufman.HTMLHint)
+-   [HTMLHint](https://marketplace.visualstudio.com/items?itemName=htmlhint.vscode-htmlhint)
 -   [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort)
 -   [JavaScriptSnippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
 -   [json-organizer](https://marketplace.visualstudio.com/items?itemName=rintoj.json-organizer)
