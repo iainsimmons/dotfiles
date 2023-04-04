@@ -19,6 +19,11 @@ return {
       require("telescope.builtin").oldfiles,
       desc = "Find recently opened files",
     },
+    {
+      "<leader>fg",
+      require("telescope.builtin").git_files,
+      desc = "Find Git files",
+    },
   },
   -- change some options
   opts = {
