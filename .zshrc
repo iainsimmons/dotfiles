@@ -7,6 +7,7 @@ export PATH=${PATH}:/usr/local/lib/ruby/gems/2.7.0/bin
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export ZSH="/Users/isimmons/.oh-my-zsh"
+export XDG_CONFIG_HOME="/Users/isimmons"
 
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
