@@ -1,0 +1,78 @@
+[alias]
+	aa = add -A	
+	c = commit --verbose
+	co = checkout
+	cp = cherry-pick
+	s = status --short
+	rc = rebase --continue
+	br = branch
+	cached = diff --cached
+	undo = reset --soft HEAD~1
+	show-patch = format-patch -1 --stdout
+	sha = rev-parse HEAD
+	origin = config --get remote.origin.url
+	current = rev-parse --abbrev-ref HEAD
+	out = !git log origin/$(git current)..
+	incoming = !git log ..origin/$(git current)
+	publish= !git push origin $(git current)
+	id = !echo "git clone --recursive $(git origin) --branch $(git current)"
+	recent = !git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/ | head -n 20
+	fixup = "!f() { git commit --fixup=$1; git rebase -i --autosquash $1~1; }; f"
+	fixit = "!f() { git commit --fixup=$1; GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash $1~1; }; f"
+	wip = !git add --all . && git commit -m 'WIP'
+	root = !pwd
+	back = checkout -
+	upstream = !git branch --set-upstream-to=origin/$(git current) $(git current)
+	pushup = !git push --set-upstream origin $(git current)
+	repo=!git remote -v | grep '@.*fetch' | sed 's/.*:\\(.*\\).git.*/\\1/g'
+	pr=!open https://github.com/$(git repo)/compare/$(git current)?expand=1
+	ls = !git ls-files -m
+#fzf Fuzzy find
+	ch= !BRANCH=`git recent | fzf` && git checkout ${BRANCH}
+	fadd= !FILES=`git status -s | awk '{ print $2 }' | fzf -x -m` && git add --all ${FILES}
+	ffix= !HASH=`git log --pretty=oneline | head | fzf` && git fixit `echo ${HASH} | awk '{ print $1 }'`
+	fshow= !HASH=`git log --pretty=oneline | head | fzf` && git show `echo ${HASH} | awk '{ print $1 }'`
+	flog= !HASH=`git log --pretty=oneline | head | fzf` && echo ${HASH} | awk '{ print $1 }' | xargs echo -n | pbcopy
+	frebase= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && git rebase -i `echo ${HASH} | awk '{ print $1 }'`^
+	fvim= !FILES=`git status -s | awk '{ print $2 }' | fzf -x -m` && vim ${FILES}
+	fgrep= !sh -c 'FILES=`git grep -l -A 0 -B 0 $1 $2 | fzf -x -m` && vim `echo ${FILES} | cut -d':' -f1 | xargs`' -
+	fvimlog= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && HASHZ=`echo ${HASH} | awk '{ print $1 }'` && FILES=`git show --pretty='format:'  --name-only $HASHZ | fzf -x -m` && vim ${FILES}
+	freset= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && git reset --soft `echo ${HASH} | awk '{ print $1 }'`^
+	prebom = pull --rebase origin master
+	prebod = pull --rebase origin dev
+	prebodd = pull --rebase origin develop
+	fpush = push -f
+	last = log -1 HEAD
+[help]
+	autocorrect = 30
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = .nvmrc
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nvim
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+  whitespace = red reverse
+[merge]
+  tool = vimdiff3
+[mergetool "vimdiff3"]
+	path = nvim
