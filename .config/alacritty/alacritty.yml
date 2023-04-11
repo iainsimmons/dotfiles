@@ -7,7 +7,7 @@ selection:
   save_to_clipboard: false
 
 window:
-  opacity: 0.85
+  opacity: 0.90
   padding:
     x: 16
     y: 16

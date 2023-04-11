@@ -1,5 +1,19 @@
 return {
   {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = {
+      style = "night",
+      dim_inactive = true,
+      on_highlights = function(hl, c)
+        local util = require("tokyonight.util")
+        hl.Visual = {
+          bg = util.darken(c.blue0, 0.5)
+        }
+      end
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight-night",
