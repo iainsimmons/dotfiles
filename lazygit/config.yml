@@ -1,5 +1,12 @@
-services:
-  "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
+customCommands:
+  - command: "git push -f"
+    context: "global"
+    description: "Force Push"
+    key: "<c-f>"
+    prompts:
+      - body: "Are you sure you want to force push this branch? {{.CheckedOutBranch.UpstreamRemote}} {{.CheckedOutBranch.UpstreamBranch}}"
+        title: "Confirm:"
+        type: "confirm"
 git:
   paging:
     colorArg: always
@@ -8,3 +15,5 @@ os:
   editCommand: "nvim"
   editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
   openCommand: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
+services:
+  "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
