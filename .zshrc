@@ -54,6 +54,7 @@ sshkey () { mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa; }
 alias zshrc='vim ~/.zshrc'
 alias zource='source ~/.zshrc'
 alias vim='nvim'
+alias v='nvim'
 
 autoload -U promptinit; promptinit
 
