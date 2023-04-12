@@ -74,6 +74,8 @@ key_bindings:
   - { key: Semicolon, mods: Command, chars: "\x02:" }
   # Create a new tmux window/tab
   - { key: T, mods: Command, chars: "\x02c" }
+  # Switch to existing tmux window/tab
+  - { key: J, mods: Command, chars: "\x02f" }
   # Break the current tmux pane out of the tmux window
   - { key: T, mods: Command|Shift, chars: "\x02!" }
   # Kill/close the current tmux pane (and window if last pane)
