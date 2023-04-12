@@ -14,5 +14,14 @@ return {
   {
     "davidgranstrom/nvim-markdown-preview",
     ft = { "md", "markdown" },
+    keys = {
+      {
+        "<leader>m",
+        '<plug>(nvim-markdown-preview)',
+        "n",
+        desc = "Markdown Preview: Open preview in browser",
+        silent = true,
+      },
+    },
   },
 }
