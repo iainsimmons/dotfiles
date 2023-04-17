@@ -37,4 +37,12 @@ return {
       },
     },
   },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    cmd = { "HighlightColorsOn", "HighlightColorsOff", "HighlightColorsToggle" },
+    opts = {
+      render = 'foreground',
+      enable_tailwind = true,
+    },
+  }
 }
