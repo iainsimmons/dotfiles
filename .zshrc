@@ -12,7 +12,7 @@ export XDG_CONFIG_HOME="/Users/isimmons/.config"
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
-plugins=(git node macos python docker extract fzf fast-syntax-highlighting zsh-autosuggestions z.lua)
+plugins=(git node macos python docker extract fzf fast-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -25,7 +25,8 @@ source $ZSH/oh-my-zsh.sh
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+alias ls='exa'                              # Use exa instead of ls
+alias ll='exa -lah --icons --git'           # Preferred 'ls'/'exa' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
@@ -55,8 +56,14 @@ alias zshrc='vim ~/.zshrc'
 alias zource='source ~/.zshrc'
 alias vim='nvim'
 alias v='nvim'
+alias z='zoxide'
+alias zz='zi'
+alias find='fd'
 
 autoload -U promptinit; promptinit
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --color=always"
+export FZF_DEFAULT_OPTS="--ansi"
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -78,6 +85,9 @@ eval "$(starship init zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # tabtab source for packages
 # uninstall by removing these lines
