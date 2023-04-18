@@ -7,7 +7,6 @@ selection:
   save_to_clipboard: false
 
 window:
-  opacity: 0.90
   padding:
     x: 16
     y: 16
@@ -104,6 +103,8 @@ key_bindings:
   # Send Tab and modifier keys for cycling Neovim buffers
   - { key: Tab, mods: Control, chars: "\x1b[9;5u" }
   - { key: Tab, mods: Control|Shift, chars: "\x1b[9;6u" }
+  # Open URLs 'joshmedeski/tmux-fzf-url'
+  - { key: O, mods: Command, chars: "\x02u" }
 
 # TokyoNight Alacritty Colors
 colors:
