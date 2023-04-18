@@ -59,6 +59,7 @@ alias v='nvim'
 alias z='zoxide'
 alias zz='zi'
 alias find='fd'
+alias t='~/.tmux/plugins/t'
 
 autoload -U promptinit; promptinit
 
