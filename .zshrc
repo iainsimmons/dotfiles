@@ -65,6 +65,8 @@ autoload -U promptinit; promptinit
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --color=always"
 export FZF_DEFAULT_OPTS="--ansi"
+export FZF_TMUX_OPTS="-p"
+export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.pyenv/bin:$PATH"
