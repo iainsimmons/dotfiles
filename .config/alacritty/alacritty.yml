@@ -106,6 +106,10 @@ key_bindings:
   - { key: Tab, mods: Control|Shift, chars: "\x1b[9;6u" }
   # Open URLs 'joshmedeski/tmux-fzf-url'
   - { key: O, mods: Command, chars: "\x02u" }
+  - { key: Home, chars: "\x1b[H", mode: ~AppCursor }
+  - { key: Home, chars: "\x1b[1~", mode: AppCursor }
+  - { key: End, chars: "\x1b[F", mode: ~AppCursor }
+  - { key: End, chars: "\x1b[4~", mode: AppCursor }
 
 # TokyoNight Alacritty Colors
 colors:
