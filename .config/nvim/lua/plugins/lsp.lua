@@ -25,15 +25,6 @@ return {
       -- (Optional) Configure lua language server for neovim
       require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-      lsp.configure("yamlls", {
-        filetypes = { "yaml", "yaml.docker-compose", "yml" },
-        settings = {
-          yaml = {
-            keyOrdering = false,
-          },
-        },
-      })
-
       lsp.setup()
     end,
   },
@@ -48,6 +39,18 @@ return {
           settings = {
             completions = {
               completeFunctionCalls = true,
+            },
+          },
+        },
+        yamlls = {
+          filetypes = { "yaml", "yaml.docker-compose", "yml" },
+          settings = {
+            yaml = {
+              redhat = { telemetry = { enabled = false } },
+              keyOrdering = false,
+              schemas = {
+                ["https://raw.githubusercontent.com/distinction-dev/alacritty-schema/main/alacritty/reference.json"] = "alacritty.yml"
+              }
             },
           },
         },
