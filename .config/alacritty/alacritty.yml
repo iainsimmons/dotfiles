@@ -106,10 +106,13 @@ key_bindings:
   - { key: Tab, mods: Control|Shift, chars: "\x1b[9;6u" }
   # Open URLs 'joshmedeski/tmux-fzf-url'
   - { key: O, mods: Command, chars: "\x02u" }
+  # Fix Home/End key behaviour
   - { key: Home, chars: "\x1b[H", mode: ~AppCursor }
   - { key: Home, chars: "\x1b[1~", mode: AppCursor }
   - { key: End, chars: "\x1b[F", mode: ~AppCursor }
   - { key: End, chars: "\x1b[4~", mode: AppCursor }
+  # tmux-fuzzback (search scrollback with fuzzy finder)
+  - { key: Slash, mods: Command, chars: "\x02b"}
 
 # TokyoNight Alacritty Colors
 colors:
