@@ -113,6 +113,7 @@ key_bindings:
   - { key: End, chars: "\x1b[4~", mode: AppCursor }
   # tmux-fuzzback (search scrollback with fuzzy finder)
   - { key: Slash, mods: Command, chars: "\x02b"}
+  - { key: Escape, mods: Alt, chars: "\x1bu" }
 
 # TokyoNight Alacritty Colors
 colors:
