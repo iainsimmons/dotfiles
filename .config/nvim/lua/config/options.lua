@@ -3,6 +3,7 @@
 -- Add any additional options here
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.wrap = true
+vim.opt.conceallevel = 0
 -- add highlight colours for indent blankline
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#ff007c gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent2 guifg=#ff9e64 gui=nocombine]])
