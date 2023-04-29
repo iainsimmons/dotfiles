@@ -71,6 +71,8 @@ key_bindings:
   - { key: S, mods: Command, chars: "\e:w\n" }
   # Open tmux command input
   - { key: Semicolon, mods: Command, chars: "\x02:" }
+  # Change to tmux copy mode
+  - { key: C, mods: Command, chars: "\x02[" }
   # Create a new tmux window/tab
   - { key: T, mods: Command, chars: "\x02c" }
   # Jump to new/existing window via 't'
@@ -112,7 +114,7 @@ key_bindings:
   - { key: End, chars: "\x1b[F", mode: ~AppCursor }
   - { key: End, chars: "\x1b[4~", mode: AppCursor }
   # tmux-fuzzback (search scrollback with fuzzy finder)
-  - { key: Slash, mods: Command, chars: "\x02b"}
+  - { key: Slash, mods: Command, chars: "\x02b" }
   - { key: Escape, mods: Alt, chars: "\x1bu" }
 
 # TokyoNight Alacritty Colors
