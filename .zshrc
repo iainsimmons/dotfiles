@@ -16,11 +16,11 @@ plugins=(git node macos python docker extract fzf fast-syntax-highlighting zsh-a
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -48,7 +48,7 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias flushDNS='dscacheutil -flushcache'    # flushDNS:     Flush out the DNS Cache
 alias flushDNS_all='dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-alias hosts='sudo vim /etc/hosts'           # hosts:        Edit the local hosts file
+alias hosts='sudo nvim /etc/hosts'           # hosts:        Edit the local hosts file
 alias git_sync="git pull -r && git push"
 alias pn=pnpm
 sshkey () { mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa; }
