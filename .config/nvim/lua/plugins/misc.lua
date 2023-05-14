@@ -17,11 +17,12 @@ return {
     keys = {
       {
         "<leader>m",
-        '<plug>(nvim-markdown-preview)',
+        "<plug>(nvim-markdown-preview)",
         "n",
         desc = "Markdown Preview: Open preview in browser",
         silent = true,
       },
     },
   },
+  { "kevinhwang91/nvim-bqf", ft = { "qf" } },
 }
