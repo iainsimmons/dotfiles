@@ -3,4 +3,5 @@ return {
   { "ggandor/flit.nvim", enabled = false, keys = {} },
   { "folke/todo-comments.nvim", enabled = false, keys = {} },
   { "catppuccin", enabled = false },
+  { "folke/neoconf.nvim", enabled = false },
 }

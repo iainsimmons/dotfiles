@@ -25,4 +25,14 @@ return {
     },
   },
   { "kevinhwang91/nvim-bqf", ft = { "qf" } },
+  {
+    "nat-418/boole.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      mappings = {
+        increment = "<C-a>",
+        decrement = "<C-x>",
+      },
+    },
+  },
 }
