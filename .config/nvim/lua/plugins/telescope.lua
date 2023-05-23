@@ -28,6 +28,7 @@ return {
   -- change some options
   opts = {
     defaults = {
+      file_ignore_patterns = { "^static/", "^dist/", "^.git/" },
       layout_strategy = "horizontal",
       layout_config = { prompt_position = "top" },
       sorting_strategy = "ascending",
