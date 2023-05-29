@@ -18,3 +18,6 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 -- cycle buffers
 keymap.set("n", "<C-Tab>", ":bnext<CR>", { desc = "Next Buffer", silent = true })
 keymap.set("n", "<CS-Tab>", ":bprev<CR>", { desc = "Previous Buffer", silent = true })
+-- Yank whole function / object
+-- https://twitter.com/Adib_Hanna/status/1662310859962548224
+keymap.set("n", "YY", "vabVy", { desc = "Yank lines around brackets" })
