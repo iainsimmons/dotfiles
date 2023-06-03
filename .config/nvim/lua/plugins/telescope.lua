@@ -28,7 +28,13 @@ return {
   -- change some options
   opts = {
     defaults = {
-      file_ignore_patterns = { "^static/", "^dist/", "^.git/" },
+      file_ignore_patterns = {
+        "^static/",
+        "^matrix-files/",
+        "^dist/",
+        "^.git/",
+        "package-lock.json",
+      },
       layout_strategy = "horizontal",
       layout_config = { prompt_position = "top" },
       sorting_strategy = "ascending",

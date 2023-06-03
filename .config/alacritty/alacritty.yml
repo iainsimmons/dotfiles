@@ -41,9 +41,7 @@ key_bindings:
   # Close current buffer in Neovim
   - { key: B, mods: Command, chars: ":bd\n" }
   # Find files with Telescope, with grep, including hidden, ignoring .git
-  - { key: P, mods: Command, chars: ":lua require'telescope.builtin'.find_files{
-        find_command = { \"rg\", \"--files\", \"--hidden\", \"--glob\", \"!**/.git/*\" },
-        }\n" }
+  - { key: P, mods: Command, chars: ":lua require'telescope.builtin'.find_files({find_command = { \"rg\", \"--files\", \"--hidden\", \"--glob\", \"!**/.git/*\" } })\n" }
   # Open lazygit
   - { key: G, mods: Command, chars: "\x02g" }
   # Select a new tmux session for the attached client interactively
