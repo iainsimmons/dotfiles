@@ -12,7 +12,7 @@ export XDG_CONFIG_HOME="/Users/isimmons/.config"
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
-plugins=(git node macos python docker extract fzf fast-syntax-highlighting zsh-autosuggestions)
+plugins=(git node macos python docker extract fzf fzf-tab fast-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
