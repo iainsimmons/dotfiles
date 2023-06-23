@@ -1,0 +1,58 @@
+# vim:ft=ruby
+
+# taps
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "koekeishiya/formulae"
+
+brew "noti" # utility to display notifications from scripts
+brew "trash" # rm, but put in the trash rather than completely delete
+
+# Applications
+cask "alacritty" # a better terminal emulator
+# cask "imageoptim" # a tool to optimize images
+cask "1password/tap/1password-cli"
+cask "notunes" # Disable play media key opening Apple Music app
+
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+# packages
+brew "bat" # better cat
+brew "cloc" # lines of code counter
+brew "colima" # docker cli alternative
+brew "curl" # cURL
+brew "diff-so-fancy" # fancy git diffs
+brew "direnv" # auto source .env files
+brew "docker-credential-helper" # secure docker login
+brew "exa" # ls alternative
+brew "fd" # find alternative
+brew "fzf" # Fuzzy file searcher, used in scripts and in vim
+brew "gh" # GitHub CLI
+brew "git" # Git version control (latest version)
+brew "glow" # markdown viewer
+brew "gnupg" # GPG
+brew "gnu-sed" # GNU sed
+brew "grep" # grep (latest)
+brew "highlight" # code syntax highlighting
+brew "htop" # a top alternative
+brew "imagemagick" # image processing
+brew "jless" # Command-line pager for JSON data
+brew "jq" # work with JSON files in shell scripts
+brew "lazygit" # a better git UI
+brew "miller" # Like sed, awk, cut, join & sort for name-indexed data such as CSV
+brew "neovim" # A better vim
+brew "python" # python (latest)
+brew "reattach-to-user-namespace" # Reattach process (e.g., tmux) to background
+brew "rename" # rename files with scripting
+brew "ripgrep" # very fast file searcher
+brew "starship" # terminal prompt customisation
+brew "tealdeer" # man page search
+brew "tmux" # terminal multiplexer
+brew "tree" # pretty-print directory contents
+brew "wdiff" # word differences in text files
+brew "wget" # internet file retriever
+brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "zoxide" # switch between most used directories
+brew "zsh" # zsh (latest)
+brew "zsh-async" # Perform tasks asynchronously without external tools
