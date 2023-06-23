@@ -11,3 +11,10 @@ vim.cmd([[highlight IndentBlanklineIndent3 guifg=#bb9af7 gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent4 guifg=#9ece6a gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent5 guifg=#1abc9c gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#f7768e gui=nocombine]])
+
+-- Add .psv extension for Pipe Separated Values format
+vim.filetype.add({
+  pattern = {
+    ["*.psv"] = "csv_pipe",
+  },
+})

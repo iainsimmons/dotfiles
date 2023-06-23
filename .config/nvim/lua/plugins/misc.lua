@@ -5,6 +5,7 @@ return {
       "csv",
       "tsv",
       "psv",
+      "csv_pipe",
     },
   },
   {
