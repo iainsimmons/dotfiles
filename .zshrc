@@ -60,6 +60,9 @@ alias z='zoxide'
 alias zz='zi'
 alias find='fd'
 alias t='~/.tmux/plugins/t'
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 autoload -U promptinit; promptinit
 
