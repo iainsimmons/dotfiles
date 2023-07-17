@@ -1,85 +1,129 @@
 command_timeout = 5000
 
+[character]
+success_symbol = "[\uf054](white)" # 
+vicmd_symbol = "[\ue62b](white)" # 
+error_symbol = "[\uf467](red)" # 
+
 [aws]
+format = "[$symbol($version )]($style)"
 symbol = "  "
 
 [buf]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [c]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [conda]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [dart]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [directory]
 read_only = " "
 
 [docker_context]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [elixir]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [elm]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [git_branch]
-symbol = " "
+# symbol = " "
+disabled = true
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = true
 
 [golang]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [haskell]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [hg_branch]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [java]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [julia]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [lua]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [memory_usage]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [meson]
+format = "[$symbol($version )]($style)"
 symbol = "喝 "
 
 [nim]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [nix_shell]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [nodejs]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [package]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [python]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [rlang]
+format = "[$symbol($version )]($style)"
 symbol = "ﳒ "
 
 [ruby]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [rust]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [scala]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [spack]
+format = "[$symbol($version )]($style)"
 symbol = "🅢 "
