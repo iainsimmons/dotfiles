@@ -24,9 +24,8 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
-# set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-# set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
 set -Ux VISUAL nvim
+set -gx PAGER "~/bin/nvimpager" # 'lucc/nvimpager'
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
@@ -78,8 +77,6 @@ abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
 abbr mkdir 'mkdir -pv' # Preferred 'mkdir' implementation
-abbr ls exa # Use exa instead of ls
-abbr ll 'exa -lah --icons --git' # Preferred 'ls'/'exa' implementation
 abbr less 'less -FSRXc' # Preferred 'less' implementation
 abbr cd.. 'cd ../' # Go back 1 directory level (for fast typers)
 abbr .. 'cd ../' # Go back 1 directory level
@@ -114,3 +111,5 @@ alias vim nvim
 alias vi nvim
 alias v nvim
 alias t '~/.tmux/plugins/t'
+alias ls exa # Use exa instead of ls
+alias ll 'exa -lah --icons --git' # Preferred 'ls'/'exa' implementation
