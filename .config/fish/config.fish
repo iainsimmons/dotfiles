@@ -90,7 +90,6 @@ abbr .5 'cd ../../../../../' # Go back 5 directory levels
 abbr .6 'cd ../../../../../../' # Go back 6 directory levels
 abbr f 'open -a Finder ./' # f:            Opens current directory in MacOS Finder
 abbr ~ "cd ~" # ~:            Go Home
-abbr c clear # c:            Clear terminal display
 abbr which 'whence -va' # which:        Find executables
 abbr path 'echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
 abbr show_options shopt # Show_options: display bash options settings
@@ -103,12 +102,15 @@ abbr git_sync "git pull -r && git push"
 abbr pn pnpm
 abbr fishrc 'nvim ~/.config/fish/config.fish'
 abbr fsource 'source ~/.config/fish/config.fish'
-abbr vim nvim
-abbr v nvim
 abbr z zoxide
 abbr zz zi
 abbr find fd
-abbr t '~/.tmux/plugins/t'
 # Hide/show all desktop icons (useful when presenting)
 abbr hidedesktop "defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+alias c clear # c:            Clear terminal display
+alias vim nvim
+alias vi nvim
+alias v nvim
+alias t '~/.tmux/plugins/t'
