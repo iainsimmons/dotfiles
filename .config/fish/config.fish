@@ -40,8 +40,6 @@ fish_add_path "$HOME/.pyenv/bin"
 # eval (pyenv init --path)
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
-set -gx VOLTA_HOME "$HOME/.volta"
-fish_add_path "$VOLTA_HOME/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
