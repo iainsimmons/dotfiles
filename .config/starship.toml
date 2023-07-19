@@ -5,6 +5,9 @@ success_symbol = "[\uf054](white)" # 
 vicmd_symbol = "[\ue62b](white)" # 
 error_symbol = "[\uf467](red)" # 
 
+[cmd_duration]
+disabled = true
+
 [aws]
 format = "[$symbol($version )]($style)"
 symbol = "  "
@@ -101,8 +104,9 @@ format = "[$symbol($version )]($style)"
 symbol = " "
 
 [package]
-format = "[$symbol($version )]($style)"
-symbol = " "
+disabled = true
+# format = "[$symbol($version )]($style)"
+# symbol = " "
 
 [python]
 format = "[$symbol($version )]($style)"
