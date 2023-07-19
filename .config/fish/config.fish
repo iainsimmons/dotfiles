@@ -25,7 +25,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
-set -gx PAGER "~/bin/nvimpager" # 'lucc/nvimpager'
+set -gx PAGER nvimpager # 'lucc/nvimpager'
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
@@ -77,7 +77,6 @@ abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
 abbr mkdir 'mkdir -pv' # Preferred 'mkdir' implementation
-abbr less 'less -FSRXc' # Preferred 'less' implementation
 abbr cd.. 'cd ../' # Go back 1 directory level (for fast typers)
 abbr .. 'cd ../' # Go back 1 directory level
 abbr ... 'cd ../../' # Go back 2 directory levels
@@ -87,7 +86,6 @@ abbr .5 'cd ../../../../../' # Go back 5 directory levels
 abbr .6 'cd ../../../../../../' # Go back 6 directory levels
 abbr f 'open -a Finder ./' # f:            Opens current directory in MacOS Finder
 abbr ~ "cd ~" # ~:            Go Home
-abbr which 'whence -va' # which:        Find executables
 abbr path 'echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
 abbr show_options shopt # Show_options: display bash options settings
 abbr fix_stty 'stty sane' # fix_stty:     Restore terminal settings when screwed up
@@ -113,3 +111,4 @@ alias v nvim
 alias t '~/.tmux/plugins/t'
 alias ls exa # Use exa instead of ls
 alias ll 'exa -lah --icons --git' # Preferred 'ls'/'exa' implementation
+alias less nvimpager
