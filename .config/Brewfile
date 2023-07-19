@@ -27,6 +27,7 @@ brew "direnv" # auto source .env files
 brew "docker-credential-helper" # secure docker login
 brew "exa" # ls alternative
 brew "fd" # find alternative
+brew "fnm" # switch node versions
 brew "fzf" # Fuzzy file searcher, used in scripts and in vim
 brew "gh" # GitHub CLI
 brew "git" # Git version control (latest version)
