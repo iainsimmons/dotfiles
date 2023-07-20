@@ -34,6 +34,7 @@ return {
         "^dist/",
         "^.git/",
         "package-lock.json",
+        "*.lock",
       },
       layout_strategy = "horizontal",
       layout_config = { prompt_position = "top" },
