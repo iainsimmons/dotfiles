@@ -43,6 +43,7 @@ brew "jq" # work with JSON files in shell scripts
 brew "lazygit" # a better git UI
 brew "miller" # Like sed, awk, cut, join & sort for name-indexed data such as CSV
 brew "neovim" # A better vim
+brew "pnpm" # Fast, disk space efficient JS package manager
 brew "python" # python (latest)
 brew "reattach-to-user-namespace" # Reattach process (e.g., tmux) to background
 brew "rename" # rename files with scripting
