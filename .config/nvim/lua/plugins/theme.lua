@@ -1,12 +1,23 @@
 return {
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = {
+      style = "night",
+      dim_inactive = true,
+      on_highlights = function(hl, c)
+        local util = require("tokyonight.util")
+        hl.Visual = {
+          bg = util.darken(c.blue0, 0.5),
+        }
+      end,
+    },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      background = "dark",
-      colorscheme = "oxocarbon",
+      colorscheme = "tokyonight-night",
+      style = "night",
     },
   },
   {

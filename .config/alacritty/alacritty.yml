@@ -121,34 +121,35 @@ key_bindings:
   - { key: Slash, mods: Command, chars: "\x02b" }
   - { key: Escape, mods: Alt, chars: "\x1bu" }
 
-# Oxocarbon https://github.com/nyoom-engineering/oxocarbon-alacritty
+# TokyoNight Alacritty Colors
 colors:
+  # Default colors
   primary:
-    background: "#161616"
-    foreground: "#ffffff"
-  search:
-    matches:
-      foreground: CellBackground
-      background: '#ee5396'
-    footer_bar:
-      background: '#262626'
-      foreground: '#ffffff'
-  normal:
-    black: "#262626"
-    magenta: "#ff7eb6"
-    green: "#42be65"
-    yellow: "#ffe97b"
-    blue: "#33b1ff"
-    red: "#ee5396"
-    cyan: "#3ddbd9"
-    white: "#dde1e6"
-  bright:
-    black: "#393939"
-    magenta: "#ff7eb6"
-    green: "#42be65"
-    yellow: "#ffe97b"
-    blue: "#33b1ff"
-    red: "#ee5396"
-    cyan: "#3ddbd9"
-    white: "#ffffff"
+    background: "0x1a1b26"
+    foreground: "0xc0caf5"
 
+  # Normal colors
+  normal:
+    black: "0x15161e"
+    red: "0xf7768e"
+    green: "0x9ece6a"
+    yellow: "0xe0af68"
+    blue: "0x7aa2f7"
+    magenta: "0xbb9af7"
+    cyan: "0x7dcfff"
+    white: "0xa9b1d6"
+
+  # Bright colors
+  bright:
+    black: "0x414868"
+    red: "0xf7768e"
+    green: "0x9ece6a"
+    yellow: "0xe0af68"
+    blue: "0x7aa2f7"
+    magenta: "0xbb9af7"
+    cyan: "0x7dcfff"
+    white: "0xc0caf5"
+
+  indexed_colors:
+    - { index: 16, color: "0xff9e64" }
+    - { index: 17, color: "0xdb4b4b" }
