@@ -11,6 +11,7 @@
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 fish_add_path $HOME/.config/bin # my custom scripts
 fish_add_path /usr/local/bin
+fish_add_path $HOME/bin
 
 eval (/usr/local/bin/brew shellenv)
 starship init fish | source # https://starship.rs/
@@ -25,7 +26,8 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
-set -gx PAGER nvimpager # 'lucc/nvimpager'
+set -Ux PAGER nvimpager # 'lucc/nvimpager'
+set -Ux MANPAGER nvimpager # 'lucc/nvimpager'
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
