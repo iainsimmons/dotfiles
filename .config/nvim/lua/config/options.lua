@@ -16,5 +16,6 @@ vim.cmd([[highlight IndentBlanklineIndent6 guifg=#f7768e gui=nocombine]])
 vim.filetype.add({
   pattern = {
     ["*.psv"] = "csv_pipe",
+    ["*.csv"] = "csv_semicolon",
   },
 })

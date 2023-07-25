@@ -6,7 +6,11 @@ return {
       "tsv",
       "psv",
       "csv_pipe",
+      "csv_semicolon",
     },
+    config = function()
+      vim.g.disable_rainbow_hover = 1
+    end,
   },
   {
     "ruifm/gitlinker.nvim",
