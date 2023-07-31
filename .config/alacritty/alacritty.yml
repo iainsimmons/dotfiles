@@ -35,7 +35,17 @@ key_bindings:
   # Rename the current tmux window
   - { key: Comma, mods: Command, chars: "\x02," }
   # Toggle Neotree (file tree)
-  - { key: F, mods: Command, chars: ":lua require('mini.files').open()\n" }
+  - {
+      key: F,
+      mods: Command,
+      chars: ":Neotree toggle=true source=filesystem reveal=true position=float\n",
+    }
+  # Toggle mini-files (file explorer and manipulation)
+  - {
+      key: F,
+      mods: Command|Shift,
+      chars: ":lua require('mini.files').open()\n",
+    }
   # Close current buffer in Neovim
   - { key: B, mods: Command, chars: ":bd\n" }
   # Find files with Telescope, with grep, including hidden, ignoring .git
