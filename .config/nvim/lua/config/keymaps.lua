@@ -21,3 +21,10 @@ keymap.set("n", "<CS-Tab>", ":bprev<CR>", { desc = "Previous Buffer", silent = t
 -- Yank whole function / object
 -- https://twitter.com/Adib_Hanna/status/1662310859962548224
 keymap.set("n", "YY", "vabVy", { desc = "Yank lines around brackets" })
+-- Reveal folder of current file
+keymap.set(
+  "n",
+  "<leader>rf",
+  ":! open %:h<CR>",
+  { desc = "[R]eveal [F]older of current file in Finder", silent = true }
+)
