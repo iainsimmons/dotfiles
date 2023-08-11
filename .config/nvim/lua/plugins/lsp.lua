@@ -35,5 +35,14 @@ return {
         virtual_text = false,
       })
     end,
+    keys = {
+      {
+        "<leader>uL",
+        function()
+          require("lsp_lines").toggle()
+        end,
+        desc = "Toggle LSP Lines",
+      },
+    },
   },
 }
