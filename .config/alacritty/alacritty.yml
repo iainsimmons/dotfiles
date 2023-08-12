@@ -34,26 +34,12 @@ key_bindings:
   - { key: NumpadEnter, chars: "\x0d" }
   # Rename the current tmux window
   - { key: Comma, mods: Command, chars: "\x02," }
-  # Toggle Neotree (file tree)
-  - {
-      key: F,
-      mods: Command,
-      chars: ":Neotree toggle=true source=filesystem reveal=true position=float\n",
-    }
-  # Toggle mini-files (file explorer and manipulation)
-  - {
-      key: F,
-      mods: Command|Shift,
-      chars: ":lua require('mini.files').open()\n",
-    }
-  # Close current buffer in Neovim
-  - { key: B, mods: Command, chars: ":bd\n" }
-  # Find files with Telescope, with grep, including hidden, ignoring .git
-  - {
-      key: P,
-      mods: Command,
-      chars: ":lua require'telescope.builtin'.find_files({find_command = { \"rg\", \"--files\", \"--hidden\", \"--glob\", \"!**/.git/*\" } })\n",
-    }
+  # Toggle Neotree (file tree) via tmux y keybind
+  - { key: F, mods: Command, chars: "\x02y" }
+  # Close current buffer in Neovim via tmux a keybind
+  - { key: B, mods: Command, chars: "\x02a" }
+  # Find files with Telescope, with grep, including hidden, ignoring .git via tmux Y keybind
+  - { key: P, mods: Command, chars: "\x02Y" }
   # Open lazygit
   - { key: G, mods: Command, chars: "\x02g" }
   # Select a new tmux session for the attached client interactively
