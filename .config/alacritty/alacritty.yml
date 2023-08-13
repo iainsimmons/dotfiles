@@ -42,6 +42,8 @@ key_bindings:
   - { key: P, mods: Command, chars: "\x02Y" }
   # Open lazygit
   - { key: G, mods: Command, chars: "\x02g" }
+  # Open lf
+  - { key: L, mods: Command, chars: "\x02A" }
   # Select a new tmux session for the attached client interactively
   - { key: Apostrophe, mods: Command, chars: "\x02s" }
   # Select window 1-9
@@ -55,7 +57,7 @@ key_bindings:
   - { key: Key8, mods: Command, chars: "\x028" }
   - { key: Key9, mods: Command, chars: "\x029" }
   # Change pane layout
-  - { key: L, mods: Command, chars: "\x02\x20" }
+  - { key: Key0, mods: Command, chars: "\x02\x20" }
   # Detach session
   - { key: D, mods: Command|Shift, chars: "\x02d" }
   - { key: Q, mods: Command, chars: "\x02d" }
