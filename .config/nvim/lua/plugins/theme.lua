@@ -4,7 +4,7 @@ return {
     lazy = true,
     opts = {
       style = "night",
-      dim_inactive = true,
+      dim_inactive = false,
       on_highlights = function(hl, c)
         local util = require("tokyonight.util")
         hl.Visual = {
