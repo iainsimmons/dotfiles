@@ -58,6 +58,8 @@ key_bindings:
   - { key: Key9, mods: Command, chars: "\x029" }
   # Change pane layout
   - { key: Key0, mods: Command, chars: "\x02\x20" }
+  # Reset font size
+  - { key: Key0, mods: Control, action: ResetFontSize }
   # Detach session
   - { key: D, mods: Command|Shift, chars: "\x02d" }
   - { key: Q, mods: Command, chars: "\x02d" }
