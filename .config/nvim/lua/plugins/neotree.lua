@@ -1,11 +1,22 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
+  keys = {
+    {
+      "<leader>e",
+      ":Neotree filesystem reveal toggle float<CR>",
+      desc = "Explorer NeoTree (current file)",
+      remap = true,
+    },
+  },
   opts = {
     window = {
       position = "float",
     },
     filesystem = {
+      bind_to_cwd = false,
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
       filtered_items = {
         visible = false, -- when true, they will just be displayed differently than normal items
         hide_dotfiles = false,
