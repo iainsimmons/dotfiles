@@ -27,6 +27,26 @@ return {
     },
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      table.insert(
+        opts.sources,
+        nls.builtins.formatting.djlint.with({
+          filetypes = { "django", "jinja.html", "htmldjango", "handlebars" },
+          command = "djlint",
+          args = { "--reformat", "-" },
+        })
+      )
+      table.insert(
+        opts.sources,
+        nls.builtins.formatting.prettierd.with({
+          disabled_filetypes = { "handlebars" },
+        })
+      )
+    end,
+  },
+  {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     event = { "LspAttach" },
     config = function()
