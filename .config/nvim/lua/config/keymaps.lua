@@ -28,3 +28,5 @@ keymap.set(
   ":! open %:h<CR>",
   { desc = "[R]eveal [F]older of current file in Finder", silent = true }
 )
+
+keymap.set("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (force) current file", silent = true })

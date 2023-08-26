@@ -16,6 +16,7 @@ cask "notunes" # Disable play media key opening Apple Music app
 
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "arl/arl" # dependency for gitmux below
 
 # packages
 brew "bat" # better cat
@@ -31,6 +32,7 @@ brew "fnm" # switch node versions
 brew "fzf" # Fuzzy file searcher, used in scripts and in vim
 brew "gh" # GitHub CLI
 brew "git" # Git version control (latest version)
+brew "gitmux" # Show git info in tmux
 brew "glow" # markdown viewer
 brew "gnupg" # GPG
 brew "gnu-sed" # GNU sed
