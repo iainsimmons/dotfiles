@@ -2,6 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       {
         "nvim-telescope/telescope-ui-select.nvim",
         config = function()
@@ -28,28 +29,32 @@ return {
       },
     },
     -- change some options
-    opts = {
-      defaults = {
-        file_ignore_patterns = {
-          "^static/",
-          "^matrix-files/",
-          "^dist/",
-          "^.git/",
-          "package-lock.json",
-          "*.lock",
+    config = function()
+      local telescope = require("telescope")
+      telescope.setup({
+        defaults = {
+          file_ignore_patterns = {
+            "^static/",
+            "^matrix-files/",
+            "^dist/",
+            "^.git/",
+            "package-lock.json",
+            "*.lock",
+          },
+          layout_strategy = "horizontal",
+          layout_config = { prompt_position = "top" },
+          sorting_strategy = "ascending",
+          winblend = 0,
         },
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-      pickers = {
-        find_files = {
-          -- Find files with Telescope, with grep, including hidden, ignoring .git
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        pickers = {
+          find_files = {
+            -- Find files with Telescope, with grep, including hidden, ignoring .git
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          },
         },
-      },
-    },
+      })
+      require("telescope").load_extension("fzf")
+    end,
   },
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
