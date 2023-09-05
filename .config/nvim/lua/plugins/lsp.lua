@@ -23,27 +23,58 @@ return {
             },
           },
         },
+        emmet_ls = {
+          filetypes = {
+            "astro",
+            "css",
+            "eruby",
+            "handlebars",
+            "html",
+            "htmldjango",
+            "javascriptreact",
+            "less",
+            "pug",
+            "sass",
+            "scss",
+            "svelte",
+            "typescriptreact",
+            "vue",
+          },
+        },
       },
     },
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(
-        opts.sources,
-        nls.builtins.formatting.djlint.with({
-          filetypes = { "django", "jinja.html", "htmldjango", "handlebars" },
-          command = "djlint",
-          args = { "--reformat", "-" },
-        })
-      )
-      table.insert(
-        opts.sources,
-        nls.builtins.formatting.prettierd.with({
-          disabled_filetypes = { "handlebars" },
-        })
-      )
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        debounce = 150,
+        save_after_format = false,
+        sources = {
+          null_ls.builtins.code_actions.eslint,
+          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.code_actions.refactoring,
+          null_ls.builtins.diagnostics.fish,
+          null_ls.builtins.diagnostics.flake8,
+          null_ls.builtins.diagnostics.markdownlint,
+          null_ls.builtins.formatting.black,
+          null_ls.builtins.formatting.fish_indent,
+          null_ls.builtins.formatting.mdformat,
+          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.djlint.with({
+            filetypes = { "django", "jinja.html", "htmldjango", "handlebars" },
+            command = "djlint",
+            args = { "--reformat", "-" },
+          }),
+          null_ls.builtins.formatting.prettierd.with({
+            disabled_filetypes = { "handlebars" },
+          }),
+        },
+        root_dir = require("null-ls.utils").root_pattern("package.json", ".null-ls-root", ".neoconf.json", ".git"),
+      })
     end,
   },
   {
