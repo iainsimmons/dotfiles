@@ -56,6 +56,8 @@ return {
           null_ls.builtins.code_actions.eslint,
           null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.code_actions.refactoring,
+          null_ls.builtins.code_actions.ts_node_action,
+          null_ls.builtins.completion.luasnip,
           null_ls.builtins.diagnostics.fish,
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.diagnostics.markdownlint,
