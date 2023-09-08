@@ -5,6 +5,7 @@ return {
     require("gitlinker").setup({
       callbacks = {
         ["gitlab.squiz.net"] = require("gitlinker.hosts").get_gitlab_type_url,
+        ["code.squiz.net"] = require("gitlinker.hosts").get_gitlab_type_url,
       },
     })
   end,
