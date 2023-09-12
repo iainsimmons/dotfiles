@@ -46,6 +46,10 @@ set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
 fish_add_path "$HOME/.config/yarn/global/node_modules/.bin"
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+fish_add_path "$BUN_INSTALL/bin"
 
 # go
 fish_add_path /usr/local/go/bin
