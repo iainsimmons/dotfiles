@@ -1,24 +1,24 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    opts = {
-      style = "night",
-      dim_inactive = false,
-      on_highlights = function(hl, c)
-        local util = require("tokyonight.util")
-        hl.Visual = {
-          bg = util.darken(c.blue0, 0.5),
-        }
-      end,
-    },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
-      style = "night",
-    },
+    "maxmx03/fluoromachine.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local fm = require("fluoromachine")
+
+      fm.setup({
+        glow = true,
+        theme = "fluoromachine",
+        overrides = function(colors, darken)
+          return {
+            Visual = {
+              bg = darken(colors.selection, 20),
+            },
+          }
+        end,
+      })
+      vim.cmd.colorscheme("fluoromachine")
+    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",

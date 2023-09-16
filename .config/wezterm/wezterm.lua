@@ -1,30 +1,5 @@
 local wezterm = require("wezterm")
-local wez_dir = os.getenv("HOME") .. "/.config/wezterm"
 local act = wezterm.action
-
-local function get_random_entry(tbl)
-	local keys = {}
-	for key, _ in ipairs(tbl) do
-		table.insert(keys, key)
-	end
-	local randomKey = keys[math.random(1, #keys)]
-	return tbl[randomKey]
-end
-
-local function get_wallpaper()
-	local wallpapers = {}
-	local wallpapers_glob = os.getenv("HOME") .. "/Pictures/Wallpapers/**"
-
-	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
-		table.insert(wallpapers, v)
-	end
-	return {
-		source = { File = { path = get_random_entry(wallpapers) } },
-		height = "100%",
-		horizontal_align = "Center",
-		opacity = 1,
-	}
-end
 
 local function multiple_actions(keys)
 	local actions = {}
@@ -59,7 +34,7 @@ end
 
 local config = {
 	-- debug_key_events = true,
-	color_scheme = "Tokyo Night",
+	color_scheme = "Laserwave (Gogh)",
 	font = wezterm.font_with_fallback({
 		{
 			family = "JetBrainsMonoNL Nerd Font Mono",
