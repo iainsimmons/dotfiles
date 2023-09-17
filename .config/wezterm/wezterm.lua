@@ -47,10 +47,10 @@ local config = {
 	enable_scroll_bar = true,
 	use_dead_keys = false,
 	window_padding = {
-		left = 16,
-		right = 16,
-		top = 16,
-		bottom = 16,
+		left = 12,
+		right = 12,
+		top = 12,
+		bottom = 12,
 	},
 	disable_default_key_bindings = true,
 	keys = {
@@ -170,115 +170,7 @@ local config = {
 	enable_tab_bar = false,
 	native_macos_fullscreen_mode = false,
 	window_decorations = "RESIZE",
+	scrollback_lines = 5000,
 }
 
 return config
-
--- local wezterm = require("wezterm")
--- local act = wezterm.action
---
--- return {
--- 	color_scheme = "synthwave-everything",
--- 	default_cwd = "~/dev/",
--- 	enable_scroll_bar = true,
--- 	font = wezterm.font("Hack Nerd Font Mono", { style = "Normal" }),
--- 	font_size = 20.0,
--- 	use_dead_keys = false,
--- 	window_background_opacity = 0.85,
--- 	keys = {
--- 		{ key = "e", mods = "CMD", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
--- 		{ key = "e", mods = "CMD|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
--- 		{ key = "UpArrow", mods = "CMD", action = act.ActivatePaneDirection("Up") },
--- 		{ key = "DownArrow", mods = "CMD", action = act.ActivatePaneDirection("Down") },
--- 		{ key = "RightArrow", mods = "CMD", action = act.ActivatePaneDirection("Right") },
--- 		{ key = "LeftArrow", mods = "CMD", action = act.ActivatePaneDirection("Left") },
--- 		{ key = "w", mods = "CMD", action = act.CloseCurrentPane },
--- 		{ key = "W", mods = "CMD|SHIFT", action = act.CloseCurrentTab({ confirm = true }) },
--- 		{ key = "z", mods = "CMD", action = act.TogglePaneZoomState },
--- 		-- Move left by word
--- 		{
--- 			key = "LeftArrow",
--- 			mods = "OPT",
--- 			action = act.SendKey({
--- 				key = "b",
--- 				mods = "ALT",
--- 			}),
--- 		},
--- 		-- Move right by word
--- 		{
--- 			key = "RightArrow",
--- 			mods = "OPT",
--- 			action = act.SendKey({ key = "f", mods = "ALT" }),
--- 		},
--- 		-- -- Type <escape>:w<enter> to save current buffer in Neovim
--- 		-- {
--- 		-- 	key = "s",
--- 		-- 	mods = "CMD",
--- 		-- 	action = act.SendString("\x1b:w\n"),
--- 		-- 	-- action = act.Multiple({
--- 		-- 	-- 	act.SendKey({ key = "Escape" }),
--- 		-- 	-- 	act.SendKey({ key = ":", mods = "SHIFT" }),
--- 		-- 	-- 	act.SendKey({ key = "w" }),
--- 		-- 	-- 	act.SendKey({ key = "Enter" }),
--- 		-- 	-- }),
--- 		-- },
--- 		-- Find files with Telescope, with grep, including hidden, ignoring .git
--- 		-- {
--- 		-- 	key = "p",
--- 		-- 	mods = "CMD",
--- 		-- 	action = act.SendString(
--- 		-- 		':lua require\'telescope.builtin\'.find_files{find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },}\n'
--- 		-- 	),
--- 		-- },
--- 		-- -- Close current buffer in Neovim
--- 		-- { key = "b", mods = "CMD", action = act.SendString(":bd\n") },
--- 		-- Rename the current tmux window
--- 		--  {  key = "Comma", mods = "CMD", action = "\x02," }
--- 		--     -- Open lazygit
--- 		--  {  key = "G", mods = "CMD", action = "\x02g" }
--- 		--     -- Select a new tmux session for the attached client interactively
--- 		--  {  key = "Apostrophe", mods = "CMD", action = "\x02s" }
--- 		--     -- Select window 1-9
--- 		--  {  key = "Key1", mods = "CMD", action = "\x021" }
--- 		--  {  key = "Key2", mods = "CMD", action = "\x022" }
--- 		--  {  key = "Key3", mods = "CMD", action = "\x023" }
--- 		--  {  key = "Key4", mods = "CMD", action = "\x024" }
--- 		--  {  key = "Key5", mods = "CMD", action = "\x025" }
--- 		--  {  key = "Key6", mods = "CMD", action = "\x026" }
--- 		--  {  key = "Key7", mods = "CMD", action = "\x027" }
--- 		--  {  key = "Key8", mods = "CMD", action = "\x028" }
--- 		--  {  key = "Key9", mods = "CMD", action = "\x029" }
--- 		--     -- Change pane layout
--- 		--  {  key = "L", mods = "CMD", action = "\x02\x20" }
--- 		--     -- Detach session
--- 		--  {  key = "D", mods = "CMD"|Shift, action = "\x02d" }
--- 		--  {  key = "Q", mods = "CMD", action = "\x02d" }
--- 		--     -- Open tmux command input
--- 		--  {  key = "Semicolon", mods = "CMD", action = "\x02:" }
--- 		--     -- Create a new tmux window/tab
--- 		--  {  key = "T", mods = "CMD", action = "\x02c" }
--- 		--     -- Break the current tmux pane out of the tmux window
--- 		--  {  key = "T", mods = "CMD"|Shift, action = "\x02!" }
--- 		--     -- tmux copy mode
--- 		--  {  key = "C", mods = "CMD", action = "\x02[" }
--- 		--     -- tmux paste buffer
--- 		--  {  key = "V", mods = "CMD", action = "\x02P" }
--- 		--     -- Change to the previous tmux window
--- 		--  {  key = "LBracket", mods = "CMD"|Shift, action = "\x02p" }
--- 		--     -- Change to the next tmux window
--- 		--  {  key = "RBracket", mods = "CMD"|Shift, action = "\x02n" }
--- 		--     -- These all just cycle through all panes
--- 		--     -- I couldn't figure out how to get it to cycle backwards/in reverse
--- 		--  {  key = "LBracket", mods = "CMD", action = "\x02o" }
--- 		--  {  key = "RBracket", mods = "CMD", action = "\x02o" }
--- 		--  {  key = "PageDown", mods = "CMD", action = "\x02o" }
--- 		--  {  key = "PageUp", mods = "CMD", action = "\x02o" }
--- 		--     -- Move between words
--- 		--  {  key = "Left", mods = "Alt", action = "\eb" }   -- one word left
--- 		--  {  key = "Right", mods = "Alt", action = "\ef" }   -- one word right
--- 		--  {  key = "Back", mods = "Super", action = "\x15" }   -- delete word/line
--- 		--     -- Send Tab and modifier keys for cycling Neovim buffers
--- 		--  {  key = "Tab", mods = "Control", action = "\x1b[9;5u" }
--- 		--  {  key = "Tab", mods = "Control"|Shift, action = "\x1b[9;6u" }
--- 	},
--- }
