@@ -34,7 +34,8 @@ end
 
 local config = {
 	-- debug_key_events = true,
-	color_scheme = "Laserwave (Gogh)",
+	color_scheme = "Tinacious Design (Dark)",
+	-- color_scheme = "Monokai Remastered",
 	font = wezterm.font_with_fallback({
 		{
 			family = "JetBrainsMonoNL Nerd Font Mono",

@@ -12,8 +12,14 @@ return {
         overrides = function(colors, darken)
           return {
             Visual = {
-              bg = darken(colors.selection, 20),
+              bg = darken(colors.selection, 15),
             },
+            IndentBlanklineIndent1 = { fg = "#ff007c" },
+            IndentBlanklineIndent2 = { fg = "#ff9e64" },
+            IndentBlanklineIndent3 = { fg = "#bb9af7" },
+            IndentBlanklineIndent4 = { fg = "#9ece6a" },
+            IndentBlanklineIndent5 = { fg = "#1abc9c" },
+            IndentBlanklineIndent6 = { fg = "#f7768e" },
           }
         end,
       })
