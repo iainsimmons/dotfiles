@@ -87,6 +87,8 @@ local config = {
 			})
 		),
 
+		cmd_key("q", act.QuitApplication),
+		cmd_key("h", act.HideApplication),
 		cmd_key("v", act.PasteFrom("Clipboard")),
 		cmd_key("-", act.DecreaseFontSize),
 		cmd_key("=", act.IncreaseFontSize),
