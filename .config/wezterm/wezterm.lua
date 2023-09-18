@@ -44,6 +44,7 @@ local function cmd_tmux_key(key, tmux_key)
 end
 
 local config = {
+	term = "wezterm",
 	-- debug_key_events = true,
 	color_scheme = "Tinacious Design (Dark)",
 	-- color_scheme = "Monokai Remastered",
