@@ -64,6 +64,19 @@ local config = {
 		top = 12,
 		bottom = 12,
 	},
+	window_background_gradient = {
+		colors = { "#241b2f", "#1C072D" },
+		blend = "Oklab",
+		interpolation = "CatmullRom",
+		noise = 72,
+		segment_size = 20,
+		segment_smoothness = 1.0,
+		orientation = {
+			Radial = {
+				radius = 0.75,
+			},
+		},
+	},
 	disable_default_key_bindings = true,
 	keys = {
 		cmd_key(
