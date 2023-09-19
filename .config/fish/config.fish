@@ -30,7 +30,6 @@ set -Ux PAGER nvimpager # 'lucc/nvimpager'
 set -Ux MANPAGER nvimpager # 'lucc/nvimpager'
 
 # env vars
-set -gx TERM wezterm
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --color=always"
