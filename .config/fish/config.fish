@@ -113,6 +113,6 @@ alias vim nvim
 alias vi nvim
 alias v nvim
 alias t '~/.tmux/plugins/t'
-alias ls exa # Use exa instead of ls
-alias ll 'exa -lah --icons --git' # Preferred 'ls'/'exa' implementation
+alias ls lsd # Use lsd instead of ls
+alias ll 'lsd -lah --git' # Preferred 'ls'/'lsd' implementation
 alias less nvimpager

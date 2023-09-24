@@ -26,7 +26,6 @@ brew "curl" # cURL
 brew "diff-so-fancy" # fancy git diffs
 brew "direnv" # auto source .env files
 brew "docker-credential-helper" # secure docker login
-brew "exa" # ls alternative
 brew "fd" # find alternative
 brew "fnm" # switch node versions
 brew "fzf" # Fuzzy file searcher, used in scripts and in vim
@@ -44,6 +43,7 @@ brew "jless" # Command-line pager for JSON data
 brew "jq" # work with JSON files in shell scripts
 brew "lazygit" # a better git UI
 brew "lf" # file manager
+brew "lsd" # ls alternative
 brew "miller" # Like sed, awk, cut, join & sort for name-indexed data such as CSV
 brew "neovim" # A better vim
 brew "pnpm" # Fast, disk space efficient JS package manager
