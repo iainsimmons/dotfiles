@@ -27,6 +27,12 @@ return {
     end,
   },
   {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "fluoromachine",
+    },
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
