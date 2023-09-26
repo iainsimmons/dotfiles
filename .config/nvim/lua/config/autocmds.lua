@@ -26,3 +26,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+-- Use html.handlebars for hbs files
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = "*.hbs",
+  callback = function()
+    vim.bo.filetype = "html.handlebars"
+  end,
+})
