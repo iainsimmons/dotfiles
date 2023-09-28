@@ -2,7 +2,8 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "natecraddock/telescope-zf-native.nvim",
+      "piersolenski/telescope-import.nvim",
     },
     keys = {
       { "<leader>/", false },
@@ -25,30 +26,49 @@ return {
     -- change some options
     config = function()
       local telescope = require("telescope")
-      telescope.setup({
-        defaults = {
-          file_ignore_patterns = {
-            "^static/",
-            "^matrix-files/",
-            "^dist/",
-            "^.git/",
-            "package-lock.json",
-            "*.lock",
-          },
-          layout_strategy = "horizontal",
-          layout_config = { prompt_position = "top" },
-          sorting_strategy = "ascending",
-          winblend = 0,
-        },
-        pickers = {
-          find_files = {
-            -- Find files with Telescope, with grep, including hidden, ignoring .git
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-          },
-        },
-      })
-      require("telescope").load_extension("fzf")
+      telescope.load_extension("import")
+      telescope.load_extension("zf-native")
     end,
+    opts = {
+      defaults = {
+        file_ignore_patterns = {
+          "^static/",
+          "^matrix-files/",
+          "^dist/",
+          "^.git/",
+          "package-lock.json",
+          "*.lock",
+        },
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
+      },
+      pickers = {
+        find_files = {
+          -- Find files with Telescope, with grep, including hidden, ignoring .git
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      },
+      extensions = {
+        ["zf-native"] = {
+          file = { -- options for sorting file-like items
+            enable = true, -- override default telescope file sorter
+            highlight_results = true, -- highlight matching text in results
+            match_filename = true, -- enable zf filename match priority
+          },
+          generic = { -- options for sorting all other items
+            enable = true, -- override default telescope generic item sorter
+            highlight_results = true, -- highlight matching text in results
+            match_filename = false, -- disable zf filename match priority
+          },
+        },
+        import = {
+          -- Add imports to the top of the file keeping the cursor in place
+          insert_at_top = true,
+        },
+      },
+    },
   },
   {
     "nvim-telescope/telescope-live-grep-args.nvim",
@@ -87,6 +107,12 @@ return {
         "<leader>/",
         ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
         desc = "Live Grep (Args)",
+      },
+      {
+        "<leader>fi",
+        ":Telescope import<CR>",
+        desc = "[F]ind [I]mports",
+        silent = true,
       },
     },
 
