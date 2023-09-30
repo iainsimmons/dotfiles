@@ -51,6 +51,15 @@
 	excludesfile = .nvmrc
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nvim
+[diff]
+  tool = difftastic
+  external = difft
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [pull]
 	rebase = true
 [init]
