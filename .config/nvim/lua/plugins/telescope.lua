@@ -6,6 +6,7 @@ return {
       { "prochri/telescope-all-recent.nvim", opts = {} },
       "natecraddock/telescope-zf-native.nvim",
       "piersolenski/telescope-import.nvim",
+      "debugloop/telescope-undo.nvim",
     },
     keys = {
       { "<leader>/", false },
@@ -37,6 +38,9 @@ return {
       telescope.setup(opts)
       telescope.load_extension("zf-native")
       telescope.load_extension("import")
+      telescope.load_extension("undo")
+
+      vim.keymap.set("n", "<leader>U", "<cmd>Telescope undo<cr>")
     end,
     opts = {
       defaults = {
@@ -105,6 +109,9 @@ return {
         },
         grep_string = {
           prompt_prefix = "󰱽 ",
+        },
+        undo = {
+          prompt_prefix = "↩ ",
         },
       },
       extensions = {
