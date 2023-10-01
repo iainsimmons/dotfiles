@@ -45,8 +45,9 @@ return {
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = "neovim/nvim-lspconfig",
+    "nvimtools/none-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
       local null_ls = require("null-ls")
       null_ls.setup({
