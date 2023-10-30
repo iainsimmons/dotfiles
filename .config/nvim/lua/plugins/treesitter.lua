@@ -7,9 +7,11 @@ return {
         autotag = {
           enable = true,
         },
-      }))
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, {
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+        ensure_installed = {
           "astro",
           "bash",
           "css",
@@ -27,8 +29,8 @@ return {
           "tsx",
           "typescript",
           "vim",
-        })
-      end
+        },
+      }))
     end,
   },
   {

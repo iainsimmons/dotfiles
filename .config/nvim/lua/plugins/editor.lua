@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     opts = function()
       local icons = require("lazyvim.config").icons
-      local Util = require("lazyvim.util")
+      local util = require("lazyvim.util")
       -- Show harpoon marks in lualine:
       -- https://twitter.com/dillon_mulroy/status/1658310366919643137?s=20
       local harpoon = require("harpoon.mark")
@@ -55,7 +55,7 @@ return {
               cond = function()
                 return package.loaded["noice"] and require("noice").api.status.command.has()
               end,
-              color = Util.fg("Statement"),
+              color = util.ui.fg("Statement"),
             },
             {
               function()
@@ -64,7 +64,7 @@ return {
               cond = function()
                 return package.loaded["noice"] and require("noice").api.status.mode.has()
               end,
-              color = Util.fg("Constant"),
+              color = util.ui.fg("Constant"),
             },
             {
               function()
@@ -73,9 +73,9 @@ return {
               cond = function()
                 return package.loaded["dap"] and require("dap").status() ~= ""
               end,
-              color = Util.fg("Debug"),
+              color = util.ui.fg("Debug"),
             },
-            { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = Util.fg("Special") },
+            { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = util.ui.fg("Special") },
             {
               "diff",
               symbols = {
