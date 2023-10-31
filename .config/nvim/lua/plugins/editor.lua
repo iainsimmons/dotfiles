@@ -75,7 +75,11 @@ return {
               end,
               color = util.ui.fg("Debug"),
             },
-            { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = util.ui.fg("Special") },
+            {
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates,
+              color = util.ui.fg("Special"),
+            },
             {
               "diff",
               symbols = {
