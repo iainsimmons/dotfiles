@@ -34,3 +34,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     vim.bo.filetype = "html.handlebars"
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
+})
