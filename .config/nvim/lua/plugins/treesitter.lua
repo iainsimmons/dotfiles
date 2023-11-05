@@ -33,30 +33,4 @@ return {
       }))
     end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = { "BufReadPost", "BufNewFile" },
-    keys = {
-      {
-        "[c",
-        function()
-          require("treesitter-context").go_to_context()
-        end,
-        silent = true,
-        desc = "Go to Context",
-      },
-    },
-  },
-  {
-    "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter" },
-    opts = {},
-  },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-  },
 }
