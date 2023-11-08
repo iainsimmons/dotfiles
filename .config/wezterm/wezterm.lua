@@ -67,14 +67,10 @@ local config = {
 		colors = { "#241b2f", "#1C072D" },
 		blend = "Oklab",
 		interpolation = "CatmullRom",
-		noise = 72,
+		noise = 64,
 		segment_size = 20,
 		segment_smoothness = 1.0,
-		orientation = {
-			Radial = {
-				radius = 0.75,
-			},
-		},
+		orientation = { Linear = { angle = 90.0 } },
 	},
 	disable_default_key_bindings = true,
 	keys = {
