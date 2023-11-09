@@ -59,5 +59,3 @@ brew "wdiff" # word differences in text files
 brew "wget" # internet file retriever
 brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "zoxide" # switch between most used directories
-brew "zsh" # zsh (latest)
-brew "zsh-async" # Perform tasks asynchronously without external tools
