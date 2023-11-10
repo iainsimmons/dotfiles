@@ -15,5 +15,6 @@ os:
   editCommand: "nvim"
   editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
   openCommand: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
+  openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
 services:
   "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
