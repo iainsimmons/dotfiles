@@ -63,17 +63,6 @@ return {
     end,
   },
   {
-    "afreakk/unimpaired-which-key.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = { "tpope/vim-unimpaired" },
-    config = function()
-      local wk = require("which-key")
-      local uwk = require("unimpaired-which-key")
-      wk.register(uwk.normal_mode)
-      wk.register(uwk.normal_and_visual_mode, { mode = { "n", "v" } })
-    end,
-  },
-  {
     "tzachar/highlight-undo.nvim",
     event = { "VeryLazy" },
     opts = {
