@@ -43,16 +43,33 @@ local function cmd_tmux_key(key, tmux_key)
 	)
 end
 
+local jetbrains_mono = function(weight)
+	local _weight = weight or "Light"
+	return wezterm.font_with_fallback({
+		{
+			family = "JetBrainsMonoNL Nerd Font Mono",
+			weight = _weight,
+		},
+	})
+end
+
 local config = {
 	-- debug_key_events = true,
 	color_scheme = "Tinacious Design (Dark)",
 	-- color_scheme = "Monokai Remastered",
-	font = wezterm.font_with_fallback({
+	font = jetbrains_mono,
+	font_rules = {
 		{
-			family = "JetBrainsMonoNL Nerd Font Mono",
-			weight = "Light",
+			intensity = "Bold",
+			italic = true,
+			font = jetbrains_mono("Bold"),
 		},
-	}),
+		{
+			intensity = "Normal",
+			italic = true,
+			font = jetbrains_mono,
+		},
+	},
 	font_size = 20,
 	default_cwd = "~/dev/",
 	enable_scroll_bar = true,
