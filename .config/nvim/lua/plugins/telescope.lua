@@ -7,12 +7,28 @@ return {
       "natecraddock/telescope-zf-native.nvim",
       "piersolenski/telescope-import.nvim",
       "debugloop/telescope-undo.nvim",
+      {
+        "danielfalk/smart-open.nvim",
+        branch = "0.2.x",
+        config = function() end,
+        dependencies = {
+          "kkharji/sqlite.lua",
+          { "nvim-telescope/telescope-fzy-native.nvim" },
+        },
+      },
     },
     keys = {
       { "<leader>/", false },
       {
         "<leader><space>",
-        require("telescope.builtin").buffers,
+        function()
+          require("telescope").extensions.smart_open.smart_open({
+            cwd_only = true,
+            filename_first = true,
+          })
+        end,
+        noremap = true,
+        silent = true,
         desc = "Find existing buffers",
       },
       {
@@ -38,6 +54,7 @@ return {
       telescope.setup(opts)
       telescope.load_extension("zf-native")
       telescope.load_extension("import")
+      telescope.load_extension("smart_open")
       telescope.load_extension("undo")
 
       vim.keymap.set("n", "<leader>U", "<cmd>Telescope undo<cr>")
@@ -130,6 +147,10 @@ return {
         import = {
           -- Add imports to the top of the file keeping the cursor in place
           insert_at_top = true,
+        },
+        smart_open = {
+          cwd_only = true,
+          filename_first = true,
         },
       },
     },
