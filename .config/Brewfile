@@ -17,6 +17,7 @@ cask "notunes" # Disable play media key opening Apple Music app
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "arl/arl" # dependency for gitmux below
+tap "noahgorstein/tap/jqp" # a TUI playground for exploring jq
 
 # packages
 brew "bat" # better cat

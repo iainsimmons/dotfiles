@@ -6,7 +6,6 @@ return {
       { "prochri/telescope-all-recent.nvim", opts = {} },
       "natecraddock/telescope-zf-native.nvim",
       "piersolenski/telescope-import.nvim",
-      "debugloop/telescope-undo.nvim",
       {
         "danielfalk/smart-open.nvim",
         branch = "0.2.x",
@@ -55,9 +54,6 @@ return {
       telescope.load_extension("zf-native")
       telescope.load_extension("import")
       telescope.load_extension("smart_open")
-      telescope.load_extension("undo")
-
-      vim.keymap.set("n", "<leader>U", "<cmd>Telescope undo<cr>")
     end,
     opts = {
       defaults = {

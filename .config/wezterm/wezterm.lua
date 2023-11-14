@@ -57,7 +57,7 @@ local config = {
 	-- debug_key_events = true,
 	color_scheme = "Tinacious Design (Dark)",
 	-- color_scheme = "Monokai Remastered",
-	font = jetbrains_mono,
+	font = jetbrains_mono(),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -67,7 +67,7 @@ local config = {
 		{
 			intensity = "Normal",
 			italic = true,
-			font = jetbrains_mono,
+			font = jetbrains_mono(),
 		},
 	},
 	font_size = 20,
