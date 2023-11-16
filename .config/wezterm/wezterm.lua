@@ -47,6 +47,10 @@ local default_font = function(weight)
 	local _weight = weight or "Regular"
 	return wezterm.font_with_fallback({
 		{
+			family = "Geist Mono",
+			weight = _weight,
+		},
+		{
 			family = "Monaspace Neon",
 			weight = _weight,
 		},
@@ -74,7 +78,7 @@ local config = {
 			font = default_font(),
 		},
 	},
-	font_size = 18,
+	font_size = 20,
 	default_cwd = "~/dev/",
 	enable_scroll_bar = true,
 	use_dead_keys = false,
