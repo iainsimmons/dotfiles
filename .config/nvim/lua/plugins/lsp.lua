@@ -2,6 +2,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "jose-elias-alvarez/typescript.nvim" },
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- disable rename keymap so we can instead use Incremental rename
+      keys[#keys + 1] = { "<leader>cr", false }
+    end,
     opts = {
       servers = {
         tsserver = {
@@ -59,5 +64,23 @@ return {
         desc = "Toggle LSP Lines",
       },
     },
+  },
+  -- Incremental rename
+  {
+    "smjonas/inc-rename.nvim",
+    event = { "BufNewFile", "BufReadPost" },
+    dependencies = {
+      "folke/noice.nvim",
+    },
+    cmd = "IncRename",
+    config = function()
+      require("inc_rename").setup()
+      require("noice").setup({
+        presets = { inc_rename = true },
+      })
+      vim.keymap.set("n", "<leader>cr", function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end, { expr = true, desc = "Incremental Rename" })
+    end,
   },
 }
