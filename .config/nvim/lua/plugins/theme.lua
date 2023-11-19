@@ -35,11 +35,11 @@ return {
       local hooks = require("ibl.hooks")
       local colors = {
         cyan = "#61E2FF",
-        green = "#72f1b8",
-        orange = "#ff8b39",
+        green = "#72F1B8",
+        orange = "#FF8B39",
         pink = "#FC199A",
         purple = "#AF6DF9",
-        red = "#fe4450",
+        red = "#FE4450",
         yellow = "#FFCC00",
         blankline = "#57367C",
         active_blankline = "#7E0C4D",
