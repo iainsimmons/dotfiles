@@ -40,7 +40,7 @@ if [ $HOME_SED_SAFE -eq 0 ]; then # $HOME should be safe to use in sed
 	HOME_REPLACER="s|^$HOME/|~/|"
 fi
 
-BORDER_LABEL=" t - smart tmux session manager "
+BORDER_LABEL=" t - smart tmux window manager "
 HEADER=" ctrl-s: windows / ctrl-x: zoxide / ctrl-d: directory"
 PROMPT=$(get_fzf_prompt)
 SESSION_BIND="ctrl-s:change-prompt(windows> )+reload(tmux list-windows -F '#W')"
