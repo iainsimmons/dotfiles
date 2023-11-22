@@ -58,7 +58,7 @@ fish_add_path /usr/local/go/bin
 set -gx NI_CONFIG_FILE "$HOME/.nirc"
 
 function tm
-    tmux a -t tmux || exec tmux new -s tmux && exit
+    tmux a -t tmux || exec tmux new -s tmux
 end
 
 function mcd # Makes new Dir and jumps inside
