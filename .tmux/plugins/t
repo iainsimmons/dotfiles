@@ -47,7 +47,7 @@ SESSION_BIND="ctrl-s:change-prompt(windows> )+reload(tmux list-windows -F '#W')"
 ZOXIDE_BIND="ctrl-x:change-prompt(zoxide> )+reload(zoxide query -l | sed -e \"$HOME_REPLACER\")"
 
 if fd --version &>/dev/null; then # fd is installed
-	DIR_BIND="ctrl-d:change-prompt(directory> )+reload(cd $HOME && echo $HOME; fd --type d --hidden --absolute-path --color never --exclude .git --exclude node_modules)"
+	DIR_BIND="ctrl-d:change-prompt( )+reload(cd $HOME; fd -d 3 -t d -HI -c never -E .git -E node_modules -E .npm -E .cache . ./.config/ ./dev ./Downloads)"
 else # fd is not installed
 	DIR_BIND="ctrl-d:change-prompt(directory> )+reload(cd $HOME && find ~+ -type d -name node_modules -prune -o -name .git -prune -o -type d -print)"
 fi
