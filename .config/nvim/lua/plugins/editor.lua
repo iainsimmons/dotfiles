@@ -155,4 +155,13 @@ return {
       show_basename = false,
     },
   },
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        buffer_close_icon = "",
+        separator_style = "thin",
+      },
+    },
+  },
 }
