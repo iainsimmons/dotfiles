@@ -54,6 +54,9 @@ fish_add_path "$BUN_INSTALL/bin"
 # go
 fish_add_path /usr/local/go/bin
 
+# rust
+fish_add_path "$HOME/.cargo/bin"
+
 # ni custom configuration file path
 set -gx NI_CONFIG_FILE "$HOME/.nirc"
 

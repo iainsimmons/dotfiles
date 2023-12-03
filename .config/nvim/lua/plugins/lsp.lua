@@ -1,5 +1,34 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "astro-language-server",
+        "cbfmt",
+        "djlint",
+        "doctoc",
+        "emmet-ls",
+        "eslint-lsp",
+        "glint",
+        "html-lsp",
+        "htmx-lsp",
+        "js-debug-adapter",
+        "json-lsp",
+        "lua-language-server",
+        "markdownlint",
+        "marksman",
+        "mdformat",
+        "prettier",
+        "prettierd",
+        "shfmt",
+        "stylua",
+        "tailwindcss-language-server",
+        "typescript-language-server",
+        "yaml-language-server",
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = { "jose-elias-alvarez/typescript.nvim" },
     init = function()
