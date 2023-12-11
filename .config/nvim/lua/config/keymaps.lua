@@ -32,3 +32,5 @@ keymap.set(
 keymap.set("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (force) current file", silent = true })
 
 keymap.set("n", "<leader>uh", ":HighlightColorsToggle<CR>", { desc = "[H]ighlightColors Toggle", silent = true })
+
+keymap.set("n", "<leader>cc", ":! cpf %<CR>", { desc = "[C]opy [C]urrent file", silent = true })
