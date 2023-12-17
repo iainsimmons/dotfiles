@@ -18,6 +18,29 @@ end)
 local config = {
   -- debug_key_events = true,
   color_scheme = "Tinacious Design (Dark)",
+  -- from https://github.com/maxmx03/fluoromachine.nvim/blob/main/fluoromachine.toml
+  colors = {
+    ansi = {
+      "#181A1F",
+      "#FC199A",
+      "#72f1b8",
+      "#FFCC00",
+      "#61E2FF",
+      "#AF6DF9",
+      "#8C57C7",
+      "#FFFFFF",
+    },
+    brights = {
+      "#FC199A",
+      "#fe4450",
+      "#fcee54",
+      "#ffffff",
+      "#61E2FF",
+      "#AF6DF9",
+      "#ff8b39",
+      "#ffffff",
+    },
+  },
   font = f.get_font(),
   font_rules = {
     {
