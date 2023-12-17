@@ -1,5 +1,6 @@
 local k = require("utils/keys")
 local f = require("utils/font")
+local w = require("utils/wallpaper")
 local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
@@ -41,14 +42,32 @@ local config = {
     top = 12,
     bottom = 12,
   },
-  window_background_gradient = {
-    colors = { "#241b2f", "#1C072D" },
-    blend = "Oklab",
-    interpolation = "CatmullRom",
-    noise = 64,
-    segment_size = 20,
-    segment_smoothness = 1.0,
-    orientation = { Linear = { angle = 90.0 } },
+  background = {
+    w.get_wallpaper(),
+    -- {
+    --   source = {
+    --     Gradient = {
+    --       colors = { "#241b2f", "#1C072D" },
+    --       blend = "Oklab",
+    --       interpolation = "CatmullRom",
+    --       noise = 64,
+    --       segment_size = 20,
+    --       segment_smoothness = 1.0,
+    --       orientation = { Linear = { angle = 90.0 } },
+    --     },
+    --   },
+    --   width = "100%",
+    --   height = "100%",
+    --   opacity = 0.8,
+    -- },
+    {
+      source = {
+        Color = "#000",
+      },
+      width = "100%",
+      height = "100%",
+      opacity = 0.1,
+    },
   },
   disable_default_key_bindings = true,
   keys = {

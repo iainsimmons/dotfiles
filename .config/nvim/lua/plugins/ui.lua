@@ -9,6 +9,7 @@ return {
       fm.setup({
         glow = true,
         theme = "fluoromachine",
+        transparent = "full",
         overrides = function(colors, darken)
           return {
             Visual = {
