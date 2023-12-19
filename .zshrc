@@ -6,14 +6,14 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/usr/local/lib/ruby/gems/2.7.0/bin
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export ZSH="/Users/isimmons/.oh-my-zsh"
+# export ZSH="/Users/isimmons/.oh-my-zsh"
 export XDG_CONFIG_HOME="/Users/isimmons/.config"
 
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
 plugins=(git node macos python docker extract fzf fzf-tab fast-syntax-highlighting zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

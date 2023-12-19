@@ -87,3 +87,5 @@
 	path = nvim
 [rebase]
 	autoStash = true
+[includeIf "gitdir:~/dev/Squiz/"]
+  path = ~/dev/Squiz/.gitconfig
