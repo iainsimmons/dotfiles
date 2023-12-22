@@ -18,7 +18,6 @@ return {
       },
     },
     keys = {
-      { "<leader>/", false },
       {
         "<leader><space>",
         function()

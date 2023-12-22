@@ -80,6 +80,29 @@ function sshkey # generate ssh key in directory
     mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa
 end
 
+function clone -d "Clone and open tmux window for given repo" -a repo_arg -a parent_arg -a dir_name_arg
+    if test -n "$repo_arg"
+        string match -rq '\/(?<repo_name>.+?)\.git$' -- $repo_arg
+    else
+        echo "Please specify a git repo to clone"
+        return 1
+    end
+
+    if test -n "$parent_arg"
+        set parent_dir "$parent_arg"
+    else
+        set parent_dir ~/dev/Squiz/
+    end
+
+    if test -n "$dir_name_arg"
+        set dir_name "$dir_name_arg"
+    else
+        set dir_name (string trim "$repo_name")
+    end
+
+    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && t "$parent_dir/$dir_name"
+end
+
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
