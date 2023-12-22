@@ -21,7 +21,7 @@ local config = {
   -- from https://github.com/maxmx03/fluoromachine.nvim/blob/main/fluoromachine.toml
   colors = {
     ansi = {
-      "#181A1F",
+      "#1C072D",
       "#FC199A",
       "#72F1B8",
       "#FFCC00",
@@ -31,7 +31,7 @@ local config = {
       "#FFFFFF",
     },
     brights = {
-      "#FC199A",
+      "#000000",
       "#FE4450",
       "#FFCC00",
       "#FFFFFF",
