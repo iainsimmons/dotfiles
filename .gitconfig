@@ -89,3 +89,5 @@
 	autoStash = true
 [includeIf "gitdir:~/dev/Squiz/"]
   path = ~/dev/Squiz/.gitconfig
+[includeIf "gitdir:~/"]
+  path = ~/.config/git/.gitconfig
