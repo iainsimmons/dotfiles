@@ -88,14 +88,6 @@ return {
     end,
   },
   {
-    "brenoprata10/nvim-highlight-colors",
-    cmd = { "HighlightColorsOn", "HighlightColorsOff", "HighlightColorsToggle" },
-    opts = {
-      render = "background",
-      enable_tailwind = true,
-    },
-  },
-  {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function(_, opts)
