@@ -1,3 +1,17 @@
+local telescope_egrepify = function()
+  require("telescope").extensions.egrepify.egrepify({
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--trim", -- add this value
+    },
+  })
+end
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -20,15 +34,10 @@ return {
     keys = {
       {
         "<leader><space>",
-        function()
-          require("telescope").extensions.smart_open.smart_open({
-            cwd_only = true,
-            filename_first = true,
-          })
-        end,
+        "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
         noremap = true,
         silent = true,
-        desc = "Find existing buffers",
+        desc = "Switch Buffer",
       },
       {
         "<leader>?",
@@ -47,21 +56,15 @@ return {
         silent = true,
       },
       {
+        "<leader>/",
+        telescope_egrepify,
+        silent = true,
+        noremap = true,
+        desc = "Live Grep (Telescope egrepify)",
+      },
+      {
         "<leader>sg",
-        function()
-          require("telescope").extensions.egrepify.egrepify({
-            vimgrep_arguments = {
-              "rg",
-              "--color=never",
-              "--no-heading",
-              "--with-filename",
-              "--line-number",
-              "--column",
-              "--smart-case",
-              "--trim", -- add this value
-            },
-          })
-        end,
+        telescope_egrepify,
         silent = true,
         desc = "Live Grep (Telescope egrepify)",
       },
