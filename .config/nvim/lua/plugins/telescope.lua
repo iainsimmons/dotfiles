@@ -33,6 +33,18 @@ return {
     },
     keys = {
       {
+        "<leader>ff",
+        function()
+          require("telescope").extensions.smart_open.smart_open({
+            cwd_only = true,
+            filename_first = true,
+          })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "Telescope Smart Open",
+      },
+      {
         "<leader><space>",
         "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
         noremap = true,
