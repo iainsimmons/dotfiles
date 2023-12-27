@@ -12,6 +12,13 @@ keymap.set("n", "<leader>Y", '"+Y')
 keymap.set("n", "<leader>d", '"_d')
 keymap.set("v", "<leader>d", '"_d')
 keymap.set("n", "x", '"_x')
+
+-- https://github.com/stevedylandev/dotfiles/blob/main/nvim/lua/keymaps.lua
+-- If I visually select words and paste from clipboard, don't replace my
+-- clipboard with the selected word, instead keep my old word in the
+-- clipboard
+keymap.set("x", "p", '"_dP', { silent = true, noremap = true })
+
 -- increment & decrement
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
@@ -34,3 +41,14 @@ keymap.set("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (forc
 keymap.set("n", "<leader>uh", ":HighlightColorsToggle<CR>", { desc = "[H]ighlightColors Toggle", silent = true })
 
 keymap.set("n", "<leader>cc", ":! cpf %<CR>", { desc = "[C]opy [C]urrent file", silent = true })
+
+-- align buffer to vertical center
+keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, noremap = true })
+keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, noremap = true })
+keymap.set("n", "n", "nzzzv", { silent = true, noremap = true })
+keymap.set("n", "N", "Nzzzv", { silent = true, noremap = true })
+
+-- Some useful quickfix shortcuts for quickfix
+keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz", { silent = true, noremap = true })
+keymap.set("n", "<C-m>", "<cmd>cprev<CR>zz", { silent = true, noremap = true })
+keymap.set("n", "<leader>xc", "<cmd>cclose<CR>", { silent = true, noremap = true })
