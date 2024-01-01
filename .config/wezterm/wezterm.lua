@@ -91,7 +91,12 @@ local config = {
     k.cmd_key("-", act.DecreaseFontSize),
     k.cmd_key("=", act.IncreaseFontSize),
     k.cmd_key("0", act.ResetFontSize),
-
+    -- Reload config
+    {
+      key = "r",
+      mods = "CMD|SHIFT",
+      action = wezterm.action.ReloadConfiguration,
+    },
     -- Change to the next tmux window
     {
       mods = "CMD|SHIFT",
