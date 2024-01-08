@@ -31,7 +31,7 @@ local config = {
       "#FFFFFF",
     },
     brights = {
-      "#000000",
+      "#150015",
       "#FE4450",
       "#FFCC00",
       "#FFFFFF",
