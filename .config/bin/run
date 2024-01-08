@@ -1,11 +1,50 @@
 #!/bin/sh
 
+set -e
+
 # Get argument for script key/name, default to dev
 DEV_SCRIPT="${1:-dev}"
+
+show_help()
+{
+   # Display Help
+   echo "Run JS scripts"
+   echo
+   echo "Syntax: run [-h] script"
+   echo "script defaults to 'dev'"
+   echo
+   echo "options:"
+   echo "h     Print this help."
+   echo "s     Show available scripts."
+   echo
+   echo "e.g."
+   echo "\$ run test"
+   echo "> npm run test # or yarn test or pnpm run test"
+}
+
+show_scripts()
+{
+   # Display available scripts
+   echo "Available scripts:"
+   echo "$(jq -r '.scripts | keys[]' package.json)"
+}
 
 # First, check if the jq command is available
 # AND there is a package.json file in the current directory
 if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
+  while getopts ":hs" option; do
+    case $option in
+      h) # display help
+        show_help
+        exit;;
+      s) # display available scripts
+        show_scripts
+        exit;;
+      \?) # incorrect option
+        echo "Error: Invalid option"
+        exit;;
+    esac
+  done
   # if we have jq,
   # then use it to extract the first occurence of a key in package.json's scripts object
   # that starts with the argument passed in (or dev)
