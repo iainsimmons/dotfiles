@@ -21,7 +21,6 @@ return {
       jsonc = { "prettierd", "prettier" },
       yaml = { "prettierd", "prettier" },
       markdown = { "markdownlint", "cbfmt" },
-      --
       ["markdown.mdx"] = { "markdownlint", "cbfmt" },
       graphql = { "prettierd", "prettier" },
       handlebars = { "prettierd", "prettier" },

@@ -29,6 +29,7 @@ return {
           "tsx",
           "typescript",
           "vim",
+          "xml",
         },
         textobjects = {
           select = {
