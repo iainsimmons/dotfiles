@@ -21,6 +21,7 @@ tap "noahgorstein/tap/jqp" # a TUI playground for exploring jq
 
 # packages
 brew "bat" # better cat
+brew "bruno" # REST API tool
 brew "cloc" # lines of code counter
 brew "colima" # docker cli alternative
 brew "curl" # cURL
@@ -39,6 +40,7 @@ brew "gnu-sed" # GNU sed
 brew "grep" # grep (latest)
 brew "highlight" # code syntax highlighting
 brew "htop" # a top alternative
+brew "httpie" # better cURL and REST API CLI
 brew "imagemagick" # image processing
 brew "jless" # Command-line pager for JSON data
 brew "jq" # work with JSON files in shell scripts
