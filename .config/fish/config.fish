@@ -133,6 +133,8 @@ abbr find fd
 # Hide/show all desktop icons (useful when presenting)
 abbr hidedesktop "defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+# delete item from history, use fzf to select
+abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 
 alias c clear # c:            Clear terminal display
 alias vim nvim
