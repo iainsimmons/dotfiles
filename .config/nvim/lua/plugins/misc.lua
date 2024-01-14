@@ -109,4 +109,5 @@ return {
       },
     },
   },
+  { "echasnovski/mini.bracketed", event = { "BufReadPost", "BufNewFile" }, version = false, opts = {} },
 }
