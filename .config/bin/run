@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Based on David Sancho's script
+# https://sancho.dev/blog/better-yarn-npm-run
+# and Josh Medeski's d script
+# https://github.com/joshmedeski/dotfiles/blob/21ffda912711311c79c1175ede7df01b68a13260/.config/bin/d
+
 set -e
 
 # First, check if the jq and fzf commands are available
