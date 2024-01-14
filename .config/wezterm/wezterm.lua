@@ -133,6 +133,15 @@ local config = {
         act.SendKey({ mods = "ALT", key = "o" }),
       }),
     },
+    -- Switch to last active pane
+    {
+      mods = "CTRL",
+      key = "\\",
+      action = act.Multiple({
+        act.SendKey({ mods = "CTRL", key = "b" }),
+        act.SendKey({ key = ";" }),
+      }),
+    },
     -- Select window 1-9
     k.cmd_to_tmux_prefix("1", "1"),
     k.cmd_to_tmux_prefix("2", "2"),
