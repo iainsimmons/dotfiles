@@ -85,6 +85,7 @@ return {
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     event = { "LspAttach" },
+    commit = "cf2306d",
     config = function()
       require("lsp_lines").setup()
       vim.diagnostic.config({
