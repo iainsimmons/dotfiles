@@ -87,7 +87,8 @@
 	path = nvim
 [rebase]
 	autoStash = true
-[include]
-  path = ~/.config/git/.gitconfig
+[user]
+	name = Iain Simmons
+	email = emptiful@gmail.com
 [includeIf "gitdir:~/dev/Squiz/**"]
   path = ~/dev/Squiz/.gitconfig
