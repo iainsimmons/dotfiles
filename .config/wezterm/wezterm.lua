@@ -40,6 +40,8 @@ local config = {
       "#FF8B39",
       "#FFFFFF",
     },
+    cursor_bg = "#EEEEEE",
+    cursor_fg = "#2B1330",
   },
   font = f.get_font(),
   font_rules = {

@@ -15,6 +15,9 @@ return {
             Visual = {
               bg = darken(colors.selection, 15),
             },
+            PMenu = {
+              bg = darken(colors.selection, 45),
+            },
           }
         end,
       })
