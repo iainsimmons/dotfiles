@@ -1,18 +1,5 @@
 return {
   {
-    "mechatroner/rainbow_csv", -- modify and query CSV files
-    ft = {
-      "csv",
-      "tsv",
-      "psv",
-      "csv_pipe",
-      "csv_semicolon",
-    },
-    config = function()
-      vim.g.disable_rainbow_hover = 1
-    end,
-  },
-  {
     "ruifm/gitlinker.nvim",
     dependencies = "nvim-lua/plenary.nvim",
   },
