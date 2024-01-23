@@ -46,7 +46,6 @@ return {
         { name = "path" },
       }, {
         { name = "buffer" },
-        { name = "cmdline" },
       })
       -- friendly-snippets - enable standardized comments snippets
       luasnip.filetype_extend("typescript", { "tsdoc" })
