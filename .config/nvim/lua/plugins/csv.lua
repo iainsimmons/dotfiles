@@ -11,11 +11,12 @@ return {
     vim.g.disable_rainbow_hover = 1
     vim.keymap.set("n", "<M-h>", function()
       if vim.api.nvim_buf_get_var(0, "rbcsv") == 1 then
-        if vim.g.disable_rainbow_hover then
-          vim.g.disable_rainbow_hover = 0
+        if vim.api.nvim_get_var("disable_rainbow_hover") == 1 then
+          vim.api.nvim_set_var("disable_rainbow_hover", 0)
         else
-          vim.g.disable_rainbow_hover = 1
+          vim.api.nvim_set_var("disable_rainbow_hover", 1)
         end
+        vim.cmd(":ed %")
       end
     end, { desc = "RainbowCSV Toggle Hover" })
     vim.keymap.set("n", "<M-Left>", function()
