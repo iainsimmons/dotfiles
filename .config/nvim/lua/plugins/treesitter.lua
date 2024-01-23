@@ -42,4 +42,18 @@ return {
       }))
     end,
   },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    keys = {
+      {
+        "<Leader>nf",
+        ":lua require('neogen').generate()<CR>",
+        noremap = true,
+        silent = true,
+        desc = "Neogen Generate Docs",
+      },
+    },
+    config = true,
+  },
 }
