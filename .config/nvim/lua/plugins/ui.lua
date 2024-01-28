@@ -10,10 +10,13 @@ return {
         glow = true,
         theme = "fluoromachine",
         transparent = "full",
-        overrides = function(colors, darken)
+        overrides = function(colors, darken, lighten)
           return {
             Visual = {
               bg = darken(colors.selection, 15),
+            },
+            Comment = {
+              fg = lighten(colors.comment, 40),
             },
             PMenu = {
               bg = darken(colors.selection, 45),

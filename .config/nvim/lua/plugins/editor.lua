@@ -165,4 +165,24 @@ return {
       },
     },
   },
+  {
+    "folke/which-key.nvim",
+    opts = function(_, opts)
+      local presets = require("which-key.plugins.presets")
+      presets.operators["d"] = nil
+    end,
+  },
+  {
+    "rasulomaroff/reactive.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("reactive").setup({
+        builtin = {
+          cursorline = true,
+          cursor = true,
+          modemsg = true,
+        },
+      })
+    end,
+  },
 }
