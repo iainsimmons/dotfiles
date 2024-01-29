@@ -135,6 +135,7 @@ abbr hidedesktop "defaults write com.apple.finder CreateDesktop -bool false && k
 abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
+abbr obsidian_styles "nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css"
 
 alias c clear # c:            Clear terminal display
 alias vim nvim
