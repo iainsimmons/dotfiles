@@ -60,3 +60,7 @@ keymap("x", "@", ":norm @q<CR>", { silent = false })
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjojs2y/
 keymap("n", "<leader>rw", ":%s/<C-r><C-w>/", { silent = false })
 keymap("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false })
+
+-- search within selected block of code
+-- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjym8kg/
+keymap("x", "/", "<Esc>/\\%V", { silent = true })
