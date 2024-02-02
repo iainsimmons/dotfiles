@@ -48,3 +48,15 @@ keymap("n", "N", "Nzzzv", { silent = true, noremap = true })
 keymap("n", "<C-n>", "<cmd>cnext<CR>zz", { silent = true, noremap = true })
 keymap("n", "<C-p>", "<cmd>cprev<CR>zz", { silent = true, noremap = true })
 keymap("n", "<leader>xc", "<cmd>cclose<CR>", { silent = true, noremap = true })
+
+-- . repeat or execute macro on all visually selected lines
+-- eg. press A"<esc> on line one, select all others, press . and they all end in "
+-- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjn1kww/
+keymap("x", ".", ":norm .<CR>", { silent = false })
+keymap("x", "@", ":norm @q<CR>", { silent = false })
+
+-- Using the keymap will take the word under the cursor
+-- and populate the beginning of a global search and replace command
+-- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjojs2y/
+keymap("n", "<leader>rw", ":%s/<C-r><C-w>/", { silent = false })
+keymap("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false })
