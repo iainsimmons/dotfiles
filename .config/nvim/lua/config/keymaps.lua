@@ -64,3 +64,11 @@ keymap("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false })
 -- search within selected block of code
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjym8kg/
 keymap("x", "/", "<Esc>/\\%V", { silent = true })
+
+-- Gitsigns toggle line blame
+keymap(
+  "n",
+  "<leader>gl",
+  ":Gitsigns toggle_current_line_blame<CR>",
+  { silent = true, desc = "[G]itsigns toggle current [L]ine blame" }
+)
