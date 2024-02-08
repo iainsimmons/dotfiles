@@ -10,16 +10,27 @@ set -e
 # First, check if the jq and fzf commands are available
 # AND there is a package.json file in the current directory
 if command -v jq &>/dev/null && command -v fzf &>/dev/null [[ -f "package.json" ]]; then
-  # if we have jq and fzf,
-  # then get the list of scripts from package.json
-  # and use fzf to select one to run
-  DEV_SCRIPT="$(jq -r '.scripts' package.json | \
-    sed '1d;$d' | \
-    fzf --height 30% --reverse -1 -0 -d ',' --with-nth=1 --header 'Select npm script to run' | \
-    awk -F ': ' '{gsub(/"/, "", $1); gsub(/[ ]+/, " ", $1); gsub(/^[ ]|[ ]$/, "", $1); print $1}')"
+  if [ $# -eq 0 ]; then
+    # if no arguments were passed to the script
+    # then get the list of scripts from package.json
+    # and use fzf to select one to run
+    DEV_SCRIPT="$(jq -r '.scripts' package.json | \
+      sed '1d;$d' | \
+      fzf --height 30% --reverse -1 -0 -d ',' --with-nth=1 --header 'Select npm script to run' | \
+      awk -F ': ' '{gsub(/"/, "", $1); gsub(/[ ]+/, " ", $1); gsub(/^[ ]|[ ]$/, "", $1); print $1}')"
+  else
+    # otherwise extract the first occurence of a key in package.json's scripts object
+    # that starts with the argument passed in (or dev)
+    DEV_SCRIPT="$(jq \
+      -r \
+      --arg ds $1 \
+      'first(.scripts | keys[] | select(. | test("^\($ds)[^\"]*")))' \
+      package.json)"
+  fi
 fi
 
 if [[ -z "${DEV_SCRIPT// /}" ]]; then
+  echo "No matching npm script!"
   exit 0
 fi
 
