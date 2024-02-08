@@ -9,7 +9,7 @@ return {
   },
   config = function()
     vim.g.disable_rainbow_hover = 1
-    vim.keymap.set("n", "<M-h>", function()
+    vim.keymap.set("n", "<leader>uh", function()
       if vim.api.nvim_buf_get_var(0, "rbcsv") == 1 then
         if vim.api.nvim_get_var("disable_rainbow_hover") == 1 then
           vim.api.nvim_set_var("disable_rainbow_hover", 0)

@@ -9,7 +9,6 @@
 # https://fishshell.com/
 
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
-fish_add_path $HOME/.config/bin # my custom scripts
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 

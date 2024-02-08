@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+echo " Updating tpm plugins"
+~/.config/tmux/plugins/tpm/bin/update_plugins all
+
+echo "🐠 Updating fisher plugins"
+fisher update
+
+echo "📝 Updating Neovim Lazy packages"
+nvim --headless "+Lazy! sync" +qa
+
+~/bin/b
