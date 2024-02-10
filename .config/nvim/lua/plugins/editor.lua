@@ -8,6 +8,8 @@ return {
       -- Show harpoon marks in lualine:
       -- https://twitter.com/dillon_mulroy/status/1658310366919643137?s=20
       local harpoon = require("harpoon.mark")
+      local noice = require("noice")
+
       local function harpoon_component()
         local total_marks = harpoon.get_length()
 
@@ -50,19 +52,19 @@ return {
           lualine_x = {
             {
               function()
-                return require("noice").api.status.command.get()
+                return noice.api.status.command["get"]()
               end,
               cond = function()
-                return package.loaded["noice"] and require("noice").api.status.command.has()
+                return package.loaded["noice"] and noice.api.status.command["has"]()
               end,
               color = util.ui.fg("Statement"),
             },
             {
               function()
-                return require("noice").api.status.mode.get()
+                return noice.api.status.mode["get"]()
               end,
               cond = function()
-                return package.loaded["noice"] and require("noice").api.status.mode.has()
+                return package.loaded["noice"] and noice.api.status.mode["has"]()
               end,
               color = util.ui.fg("Constant"),
             },
