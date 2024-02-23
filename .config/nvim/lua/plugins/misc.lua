@@ -132,4 +132,11 @@ return {
       { "<leader>rh", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
     },
   },
+  {
+    "fei6409/log-highlight.nvim",
+    ft = { "log" },
+    config = function()
+      require("log-highlight").setup({})
+    end,
+  },
 }
