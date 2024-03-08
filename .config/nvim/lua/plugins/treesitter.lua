@@ -16,6 +16,7 @@ return {
           "bash",
           "css",
           "gitignore",
+          "hurl",
           "jsdoc",
           "json",
           "json5",
