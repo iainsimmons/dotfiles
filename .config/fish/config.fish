@@ -144,3 +144,4 @@ alias t '~/.tmux/plugins/t'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
 alias less nvimpager
+alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'
