@@ -27,11 +27,19 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "jose-elias-alvarez/typescript.nvim" },
+    dependencies = {
+      "jose-elias-alvarez/typescript.nvim",
+      {
+        "b0o/SchemaStore.nvim",
+        lazy = true,
+        version = false, -- last release is way too old
+      },
+    },
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- disable rename keymap so we can instead use Incremental rename
       keys[#keys + 1] = { "<leader>cr", false }
+      keys[#keys + 1] = { "<leader>cc", false }
     end,
     opts = {
       servers = {
@@ -58,6 +66,20 @@ return {
             yaml = {
               redhat = { telemetry = { enabled = false } },
               keyOrdering = false,
+            },
+          },
+        },
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas({
+                select = {
+                  ".eslintrc",
+                  "package.json",
+                  "openapi.json",
+                },
+              }),
+              validate = { enable = true },
             },
           },
         },
