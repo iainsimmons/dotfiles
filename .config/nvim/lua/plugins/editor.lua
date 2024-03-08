@@ -7,19 +7,25 @@ return {
       local util = require("lazyvim.util")
       -- Show harpoon marks in lualine:
       -- https://twitter.com/dillon_mulroy/status/1658310366919643137?s=20
-      local harpoon = require("harpoon.mark")
+      local harpoon = require("harpoon")
       local noice = require("noice")
 
       local function harpoon_component()
-        local total_marks = harpoon.get_length()
+        local current_file = vim.api.nvim_buf_get_name(0):gsub(vim.fn.getcwd() .. "/", "")
+        local list = harpoon:list()
+        local total_marks = list:length()
 
         if total_marks == 0 then
           return ""
         end
 
         local current_mark = "-"
-
-        local mark_idx = harpoon.get_current_index()
+        local mark_idx = nil
+        for idx, item in ipairs(list.items) do
+          if item.value == current_file then
+            mark_idx = idx
+          end
+        end
         if mark_idx ~= nil then
           current_mark = tostring(mark_idx)
         end

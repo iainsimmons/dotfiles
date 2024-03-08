@@ -1,26 +1,61 @@
 return {
   "ThePrimeagen/harpoon",
-  event = {
-    "BufReadPre",
-    "BufNewFile",
+  branch = "harpoon2",
+  opts = {
+    menu = {
+      width = vim.api.nvim_win_get_width(0) - 4,
+    },
   },
-  config = function()
-    local mark = require("harpoon.mark")
-    local ui = require("harpoon.ui")
-    require("telescope").load_extension("harpoon")
-    vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "Harpoon: Add File" })
-    vim.keymap.set("n", "<leader>h", ":Telescope harpoon marks<CR>", { desc = "Harpoon: Quick Menu", silent = true })
-    vim.keymap.set("n", "<leader>1", function()
-      ui.nav_file(1)
-    end, { desc = "Harpoon: Jump to 1" })
-    vim.keymap.set("n", "<leader>2", function()
-      ui.nav_file(2)
-    end, { desc = "Harpoon: Jump to 2" })
-    vim.keymap.set("n", "<leader>3", function()
-      ui.nav_file(3)
-    end, { desc = "Harpoon: Jump to 3" })
-    vim.keymap.set("n", "<leader>4", function()
-      ui.nav_file(4)
-    end, { desc = "Harpoon: Jump to 4" })
-  end,
+  keys = {
+    {
+      "<leader>H",
+      function()
+        require("harpoon"):list():append()
+      end,
+      desc = "Harpoon file",
+    },
+    {
+      "<leader>h",
+      function()
+        local harpoon = require("harpoon")
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      desc = "Harpoon quick menu",
+    },
+    {
+      "<leader>1",
+      function()
+        require("harpoon"):list():select(1)
+      end,
+      desc = "Harpoon to file 1",
+    },
+    {
+      "<leader>2",
+      function()
+        require("harpoon"):list():select(2)
+      end,
+      desc = "Harpoon to file 2",
+    },
+    {
+      "<leader>3",
+      function()
+        require("harpoon"):list():select(3)
+      end,
+      desc = "Harpoon to file 3",
+    },
+    {
+      "<leader>4",
+      function()
+        require("harpoon"):list():select(4)
+      end,
+      desc = "Harpoon to file 4",
+    },
+    {
+      "<leader>5",
+      function()
+        require("harpoon"):list():select(5)
+      end,
+      desc = "Harpoon to file 5",
+    },
+  },
 }
