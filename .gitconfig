@@ -92,3 +92,6 @@
 	email = emptiful@gmail.com
 [includeIf "gitdir:~/dev/Squiz/**"]
   path = ~/dev/Squiz/.gitconfig
+[rerere]
+	enabled = true
+	autoUpdate = true
