@@ -1,37 +1,17 @@
 return {
   {
-    "maxmx03/fluoromachine.nvim",
+    "tinted-theming/base16-vim",
     lazy = false,
     priority = 1000,
     config = function()
-      local fm = require("fluoromachine")
-
-      fm.setup({
-        glow = true,
-        theme = "fluoromachine",
-        transparent = "full",
-        overrides = function(colors, darken, lighten)
-          return {
-            Visual = {
-              bg = darken(colors.selection, 15),
-            },
-            Comment = {
-              fg = lighten(colors.comment, 40),
-            },
-            PMenu = {
-              bg = darken(colors.selection, 45),
-            },
-          }
-        end,
-      })
-      vim.cmd.colorscheme("fluoromachine")
+      local cmd = vim.cmd
+      local g = vim.g
+      local current_theme_name = os.getenv("BASE16_THEME") or "default-dark"
+      if current_theme_name and g.colors_name ~= "base16-" .. current_theme_name then
+        g.base16colorspace = 256
+        cmd("colorscheme base16-" .. current_theme_name)
+      end
     end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "fluoromachine",
-    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -39,43 +19,12 @@ return {
     main = "ibl",
     config = function()
       local ibl = require("ibl")
-      local hooks = require("ibl.hooks")
-      local colors = {
-        cyan = "#61E2FF",
-        green = "#72F1B8",
-        orange = "#FF8B39",
-        pink = "#FC199A",
-        purple = "#AF6DF9",
-        red = "#FE4450",
-        yellow = "#FFCC00",
-        blankline = "#57367C",
-        active_blankline = "#7E0C4D",
-        inlay_hint = "#8C57C7",
-      }
-
-      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { fg = colors.red })
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { fg = colors.orange })
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent3", { fg = colors.yellow })
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent4", { fg = colors.green })
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent5", { fg = colors.cyan })
-        vim.api.nvim_set_hl(0, "IndentBlanklineIndent6", { fg = colors.purple })
-        vim.api.nvim_set_hl(0, "IndentBlanklineActive", { fg = colors.active_blankline })
-      end)
       ibl.setup({
         indent = {
           char = "│",
           tab_char = "│",
-          highlight = {
-            "IndentBlanklineIndent1",
-            "IndentBlanklineIndent2",
-            "IndentBlanklineIndent3",
-            "IndentBlanklineIndent4",
-            "IndentBlanklineIndent5",
-            "IndentBlanklineIndent6",
-          },
         },
-        scope = { enabled = true, highlight = "IndentBlanklineActive" },
+        scope = { enabled = true },
         exclude = {
           filetypes = {
             "help",

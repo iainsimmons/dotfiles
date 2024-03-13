@@ -80,6 +80,13 @@ return {
         silent = true,
         desc = "Live Grep (Telescope egrepify)",
       },
+      {
+        "<leader>st",
+        ":Telescope colorscheme enable_preview=true<CR>",
+        silent = true,
+        noremap = true,
+        desc = "[S]earch [T]hemes",
+      },
     },
     -- change some options
     config = function(_, opts)
