@@ -8,7 +8,6 @@
 # A smart and user-friendly command line
 # https://fishshell.com/
 
-fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 
@@ -40,9 +39,8 @@ set -Ux MANPAGER nvimpager # 'lucc/nvimpager'
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 
-set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --color=always"
-set -gx FZF_DEFAULT_OPTS --ansi
-set -gx FZF_TMUX_OPTS -p
+set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
+set -gx FZF_DEFAULT_OPTS "--layout=default"
 set -gx FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 fish_add_path "$HOME/.rvm/bin"
@@ -69,7 +67,7 @@ fish_add_path "$HOME/.cargo/bin"
 set -gx NI_CONFIG_FILE "$HOME/.nirc"
 
 function tm
-    tmux a -t tmux || exec tmux new -s tmux
+    tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
 end
 
 function mcd # Makes new Dir and jumps inside
@@ -149,7 +147,7 @@ alias c clear # c:            Clear terminal display
 alias vim nvim
 alias vi nvim
 alias v nvim
-alias t '~/.tmux/plugins/t'
+alias t '~/.config/tmux/plugins/t'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
 alias less nvimpager
