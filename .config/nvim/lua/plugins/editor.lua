@@ -162,16 +162,18 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    event = { "BufEnter" },
     opts = {
       options = {
         buffer_close_icon = "",
         separator_style = "thin",
+        always_show_bufferline = true,
       },
     },
   },
   {
     "folke/which-key.nvim",
-    opts = function(_, opts)
+    opts = function()
       local presets = require("which-key.plugins.presets")
       presets.operators["d"] = nil
     end,
