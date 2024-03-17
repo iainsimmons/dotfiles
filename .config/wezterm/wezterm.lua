@@ -147,8 +147,8 @@ local config = {
     -- Jump to new/existing window via 't'
     -- Based on https://github.com/joshmedeski/t-smart-tmux-session-manage
     k.cmd_to_tmux_prefix("j", "t"),
-    -- Open lf in a new tmux window
-    k.cmd_to_tmux_prefix("l", "A"),
+    -- Open yazi in a new tmux window
+    k.cmd_to_tmux_prefix("y", "A"),
     -- Open URLs 'joshmedeski/tmux-fzf-url'
     k.cmd_to_tmux_prefix("o", "u"),
     -- Find files with Telescope, with grep, including hidden, ignoring .git via tmux Y keybind

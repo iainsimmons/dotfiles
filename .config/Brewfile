@@ -9,7 +9,6 @@ brew "noti" # utility to display notifications from scripts
 brew "trash" # rm, but put in the trash rather than completely delete
 
 # Applications
-cask "alacritty" # a better terminal emulator
 # cask "imageoptim" # a tool to optimize images
 cask "1password/tap/1password-cli"
 cask "notunes" # Disable play media key opening Apple Music app
@@ -21,7 +20,6 @@ tap "noahgorstein/tap/jqp" # a TUI playground for exploring jq
 
 # packages
 brew "bat" # better cat
-brew "bruno" # REST API tool
 brew "cloc" # lines of code counter
 brew "colima" # docker cli alternative
 brew "curl" # cURL
@@ -41,11 +39,11 @@ brew "grep" # grep (latest)
 brew "highlight" # code syntax highlighting
 brew "htop" # a top alternative
 brew "httpie" # better cURL and REST API CLI
+brew "hurl" # REST/API client using .hurl files
 brew "imagemagick" # image processing
 brew "jless" # Command-line pager for JSON data
 brew "jq" # work with JSON files in shell scripts
 brew "lazygit" # a better git UI
-brew "lf" # file manager
 brew "lsd" # ls alternative
 brew "miller" # Like sed, awk, cut, join & sort for name-indexed data such as CSV
 brew "neovim" # A better vim
@@ -62,3 +60,4 @@ brew "wdiff" # word differences in text files
 brew "wget" # internet file retriever
 brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "zoxide" # switch between most used directories
+brew "yazi" # file manager
