@@ -33,15 +33,20 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
-set -Ux PAGER nvimpager # 'lucc/nvimpager'
-set -Ux MANPAGER nvimpager # 'lucc/nvimpager'
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
+set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
 
-set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
-set -gx FZF_DEFAULT_OPTS "--layout=default"
-set -gx FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+# set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
+# set -gx FZF_DEFAULT_OPTS --reverse
+# set -gx FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+# fzf.fish config
+set fzf_diff_highlighter diff-so-fancy
+set fzf_history_time_format %Y-%m-%d
+set -gx fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
+set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
 
 fish_add_path "$HOME/.rvm/bin"
 fish_add_path "$HOME/.pyenv/bin"
@@ -150,5 +155,4 @@ alias v nvim
 alias t '~/.config/tmux/plugins/t'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
-alias less nvimpager
 alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'

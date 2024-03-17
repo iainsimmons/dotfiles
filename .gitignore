@@ -1,1 +1,12 @@
-*
+/*
+!.config/
+.config/configstore
+.config/dxp
+.config/gatsby
+.config/git
+.config/htop
+.config/lazygit
+.config/alacritty
+.config/tinted-theming
+.config/nvim-kickstart
+.config/base16-shell
