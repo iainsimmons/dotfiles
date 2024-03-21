@@ -144,9 +144,11 @@ local config = {
     k.cmd_to_tmux_prefix("f", "y"),
     -- Open lazygit in a new tmux window
     k.cmd_to_tmux_prefix("g", "g"),
-    -- Jump to new/existing window via 't'
-    -- Based on https://github.com/joshmedeski/t-smart-tmux-session-manage
+    -- Jump to new/existing window via sesh
+    -- https://github.com/joshmedeski/sesh
     k.cmd_to_tmux_prefix("j", "t"),
+    -- switch to previous session
+    k.cmd_to_tmux_prefix("J", "L"),
     -- Open yazi in a new tmux window
     k.cmd_to_tmux_prefix("y", "A"),
     -- Open URLs 'joshmedeski/tmux-fzf-url'
