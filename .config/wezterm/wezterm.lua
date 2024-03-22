@@ -34,13 +34,13 @@ local config = {
   default_cwd = "~/dev/",
   -- Spawn a fish shell in login mode
   default_prog = { "/usr/local/bin/fish", "-l" },
-  enable_scroll_bar = true,
+  enable_scroll_bar = false,
   use_dead_keys = false,
   window_padding = {
-    left = 12,
-    right = 12,
-    top = 12,
-    bottom = 12,
+    left = "6px",
+    right = "2px",
+    top = "8px",
+    bottom = "2px",
   },
   background = {
     w.get_wallpaper(),

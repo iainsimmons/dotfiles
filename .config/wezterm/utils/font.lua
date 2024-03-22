@@ -2,8 +2,8 @@ local wt_font_with_fallback = require("wezterm").font_with_fallback
 local M = {}
 
 M.fonts = {
+  "CommitMono",
   "Geist Mono",
-  "Monaspace Neon",
   "JetBrainsMonoNL Nerd Font Mono",
 }
 
