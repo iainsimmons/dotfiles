@@ -33,8 +33,8 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
-set -Ux PAGER less -R
-set -Ux MANPAGER less -R
+set -Ux PAGER ov
+set -Ux MANPAGER ov
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
