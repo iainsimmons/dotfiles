@@ -2,37 +2,18 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "RRethy/base16-nvim" },
+    dependencies = { "RRethy/base16-nvim", { "abeldekat/harpoonline", version = "*" } },
     opts = function()
       local icons = require("lazyvim.config").icons
       local util = require("lazyvim.util")
-      -- Show harpoon marks in lualine:
-      -- https://twitter.com/dillon_mulroy/status/1658310366919643137?s=20
-      local harpoon = require("harpoon")
       local noice = require("noice")
 
-      local function harpoon_component()
-        local current_file = vim.api.nvim_buf_get_name(0):gsub(vim.fn.getcwd() .. "/", "")
-        local list = harpoon:list()
-        local total_marks = list:length()
-
-        if total_marks == 0 then
-          return ""
-        end
-
-        local current_mark = "-"
-        local mark_idx = nil
-        for idx, item in ipairs(list.items) do
-          if item.value == current_file then
-            mark_idx = idx
-          end
-        end
-        if mark_idx ~= nil then
-          current_mark = tostring(mark_idx)
-        end
-
-        return string.format("󱡅 %s/%d", current_mark, total_marks)
-      end
+      local Harpoonline = require("harpoonline")
+      Harpoonline.setup({
+        on_update = function()
+          require("lualine").refresh()
+        end,
+      })
 
       return {
         options = {
@@ -42,7 +23,7 @@ return {
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { { harpoon_component } },
+          lualine_b = { { Harpoonline.format, "filename" } },
           lualine_c = {
             {
               "diagnostics",
