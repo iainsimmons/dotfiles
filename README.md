@@ -4,6 +4,32 @@ Here's some configuration and stuff I use… for now.
 
 ## Updates
 
+### March 2024
+
+#### base16
+
+Switched to using base16 for theming
+
+- <https://github.com/tinted-theming/home>
+- <https://github.com/tinted-theming/base16-shell>
+- <https://github.com/tinted-theming/base16-vim>
+- <https://github.com/tinted-theming/base16-tmux>
+- <https://github.com/tinted-theming/tinted-fzf>
+
+See [gallery](https://tinted-theming.github.io/base16-gallery/).
+
+Current/favourite theme is `base16-vice`:
+
+![base16-vice](./.config/screenshots/base16-vice.png)
+
+Otherwise `base16-tokyo-night-dark` or `base16-tokyo-night-storm` for presenting to colleagues.
+
+#### sesh
+
+Switched to using Josh Medeski's [sesh](https://github.com/joshmedeski/sesh) for managing tmux sessions instead of my fork of his old [t - smart tmux session manager](https://github.com/joshmedeski/t-smart-tmux-session-manager).
+
+This means I'm using a tmux session and multiple windows per git repo instead of a new window in the one session and multiple panes per repo.
+
 ### January 2024
 
 Updated `run` script to use fzf to select a script to run. Based on [David Sancho's script](https://sancho.dev/blog/better-yarn-npm-run) and [Josh Medeski's d script](https://github.com/joshmedeski/dotfiles/blob/21ffda912711311c79c1175ede7df01b68a13260/.config/bin/d)
