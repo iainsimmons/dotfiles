@@ -74,7 +74,8 @@ fish_add_path "$HOME/.cargo/bin"
 set -gx NI_CONFIG_FILE "$HOME/.nirc"
 
 function tm
-    tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
+    sesh connect dotfiles
+    # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
 end
 
 function mcd # Makes new Dir and jumps inside
