@@ -4,6 +4,10 @@ Here's some configuration and stuff I use… for now.
 
 ## Updates
 
+### April 2024
+
+Started using [stow](https://www.gnu.org/software/stow/manual/stow.html) following [this guide](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/) and based on recommendations from people in [Josh Medeski's Discord](https://www.joshmedeski.com/).
+
 ### March 2024
 
 #### base16
