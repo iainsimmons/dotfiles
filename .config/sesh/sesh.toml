@@ -20,4 +20,4 @@ startup_script = "~/.config/sesh/scripts/dotfiles_startup"
 [[session]]
 name = "Downloads 📥"
 path = "~/Downloads"
-startup_command = "ls"
+startup_command = "yazi"
