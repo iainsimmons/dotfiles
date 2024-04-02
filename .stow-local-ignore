@@ -1,0 +1,7 @@
+\.git
+\.gitignore
+\.luarc.json
+^/stylua.toml
+^/README.*
+^/LICENSE.*
+^/COPYING

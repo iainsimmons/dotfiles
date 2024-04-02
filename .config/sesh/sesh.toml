@@ -1,23 +1,17 @@
-# default_startup_script = "~/.config/sesh/scripts/default"
-#
-# [[startup_scripts]]
-# session_path = "~/dev/Squiz"
-# script_path = ""
-
 [default_session]
 name = "dotfiles"
-path = "~/"
+path = "~/.dotfiles"
 
 [[session]]
-name = "Squiz 🏢"
+name = "Squiz"
 path = "~/dev/Squiz/"
 
 [[session]]
-name = "dotfiles ⚙️"
-path = "~/"
+name = "dotfiles"
+path = "~/.dotfiles"
 startup_script = "~/.config/sesh/scripts/dotfiles_startup"
 
 [[session]]
-name = "Downloads 📥"
+name = "Downloads"
 path = "~/Downloads"
 startup_command = "yazi"
