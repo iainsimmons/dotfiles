@@ -1,10 +1,11 @@
 customCommands:
-  - command: "git push -f"
+  - command: "git push --force-with-lease"
     context: "global"
-    description: "Force Push"
+    description: "Force Push (with lease)"
     key: "<c-f>"
     prompts:
-      - body: "Are you sure you want to force push this branch? {{.CheckedOutBranch.UpstreamRemote}} {{.CheckedOutBranch.UpstreamBranch}}"
+      - key: "confirm"
+        body: "Are you sure you want to force push this branch? {{.CheckedOutBranch.UpstreamRemote}} {{.CheckedOutBranch.UpstreamBranch}}"
         title: "Confirm:"
         type: "confirm"
 git:
@@ -12,9 +13,9 @@ git:
     colorArg: always
     pager: diff-so-fancy
 os:
-  editCommand: "nvim"
-  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
-  openCommand: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} -- {{filename}}"
+  open: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
   openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
 services:
   "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
