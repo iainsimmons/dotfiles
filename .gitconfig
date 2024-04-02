@@ -41,7 +41,7 @@
 	prebom = pull --rebase origin master
 	prebod = pull --rebase origin dev
 	prebodd = pull --rebase origin develop
-	fpush = push -f
+	fpush = push --force-with-lease
 	last = log -1 HEAD
 [help]
 	autocorrect = 30
