@@ -4,7 +4,6 @@ return {
     opts = {
       ensure_installed = {
         "astro-language-server",
-        "cbfmt",
         "emmet-ls",
         "eslint-lsp",
         "glint",

@@ -49,3 +49,12 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end
   end,
 })
+
+-- Use sync formatting for Flote notes
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { vim.env.FLOTE_NVIM_NOTES_DIR .. "/*.md" },
+  group = augroup("flote"),
+  callback = function()
+    require("conform").format({ async = false, lsp_fallback = true })
+  end,
+})

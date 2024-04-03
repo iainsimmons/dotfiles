@@ -169,4 +169,30 @@ return {
       require("log-highlight").setup({})
     end,
   },
+  {
+    "JellyApple102/flote.nvim",
+    cmd = "Flote",
+    opts = {
+      q_to_quit = true,
+      window_style = "",
+      window_border = "single",
+      window_title = true,
+      notes_dir = vim.env.FLOTE_NVIM_NOTES_DIR,
+      files = {
+        global = "flote-global.md",
+        cwd = function()
+          return vim.fn.getcwd()
+        end,
+        file_name = function(cwd)
+          local base_name = vim.fs.basename(cwd)
+          local parent_base_name = vim.fs.basename(vim.fs.dirname(cwd))
+          return parent_base_name .. "_" .. base_name .. ".md"
+        end,
+      },
+    },
+    keys = {
+      { "<leader>nn", "<cmd>Flote<CR>", silent = true, desc = "[N]ew Flote [N]ote" },
+      { "<leader>ng", "<cmd>Flote global<CR>", silent = true, desc = "[N]ew Flote [G]lobal Note" },
+    },
+  },
 }

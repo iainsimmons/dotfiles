@@ -39,6 +39,7 @@ set -Ux MANPAGER ov
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
+set -gx FLOTE_NVIM_NOTES_DIR "/Users/isimmons/Dropbox/Obsidian Vault/flote_nvim_notes"
 
 # set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
 # set -gx FZF_DEFAULT_OPTS --reverse
