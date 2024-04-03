@@ -3,13 +3,13 @@ name = "dotfiles"
 path = "~/.dotfiles"
 
 [[session]]
-name = "Squiz"
-path = "~/dev/Squiz/"
-
-[[session]]
 name = "dotfiles"
 path = "~/.dotfiles"
 startup_script = "~/.config/sesh/scripts/dotfiles_startup"
+
+[[session]]
+name = "Squiz"
+path = "~/dev/Squiz/"
 
 [[session]]
 name = "Downloads"
