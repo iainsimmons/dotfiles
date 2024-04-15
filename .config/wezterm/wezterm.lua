@@ -120,6 +120,16 @@ local config = {
         act.SendKey({ key = ";" }),
       }),
     },
+    -- switch to previous session
+    {
+      mods = "CMD|CTRL",
+      key = "j",
+      action = act.Multiple({
+        act.SendKey({ mods = "CTRL", key = "b" }),
+        act.SendKey({ mods = "SHIFT", key = "l" }),
+      }),
+    },
+
     -- Select window 1-9
     k.cmd_to_tmux_prefix("1", "1"),
     k.cmd_to_tmux_prefix("2", "2"),
@@ -148,7 +158,7 @@ local config = {
     -- https://github.com/joshmedeski/sesh
     k.cmd_to_tmux_prefix("j", "t"),
     -- switch to previous session
-    k.cmd_to_tmux_prefix("J", "L"),
+    -- k.cmd_to_tmux_prefix("J", "L"),
     -- Open yazi in a new tmux window
     k.cmd_to_tmux_prefix("y", "A"),
     -- Open URLs 'joshmedeski/tmux-fzf-url'
