@@ -75,7 +75,7 @@
       "KC_P7",
       "KC_P8",
       "KC_P9",
-      "KC_ESC",
+      "MT(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI,KC_ESC)",
       "KC_A",
       "KC_S",
       "KC_D",
