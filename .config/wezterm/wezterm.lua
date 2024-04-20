@@ -122,7 +122,7 @@ local config = {
     },
     -- switch to previous session
     {
-      mods = "CMD|CTRL",
+      mods = "CMD|SHIFT",
       key = "j",
       action = act.Multiple({
         act.SendKey({ mods = "CTRL", key = "b" }),
