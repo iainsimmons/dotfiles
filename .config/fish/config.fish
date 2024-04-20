@@ -41,15 +41,13 @@ set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
 set -gx FLOTE_NVIM_NOTES_DIR "/Users/isimmons/Dropbox/Obsidian Vault/flote_nvim_notes"
 
-# set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git"
-# set -gx FZF_DEFAULT_OPTS --reverse
-# set -gx FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-
 # fzf.fish config
 set fzf_diff_highlighter diff-so-fancy
 set fzf_history_time_format %Y-%m-%d
-set -gx fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
+set fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
+set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+set fzf_directory_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 
 fish_add_path "$HOME/.rvm/bin"
 fish_add_path "$HOME/.pyenv/bin"
