@@ -179,8 +179,8 @@ local config = {
     k.cmd_to_tmux_prefix("/", "b"),
     -- Open tmux command input
     k.cmd_to_tmux_prefix(";", ":"),
-    -- Rename the current tmux window
-    k.cmd_to_tmux_prefix(",", ","),
+    -- Rename the current tmux session
+    k.cmd_to_tmux_prefix(",", "$"),
     -- Type <escape>:w<enter> to save current buffer in Neovim/Vim
     k.cmd_to_tmux_prefix("'", "s"),
     -- Use arrow keys to jump to a pane in the relevant direction
