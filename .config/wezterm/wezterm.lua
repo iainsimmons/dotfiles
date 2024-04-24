@@ -129,6 +129,15 @@ local config = {
         act.SendKey({ mods = "SHIFT", key = "l" }),
       }),
     },
+    -- rename tmux window
+    {
+      mods = "CMD|ALT",
+      key = ",",
+      action = act.Multiple({
+        act.SendKey({ mods = "CTRL", key = "b" }),
+        act.SendKey({ key = "," }),
+      }),
+    },
 
     -- Select window 1-9
     k.cmd_to_tmux_prefix("1", "1"),
