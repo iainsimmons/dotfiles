@@ -39,6 +39,7 @@ set -Ux MANPAGER ov
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
+set -gx NVIM_APPNAME nvim-kickstart
 set -gx FLOTE_NVIM_NOTES_DIR "/Users/isimmons/Dropbox/Obsidian Vault/flote_nvim_notes"
 
 # fzf.fish config
@@ -158,3 +159,4 @@ alias t '~/.config/tmux/plugins/t'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
 alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'
+alias lv 'NVIM_APPNAME="nvim-lazyvim" nvim'

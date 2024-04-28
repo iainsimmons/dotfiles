@@ -132,6 +132,7 @@ return {
     },
     cmd = "IncRename",
     config = function()
+      ---@diagnostic disable-next-line: missing-parameter
       require("inc_rename").setup()
       require("noice").setup({
         presets = { inc_rename = true },
