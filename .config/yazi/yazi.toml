@@ -1,0 +1,8 @@
+# yazi.toml
+[manager]
+show_hidden = true
+
+[opener]
+edit = [
+	{ run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
+]
