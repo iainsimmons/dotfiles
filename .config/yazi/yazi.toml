@@ -6,3 +6,12 @@ show_hidden = true
 edit = [
 	{ run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
 ]
+json = [
+	{ run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
+]
+
+[open]
+rules = [
+	{ mime = "application/json", use = "json" },
+	{ name = "*.json", use = "json" },
+]
