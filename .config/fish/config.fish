@@ -33,8 +33,8 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
-set -Ux PAGER ov
-set -Ux MANPAGER ov
+set -Ux PAGER ov # https://github.com/noborus/ov
+set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header" # https://noborus.github.io/ov/man/index.html
 
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
