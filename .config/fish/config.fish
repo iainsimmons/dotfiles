@@ -22,7 +22,6 @@ if status --is-interactive
     end
 end
 
-starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 direnv hook fish | source # direnv
 
