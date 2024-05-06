@@ -9,9 +9,26 @@ edit = [
 json = [
 	{ run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
 ]
+csv = [
+	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\",\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+]
+psv = [
+	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\"|\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+]
+tsv = [
+	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\"/\t/\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+]
+zip = [
+	{ run = 'unzip "$@"', block = true, orphan = false },
+]
 
 [open]
 rules = [
 	{ mime = "application/json", use = "json" },
 	{ name = "*.json", use = "json" },
+	{ mime = "text/csv", use = "csv" },
+	{ name = "*.csv", use = "csv" },
+	{ name = "*.psv", use = "psv" },
+	{ name = "*.tsv", use = "tsv" },
+	{ name = "*.zip", use = "zip" },
 ]
