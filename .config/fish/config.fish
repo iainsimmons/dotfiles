@@ -152,6 +152,7 @@ abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --rev
 abbr obsidian_styles "nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css"
 
 alias c clear # c:            Clear terminal display
+alias cd z # use zoxide for cd (change directory)
 alias vim nvim
 alias vi nvim
 alias v nvim
