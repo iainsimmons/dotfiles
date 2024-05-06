@@ -10,6 +10,7 @@
 
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
+fish_add_path $HOME/.local/share/bob/nvim-bin
 
 eval (/usr/local/bin/brew shellenv)
 
