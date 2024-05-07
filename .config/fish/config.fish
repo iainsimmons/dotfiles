@@ -156,7 +156,6 @@ alias cd z # use zoxide for cd (change directory)
 alias vim nvim
 alias vi nvim
 alias v nvim
-alias t '~/.config/tmux/plugins/t'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
 alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'
