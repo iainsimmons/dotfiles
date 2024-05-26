@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on  = [ "O" ]
+run = 'shell --block --confirm "nvim $@ -c Oil"'
+desc = "Open Oil in Neovim"
