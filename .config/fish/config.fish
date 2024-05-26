@@ -48,7 +48,8 @@ set fzf_history_time_format %Y-%m-%d
 set fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
 set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
-set fzf_directory_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+set fzf_preview_dir_cmd lsd -aghl
 
 fish_add_path "$HOME/.rvm/bin"
 fish_add_path "$HOME/.pyenv/bin"
@@ -158,6 +159,6 @@ alias vim nvim
 alias vi nvim
 alias v nvim
 alias ls lsd # Use lsd instead of ls
-alias ll 'lsd -lah' # Preferred 'ls'/'lsd' implementation
+alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
 alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'
 alias lv 'NVIM_APPNAME="nvim-lazyvim" nvim'
