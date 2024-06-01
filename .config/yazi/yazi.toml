@@ -31,4 +31,5 @@ rules = [
 	{ name = "*.psv", use = "psv" },
 	{ name = "*.tsv", use = "tsv" },
 	{ name = "*.zip", use = "zip" },
+	{ name = "*.log", use = "edit" },
 ]
