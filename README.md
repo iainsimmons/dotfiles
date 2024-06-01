@@ -1,8 +1,27 @@
 # dotfiles
 
+![fastfetch output](./.config/screenshots/iainsimmons_fastfetch.png)
+
 Here's some configuration and stuff I use… for now.
 
 ## Updates
+
+### May 2024
+
+#### Custom Neovim Config based on kickstart.nvim
+
+My Neovim config is fully custom (i.e. no longer running the LazyVim distro) and based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+I've moved it over to its own repository at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
+
+#### yazi
+
+I'm also using [yazi](https://github.com/sxyazi/yazi) as my file explorer (also in Neovim via [mikavilpas/yazi.nvim](https://github.com/mikavilpas/yazi.nvim)).
+
+#### tide prompt
+
+I'm also giving the [tide](https://github.com/IlanCosman/tide) prompt a shot (previously used [Starship](https://starship.rs/), which could probably be configured the same). It has a nice CLI configuration flow, but otherwise loosely based on [powerlevel10k](https://github.com/romkatv/powerlevel10k/).
+
+It's been a little strange at times, so I might switch back to something simpler with Starship.
 
 ### April 2024
 
@@ -15,9 +34,9 @@ Started using [stow](https://www.gnu.org/software/stow/manual/stow.html) followi
 Switched to using base16 for theming
 
 - <https://github.com/tinted-theming/home>
-- <https://github.com/tinted-theming/base16-shell>
-- <https://github.com/tinted-theming/base16-vim>
-- <https://github.com/tinted-theming/base16-tmux>
+- <https://github.com/tinted-theming/tinted-shell>
+- <https://github.com/tinted-theming/tinted-vim>
+- <https://github.com/tinted-theming/tinted-tmux>
 - <https://github.com/tinted-theming/tinted-fzf>
 
 See [gallery](https://tinted-theming.github.io/base16-gallery/).

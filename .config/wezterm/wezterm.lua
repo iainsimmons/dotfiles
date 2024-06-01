@@ -31,7 +31,6 @@ local config = {
     },
   },
   font_size = 20,
-  default_cwd = "~/dev/",
   -- Spawn a fish shell in login mode
   default_prog = { "/usr/local/bin/fish", "-l" },
   enable_scroll_bar = false,
