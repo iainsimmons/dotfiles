@@ -150,6 +150,8 @@ local config = {
     k.cmd_to_tmux_prefix("9", "9"),
     -- Close current buffer in Neovim via tmux a keybind
     k.cmd_to_tmux_prefix("b", "a"),
+    -- Close current buffer in Neovim (without saving) via tmux B keybind
+    k.cmd_to_tmux_prefix("B", "B"),
     -- Change to tmux copy mode
     k.cmd_to_tmux_prefix("c", "["),
     -- Detach session
