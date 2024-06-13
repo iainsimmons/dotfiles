@@ -15,3 +15,8 @@ path = "~/dev/Squiz/"
 name = "Downloads"
 path = "~/Downloads"
 startup_command = "yazi"
+
+[[session]]
+name = "Trash"
+path = "~/.Trash"
+startup_command = "yazi"
