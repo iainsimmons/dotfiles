@@ -26,6 +26,8 @@ zip = [
 rules = [
 	{ mime = "application/json", use = "json" },
 	{ name = "*.json", use = "json" },
+	{ mime = "text/html", use = "edit" },
+	{ name = "*.html", use = "edit" },
 	{ mime = "text/csv", use = "csv" },
 	{ name = "*.csv", use = "csv" },
 	{ name = "*.psv", use = "psv" },
