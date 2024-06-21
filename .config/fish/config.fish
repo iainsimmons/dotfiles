@@ -143,8 +143,10 @@ abbr pn pnpm
 abbr fishrc 'nvim ~/.config/fish/config.fish'
 abbr fsource 'source ~/.config/fish/config.fish'
 abbr z zoxide
+abbr za zoxide add
 abbr zz zi
 abbr find fd
+abbr y yazi
 # Hide/show all desktop icons (useful when presenting)
 abbr hidedesktop "defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
