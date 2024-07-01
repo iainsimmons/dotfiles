@@ -7,6 +7,9 @@ linemode = "mtime"
 edit = [
 	{ run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
 ]
+opendoc = [
+	{ run = 'open "$@"', desc = "Open Document", block = false, orphan = true },
+]
 json = [
 	{ run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
 ]
@@ -35,4 +38,11 @@ rules = [
 	{ name = "*.tsv", use = "tsv" },
 	{ name = "*.zip", use = "zip" },
 	{ name = "*.log", use = "edit" },
+	{ mime = "application/msword", use = "opendoc" },
+	{ mime = "application/vnd.*", use = "opendoc" },
+	{ name = "*.doc*", use = "opendoc" },
+	{ name = "*.xls*", use = "opendoc" },
+	{ name = "*.ppt*", use = "opendoc" },
+	{ mime = "application/pdf", use = "opendoc" },
+	{ name = "*.pdf", use = "opendoc" },
 ]
