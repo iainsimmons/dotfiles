@@ -36,3 +36,8 @@ prepend_rules = [
 	{ name = "*.tsv", use = "tsv" },
 	{ name = "*.zip", use = "zip" },
 ]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" }, # ./plugins/glow.yazi/
+]
