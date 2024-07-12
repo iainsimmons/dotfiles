@@ -27,22 +27,12 @@ zip = [
 ]
 
 [open]
-rules = [
+prepend_rules = [
 	{ mime = "application/json", use = "json" },
 	{ name = "*.json", use = "json" },
-	{ mime = "text/html", use = "edit" },
-	{ name = "*.html", use = "edit" },
 	{ mime = "text/csv", use = "csv" },
 	{ name = "*.csv", use = "csv" },
 	{ name = "*.psv", use = "psv" },
 	{ name = "*.tsv", use = "tsv" },
 	{ name = "*.zip", use = "zip" },
-	{ name = "*.log", use = "edit" },
-	{ mime = "application/msword", use = "opendoc" },
-	{ mime = "application/vnd.*", use = "opendoc" },
-	{ name = "*.doc*", use = "opendoc" },
-	{ name = "*.xls*", use = "opendoc" },
-	{ name = "*.ppt*", use = "opendoc" },
-	{ mime = "application/pdf", use = "opendoc" },
-	{ name = "*.pdf", use = "opendoc" },
 ]
