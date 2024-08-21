@@ -43,6 +43,8 @@
 	prebodd = pull --rebase origin develop
 	fpush = push --force-with-lease
 	last = log -1 HEAD
+	diffw = diff --word-diff
+	wdiff = diff --word-diff
 [help]
 	autocorrect = 30
 [credential]
