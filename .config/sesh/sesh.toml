@@ -8,6 +8,11 @@ path = "~/.dotfiles"
 startup_script = "~/.config/sesh/scripts/dotfiles_startup"
 
 [[session]]
+name = "nvim-config"
+path = "~/.config/nvim-kickstart"
+startup_command = "nvim"
+
+[[session]]
 name = "Squiz"
 path = "~/dev/Squiz/"
 
