@@ -32,7 +32,7 @@ local config = {
   },
   font_size = 20,
   -- Spawn a fish shell in login mode
-  default_prog = { "/usr/local/bin/fish", "-l" },
+  default_prog = { "/opt/homebrew/bin/fish", "-l" },
   enable_scroll_bar = false,
   use_dead_keys = false,
   window_padding = {
