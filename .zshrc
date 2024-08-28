@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export ANDROID_HOME=~/Library/Android/sdk
@@ -16,17 +17,17 @@ plugins=(git node macos python docker extract fzf fzf-tab fast-syntax-highlighti
 # source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='nvim'
+#fi
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ls='exa'                              # Use exa instead of ls
-alias ll='exa -lah --icons --git'           # Preferred 'ls'/'exa' implementation
+alias ls='lsd'                              # Use lsd instead of ls
+alias ll='lsd -aghl'                        # Preferred 'ls'/'lsd' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
@@ -87,7 +88,7 @@ export PATH="$PATH:/usr/local/go/bin"
 export NI_CONFIG_FILE="$HOME/.nirc"
 
 # starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
