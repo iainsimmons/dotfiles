@@ -8,11 +8,12 @@
 # A smart and user-friendly command line
 # https://fishshell.com/
 
+fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/share/bob/nvim-bin
 
-eval (/usr/local/bin/brew shellenv)
+eval (/opt/homebrew/bin/brew shellenv)
 
 # Base16 Shell
 if status --is-interactive
@@ -27,6 +28,8 @@ direnv hook fish | source # direnv
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
+function fish_mode_prompt
+end
 # set -U LANG en_US.UTF-8
 # set -U LC_ALL en_US.UTF-8
 
@@ -39,8 +42,6 @@ set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header" # https://no
 # env vars
 set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
-set -gx NVIM_APPNAME nvim-kickstart
-set -gx FLOTE_NVIM_NOTES_DIR "/Users/isimmons/Dropbox/Obsidian Vault/flote_nvim_notes"
 
 # fzf.fish config
 set fzf_diff_highlighter diff-so-fancy
@@ -51,11 +52,11 @@ set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-pag
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
 
-fish_add_path "$HOME/.rvm/bin"
-fish_add_path "$HOME/.pyenv/bin"
-# eval (pyenv init --path)
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
+#fish_add_path "$HOME/.rvm/bin"
+#fish_add_path "$HOME/.pyenv/bin"
+## eval (pyenv init --path)
+#status --is-interactive; and pyenv init - | source
+#status --is-interactive; and pyenv virtualenv-init - | source
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
