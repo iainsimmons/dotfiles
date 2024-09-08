@@ -150,6 +150,8 @@ brew "mkcert"
 brew "noti"
 # Libraries for security-enabled client and server applications
 brew "nss"
+# Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget
+brew "otree"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Perl compatible regular expressions library

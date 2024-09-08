@@ -1,0 +1,84 @@
+[editor]
+program = "nvim"
+args = ["{file}"]
+dir = "/tmp"
+
+[layout]
+direction = "horizontal"
+tree_size = 40
+
+[header]
+disable = false
+format = "{version} - {data_source} ({content_type}) - {data_size}"
+
+[footer]
+disable = false
+
+[data]
+disable_highlight = false
+
+[keys]
+move_up = ["k", "<up>"]
+move_down = ["j", "<down>"]
+move_left = ["H", "<left>"]
+move_right = ["L", "<right>"]
+select_focus = [" ", "<enter>", "l"]
+select_parent = ["p"]
+select_first = ["g"]
+select_last = ["G"]
+close_parent = ["<backspace>", "h"]
+change_root = ["r"]
+reset = ["<esc>"]
+page_up = ["<page-up>", "<ctrl-y>", "<ctrl-u>"]
+page_down = ["<page-down>", "<ctrl-e>", "<ctrl-d>"]
+change_layout = ["v"]
+tree_scale_up = ["["]
+tree_scale_down = ["]"]
+switch = ["<tab>"]
+edit = ["e"]
+copy_name = ["y"]
+copy_value = ["Y"]
+quit = ["<ctrl-c>", "q"]
+
+[colors]
+header = {bold = true}
+focus_border = {fg = "magenta", bold = true}
+
+[colors.tree]
+border = {fg = "blue"}
+selected = {fg = "black", bg = "light-green"}
+name = {}
+type_str = {fg = "cyan", bold = true, italic = true}
+type_null = {fg = "cyan", bold = true, italic = true}
+type_bool = {fg = "cyan", bold = true, italic = true}
+type_num = {fg = "cyan", bold = true, italic = true}
+type_arr = {fg = "cyan", bold = true, italic = true}
+type_obj = {fg = "cyan", bold = true, italic = true}
+value =  {fg = "dark-gray"}
+
+[colors.data]
+text = {}
+border = {fg = "blue"}
+symbol = {}
+name = {fg = "yellow", italic = true}
+str = {fg = "green"}
+num = {fg = "red"}
+null = {fg = "blue", italic = true}
+bool = {fg = "red", bold = true, italic = true}
+section = {fg = "cyan", bold = true}
+
+[colors.footer]
+root = {fg = "black", bg = "light-cyan", bold = true}
+identify = {fg = "black", bg = "light-green", bold = true}
+message = {fg = "green", bold = true}
+
+[colors.popup]
+error_text = {fg = "red"}
+
+[types]
+str = "str"
+null = "null"
+bool = "bool"
+num = "num"
+arr = "arr"
+obj = "obj"
