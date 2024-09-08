@@ -116,7 +116,7 @@ function clone -d "Clone and open tmux window for given repo" -a repo_arg -a par
         set dir_name (string trim "$repo_name")
     end
 
-    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && t "$parent_dir/$dir_name"
+    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && sesh connect "$parent_dir/$dir_name"
 end
 
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
