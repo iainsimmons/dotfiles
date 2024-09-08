@@ -176,6 +176,8 @@ brew "ripgrep"
 brew "rnr"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Nodejs-based tool for optimizing SVG vector graphics files
+brew "svgo"
 # Tool Command Language
 brew "tcl-tk"
 # Very fast implementation of tldr in Rust
