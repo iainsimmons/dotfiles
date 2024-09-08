@@ -1,7 +1,6 @@
 tap "1password/tap"
 tap "arl/arl"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "joshmedeski/sesh"
@@ -74,10 +73,6 @@ brew "openjpeg"
 brew "libass"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
-# GNU compiler collection
-brew "gcc"
-# Open Visual Inference And Optimization toolkit for AI inference
-brew "openvino"
 # Create thumbnails for your video files
 brew "ffmpegthumbnailer"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -90,6 +85,8 @@ brew "freetds"
 brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
+brew "gcc"
 # Graphics library to dynamically manipulate images
 brew "gd"
 # GitHub command-line tool
@@ -146,10 +143,14 @@ brew "lsd"
 brew "miller"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Trigger notifications when a process completes
 brew "noti"
 # Libraries for security-enabled client and server applications
 brew "nss"
+# Open Visual Inference And Optimization toolkit for AI inference
+brew "openvino"
 # Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget
 brew "otree"
 # Swiss-army knife of markup format conversion
