@@ -3,7 +3,7 @@
 .config/gatsby
 .config/git
 .config/htop
-.config/lazygit
+.config/lazygit/config.yml
 .config/alacritty
 .config/tinted-theming
 .config/nvim-kickstart
@@ -11,3 +11,4 @@
 .config/karabiner/automatic_backups
 .config/fish/fish_variables
 .config/yazi/plugins
+.config/tmux/plugins
