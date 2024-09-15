@@ -155,6 +155,7 @@ abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && ki
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 abbr obsidian_styles "nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css"
 abbr theme 'tinty apply $(tinty list | fzf-tmux)'
+abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)

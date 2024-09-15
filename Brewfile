@@ -224,5 +224,7 @@ cask "1password-cli"
 cask "font-symbols-only-nerd-font"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# Modified browser that helps in responsive web development
+cask "responsively"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
