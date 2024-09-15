@@ -128,6 +128,15 @@ local config = {
         act.SendKey({ mods = "SHIFT", key = "l" }),
       }),
     },
+    -- switch to previous sesh session (works after closing)
+    {
+      mods = "CMD",
+      key = "l",
+      action = act.Multiple({
+        act.SendKey({ mods = "CTRL", key = "b" }),
+        act.SendKey({ mods = "CTRL", key = "l" }),
+      }),
+    },
     -- rename tmux window
     {
       mods = "CMD|ALT",
