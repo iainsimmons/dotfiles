@@ -3,11 +3,6 @@ name = "dotfiles"
 path = "~/.dotfiles"
 
 [[session]]
-name = "dotfiles"
-path = "~/.dotfiles"
-startup_script = "~/.config/sesh/scripts/dotfiles_startup"
-
-[[session]]
 name = "nvim-config"
 path = "~/.config/nvim"
 startup_command = "nvim"
@@ -25,3 +20,8 @@ startup_command = "yazi"
 name = "Trash"
 path = "~/.Trash"
 startup_command = "yazi"
+
+[[session]]
+name = "une-ccts-2017"
+path = "~/dev/Squiz/une-ccts-2017/"
+startup_command = "fnm use default && tmux neww && tmux last-window && nvim"
