@@ -9,6 +9,7 @@ export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 # export ZSH="/Users/isimmons/.oh-my-zsh"
 export XDG_CONFIG_HOME="/Users/isimmons/.config"
+export XDG_DATA_HOME="/Users/isimmons/.local/share"
 
 ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
