@@ -7,6 +7,8 @@
 # ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝
 # A smart and user-friendly command line
 # https://fishshell.com/
+# env vars
+set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
@@ -15,13 +17,14 @@ fish_add_path $HOME/.local/share/bob/nvim-bin
 
 eval (/opt/homebrew/bin/brew shellenv)
 
-# Base16 Shell
+# Tinted Theming/Base16
 if status --is-interactive
-    set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
+    set BASE16_SHELL_PATH "$HOME/.config/tinted-theming/tinted-shell"
     if test -s "$BASE16_SHELL_PATH"
         source "$BASE16_SHELL_PATH/profile_helper.fish"
     end
 end
+
 
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 direnv hook fish | source # direnv
@@ -33,17 +36,13 @@ end
 # set -U LANG en_US.UTF-8
 # set -U LC_ALL en_US.UTF-8
 
-# set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
 set -Ux PAGER ov # https://github.com/noborus/ov
 set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header" # https://noborus.github.io/ov/man/index.html
 
-# env vars
-set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
-set -gx BASE16_FZF_PATH "$XDG_CONFIG_HOME/tinted-theming/base16-fzf"
-
 # fzf.fish config
+set --export FZF_DEFAULT_OPTS --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --color=bg:0,fg:7,hl:3 --color=bg+:8,fg+:15,hl+:11 --color=info:5,border:5,prompt:2 --color=pointer:0,marker:9,spinner:9,header:1
 set fzf_diff_highlighter diff-so-fancy
 set fzf_history_time_format %Y-%m-%d
 set fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
@@ -53,10 +52,6 @@ set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:prev
 set fzf_preview_dir_cmd lsd -aghl
 
 #fish_add_path "$HOME/.rvm/bin"
-#fish_add_path "$HOME/.pyenv/bin"
-## eval (pyenv init --path)
-#status --is-interactive; and pyenv init - | source
-#status --is-interactive; and pyenv virtualenv-init - | source
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
@@ -72,8 +67,12 @@ fish_add_path /usr/local/go/bin
 # rust
 fish_add_path "$HOME/.cargo/bin"
 
-# ni custom configuration file path
-set -gx NI_CONFIG_FILE "$HOME/.nirc"
+# python
+fish_add_path "$HOME/.pyenv/shims"
+set -gx PYTHON python
+# eval (pyenv init --path)
+# status --is-interactive; and pyenv init - | source
+# status --is-interactive; and pyenv virtualenv-init - | source
 
 function tm
     sesh connect dotfiles

@@ -1,6 +1,6 @@
 # Global settings
 shell = "fish -c '{}'"
-default-scheme = "base16-default-dark"
+default-scheme = "base16-vice"
 
 # Item configurations
 [[items]]
