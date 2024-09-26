@@ -18,13 +18,8 @@ fish_add_path $HOME/.local/share/bob/nvim-bin
 eval (/opt/homebrew/bin/brew shellenv)
 
 # Tinted Theming/Base16
-if status --is-interactive
-    set BASE16_SHELL_PATH "$HOME/.config/tinted-theming/tinted-shell"
-    if test -s "$BASE16_SHELL_PATH"
-        source "$BASE16_SHELL_PATH/profile_helper.fish"
-    end
-end
-
+set BASE16_THEME_DEFAULT base16-vice
+tinty init
 
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 direnv hook fish | source # direnv
