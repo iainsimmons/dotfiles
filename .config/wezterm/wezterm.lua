@@ -1,8 +1,7 @@
-local k = require("utils/keys")
 local f = require("utils/font")
 local w = require("utils/wallpaper")
+local keymaps = require("keymaps")
 local wezterm = require("wezterm")
-local act = wezterm.action
 local mux = wezterm.mux
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
@@ -19,7 +18,19 @@ end)
 
 local config = {
   -- debug_key_events = true,
+  -- Appearance
   color_scheme = "Vice Dark (base16)",
+  background = {
+    w.get_wallpaper(),
+    {
+      source = {
+        Color = "#000",
+      },
+      width = "100%",
+      height = "100%",
+      opacity = 0.2,
+    },
+  },
   font = f.get_font(),
   font_rules = {
     {
@@ -34,10 +45,13 @@ local config = {
     },
   },
   font_size = 20,
-  -- Spawn a fish shell in login mode
-  default_prog = { "/opt/homebrew/bin/fish", "-l" },
+  adjust_window_size_when_changing_font_size = false,
+  command_palette_font_size = 20.0,
   enable_scroll_bar = false,
+  enable_tab_bar = true,
+  native_macos_fullscreen_mode = false,
   use_dead_keys = false,
+  window_decorations = "RESIZE",
   window_padding = {
     left = "6px",
     right = "2px",
@@ -231,16 +245,21 @@ local config = {
     },
   },
 
+  -- keymaps
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
-  adjust_window_size_when_changing_font_size = false,
-  enable_tab_bar = true,
-  native_macos_fullscreen_mode = false,
-  window_decorations = "RESIZE",
-  scrollback_lines = 5000,
+  -- Use tmux prefix as leader
+  leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 },
+  keys = keymaps,
+}
+
+config.set_environment_variables = {
+  -- prepend the path to your utility and include the rest of the PATH
+  PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
 }
 
 tabline.setup({
+  extensions = { "smart_workspace_switcher" },
   options = {
     icons_enabled = true,
     theme = "Vice Dark (base16)",
@@ -288,11 +307,11 @@ tabline.setup({
     tabline_y = {},
     tabline_z = { "mode" },
   },
-  extensions = { "smart_workspace_switcher" },
 })
 
-workspace_switcher.apply_to_config(config)
 tabline.apply_to_config(config)
+workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
+workspace_switcher.apply_to_config(config)
 
 wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", function(window, workspace)
   local gui_win = window:gui_window()
