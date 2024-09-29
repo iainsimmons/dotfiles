@@ -1,7 +1,6 @@
+local wezterm = require("wezterm")
 local f = require("utils/font")
 local w = require("utils/wallpaper")
-local keymaps = require("keymaps")
-local wezterm = require("wezterm")
 local mux = wezterm.mux
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
@@ -245,19 +244,65 @@ local config = {
     },
   },
 
-  -- keymaps
-  send_composed_key_when_left_alt_is_pressed = false,
-  send_composed_key_when_right_alt_is_pressed = false,
-  -- Use tmux prefix as leader
-  leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 },
-  keys = keymaps,
+-- config.debug_key_events = true
+-- Appearance
+config.color_scheme = "Vice Dark (base16)"
+config.background = {
+  w.get_wallpaper(),
+  {
+    source = {
+      Color = "#000",
+    },
+    width = "100%",
+    height = "100%",
+    opacity = 0.2,
+  },
 }
+config.font = f.get_font()
+config.font_rules = {
+  {
+    intensity = "Bold",
+    italic = true,
+    font = f.get_font("Bold"),
+  },
+  {
+    intensity = "Normal",
+    italic = true,
+    font = f.get_font(),
+  },
+}
+config.font_size = 20
+config.adjust_window_size_when_changing_font_size = false
+config.command_palette_font_size = 20.0
+config.enable_scroll_bar = false
+config.enable_tab_bar = true
+config.native_macos_fullscreen_mode = false
+config.use_dead_keys = false
+config.window_decorations = "RESIZE"
+config.window_padding = {
+  left = "6px",
+  right = "2px",
+  top = "8px",
+  bottom = "2px",
+}
+config.scrollback_lines = 5000
+-- Spawn a fish shell in login mode
+config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
+config.default_workspace = "dotfiles"
+
+-- keymaps
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+-- Use tmux prefix as leader
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = require("keymaps")
 
 config.set_environment_variables = {
   -- prepend the path to your utility and include the rest of the PATH
   PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
 }
 
+-- Tabline
 tabline.setup({
   extensions = { "smart_workspace_switcher" },
   options = {
@@ -308,27 +353,20 @@ tabline.setup({
     tabline_z = { "mode" },
   },
 })
-
 tabline.apply_to_config(config)
+
+-- Workspace Switcher
 workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
 workspace_switcher.apply_to_config(config)
 
-wezterm.on("smart_workspace_switcher.workspace_switcher.chosen", function(window, workspace)
-  local gui_win = window:gui_window()
-  local base_path = string.gsub(workspace, "(.*[/\\])(.*)", "%2")
-  gui_win:set_right_status(wezterm.format({
-    { Foreground = { Color = "green" } },
-    { Text = base_path .. "  " },
-  }))
-end)
-
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, workspace)
-  local gui_win = window:gui_window()
-  local base_path = string.gsub(workspace, "(.*[/\\])(.*)", "%2")
-  gui_win:set_right_status(wezterm.format({
-    { Foreground = { Color = "green" } },
-    { Text = base_path .. "  " },
-  }))
-end)
+-- Hyperlinks
+-- make username/project paths clickable. this implies paths like the following are for github.
+-- ( "nvim-treesitter/nvim-treesitter" | wbthomason/packer.nvim | wez/wezterm | "wez/wezterm.git" )
+-- as long as a full url hyperlink regex exists above this it should not match a full url to
+-- github or gitlab / bitbucket (i.e. https://gitlab.com/user/project.git is still a whole clickable url)
+table.insert(config.hyperlink_rules, {
+  regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+  format = "https://www.github.com/$1/$3",
+})
 
 return config
