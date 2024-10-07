@@ -13,7 +13,6 @@ set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
-fish_add_path $HOME/.local/share/bob/nvim-bin
 
 eval (/opt/homebrew/bin/brew shellenv)
 
