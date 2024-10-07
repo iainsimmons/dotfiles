@@ -19,17 +19,12 @@ eval (/opt/homebrew/bin/brew shellenv)
 
 # Tinted Theming/Base16
 set BASE16_THEME_DEFAULT base16-vice
-tinty init
 
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 direnv hook fish | source # direnv
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
-function fish_mode_prompt
-end
-# set -U LANG en_US.UTF-8
-# set -U LC_ALL en_US.UTF-8
 
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
@@ -148,7 +143,6 @@ abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && ki
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 abbr obsidian_styles "nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css"
-abbr theme 'tinty apply $(tinty list | fzf-tmux)'
 abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 
 alias c clear # c:            Clear terminal display
