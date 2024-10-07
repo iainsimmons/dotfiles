@@ -54,14 +54,12 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nvim
 [diff]
-  tool = difftastic
-  external = difft
+	tool = delta
 [difftool]
-  prompt = false
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
+	prompt = false
 [pager]
-  difftool = true
+	difftool = true
+	diff = diffnav
 [pull]
 	rebase = true
 [init]
@@ -82,9 +80,9 @@
 	commit = yellow bold
 	old = red bold
 	new = green bold
-  whitespace = red reverse
+	whitespace = red reverse
 [merge]
-  tool = vimdiff3
+	tool = vimdiff3
 [mergetool "vimdiff3"]
 	path = nvim
 [rebase]
@@ -93,7 +91,7 @@
 	name = Iain Simmons
 	email = emptiful@gmail.com
 [includeIf "gitdir:~/dev/Squiz/**"]
-  path = ~/dev/Squiz/.gitconfig
+	path = ~/dev/Squiz/.gitconfig
 [rerere]
 	enabled = true
 	autoUpdate = true
