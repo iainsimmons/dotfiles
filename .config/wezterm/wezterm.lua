@@ -54,6 +54,11 @@ local config = {
   },
   disable_default_key_bindings = true,
   keys = {
+    {
+      key = "L",
+      mods = "CTRL|SHIFT",
+      action = act.ShowDebugOverlay,
+    },
     k.cmd_key(
       "s",
       act.Multiple({
