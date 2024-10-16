@@ -22,6 +22,9 @@ psv = [
 tsv = [
 	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\"/\t/\" -c --column-rainbow \"$@\""', block = false, orphan = true },
 ]
+log = [
+	{ run = 'tmux new-window -n "ov" "ov --multi-color \"\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?\" \"$@\""', block = false, orphan = true },
+]
 zip = [
 	{ run = 'unzip "$@"', block = true, orphan = false },
 ]
@@ -35,6 +38,7 @@ prepend_rules = [
 	{ name = "*.psv", use = "psv" },
 	{ name = "*.tsv", use = "tsv" },
 	{ name = "*.zip", use = "zip" },
+	{ name = "*.log", use = "log" },
 ]
 
 [plugin]
