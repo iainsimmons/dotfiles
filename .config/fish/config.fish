@@ -40,6 +40,14 @@ set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-pag
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
 
+# atuin config
+# set -gx ATUIN_NOBIND "true"
+atuin init fish | source
+
+# bind to ctrl-r in normal and insert mode, add any other bindings you want here too
+bind \cr _atuin_search
+bind -M insert \cr _atuin_search
+
 #fish_add_path "$HOME/.rvm/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
