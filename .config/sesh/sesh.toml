@@ -25,3 +25,8 @@ startup_command = "yazi"
 name = "une-ccts-2017"
 path = "~/dev/Squiz/une-ccts-2017/"
 startup_command = "fnm use default && tmux neww && tmux last-window && nvim"
+
+[[session]]
+name = "une-cauc-generator"
+path = "~/dev/Squiz/une-cauc-generator/"
+startup_command = "fnm use default && tmux neww && tmux last-window && nvim"
