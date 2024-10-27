@@ -59,7 +59,7 @@
 	prompt = false
 [pager]
 	difftool = true
-	diff = diffnav
+	; diff = diffnav
 [pull]
 	rebase = true
 [init]
