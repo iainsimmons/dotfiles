@@ -2,9 +2,9 @@ local wt_font_with_fallback = require("wezterm").font_with_fallback
 local M = {}
 
 M.fonts = {
+  "Iosevka Term",
   "CommitMono",
-  "Geist Mono",
-  "JetBrainsMonoNL Nerd Font Mono",
+  "JetBrains Mono", -- default font for WezTerm
 }
 
 M.get_font = function(weight)

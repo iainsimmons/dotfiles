@@ -30,7 +30,7 @@ local config = {
       font = f.get_font(),
     },
   },
-  font_size = 20,
+  font_size = 22,
   -- Spawn a fish shell in login mode
   default_prog = { "/opt/homebrew/bin/fish", "-l" },
   enable_scroll_bar = false,
