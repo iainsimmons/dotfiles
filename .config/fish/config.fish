@@ -19,8 +19,12 @@ eval (/opt/homebrew/bin/brew shellenv)
 # Tinted Theming/Base16
 set BASE16_THEME_DEFAULT base16-vice
 
-zoxide init fish | source # 'ajeetdsouza/zoxide'
-direnv hook fish | source # direnv
+# zoxide config, only run in interactive shells
+# 'ajeetdsouza/zoxide'
+status is-interactive; and zoxide init fish | source
+
+# direnv config, only run in interactive shells
+status is-interactive; and direnv hook fish | source
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
@@ -42,11 +46,13 @@ set fzf_preview_dir_cmd lsd -aghl
 
 # atuin config
 # set -gx ATUIN_NOBIND "true"
-atuin init fish | source
-
-# bind to ctrl-r in normal and insert mode, add any other bindings you want here too
-bind \cr _atuin_search
-bind -M insert \cr _atuin_search
+# only in interactive shell sessions
+if status is-interactive
+    atuin init fish | source
+    # bind to ctrl-r in normal and insert mode, add any other bindings you want here too
+    bind \cr _atuin_search
+    bind -M insert \cr _atuin_search
+end
 
 #fish_add_path "$HOME/.rvm/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
