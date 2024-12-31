@@ -42,12 +42,12 @@ window-height = 9999
 #    - U+2600 to U+26FF (Miscellaneous Symbols)
 #    - U+2700 to U+27BF (Dingbats)
 
+font-codepoint-map = "U+1F600-U+1F64F,U+1F300-U+1F5FF,U+1F680-U+1F6FF,U+1F700-U+1F77F,U+1F780-U+1F7FF,U+1F900-U+1F9FF,U+1FA00-U+1FA6F,U+2600-U+26FF,U+2700-U+27BF=Noto Color Emoji"
+font-family = "Iosevka Term"
+font-family = "Noto Color Emoji"
 font-feature = -liga
 font-feature = -dlig
 font-size = 22
-font-family = "Iosevka Term"
-font-family = "Noto Color Emoji"
-font-codepoint-map = 
 
 ###########
 ## theme ##
