@@ -19,9 +19,8 @@ macos-window-shadow = false
 mouse-hide-while-typing = true
 window-theme = auto
 window-decoration = false
-window-padding-balance = true
-window-padding-x = 2
-window-padding-y = 4
+window-padding-x = 8
+window-padding-y = 12
 window-save-state = always
 # maximise by default
 window-width = 9999
@@ -114,6 +113,8 @@ keybind = cmd+backspace=text:\x15
 
 # reload configuration
 keybind = cmd+shift+r=reload_config
+
+keybind = global:cmd+alt+grave_accent=toggle_quick_terminal
 
 # save in vim/Neovim
 keybind = super+s=text:\x1b\x1b:w\x0a
