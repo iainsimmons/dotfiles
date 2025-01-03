@@ -165,5 +165,3 @@ alias vi nvim
 alias v nvim
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
-alias nks 'NVIM_APPNAME="nvim-kickstart" nvim'
-alias lv 'NVIM_APPNAME="nvim-lazyvim" nvim'
