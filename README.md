@@ -6,6 +6,14 @@ Here's some configuration and stuff I use… for now.
 
 ## Updates
 
+### January 2025
+
+I tried out Ghostty, I gave it a shot without tmux but there's just too many things I missed. Then I ported over all the keybinds from my WezTerm config and with all of that, and various other settings, it still didn't look as good as my WezTerm setup… Colours look slightly muted/not as bright, and I miss the background images and other advanced visual features that WezTerm provides. Plus I much prefer the Lua-based config of WezTerm to the arbitrary config format of Ghostty.
+
+I was going to try and keep Ghostty as my daily driver for a bit until stevedylandev on Josh Medeski's Discord pointed me to the [max_fps](https://wezfurlong.org/wezterm/config/lua/config/max_fps.html) option in WezTerm and after cranking that to 120 from the default 60 FPS, WezTerm now feels even faster.
+
+So, long story short, I'm sticking with WezTerm for now. I've also turned on transparent backgrounds in Neovim, I'll see how long that lasts and whether it drives me (or my colleagues) crazy or not.
+
 ### May 2024
 
 #### Custom Neovim Config based on kickstart.nvim
