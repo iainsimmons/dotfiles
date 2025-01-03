@@ -49,7 +49,7 @@ local config = {
       },
       width = "100%",
       height = "100%",
-      opacity = 0.2,
+      opacity = 0.4,
     },
   },
   disable_default_key_bindings = true,
@@ -216,7 +216,6 @@ local config = {
     -- Delete word/line
     k.cmd_key("Backspace", act.SendKey({ key = "\x15" })),
   },
-
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
   adjust_window_size_when_changing_font_size = false,
@@ -224,6 +223,9 @@ local config = {
   native_macos_fullscreen_mode = false,
   window_decorations = "RESIZE",
   scrollback_lines = 5000,
+  max_fps = 120,
+  front_end = "WebGpu",
+  webgpu_power_preference = "HighPerformance",
 }
 
 return config
