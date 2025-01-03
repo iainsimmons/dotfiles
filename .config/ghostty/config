@@ -54,6 +54,7 @@ font-size = 22
 ## theme ##
 ###########
 config-file = theme
+custom-shader = shaders/bloom025.glsl
 
 ###############
 ## clipboard ##
