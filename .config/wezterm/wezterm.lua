@@ -18,18 +18,6 @@ end)
 local config = {
   -- debug_key_events = true,
   font = f.get_font(),
-  font_rules = {
-    {
-      intensity = "Bold",
-      italic = true,
-      font = f.get_font("Bold"),
-    },
-    {
-      intensity = "Normal",
-      italic = true,
-      font = f.get_font(),
-    },
-  },
   font_size = 22,
   -- Spawn a fish shell in login mode
   default_prog = { "/opt/homebrew/bin/fish", "-l" },
