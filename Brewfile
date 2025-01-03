@@ -1,12 +1,15 @@
 tap "1password/tap"
 tap "arl/arl"
+tap "dlvhdr/formulae"
 tap "homebrew/bundle"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "joshmedeski/sesh"
 tap "koekeishiya/formulae"
+tap "neilotoole/sq"
 tap "noahgorstein/tap"
 tap "noborus/tap"
+tap "pamburus/tap"
 tap "stevedylandev/snippets-cli"
 tap "tinted-theming/tinted"
 # General-purpose data compression with high compression ratio
@@ -29,20 +32,10 @@ brew "libssh2"
 brew "bat"
 # Library for command-line editing
 brew "readline"
-# Command-line interface for SQLite
-brew "sqlite"
 # Core application library for C
 brew "glib"
 # Statistics utility to count lines of code
 brew "cloc"
-# International domain name library (IDNA2008, Punycode and TR46)
-brew "libidn2"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# Generic machine emulator and virtualizer
-brew "qemu"
 # Linux virtual machines
 brew "lima"
 # Container runtimes on MacOS (and Linux) with minimal setup
@@ -65,6 +58,14 @@ brew "dust"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# International domain name library (IDNA2008, Punycode and TR46)
+brew "libidn2"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@76"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
@@ -107,6 +108,10 @@ brew "gnupg"
 brew "gpgme"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Make JSON greppable
+brew "gron"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
 # Tool for glamorous shell scripts
@@ -169,12 +174,16 @@ brew "zsh-async"
 brew "pure"
 # Python version management
 brew "pyenv"
+# Generic machine emulator and virtualizer
+brew "qemu"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Command-line tool to batch rename files and directories
 brew "rnr"
+# Safe, concurrent, practical language
+brew "rust"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Nodejs-based tool for optimizing SVG vector graphics files
@@ -186,7 +195,7 @@ brew "tealdeer"
 # Terminal multiplexer
 brew "tmux"
 # CLI tool that moves files or folder to the trash
-brew "trash"
+brew "trash", link: true
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Command-line unarchiving tools supporting multiple formats
@@ -207,6 +216,8 @@ brew "zoxide"
 brew "zsh"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
+# Git diff pager based on delta but with a file tree, à la GitHub
+brew "dlvhdr/formulae/diffnav"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # Smart terminal session manager
@@ -217,11 +228,11 @@ brew "noahgorstein/tap/jqp"
 brew "noborus/tap/ov"
 # Clean and simple code sharing
 brew "stevedylandev/snippets-cli/snippets-cli"
-# Change the theme of your terminal, text editor and anything else with one command.
-brew "tinted-theming/tinted/tinty"
 # Command-line interface for 1Password
 cask "1password-cli"
 cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
 # Modified browser that helps in responsive web development
