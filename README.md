@@ -1,6 +1,7 @@
 # dotfiles
 
-![fastfetch output](./.config/screenshots/iainsimmons_fastfetch.png)
+![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-01.png)
+![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-01.png)
 
 Here's some configuration and stuff I use… for now.
 
