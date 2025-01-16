@@ -40,6 +40,7 @@ local config = {
       opacity = 0.4,
     },
   },
+  color_scheme = "tokyonight_night",
   disable_default_key_bindings = true,
   keys = {
     {
