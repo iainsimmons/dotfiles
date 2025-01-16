@@ -16,8 +16,7 @@ fish_add_path $HOME/bin
 
 eval (/opt/homebrew/bin/brew shellenv)
 
-# Tinted Theming/Base16
-set BASE16_THEME_DEFAULT base16-vice
+source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
 # zoxide config, only run in interactive shells
 # 'ajeetdsouza/zoxide'
