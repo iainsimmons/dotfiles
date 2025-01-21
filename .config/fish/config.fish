@@ -150,12 +150,14 @@ abbr zz zi
 abbr find fd
 abbr y yazi
 # Hide/show all desktop icons (useful when presenting)
-abbr hidedesktop "defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-abbr showdesktop "defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+abbr hidedesktop 'defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+abbr showdesktop 'defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
-abbr obsidian_styles "nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css"
+abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css'
 abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
+abbr admin '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
+abbr privileges '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
