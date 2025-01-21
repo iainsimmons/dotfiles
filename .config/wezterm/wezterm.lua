@@ -19,6 +19,7 @@ local config = {
   -- debug_key_events = true,
   font = f.get_font(),
   font_size = 22,
+  harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
   -- Spawn a fish shell in login mode
   default_prog = { "/opt/homebrew/bin/fish", "-l" },
   enable_scroll_bar = false,
