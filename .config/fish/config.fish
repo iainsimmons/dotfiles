@@ -166,3 +166,4 @@ alias vi nvim
 alias v nvim
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
+alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
