@@ -1,3 +1,6 @@
+# blacklist from v2.10.0
+# blacklist = ["scratch"]
+
 [default_session]
 name = "dotfiles"
 path = "~/.dotfiles"
