@@ -18,6 +18,10 @@ eval (/opt/homebrew/bin/brew shellenv)
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
+# starship prompt init, only run in interactive shells
+# https://starship.rs/
+status is-interactive; and starship init fish | source
+
 # zoxide config, only run in interactive shells
 # 'ajeetdsouza/zoxide'
 status is-interactive; and zoxide init fish | source

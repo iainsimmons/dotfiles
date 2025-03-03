@@ -1,133 +1,69 @@
 command_timeout = 5000
 
-[character]
-success_symbol = "[\uf054](white)" # 
-vicmd_symbol = "[\ue62b](white)" # 
-error_symbol = "[\uf467](red)" # 
+format = """
+[](#a3aed2)\
+[ ](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+\n$character"""
 
 [cmd_duration]
 disabled = true
 
-[aws]
-format = "[$symbol($version )]($style)"
-symbol = "  "
-
-[buf]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[c]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[conda]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[dart]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
 [directory]
-read_only = " "
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-[docker_context]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[elixir]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[elm]
-format = "[$symbol($version )]($style)"
-symbol = " "
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 [git_branch]
-# symbol = " "
-disabled = true
-
-[git_commit]
-disabled = true
-
-[git_state]
-disabled = true
-
-[git_metrics]
-disabled = true
+symbol = ""
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
-disabled = true
-
-[golang]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[haskell]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[hg_branch]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[java]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[julia]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[lua]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[memory_usage]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[meson]
-format = "[$symbol($version )]($style)"
-symbol = "喝 "
-
-[nim]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[nix_shell]
-format = "[$symbol($version )]($style)"
-symbol = " "
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[package]
-disabled = true
-# format = "[$symbol($version )]($style)"
-# symbol = " "
-
-[python]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[rlang]
-format = "[$symbol($version )]($style)"
-symbol = "ﳒ "
-
-[ruby]
-format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
-format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[scala]
-format = "[$symbol($version )]($style)"
-symbol = " "
+[golang]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[spack]
-format = "[$symbol($version )]($style)"
-symbol = "🅢 "
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
