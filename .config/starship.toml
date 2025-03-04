@@ -23,7 +23,7 @@ $jobs\
 disabled = true
 
 [directory]
-style = "fg:#000000 bg:#769ff0"
+style = "bold fg:#000000 bg:#769ff0"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "/"
