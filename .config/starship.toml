@@ -1,8 +1,8 @@
 command_timeout = 5000
 
 format = """
-[](#a3aed2)\
-[ ](bg:#a3aed2 fg:#090c0c)\
+[](bg:#e7eaf4 fg:#c5cce3)\
+[](bg:#c5cce3 fg:#a3aed2)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -15,6 +15,7 @@ $golang\
 $php\
 [](fg:#212736 bg:#1d2230)\
 $time\
+$jobs\
 [ ](fg:#1d2230)\
 \n$character"""
 
@@ -25,13 +26,14 @@ disabled = true
 style = "fg:#000000 bg:#769ff0"
 format = "[ $path ]($style)"
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = "/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
+"~" = "󰋜 "
 
 [git_branch]
 symbol = ""
@@ -41,6 +43,12 @@ format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 [git_status]
 style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[jobs]
+number_threshold = 1
+symbol = "󰉇"
+style = "bg:#1d2230"
+format = '[[ $symbol $number ](fg:#e0af68 bg:#1d2230)]($style)'
 
 [nodejs]
 symbol = ""
@@ -59,6 +67,11 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [php]
 symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
