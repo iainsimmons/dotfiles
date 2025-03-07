@@ -1,11 +1,15 @@
 # dotfiles
 
-![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-01.png)
-![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-01.png)
+![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-03.png)
+![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-03.png)
 
 Here's some configuration and stuff I use… for now.
 
 ## Updates
+
+### March 2025
+
+I switched backed to [Starship](https://starship.rs/) for my prompt. I started with the [Tokyo Night Preset](https://starship.rs/presets/tokyo-night) but immediately customised it to use more of a slanted style, swapped around some features and removed some bits and pieces. I'm quite happy with what I have now and it fits better with everything else. Seems less buggy than Tide.
 
 ### January 2025
 
