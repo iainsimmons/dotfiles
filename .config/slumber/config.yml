@@ -1,0 +1,11 @@
+input_bindings:
+  up: [up, k]
+  down: [down, j]
+  left: [left, h]
+  right: [right, l]
+  scroll_left: [shift left, shift h]
+  scroll_right: [shift right, shift l]
+  scroll_up: [shift up, shift k]
+  scroll_down: [shift down, shift j]
+  select_recipe_list: [w] # Rebind from `l`
+  history: [u]
