@@ -29,6 +29,9 @@ status is-interactive; and zoxide init fish | source
 # direnv config, only run in interactive shells
 status is-interactive; and direnv hook fish | source
 
+# slumber completions for fish shell, only run in interactive shells
+status is-interactive; and source (COMPLETE=fish slumber | psub)
+
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
@@ -46,6 +49,9 @@ set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
 set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
+
+# slumber config
+set -gx SLUMBER_CONFIG_PATH "$XDG_CONFIG_HOME/slumber/config.yml"
 
 #fish_add_path "$HOME/.rvm/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
