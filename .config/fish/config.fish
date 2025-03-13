@@ -13,6 +13,7 @@ set -gx XDG_CONFIG_HOME "/Users/isimmons/.config"
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
+fish_add_path $HOME/go/bin
 
 eval (/opt/homebrew/bin/brew shellenv)
 
@@ -167,3 +168,4 @@ alias v nvim
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
 alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
+alias color termpicker
