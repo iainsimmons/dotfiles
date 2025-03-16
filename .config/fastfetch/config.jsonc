@@ -15,10 +15,14 @@
     "editor",
     "terminal",
     {
-      "type": "terminalfont",
-      "format": "{/2}{-}{/}{2}{?3} {3}{?}"
+      "type": "command",
+      "key": "Font",
+      "keyColor": "yellow",
+      "text": "wezterm ls-fonts | rg '\"([^\"]*)\"' --only-matching | head -n 1 | sed 's/\"//g'",
+      "format": "{}"
     },
     "version",
+    "datetime",
     "break",
     "colors"
   ]
