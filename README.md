@@ -5,6 +5,10 @@
 
 Here's some configuration and stuff I use… for now.
 
+## Neovim
+
+Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
+
 ## Updates
 
 ### March 2025
