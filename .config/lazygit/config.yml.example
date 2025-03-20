@@ -11,7 +11,7 @@ customCommands:
 git:
   paging:
     colorArg: always
-    pager: diff-so-fancy
+    pager: delta --paging=never --diff-so-fancy
 os:
   edit: "nvim {{filename}}"
   editAtLine: "nvim +{{line}} -- {{filename}}"
