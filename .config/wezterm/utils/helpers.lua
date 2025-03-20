@@ -1,5 +1,5 @@
 -- https://github.com/joshmedeski/dotfiles/blob/main/.config/wezterm/utils/helpers.lua
-local wezterm = require("wezterm")
+local wezterm = require("wezterm") --[[@as Wezterm]]
 local M = {}
 
 local appearance = wezterm.gui.get_appearance()

@@ -1,4 +1,4 @@
-local wt_font_with_fallback = require("wezterm").font_with_fallback
+local wezterm = require("wezterm") --[[@as Wezterm]]
 local M = {}
 
 M.fonts = {
@@ -13,7 +13,7 @@ M.get_font = function(weight)
   for _, font in ipairs(M.fonts) do
     table.insert(font_table, { family = font, weight = _weight })
   end
-  return wt_font_with_fallback(font_table)
+  return wezterm.font_with_fallback(font_table)
 end
 
 return M
