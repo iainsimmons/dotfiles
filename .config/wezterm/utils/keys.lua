@@ -1,5 +1,6 @@
 -- https://github.com/joshmedeski/dotfiles/blob/main/.config/wezterm/utils/keys.lua
-local wt_action = require("wezterm").action
+local wezterm = require("wezterm") --[[@as Wezterm]]
+local wt_action = wezterm.action
 local M = {}
 
 M.multiple_actions = function(keys)

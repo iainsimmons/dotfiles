@@ -1,5 +1,5 @@
 -- based on https://github.com/joshmedeski/dotfiles/blob/main/.config/wezterm/utils/wallpaper.lua
-local wezterm = require("wezterm")
+local wezterm = require("wezterm") --[[@as Wezterm]]
 local h = require("utils/helpers")
 local M = {}
 
