@@ -58,9 +58,7 @@ Switched to using base16 for theming
 
 See [gallery](https://tinted-theming.github.io/base16-gallery/).
 
-Current/favourite theme is `base16-vice`:
-
-![base16-vice](./.config/screenshots/base16-vice.png)
+Favourite theme is `base16-vice`.
 
 Otherwise `base16-tokyo-night-dark` or `base16-tokyo-night-storm` for presenting to colleagues.
 
