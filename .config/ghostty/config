@@ -4,7 +4,7 @@
 ## shell ##
 ###########
 command = "/opt/homebrew/bin/fish --login"
-initial-command = "/opt/homebrew/bin/fish --login -c 'tm'"
+# initial-command = "/opt/homebrew/bin/fish --login -c 'tm'"
 shell-integration = fish
 shell-integration-features = "no-cursor,sudo,title"
 
@@ -14,11 +14,10 @@ shell-integration-features = "no-cursor,sudo,title"
 background-opacity = 0.9
 background-blur-radius = 15
 bold-is-bright = true
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 macos-window-shadow = false
 mouse-hide-while-typing = true
 window-theme = auto
-window-decoration = false
 window-padding-x = 8
 window-padding-y = 12
 window-save-state = always
@@ -54,7 +53,7 @@ font-size = 22
 ## theme ##
 ###########
 config-file = theme
-custom-shader = shaders/bloom025.glsl
+# custom-shader = shaders/bloom025.glsl
 
 ###############
 ## clipboard ##
