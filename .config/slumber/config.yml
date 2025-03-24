@@ -1,5 +1,5 @@
-editor: nvim
-pager: ov
+editor: "nvim"
+pager: "fx"
 
 input_bindings:
   up: [up, k]
