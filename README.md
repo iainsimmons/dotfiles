@@ -1,7 +1,7 @@
 # dotfiles
 
-![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-03-16.png)
-![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-03.png)
+![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-03-25.png)
+![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-03-25.png)
 
 Here's some configuration and stuff I use… for now.
 
@@ -13,7 +13,9 @@ Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config
 
 ### March 2025
 
-I switched backed to [Starship](https://starship.rs/) for my prompt. I started with the [Tokyo Night Preset](https://starship.rs/presets/tokyo-night) but immediately customised it to use more of a slanted style, swapped around some features and removed some bits and pieces. I'm quite happy with what I have now and it fits better with everything else. Seems less buggy than Tide.
+Switched back to [Commit Mono](https://commitmono.com) as my font in WezTerm, after having used [Iosevka](https://typeof.net/Iosevka/) for the past 4 months. Funnily enough, it was almost exactly a year ago I first tried Commit Mono.
+
+I switched back to [Starship](https://starship.rs/) for my prompt. I started with the [Tokyo Night Preset](https://starship.rs/presets/tokyo-night) but immediately customised it to use more of a slanted style, swapped around some features and removed some bits and pieces. I'm quite happy with what I have now and it fits better with everything else. Seems less buggy than Tide.
 
 ### January 2025
 
