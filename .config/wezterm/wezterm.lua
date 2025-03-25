@@ -20,7 +20,8 @@ config = wezterm.config_builder()
 
 -- config.debug_key_events = true,
 config.font = f.get_font()
-config.font_size = 22
+config.font_size = 20
+config.line_height = 1.2
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Spawn a fish shell in login mode
 config.default_prog = { "/opt/homebrew/bin/fish", "-l" }

@@ -2,8 +2,8 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 local M = {}
 
 M.fonts = {
-  "Iosevka Term",
   "CommitMono",
+  "Iosevka Term",
   "JetBrains Mono", -- default font for WezTerm
 }
 
