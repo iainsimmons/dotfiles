@@ -5,38 +5,38 @@ linemode = "mtime"
 
 [opener]
 edit = [
-	{ run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
+	{ desc = "nvim", run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
 ]
 opendoc = [
-	{ run = 'open "$@"', desc = "Open Document", block = false, orphan = true },
+	{ desc = "open", run = 'open "$@"', block = false, orphan = true },
 ]
 json = [
-	{ run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
+	{ desc = "fx", run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
 ]
 csv = [
-	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\",\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\",\" -c --column-rainbow \"$@\""', block = false, orphan = true },
 ]
 psv = [
-	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\"|\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\"|\" -c --column-rainbow \"$@\""', block = false, orphan = true },
 ]
 tsv = [
-	{ run = 'tmux new-window -n "ov" "ov -H1 -C -d\"/\t/\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\"/\t/\" -c --column-rainbow \"$@\""', block = false, orphan = true },
 ]
 log = [
-	{ run = 'tmux new-window -n "ov" "ov --multi-color \"\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?\" \"$@\""', block = false, orphan = true },
+	{ desc = "ov", run = 'tmux new-window -n "ov" "ov --multi-color \"\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?\" \"$@\""', block = false, orphan = true },
 ]
 zip = [
-	{ run = 'unzip "$@"', block = true, orphan = false },
+	{ desc = "unzip", run = 'unzip "$@"', block = true, orphan = false },
 ]
 
 [open]
 prepend_rules = [
-	{ mime = "application/json", use = "json" },
-	{ name = "*.json", use = "json" },
-	{ mime = "text/csv", use = "csv" },
-	{ name = "*.csv", use = "csv" },
-	{ name = "*.psv", use = "psv" },
-	{ name = "*.tsv", use = "tsv" },
+	{ mime = "application/json", use = ["json", "edit"] },
+	{ name = "*.json", use = [ "json", "edit" ] },
+	{ mime = "text/csv", use = ["csv", "edit"] },
+	{ name = "*.csv", use = ["csv", "edit"] },
+	{ name = "*.psv", use = ["psv", "edit"] },
+	{ name = "*.tsv", use = ["tsv", "edit"] },
 	{ name = "*.zip", use = "zip" },
 	{ name = "*.log", use = "log" },
 ]
