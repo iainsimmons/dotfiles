@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = "!"
+run  = 'shell "tmux new-window" --orphan'
+desc = "Open shell here in new tmux window"
