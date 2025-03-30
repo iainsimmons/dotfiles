@@ -32,3 +32,7 @@
 .svg-tab-stack {
   transform: scaleY(1.25) translateY(10%);
 }
+
+#app .svg-tab-selection:not(.svg-tab-stack) {
+  transform: scaleY(1.1) translateY(10%);
+}
