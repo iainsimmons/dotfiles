@@ -30,15 +30,5 @@
 }
 
 .svg-tab-stack {
-  height: calc(var(--Height) * 1.25);
-  transform: scaleY(1.25);
-  margin-top: 12.5%;
-}
-
-.svg-tab-selection {
-  height: calc(var(--Height) * 1.175);
-}
-
-span:has(+ .accordion-toggle-arrow.closed) .svg-tab-stack {
-  margin-top: 0 !important;
+  transform: scaleY(1.25) translateY(10%);
 }
