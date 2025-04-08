@@ -59,6 +59,14 @@ config.keys = {
       k.multiple_actions(":w"),
     })
   ),
+  k.cmd_key(
+    "k",
+    act.Multiple({
+      act.SendKey({ key = "Space" }),
+      act.SendKey({ key = "c" }),
+      act.SendKey({ key = "l" }),
+    })
+  ),
 
   k.cmd_key("q", act.QuitApplication),
   k.cmd_key("h", act.HideApplication),
