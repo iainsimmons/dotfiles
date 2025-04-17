@@ -45,53 +45,70 @@
 	last = log -1 HEAD
 	diffw = diff --word-diff
 	wdiff = diff --word-diff
-[help]
-	autocorrect = 30
-[credential]
-	helper = osxkeychain
+[color]
+	ui = true
+[color "diff-highlight"]
+	newHighlight = green bold 22
+	newNormal = green bold
+	oldHighlight = red bold 52
+	oldNormal = red bold
+[color "diff"]
+	commit = yellow bold
+	frag = magenta bold
+	func = 146 bold
+	meta = 11
+	new = green bold
+	old = red bold
+	whitespace = red reverse
+[commit]
+	verbose = true
 [core]
+	editor = nvim
 	excludesfile = ~/.config/lazygit/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	editor = nvim
+[credential]
+	helper = osxkeychain
 [diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 	tool = delta
 [difftool]
 	prompt = false
-[pager]
-	difftool = true
-	; diff = diffnav
-[pull]
-	rebase = true
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = master
 [interactive]
 	diffFilter = diff-so-fancy --patch
-[color]
-	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [merge]
 	tool = vimdiff3
 [mergetool "vimdiff3"]
 	path = nvim
+[pager]
+	difftool = true
+[pull]
+	rebase = true
+[push]
+  default = simple
+	autoSetupRemote = true
+	followTags = true
 [rebase]
 	autoStash = true
+	updateRefs = true
+[rerere]
+	autoUpdate = true
+	enabled = true
+[tag]
+	sort = version:refname
 [user]
-	name = Iain Simmons
 	email = emptiful@gmail.com
+	name = Iain Simmons
 [includeIf "gitdir:~/dev/Squiz/**"]
 	path = ~/dev/Squiz/.gitconfig
-[rerere]
-	enabled = true
-	autoUpdate = true
+
