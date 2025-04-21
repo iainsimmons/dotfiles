@@ -30,9 +30,6 @@ status is-interactive; and zoxide init fish | source
 # direnv config, only run in interactive shells
 status is-interactive; and direnv hook fish | source
 
-# slumber completions for fish shell, only run in interactive shells
-status is-interactive; and source (COMPLETE=fish slumber | psub)
-
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
