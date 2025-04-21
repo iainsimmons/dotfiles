@@ -1,17 +1,12 @@
 tap "1password/tap"
 tap "arl/arl"
-tap "dlvhdr/formulae"
 tap "homebrew/bundle"
+tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "joshmedeski/sesh"
-tap "koekeishiya/formulae"
-tap "neilotoole/sq"
 tap "noahgorstein/tap"
 tap "noborus/tap"
-tap "pamburus/tap"
-tap "stevedylandev/snippets-cli"
-tap "tinted-theming/tinted"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # TIFF library and utilities
@@ -30,30 +25,24 @@ brew "openssl@3"
 brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Library for command-line editing
-brew "readline"
 # Core application library for C
 brew "glib"
 # Statistics utility to count lines of code
 brew "cloc"
+# Cross-platform make
+brew "cmake"
 # Linux virtual machines
 brew "lima"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
-# Diff that understands syntax
-brew "difftastic"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
-# More intuitive version of du in rust
-brew "dust"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -64,12 +53,12 @@ brew "libidn2"
 brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@76"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
 brew "openjpeg"
+# Library for command-line editing
+brew "readline"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
 # Play, record, convert, and stream audio and video
@@ -80,6 +69,8 @@ brew "ffmpegthumbnailer"
 brew "fish"
 # Fast and simple Node.js version manager
 brew "fnm"
+# CLI program that accepts piped input and presents files for selection
+brew "fpp"
 # Libraries to talk to Microsoft SQL Server and Sybase databases
 brew "freetds"
 # Terminal JSON viewer
@@ -108,8 +99,6 @@ brew "gnupg"
 brew "gpgme"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Make JSON greppable
-brew "gron"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # GNU Ubiquitous Intelligent Language for Extensions
@@ -120,22 +109,16 @@ brew "gum"
 brew "lua"
 # Convert source code to formatted text with syntax highlighting
 brew "highlight"
-# Uses CSS selectors to extract bits content from HTML files
-brew "htmlq"
-# Improved top (interactive process viewer)
-brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
-# Run and Test HTTP Requests with plain text and curl
-brew "hurl"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@76"
 # ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
 # Library for reading RAW files from digital photo cameras
 brew "libraw"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
-# Command-line pager for JSON data
-brew "jless"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -144,20 +127,14 @@ brew "lazygit"
 brew "libpq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
-# Like sed, awk, cut, join & sort for name-indexed data such as CSV
-brew "miller"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Trigger notifications when a process completes
-brew "noti"
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Open Visual Inference And Optimization toolkit for AI inference
 brew "openvino"
-# Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget
-brew "otree"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Perl compatible regular expressions library
@@ -168,10 +145,6 @@ brew "php"
 brew "pnpm"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
-# Perform tasks asynchronously without external tools
-brew "zsh-async"
-# Pretty, minimal and fast ZSH prompt
-brew "pure"
 # Python version management
 brew "pyenv"
 # Generic machine emulator and virtualizer
@@ -180,10 +153,8 @@ brew "qemu"
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Command-line tool to batch rename files and directories
-brew "rnr"
-# Safe, concurrent, practical language
-brew "rust"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Nodejs-based tool for optimizing SVG vector graphics files
@@ -196,12 +167,6 @@ brew "tealdeer"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
-# Command-line unarchiving tools supporting multiple formats
-brew "unar"
-# Display word differences between text files
-brew "wdiff"
 # Internet file retriever
 brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -216,8 +181,6 @@ brew "zoxide"
 brew "zsh"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
-# Git diff pager based on delta but with a file tree, à la GitHub
-brew "dlvhdr/formulae/diffnav"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # Smart terminal session manager
@@ -226,10 +189,10 @@ brew "joshmedeski/sesh/sesh"
 brew "noahgorstein/tap/jqp"
 # Feature rich terminal pager
 brew "noborus/tap/ov"
-# Clean and simple code sharing
-brew "stevedylandev/snippets-cli/snippets-cli"
 # Command-line interface for 1Password
 cask "1password-cli"
+# Virtual monitor for screen sharing
+cask "deskpad"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
