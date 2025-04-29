@@ -87,6 +87,8 @@ brew "gh"
 brew "ghostscript"
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # Render markdown on the CLI
@@ -153,6 +155,8 @@ brew "qemu"
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -198,6 +202,8 @@ cask "font-symbols-only-nerd-font"
 cask "ghostty"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# Android file transfer
+cask "openmtp"
 # Modified browser that helps in responsive web development
 cask "responsively"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
