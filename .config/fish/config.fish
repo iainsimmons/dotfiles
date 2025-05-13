@@ -160,6 +160,7 @@ abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.c
 abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 abbr admin '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
 abbr privileges '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
+abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
