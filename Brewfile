@@ -73,8 +73,10 @@ brew "fnm"
 brew "fpp"
 # Libraries to talk to Microsoft SQL Server and Sybase databases
 brew "freetds"
+# Platform built on V8 to build network applications
+brew "node", link: false
 # Terminal JSON viewer
-brew "fx"
+brew "fx", args: ["HEAD"]
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
@@ -129,6 +131,8 @@ brew "lazygit"
 brew "libpq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
