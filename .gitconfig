@@ -1,4 +1,5 @@
 [alias]
+	aliases = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
 	aa = add -A	
 	c = commit --verbose
 	co = checkout
