@@ -175,7 +175,7 @@ config.keys = {
   k.cmd_to_tmux_prefix("e", '"'),
   -- Split the current pane into two, left and right
   k.cmd_to_tmux_prefix("E", "%"),
-  -- Toggle Neotree (file tree) via tmux y keybind
+  -- Toggle mini.files via tmux y keybind
   k.cmd_to_tmux_prefix("f", "y"),
   -- Open lazygit in a new tmux window
   k.cmd_to_tmux_prefix("g", "g"),
