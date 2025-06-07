@@ -20,6 +20,7 @@ if [[ -n "$OUTDATED" ]]; then
   gum confirm --selected.background=2 --selected.foreground=0 "Upgrade the outdated formulae above?" && brew upgrade
   printf "\n"
   brew cleanup --prune=all
+  brew unlink node
   printf "\n"
 else
   echo "All brew packages are up to date."
