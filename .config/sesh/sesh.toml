@@ -1,5 +1,5 @@
-# blacklist from v2.10.0
-# blacklist = ["scratch"]
+# blacklist regex from v2.14.0
+# blacklist = ["^scratch$", "^__"]
 
 [default_session]
 name = "dotfiles"
