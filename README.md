@@ -11,6 +11,10 @@ Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config
 
 ## Updates
 
+### June 2025
+
+I'm trying out Wezterm tabs instead of using tmux. I'm using [MLFlexer's smart workspace switcher Wezterm plugin](https://github.com/MLFlexer/smart_workspace_switcher.wezterm) as an alternative to [sesh](https://github.com/joshmedeski/sesh). I'll see how it goes, but even just after fixing my config and keymaps, I'm already seeing better performance and rendering (images and undercurls working without any additional configuration)!
+
 ### March 2025
 
 Switched back to [Commit Mono](https://commitmono.com) as my font in WezTerm, after having used [Iosevka](https://typeof.net/Iosevka/) for the past 4 months. Funnily enough, it was almost exactly a year ago I first tried Commit Mono.
