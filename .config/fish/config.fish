@@ -164,9 +164,8 @@ abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
-alias vim nvim
-alias vi nvim
-alias v nvim
+alias nvim 'TERM=wezterm /opt/homebrew/bin/nvim'
+alias v 'TERM=wezterm /opt/homebrew/bin/nvim'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
 alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
