@@ -8,7 +8,7 @@ M.multiple_actions = function(keys)
   for key in keys:gmatch(".") do
     table.insert(actions, wt_action.SendKey({ key = key }))
   end
-  table.insert(actions, wt_action.SendKey({ key = "\n" }))
+  table.insert(actions, wt_action.SendKey({ key = "Enter" }))
   return wt_action.Multiple(actions)
 end
 
