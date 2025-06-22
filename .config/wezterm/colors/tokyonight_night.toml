@@ -19,7 +19,7 @@ background = "#1a1b26"
 
 [colors.tab_bar.active_tab]
 fg_color = "#16161e"
-bg_color = "#7aa2f7"
+bg_color = "#bb9af7"
 
 [colors.tab_bar.inactive_tab]
 fg_color = "#545c7e"
