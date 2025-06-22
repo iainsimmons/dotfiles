@@ -8,6 +8,56 @@ local mux = wezterm.mux
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
 
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+local process_to_icon = {
+  ["fish"] = { wezterm.nerdfonts.md_fish, color = { fg = "#faba4a" } },
+  ["git"] = { wezterm.nerdfonts.dev_git, color = { fg = "#f05133" } },
+  ["lazygit"] = { wezterm.nerdfonts.dev_git, color = { fg = "#f05133" } },
+  ["node"] = { wezterm.nerdfonts.md_nodejs, color = { fg = "#417e38" } },
+}
+tabline.setup({
+  options = {
+    icons_enabled = true,
+    tabs_enabled = true,
+    theme_overrides = {},
+    section_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+    component_separators = {
+      left = wezterm.nerdfonts.pl_left_soft_divider,
+      right = wezterm.nerdfonts.pl_right_soft_divider,
+    },
+    tab_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+  },
+  sections = {
+    tabline_a = { "workspace" },
+    tabline_b = { " " },
+    tabline_c = { " " },
+    -- tab_active = {
+    --   "index",
+    --   { "parent", padding = 0 },
+    --   "/",
+    --   { "cwd", padding = { left = 0, right = 1 } },
+    --   { "zoomed", padding = 0 },
+    -- },
+    tab_active = { "index", { "process", process_to_icon = process_to_icon, padding = { left = 0, right = 1 } } },
+    tab_inactive = { "index", { "process", process_to_icon = process_to_icon, padding = { left = 0, right = 1 } } },
+    tabline_x = {},
+    tabline_y = {},
+    tabline_z = {
+      "mode",
+      fmt = function(str)
+        return string.sub(str, 1, 2)
+      end,
+    },
+  },
+  extensions = {},
+})
+
 wezterm.on("gui-attached", function()
   -- maximize all displayed windows on startup
   local workspace = mux.get_active_workspace()
@@ -33,10 +83,10 @@ config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 config.enable_scroll_bar = false
 config.use_dead_keys = false
 config.window_padding = {
-  left = "6px",
-  right = "2px",
-  top = "8px",
-  bottom = "2px",
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
 }
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
@@ -62,6 +112,7 @@ config.background = {
   },
 }
 config.color_scheme = "tokyonight_night"
+config.status_update_interval = 500
 config.disable_default_key_bindings = false
 
 config.keys = {
