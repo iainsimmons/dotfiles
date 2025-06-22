@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch, assign-type-mismatch
 local k = require("utils/keys")
 local f = require("utils/font")
 local w = require("utils/wallpaper")
@@ -88,7 +89,7 @@ wezterm.on("gui-attached", function()
 end)
 
 -- loads the state whenever I create a new workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, path, label)
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label)
   local workspace_state = resurrect.workspace_state
 
   workspace_state.restore_workspace(resurrect.state_manager.load_state(label, "workspace"), {
@@ -100,7 +101,7 @@ wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(windo
 end)
 
 -- Saves the state whenever I select a workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function(window, path, label)
+wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function()
   local workspace_state = resurrect.workspace_state
   resurrect.state_manager.save_state(workspace_state.get_workspace_state())
 end)
@@ -164,7 +165,7 @@ config.keys = {
   {
     key = "L",
     mods = "CTRL|SHIFT",
-    action = act.ShowDebugOverlay --[[@as "ShowDebugOverlay"]],
+    action = act.ShowDebugOverlay,
   },
   -- Activate copy mode (Ctrl + Shift + x)
   k.cmd_key("c", act.ActivateCopyMode),
@@ -238,6 +239,7 @@ config.keys = {
   {
     key = "w",
     mods = "ALT",
+    ---@diagnostic disable-next-line: missing-parameter
     action = wezterm.action_callback(function()
       resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
     end),
@@ -255,6 +257,7 @@ config.keys = {
   {
     key = "s",
     mods = "ALT",
+    ---@diagnostic disable-next-line: missing-parameter
     action = wezterm.action_callback(function()
       resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
       resurrect.window_state.save_window_action()
