@@ -5,9 +5,24 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 local act = wezterm.action
 local mux = wezterm.mux
 
+-------------
+-- Plugins --
+-------------
+
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+resurrect.state_manager.periodic_save({
+  interval_seconds = 15 * 60,
+  save_workspaces = true,
+  save_windows = true,
+  save_tabs = true,
+})
+
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
 
+-------------
+-- Tabline --
+-------------
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local process_to_icon = {
   ["fish"] = { wezterm.nerdfonts.md_fish, color = { fg = "#faba4a" } },
@@ -58,8 +73,12 @@ tabline.setup({
   extensions = {},
 })
 
+------------
+-- Events --
+------------
+
+-- maximize all displayed windows on startup
 wezterm.on("gui-attached", function()
-  -- maximize all displayed windows on startup
   local workspace = mux.get_active_workspace()
   for _, window in ipairs(mux.all_windows()) do
     if window:get_workspace() == workspace then
@@ -68,15 +87,38 @@ wezterm.on("gui-attached", function()
   end
 end)
 
+-- loads the state whenever I create a new workspace
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, path, label)
+  local workspace_state = resurrect.workspace_state
+
+  workspace_state.restore_workspace(resurrect.state_manager.load_state(label, "workspace"), {
+    window = window,
+    relative = true,
+    restore_text = true,
+    on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+  })
+end)
+
+-- Saves the state whenever I select a workspace
+wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function(window, path, label)
+  local workspace_state = resurrect.workspace_state
+  resurrect.state_manager.save_state(workspace_state.get_workspace_state())
+end)
+
+wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
+
+------------
+-- Config --
+------------
 local config = {}
 config = wezterm.config_builder()
 config.default_workspace = "dotfiles"
 config.default_cwd = wezterm.home_dir .. "/dotfiles"
-
 -- config.debug_key_events = true,
 config.font = f.get_font()
 config.font_size = 20
 config.line_height = 1.2
+-- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Spawn a fish shell in login mode
 config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
@@ -115,6 +157,9 @@ config.color_scheme = "tokyonight_night"
 config.status_update_interval = 500
 config.disable_default_key_bindings = false
 
+-------------
+-- Keymaps --
+-------------
 config.keys = {
   {
     key = "L",
@@ -190,7 +235,36 @@ config.keys = {
       },
     })
   ),
+  {
+    key = "w",
+    mods = "ALT",
+    action = wezterm.action_callback(function()
+      resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
+    end),
+  },
+  {
+    key = "W",
+    mods = "ALT",
+    action = resurrect.window_state.save_window_action(),
+  },
+  {
+    key = "T",
+    mods = "ALT",
+    action = resurrect.tab_state.save_tab_action(),
+  },
+  {
+    key = "s",
+    mods = "ALT",
+    action = wezterm.action_callback(function()
+      resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
+      resurrect.window_state.save_window_action()
+    end),
+  },
 }
+
+---------------------
+-- Hyperlink Rules --
+---------------------
 
 -- From https://wezterm.org/hyperlinks.html
 -- Use the defaults as a base
