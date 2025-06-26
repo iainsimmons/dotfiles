@@ -1,4 +1,4 @@
 [[mgr.prepend_keymap]]
 on   = "!"
-run  = 'shell "tmux new-window" --orphan'
-desc = "Open shell here in new tmux window"
+run  = 'shell "wezterm cli spawn" --orphan'
+desc = "Open shell here in new WezTerm tab"
