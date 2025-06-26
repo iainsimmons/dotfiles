@@ -113,6 +113,11 @@ wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
 ------------
 local config = {}
 config = wezterm.config_builder()
+
+config.set_environment_variables = {
+  PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
+}
+
 config.default_workspace = "dotfiles"
 config.default_cwd = wezterm.home_dir .. "/dotfiles"
 -- config.debug_key_events = true,
@@ -171,6 +176,10 @@ config.keys = {
   k.cmd_key("c", act.ActivateCopyMode),
   -- Delete word/line
   k.cmd_key("Backspace", act.SendKey({ key = "\x15" })),
+  -- Go to start of line
+  k.cmd_key("LeftArrow", act.SendString("\x1bOH")),
+  -- Go to end of line
+  k.cmd_key("RightArrow", act.SendString("\x1bOF")),
   -- Workspace Switcher: Select and switch workspace
   k.cmd_key("j", workspace_switcher.switch_workspace()),
   -- Workspace Switcher: Switch to previous workspace
@@ -262,6 +271,20 @@ config.keys = {
       resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
       resurrect.window_state.save_window_action()
     end),
+  },
+}
+
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "CTRL",
+    action = act.OpenLinkAtMouseCursor,
+  },
+  -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+  {
+    event = { Down = { streak = 1, button = "Left" } },
+    mods = "CTRL",
+    action = act.Nop,
   },
 }
 
