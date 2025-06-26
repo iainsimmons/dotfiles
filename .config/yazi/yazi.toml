@@ -5,22 +5,22 @@ linemode = "mtime"
 
 [opener]
 edit = [
-	{ desc = "Edit in Neovim", run = 'tmux new-window -n "nvim" "nvim \"$@\""', block = false, orphan = true },
+	{ desc = "Edit in Neovim", run = 'wezterm cli spawn -- nvim "$@"', block = false, orphan = true },
 ]
 json = [
-	{ desc = "Open JSON with fx", run = 'tmux new-window -n "fx" "fx \"$@\""', block = false, orphan = true },
+	{ desc = "Open JSON with fx", run = 'wezterm cli spawn -- fx "$@"', block = false, orphan = true },
 ]
 csv = [
-	{ desc = "Open csv with ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\",\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "Open csv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"," -c --column-rainbow "$@"', block = false, orphan = true },
 ]
 psv = [
-	{ desc = "Open psv with ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\"|\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "Open psv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"|" -c --column-rainbow "$@"', block = false, orphan = true },
 ]
 tsv = [
-	{ desc = "Open tsv with ov", run = 'tmux new-window -n "ov" "ov -H1 -C -d\"/\t/\" -c --column-rainbow \"$@\""', block = false, orphan = true },
+	{ desc = "Open tsv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"/\t/" -c --column-rainbow "$@"', block = false, orphan = true },
 ]
 log = [
-	{ desc = "Open log file with ov", run = 'tmux new-window -n "ov" "ov --multi-color \"\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?\" \"$@\""', block = false, orphan = true },
+	{ desc = "Open log file with ov", run = 'wezterm cli spawn -- ov --multi-color "\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?" "$@"', block = false, orphan = true },
 ]
 clipboard = [
 	{ desc = "Copy to system clipboard", run  = 'osascript -e "set the clipboard to POSIX file \"$0\""', block = false, orphan = true }
