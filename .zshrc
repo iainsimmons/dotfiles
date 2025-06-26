@@ -76,8 +76,8 @@ export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hi
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 export PNPM_HOME="/Users/isimmons/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -106,9 +106,5 @@ tm() {
 }
 
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
 
 . "$HOME/.local/bin/env"
