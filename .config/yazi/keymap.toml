@@ -1,4 +1,4 @@
 [[mgr.prepend_keymap]]
 on   = "!"
-run  = 'shell "wezterm cli spawn" --orphan'
+run  = 'shell --orphan "wezterm cli spawn --cwd $(realpath \"$@\") -- "'
 desc = "Open shell here in new WezTerm tab"
