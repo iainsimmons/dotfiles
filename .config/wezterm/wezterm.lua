@@ -131,8 +131,8 @@ config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 config.enable_scroll_bar = false
 config.use_dead_keys = false
 config.window_padding = {
-  left = 0,
-  right = 0,
+  left = 10,
+  right = 10,
   top = 0,
   bottom = 0,
 }
@@ -160,7 +160,7 @@ config.background = {
   },
 }
 config.color_scheme = "tokyonight_night"
-config.status_update_interval = 500
+config.status_update_interval = 100
 config.disable_default_key_bindings = false
 
 -------------

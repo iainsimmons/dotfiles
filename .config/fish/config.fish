@@ -95,7 +95,7 @@ function sshkey # generate ssh key in directory
     mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa
 end
 
-function clone -d "Clone and open tmux window for given repo" -a repo_arg -a parent_arg -a dir_name_arg
+function clone -d "Clone and open WezTerm workspace for given repo" -a repo_arg -a parent_arg -a dir_name_arg
     if test -n "$repo_arg"
         string match -rq '\/(?<repo_name>.+?)\.git$' -- $repo_arg
     else
@@ -115,7 +115,7 @@ function clone -d "Clone and open tmux window for given repo" -a repo_arg -a par
         set dir_name (string trim "$repo_name")
     end
 
-    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && sesh connect "$parent_dir/$dir_name"
+    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && wezterm cli spawn --new-window --workspace "$dir_name" --cwd "$parent_dir/$dir_name" --
 end
 
 function compress_img -d "Compress images with ImageMagick" -a input_path -a output_path -a output_width
