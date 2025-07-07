@@ -196,7 +196,12 @@ config.keys = {
   -- Go to end of line
   k.cmd_key("RightArrow", act.SendString("\x1bOF")),
   -- Workspace Switcher: Select and switch workspace
-  k.cmd_key("j", workspace_switcher.switch_workspace()),
+  k.cmd_key(
+    "j",
+    workspace_switcher.switch_workspace({
+      extra_args = " | /opt/homebrew/bin/rg --invert-match '/.ssh|/.local|/Volumes|/Library'",
+    })
+  ),
   -- Workspace Switcher: Switch to previous workspace
   k.cmd_key("l", workspace_switcher.switch_to_prev_workspace()),
   -- Neovim: Save current buffer
