@@ -95,6 +95,11 @@ function sshkey # generate ssh key in directory
     mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa
 end
 
+function wezterm-switch-workspace -d "Switch WezTerm workspace"
+    set args (jq -n --arg workspace "$argv[1]" --arg cwd "$argv[2]" '{"workspace":$workspace,"cwd":$cwd}' | base64)
+    printf "\033]1337;SetUserVar=%s=%s\007" switch-workspace $args
+end
+
 function clone -d "Clone and open WezTerm workspace for given repo" -a repo_arg -a parent_arg -a dir_name_arg
     if test -n "$repo_arg"
         string match -rq '\/(?<repo_name>.+?)\.git$' -- $repo_arg
@@ -116,6 +121,8 @@ function clone -d "Clone and open WezTerm workspace for given repo" -a repo_arg 
     end
 
     cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && wezterm cli spawn --new-window --workspace "$dir_name" --cwd "$parent_dir/$dir_name" --
+
+    wezterm-switch-workspace "$dir_name" "$parent_dir/$dir_name"
 end
 
 function compress_img -d "Compress images with ImageMagick" -a input_path -a output_path -a output_width
