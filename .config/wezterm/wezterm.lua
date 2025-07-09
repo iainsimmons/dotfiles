@@ -10,14 +10,6 @@ local mux = wezterm.mux
 -- Plugins --
 -------------
 
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-resurrect.state_manager.periodic_save({
-  interval_seconds = 15 * 60,
-  save_workspaces = true,
-  save_windows = true,
-  save_tabs = true,
-})
-
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
 
@@ -89,24 +81,10 @@ wezterm.on("gui-attached", function()
 end)
 
 -- loads the state whenever I create a new workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label)
-  local workspace_state = resurrect.workspace_state
-
-  workspace_state.restore_workspace(resurrect.state_manager.load_state(label, "workspace"), {
-    window = window,
-    relative = true,
-    restore_text = true,
-    on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-  })
-end)
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label) end)
 
 -- Saves the state whenever I select a workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function()
-  local workspace_state = resurrect.workspace_state
-  resurrect.state_manager.save_state(workspace_state.get_workspace_state())
-end)
-
-wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
+wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function() end)
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
   if name == "switch-workspace" then
@@ -265,33 +243,6 @@ config.keys = {
       },
     })
   ),
-  {
-    key = "w",
-    mods = "ALT",
-    ---@diagnostic disable-next-line: missing-parameter
-    action = wezterm.action_callback(function()
-      resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
-    end),
-  },
-  {
-    key = "W",
-    mods = "ALT",
-    action = resurrect.window_state.save_window_action(),
-  },
-  {
-    key = "T",
-    mods = "ALT",
-    action = resurrect.tab_state.save_tab_action(),
-  },
-  {
-    key = "s",
-    mods = "ALT",
-    ---@diagnostic disable-next-line: missing-parameter
-    action = wezterm.action_callback(function()
-      resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
-      resurrect.window_state.save_window_action()
-    end),
-  },
 }
 
 config.mouse_bindings = {
