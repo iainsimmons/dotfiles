@@ -36,3 +36,8 @@
 #app .svg-tab-selection:not(.svg-tab-stack) {
   transform: scaleY(1.1) translateY(10%);
 }
+
+#tabs-container.left .resize,
+#tabs-container.right .resize {
+  max-height: none !important;
+}
