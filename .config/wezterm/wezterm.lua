@@ -80,16 +80,69 @@ wezterm.on("gui-attached", function()
   end
 end)
 
+-- configuration for commands to run upon creating new workspaces (see below)
+-- this is a Lua table where the key is the path to match on (anywhere in the zoxide label_path)
+-- (note that this means `~` should be used for the home directory that WezTerm uses)
+-- and the value is a Lua table where each item represents a tab in the created workspace
+-- and the command to run in it (by sending the text directly to the pane in that tab)
+-- e.g.
+-- ```lua
+-- {
+--   ["~/.config"] = {
+--     "nvim",
+--     "yazi",
+--     "lazygit"
+--   }
+-- }
+-- ```
+-- the above would match any selected path from the workspace switcher containing `~/.config`
+-- and open 3 tabs, running nvim, yazi and lazygit respectively
+local workspace_config = {
+  ["~/dev/Squiz/"] = {
+    "fnm use default && nvim",
+    "",
+  },
+  ["~/dotfiles"] = {
+    "nvim",
+  },
+  ["~/.config/nvim"] = {
+    "nvim",
+  },
+  ["~/Downloads"] = {
+    "yazi",
+  },
+}
+
 -- whenever I create a new workspace
 wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label_path)
-  -- if it's a work project
-  if string.match(label_path, "~/dev/Squiz/") then
-    -- spawn a new tab with the default command/shell
-    local _, pane = window:spawn_tab({})
-    -- and send the text to switch to the default version of Node.js
-    -- and then run Neovim (so it doesn't use the old version the project needs)
-    -- otherwise things like LSP servers, formatters, etc that use Node.js won't work
-    pane:send_text("fnm use default\nnvim\n")
+  -- loop over the key/value pairs in the workspace_config above
+  for path, tabs in pairs(workspace_config) do
+    -- if the label_path from zoxide / workspace switcher matches a configured path
+    if string.match(label_path, path) then
+      -- get the initial pane created
+      local initial_pane = window:active_pane()
+      -- loop over the tabs to get each command to run
+      for index, command in ipairs(tabs) do
+        -- add a trailing newline if the command doesn't have one
+        if #command > 0 and not string.match(command, "\n", -1) then
+          command = command .. "\n"
+        end
+
+        -- if this is the first configured command, run in the initial pane
+        if index == 1 then
+          initial_pane:send_text(command)
+        else
+          -- else, spawn a new tab and run the command in the pane in that tab
+          local _, pane = window:spawn_tab({})
+          pane:send_text(command)
+        end
+      end
+      -- then finally, focus on the first tab and pane
+      -- and break out of the loop
+      -- (i.e. use the first matching configured path)
+      initial_pane:activate()
+      break
+    end
   end
 end)
 
