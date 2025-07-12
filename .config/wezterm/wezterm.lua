@@ -80,11 +80,21 @@ wezterm.on("gui-attached", function()
   end
 end)
 
--- loads the state whenever I create a new workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label) end)
+-- whenever I create a new workspace
+wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label_path)
+  -- if it's a work project
+  if string.match(label_path, "~/dev/Squiz/") then
+    -- spawn a new tab with the default command/shell
+    local _, pane = window:spawn_tab({})
+    -- and send the text to switch to the default version of Node.js
+    -- and then run Neovim (so it doesn't use the old version the project needs)
+    -- otherwise things like LSP servers, formatters, etc that use Node.js won't work
+    pane:send_text("fnm use default\nnvim\n")
+  end
+end)
 
--- Saves the state whenever I select a workspace
-wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function() end)
+-- whenever I select an active workspace
+-- wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function() end)
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
   if name == "switch-workspace" then
