@@ -11,6 +11,14 @@ Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config
 
 ## Updates
 
+### July 2025
+
+Using WezTerm's multiplexing features without tmux is going well. I've converted all of the keymaps and other functionality over, some using the [WezTerm CLI](https://wezterm.org/cli/cli/index.html) and others using event handlers (via [wezterm.on](https://wezterm.org/config/lua/wezterm/on.html)).
+
+In particular, I've added some custom workspace configuration so that creating a new workspace for paths matching a configured pattern will spawn additional tabs and run commands in them. I primarily use this to automatically open Neovim in certain workspaces/directories (dotfiles and my Neovim config) and to switch Node versions via [fnm](https://github.com/Schniz/fnm) before opening Neovim for older work projects. This covers the use case I had for [sesh's configured sessions](https://github.com/joshmedeski/sesh?tab=readme-ov-file#session-configuration).
+
+I also updated the `clone` fish function that will clone a git repository, then create a new WezTerm workspace and switch to it. Switching workspaces via the CLI can only be achieved with a weird hack around changing a user var, but it does the job.
+
 ### June 2025
 
 I'm trying out Wezterm tabs instead of using tmux. I'm using [MLFlexer's smart workspace switcher Wezterm plugin](https://github.com/MLFlexer/smart_workspace_switcher.wezterm) as an alternative to [sesh](https://github.com/joshmedeski/sesh). I'll see how it goes, but even just after fixing my config and keymaps, I'm already seeing better performance and rendering (images and undercurls working without any additional configuration)!
