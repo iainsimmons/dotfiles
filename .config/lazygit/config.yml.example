@@ -15,7 +15,7 @@ git:
 os:
   edit: "nvim {{filename}}"
   editAtLine: "nvim +{{line}} -- {{filename}}"
-  open: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
-  openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
+  open: "wezterm cli spawn --new-window nvim -- {{filename}}"
+  openLink: open -u "$(echo {{link}} | sed 's/%2F/\//g')"
 services:
   "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
