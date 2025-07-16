@@ -294,6 +294,8 @@ config.keys = {
     act.SpawnCommandInNewTab({
       args = {
         "/opt/homebrew/bin/lazygit",
+        "-ucd",
+        "/Users/isimmons/.config/lazygit",
       },
     })
   ),
