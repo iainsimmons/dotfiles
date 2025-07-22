@@ -1,7 +1,7 @@
 ---@diagnostic disable: param-type-mismatch, assign-type-mismatch
 local k = require("utils/keys")
 local f = require("utils/font")
-local w = require("utils/wallpaper")
+-- local w = require("utils/wallpaper")
 local wezterm = require("wezterm") --[[@as Wezterm]]
 local act = wezterm.action
 local mux = wezterm.mux
@@ -11,7 +11,7 @@ local mux = wezterm.mux
 -------------
 
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
+workspace_switcher.zoxide_path = "/usr/bin/zoxide"
 
 -------------
 -- Tabline --
@@ -171,19 +171,19 @@ local config = {}
 config = wezterm.config_builder()
 
 config.set_environment_variables = {
-  PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
+  PATH = "/usr/bin:" .. os.getenv("PATH"),
 }
 
 config.default_workspace = "dotfiles"
 config.default_cwd = wezterm.home_dir .. "/dotfiles"
 -- config.debug_key_events = true,
 config.font = f.get_font()
-config.font_size = 20
+config.font_size = 14
 config.line_height = 1.2
 -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Spawn a fish shell in login mode
-config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
+config.default_prog = { "/usr/bin/fish", "-l" }
 config.enable_scroll_bar = false
 config.use_dead_keys = false
 config.window_padding = {
@@ -198,21 +198,20 @@ config.adjust_window_size_when_changing_font_size = false
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
-config.native_macos_fullscreen_mode = false
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 config.scrollback_lines = 5000
 config.max_fps = 120
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.background = {
-  w.get_wallpaper(),
+  -- w.get_wallpaper(),
   {
     source = {
       Color = "#000",
     },
     width = "100%",
     height = "100%",
-    opacity = 0.4,
+    opacity = 0.8,
   },
 }
 config.color_scheme = "tokyonight_night"
@@ -240,7 +239,7 @@ config.keys = {
   k.cmd_key(
     "j",
     workspace_switcher.switch_workspace({
-      extra_args = " | /opt/homebrew/bin/rg --invert-match '/.ssh|/.local|/Volumes|/Library'",
+      extra_args = " | /usr/bin/rg --invert-match '/.ssh|/.local|/Volumes|/Library'",
     })
   ),
   -- Workspace Switcher: Switch to previous workspace
@@ -293,9 +292,7 @@ config.keys = {
     "g",
     act.SpawnCommandInNewTab({
       args = {
-        "/opt/homebrew/bin/lazygit",
-        "-ucd",
-        "/Users/isimmons/.config/lazygit",
+        "lazygit",
       },
     })
   ),
@@ -304,7 +301,7 @@ config.keys = {
     "y",
     act.SpawnCommandInNewTab({
       args = {
-        "/opt/homebrew/bin/yazi",
+        "yazi",
       },
     })
   ),
