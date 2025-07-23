@@ -305,6 +305,25 @@ config.keys = {
       },
     })
   ),
+  k.cmd_key(
+    "o",
+    act.QuickSelectArgs({
+      label = "open url",
+      patterns = {
+        "https?://[^\\s\"'`)>|]+",
+        [[["'`]?((?:[\w\d]{1}[-\w\d]+)/{1}[-\w\d\.]+)["'`]?]],
+      },
+      ---@diagnostic disable-next-line: missing-parameter
+      action = wezterm.action_callback(function(window, pane)
+        local url = window:get_selection_text_for_pane(pane)
+        if not string.match(url, "^http") then
+          url = "https://www.github.com/" .. url
+        end
+        wezterm.log_info("opening: " .. url)
+        wezterm.open_with(url)
+      end),
+    })
+  ),
 }
 
 config.mouse_bindings = {
@@ -334,7 +353,7 @@ config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- as long as a full url hyperlink regex exists above this it should not match a full url to
 -- github or gitlab / bitbucket (i.e. https://gitlab.com/user/project.git is still a whole clickable url)
 table.insert(config.hyperlink_rules, {
-  regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+  regex = [[["'`]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["'`]?]],
   format = "https://www.github.com/$1/$3",
 })
 
