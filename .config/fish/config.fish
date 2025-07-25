@@ -13,6 +13,7 @@ set -gx XDG_CONFIG_HOME "/home/iain/.config"
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/go/bin
+fish_add_path $HOME/.local/share/omarchy/bin
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
