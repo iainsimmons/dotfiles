@@ -1,0 +1,15 @@
+#!/bin/sh
+
+className=$1
+execCommand=$2
+
+running=$(hyprctl -j clients | jq -r "[.[] | select(.class | contains(\"${className}\"))] | sort_by(.focusHistoryID)[0] | .address")
+echo $running
+
+if [[ $running != "" ]]; then
+	echo "focus"
+	hyprctl dispatch focuswindow address:$running
+else
+	echo "start"
+	${execCommand} &
+fi
