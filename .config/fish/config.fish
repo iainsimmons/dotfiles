@@ -157,6 +157,7 @@ abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --rev
 abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css'
 abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
+abbr discord_update 'sudo pacman -Syu discord'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
