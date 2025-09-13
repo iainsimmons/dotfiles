@@ -14,6 +14,7 @@ fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/go/bin
 fish_add_path $HOME/.local/share/omarchy/bin
+fish_add_path $HOME/.local/share/mise
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
@@ -27,6 +28,9 @@ status is-interactive; and zoxide init fish | source
 
 # direnv config, only run in interactive shells
 status is-interactive; and direnv hook fish | source
+
+# mise config, only run in interactive shells
+status is-interactive; and mise activate fish | source
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
