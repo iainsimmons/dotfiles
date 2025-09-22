@@ -41,6 +41,7 @@ rules = [
 	# JSON
 	{ mime = "application/json", use = ["json", "edit", "clipboard", "reveal"] },
 	{ name = "*.json", use = [ "json", "edit", "clipboard", "reveal" ] },
+	{ name = "*.har", use = [ "json", "edit", "clipboard", "reveal" ] },
 	{ mime = "application/ndjson", use = [ "edit", "clipboard", "reveal" ] },
 	# JavaScript
 	{ mime = "*/javascript", use = [ "edit", "clipboard", "reveal" ] },
