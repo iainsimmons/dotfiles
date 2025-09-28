@@ -1,7 +1,7 @@
 # dotfiles
 
-![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-03-25.png)
-![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_2025-03-25.png)
+![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-09-28.png)
+![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_dashboard_2025-09-28.png)
 
 Here's some configuration and stuff I use… for now.
 
@@ -10,6 +10,14 @@ Here's some configuration and stuff I use… for now.
 Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
 
 ## Updates
+
+### September 2025
+
+I've been trying out [Omarchy](https://omarchy.org) (Arch Linux and Hyprland config from DHH) for the past couple of months and so far loving it.
+
+I managed to install it on a partition on my mini PC to dual boot with Windows. I haven't booted into Windows since installing Omarchy! 😁
+
+As such, this dotfiles repo has an `archlinux` branch with all the additional/changed configuration for that. It's getting a lot more love now than my macOS dotfiles.
 
 ### July 2025
 
