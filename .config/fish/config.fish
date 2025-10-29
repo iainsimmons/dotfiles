@@ -33,11 +33,7 @@ status is-interactive; and direnv hook fish | source
 status is-interactive; and mise activate fish | source
 
 # atuin config, only run in interactive shells
-set -gx ATUIN_NOBIND true
 status is-interactive; and atuin init fish | source
-# bind to ctrl-r in normal and insert mode, add any other bindings you want here too
-bind \cr _atuin_search
-bind -M insert \cr _atuin_search
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
