@@ -1,0 +1,10 @@
+[[entries]]
+default = true
+name = "Google"
+url = "https://www.google.com/search?q=%TERM%"
+
+[[entries]]
+default = false
+name = "Phind"
+prefix = "dev"
+url = "https://phind.com/search?q=%TERM%"
