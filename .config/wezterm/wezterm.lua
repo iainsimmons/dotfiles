@@ -170,6 +170,9 @@ end)
 local config = {}
 config = wezterm.config_builder()
 
+-- Was having troubles running WezTerm in Arch/Hyprland/Wayland until adding this
+config.enable_wayland = false
+
 config.set_environment_variables = {
   PATH = "/usr/bin:" .. os.getenv("PATH"),
 }
