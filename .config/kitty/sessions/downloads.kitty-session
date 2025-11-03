@@ -1,0 +1,7 @@
+os_window_title "downloads"
+# Set the layout for the current tab
+layout tall
+# Set the working directory for windows in the current tab
+cd ~/Downloads
+# Create the "main" window and run an editor in it to edit the project files
+launch --title "yazi" /usr/bin/yazi
