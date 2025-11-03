@@ -1,0 +1,7 @@
+os_window_title "nvim-config"
+# Set the layout for the current tab
+layout tall
+# Set the working directory for windows in the current tab
+cd ~/.config/nvim
+# Create the "main" window and run an editor in it to edit the project files
+launch --title "nvim" /usr/bin/nvim
