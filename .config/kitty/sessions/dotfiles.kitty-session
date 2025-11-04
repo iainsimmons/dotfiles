@@ -1,3 +1,4 @@
+# Set the title of the window in your OS
 os_window_title "dotfiles"
 # Set the layout for the current tab
 layout tall
