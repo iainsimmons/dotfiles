@@ -6,3 +6,5 @@ layout tall
 cd ~/dotfiles
 # Create the "main" window and run an editor in it to edit the project files
 launch --title "nvim" /usr/bin/nvim
+focus
+focus_os_window

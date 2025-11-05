@@ -5,3 +5,5 @@ layout tall
 cd ~/Downloads
 # Create the "main" window and run an editor in it to edit the project files
 launch --title "yazi" /usr/bin/yazi
+focus
+focus_os_window
