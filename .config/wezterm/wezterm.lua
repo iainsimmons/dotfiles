@@ -182,8 +182,9 @@ config.default_cwd = wezterm.home_dir .. "/dotfiles"
 config.debug_key_events = true
 config.font = f.get_font()
 config.font_size = 14
-config.line_height = 1.2
+config.freetype_load_flags = "NO_HINTING"
 -- disable ligatures
+config.line_height = 1.2
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
