@@ -81,6 +81,11 @@ fish_add_path "$HOME/.cargo/bin"
 #     # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
 # end
 
+# Do not change the title of the shell/terminal
+# i.e. tab will always say "fish" instead of changing to the path, etc
+function fish_title
+end
+
 function mcd # Makes new Dir and jumps inside
     mkdir -p "$1" && cd "$1"
 end
