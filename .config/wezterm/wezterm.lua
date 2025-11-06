@@ -71,14 +71,14 @@ tabline.setup({
 ------------
 
 -- maximize all displayed windows on startup
-wezterm.on("gui-attached", function()
-  local workspace = mux.get_active_workspace()
-  for _, window in ipairs(mux.all_windows()) do
-    if window:get_workspace() == workspace then
-      window:gui_window():maximize()
-    end
-  end
-end)
+-- wezterm.on("gui-attached", function()
+--   local workspace = mux.get_active_workspace()
+--   for _, window in ipairs(mux.all_windows()) do
+--     if window:get_workspace() == workspace then
+--       window:gui_window():maximize()
+--     end
+--   end
+-- end)
 
 -- configuration for commands to run upon creating new workspaces (see below)
 -- this is a Lua table where the key is the path to match on (anywhere in the zoxide label_path)
@@ -171,7 +171,7 @@ local config = {}
 config = wezterm.config_builder()
 
 -- Was having troubles running WezTerm in Arch/Hyprland/Wayland until adding this
-config.enable_wayland = false
+-- config.enable_wayland = false
 
 config.set_environment_variables = {
   PATH = "/usr/bin:" .. os.getenv("PATH"),
@@ -179,7 +179,7 @@ config.set_environment_variables = {
 
 config.default_workspace = "dotfiles"
 config.default_cwd = wezterm.home_dir .. "/dotfiles"
--- config.debug_key_events = true,
+config.debug_key_events = true
 config.font = f.get_font()
 config.font_size = 14
 config.line_height = 1.2
@@ -195,17 +195,17 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
-config.send_composed_key_when_left_alt_is_pressed = false
-config.send_composed_key_when_right_alt_is_pressed = false
+-- config.send_composed_key_when_left_alt_is_pressed = false
+-- config.send_composed_key_when_right_alt_is_pressed = false
 config.adjust_window_size_when_changing_font_size = false
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 -- config.window_decorations = "RESIZE"
 config.scrollback_lines = 5000
-config.max_fps = 120
-config.front_end = "WebGpu"
-config.webgpu_power_preference = "HighPerformance"
+-- config.max_fps = 120
+-- config.front_end = "WebGpu"
+-- config.webgpu_power_preference = "HighPerformance"
 config.background = {
   -- w.get_wallpaper(),
   {

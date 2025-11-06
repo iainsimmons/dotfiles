@@ -3,7 +3,7 @@ local M = {}
 
 M.fonts = {
   "CommitMono",
-  "Iosevka Term",
+  -- "Iosevka Term",
   "JetBrains Mono", -- default font for WezTerm
 }
 
