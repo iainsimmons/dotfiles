@@ -81,9 +81,11 @@ fish_add_path "$HOME/.cargo/bin"
 #     # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
 # end
 
-# Do not change the title of the shell/terminal
-# i.e. tab will always say "fish" instead of changing to the path, etc
+# only use command name (not dir) for terminal title
 function fish_title
+    # get command (first arg) or fallback to "fish"
+    set -q argv[1]; or set argv fish
+    echo $argv
 end
 
 function mcd # Makes new Dir and jumps inside
@@ -160,6 +162,7 @@ abbr z zoxide
 abbr za zoxide add
 abbr zz zi
 abbr find fd
+abbr v nvim
 abbr y yazi
 # # Hide/show all desktop icons (useful when presenting)
 # abbr hidedesktop 'defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
@@ -173,8 +176,8 @@ abbr discord_update 'sudo pacman -Syu discord'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
-alias nvim 'TERM=wezterm /usr/bin/nvim'
-alias v 'TERM=wezterm /usr/bin/nvim'
+# alias nvim 'TERM=wezterm /usr/bin/nvim'
+# alias v 'TERM=wezterm /usr/bin/nvim'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
 alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
