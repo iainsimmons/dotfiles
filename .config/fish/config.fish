@@ -12,7 +12,7 @@ set -gx XDG_CONFIG_HOME "/home/iain/.config"
 
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
-fish_add_path $HOME/go/bin
+# fish_add_path $HOME/go/bin
 fish_add_path $HOME/.local/share/omarchy/bin
 fish_add_path $HOME/.local/share/mise
 
@@ -27,7 +27,7 @@ status is-interactive; and starship init fish | source
 status is-interactive; and zoxide init fish | source
 
 # direnv config, only run in interactive shells
-status is-interactive; and direnv hook fish | source
+# status is-interactive; and direnv hook fish | source
 
 # mise config, only run in interactive shells
 status is-interactive; and mise activate fish | source
@@ -67,7 +67,7 @@ set fzf_preview_dir_cmd lsd -aghl
 # fish_add_path /usr/local/go/bin
 #
 # rust
-fish_add_path "$HOME/.cargo/bin"
+# fish_add_path "$HOME/.cargo/bin"
 #
 # # python
 # fish_add_path "$HOME/.pyenv/shims"
@@ -151,8 +151,8 @@ abbr path 'echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
 abbr show_options shopt # Show_options: display bash options settings
 abbr fix_stty 'stty sane' # fix_stty:     Restore terminal settings when screwed up
 abbr cic 'set completion-ignore-case On' # cic:          Make tab-completion case-insensitive
-abbr flushDNS 'dscacheutil -flushcache' # flushDNS:     Flush out the DNS Cache
-abbr flushDNS_all 'dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+# abbr flushDNS 'dscacheutil -flushcache' # flushDNS:     Flush out the DNS Cache
+# abbr flushDNS_all 'dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 abbr hosts 'sudo nvim /etc/hosts' # hosts:        Edit the local hosts file
 abbr git_sync "git pull -r && git push"
 abbr pn pnpm
@@ -170,7 +170,7 @@ abbr y yazi
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css'
-abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
+# abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
 abbr discord_update 'sudo pacman -Syu discord'
 
