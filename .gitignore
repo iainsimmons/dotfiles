@@ -13,3 +13,4 @@
 .config/yazi/plugins
 .config/tmux/plugins
 .config/omarchy
+.cargo
