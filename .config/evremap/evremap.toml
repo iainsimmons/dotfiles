@@ -1,0 +1,19 @@
+# https://github.com/wez/evremap
+# The name of the device to remap.
+# Run `sudo evremap list-devices` to see the devices available
+# on your system.
+device_name = "Apple Inc. Apple Internal Keyboard / Trackpad"
+phys = "usb-0000:00:14.0-5/input1"
+
+# If you have multiple devices with the same name, you can optionally
+# specify the `phys` value that is printed by the `list-devices` subcommand
+# phys = "usb-0000:07:00.3-2.1.1/input0"
+
+# Configure CAPSLOCK as a Dual Role key.
+# Holding it produces LEFTCTRL, ALT, SHIFT and META/SUPER
+# AKA Hyper, but tapping it will produce ESC.
+# Both `tap` and `hold` can expand to multiple output keys.
+[[dual_role]]
+input = "KEY_CAPSLOCK"
+hold = ["KEY_LEFTCTRL", "KEY_LEFTALT", "KEY_LEFTSHIFT", "KEY_LEFTMETA"]
+tap = ["KEY_ESC"]
