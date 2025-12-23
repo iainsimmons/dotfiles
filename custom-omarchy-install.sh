@@ -51,6 +51,12 @@ if ! command -v ov &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed ov ===\e[0m"
 fi
 
+# Install 7zip
+if ! command -v 7z &>/dev/null; then
+    yay -S --noconfirm --needed 7zip
+    echo -e "\e[1;32;4;40m=== Installed 7zip ===\e[0m"
+fi
+
 # Install diff-so-fancy
 if ! command -v diff-so-fancy &>/dev/null; then
     yay -S --noconfirm --needed diff-so-fancy
