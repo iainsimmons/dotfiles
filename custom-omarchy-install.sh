@@ -75,6 +75,9 @@ fi
 if ! yay -Q "helium-browser-bin" >/dev/null 2>&1; then
     yay -S --noconfirm --needed helium-browser-bin
     echo -e "\e[1;32;4;40m=== Installed helium-browser-bin ===\e[0m"
+    # Set as default browser
+    xdg-settings set default-web-browser helium-browser.desktop
+    echo -e "\e[1;32;4;40m=== Set helium as default web browser ===\e[0m"
 fi
 
 # Install Vesktop (Discord app)
