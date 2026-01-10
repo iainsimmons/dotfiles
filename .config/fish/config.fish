@@ -36,7 +36,8 @@ status is-interactive; and mise activate fish | source
 status is-interactive; and atuin init fish | source
 
 set -U fish_greeting # disable fish greeting
-set -U fish_key_bindings fish_vi_key_bindings
+set --erase --universal fish_key_bindings
+set --global fish_key_bindings fish_vi_key_bindings
 
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
