@@ -1,7 +1,7 @@
 # Changes require a restart to take effect.
 
 # Install other terminals via Install > Terminal
-export TERMINAL=xdg-terminal-exec
+export TERMINAL=alacritty
 
 # Use code for VSCode
 export EDITOR=nvim
