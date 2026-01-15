@@ -5,22 +5,22 @@ linemode = "mtime"
 
 [opener]
 edit = [
-	{ desc = "Edit in Neovim", run = 'wezterm cli spawn -- nvim "$@"', block = false, orphan = true },
+	{ desc = "Edit in Neovim", run = 'wezterm cli spawn -- nvim "%s"', block = false, orphan = true },
 ]
 json = [
-	{ desc = "Open JSON with fx", run = 'wezterm cli spawn -- fx "$@"', block = false, orphan = true },
+	{ desc = "Open JSON with fx", run = 'wezterm cli spawn -- fx "%s"', block = false, orphan = true },
 ]
 csv = [
-	{ desc = "Open csv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"," -c --column-rainbow "$@"', block = false, orphan = true },
+	{ desc = "Open csv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"," -c --column-rainbow "%s"', block = false, orphan = true },
 ]
 psv = [
-	{ desc = "Open psv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"|" -c --column-rainbow "$@"', block = false, orphan = true },
+	{ desc = "Open psv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"|" -c --column-rainbow "%s"', block = false, orphan = true },
 ]
 tsv = [
-	{ desc = "Open tsv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"/\t/" -c --column-rainbow "$@"', block = false, orphan = true },
+	{ desc = "Open tsv with ov", run = 'wezterm cli spawn -- ov -H1 -C -d"/\t/" -c --column-rainbow "%s"', block = false, orphan = true },
 ]
 log = [
-	{ desc = "Open log file with ov", run = 'wezterm cli spawn -- ov --multi-color "\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?" "$@"', block = false, orphan = true },
+	{ desc = "Open log file with ov", run = 'wezterm cli spawn -- ov --multi-color "\d*:?(error|ERROR|Error).*?\b,\d*:?warn(ing)*,\d*:?notice,\d*:?info,\d*:?debug,\d{4}-\d{2}-\d{2}( |T)?(\d{2}:\d{2})?(:\d{2}|\s?[AaPp][Mm])?([+-]\d{4}|\.\d{6})?" "%s"', block = false, orphan = true },
 ]
 clipboard = [
 	{ desc = "Copy to system clipboard", run  = 'osascript -e "set the clipboard to POSIX file \"$0\""', block = false, orphan = true }
@@ -28,8 +28,15 @@ clipboard = [
 
 [open]
 rules = [
+	# CSV and similar
+	{ mime = "text/csv", use = ["csv", "edit", "clipboard", "reveal"] },
+	{ url = "*.csv", use = ["csv", "edit", "clipboard", "reveal"] },
+	{ url = "*.psv", use = ["psv", "edit", "clipboard", "reveal"] },
+	{ url = "*.tsv", use = ["tsv", "edit", "clipboard", "reveal"] },
+	# Log files
+	{ url = "*.log", use = ["log", "edit", "clipboard", "reveal"] },
 	# Folder
-	{ name = "*/", use = [ "edit", "open", "reveal", "clipboard" ] },
+	{ url = "*/", use = [ "edit", "open", "reveal", "clipboard" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "clipboard", "reveal" ] },
 	# Image
@@ -40,22 +47,15 @@ rules = [
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "clipboard", "reveal" ] },
 	# JSON
 	{ mime = "application/json", use = ["json", "edit", "clipboard", "reveal"] },
-	{ name = "*.json", use = [ "json", "edit", "clipboard", "reveal" ] },
-	{ name = "*.har", use = [ "json", "edit", "clipboard", "reveal" ] },
+	{ url = "*.json", use = [ "json", "edit", "clipboard", "reveal" ] },
+	{ url = "*.har", use = [ "json", "edit", "clipboard", "reveal" ] },
 	{ mime = "application/ndjson", use = [ "edit", "clipboard", "reveal" ] },
 	# JavaScript
 	{ mime = "*/javascript", use = [ "edit", "clipboard", "reveal" ] },
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
-	# CSV and similar
-	{ mime = "text/csv", use = ["csv", "edit", "clipboard", "reveal"] },
-	{ name = "*.csv", use = ["csv", "edit", "clipboard", "reveal"] },
-	{ name = "*.psv", use = ["psv", "edit", "clipboard", "reveal"] },
-	{ name = "*.tsv", use = ["tsv", "edit", "clipboard", "reveal"] },
-	# Log files
-	{ name = "*.log", use = ["log", "clipboard", "reveal"] },
 	# Fallback
-	{ name = "*", use = ["open", "edit", "clipboard", "reveal", "mime"] },
+	{ url = "*", use = ["open", "edit", "clipboard", "reveal", "mime"] },
 ]
 
 [plugin]
