@@ -129,6 +129,10 @@ function compress_img -d "Compress images with ImageMagick" -a input_path -a out
     mogrify -path "$output_path" -filter Triangle -define filter:support=2 -thumbnail "$output_width" -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$input_path"
 end
 
+function csv2psv -d "Convert CSV to PSV (pipe-separated-values)" -a input_file -a output_file
+    mlr --icsv --ocsv --ofs pipe cat "$input_file" >"$output_file"
+end
+
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
