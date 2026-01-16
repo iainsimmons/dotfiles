@@ -35,6 +35,7 @@ rules = [
 	{ url = "*.tsv", use = ["tsv", "edit", "clipboard", "reveal"] },
 	# Log files
 	{ url = "*.log", use = ["log", "edit", "clipboard", "reveal"] },
+	{ url = "*.log.*[0123456789]", use = ["log", "edit", "clipboard", "reveal"] },
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal", "clipboard" ] },
 	# Text
@@ -60,5 +61,6 @@ rules = [
 
 [plugin]
 prepend_previewers = [
-  { name = "*.md", run = "glow" }, # ./plugins/glow.yazi/
+	{ url = "*.log", run = 'piper -- bat -p -l log --color=always "$1"' }, # ./plugins/piper.yazi/
+	{ url = "*.log.*[0123456789]", run = 'piper -- bat -p -l log --color=always "$1"' }, # ./plugins/piper.yazi/
 ]
