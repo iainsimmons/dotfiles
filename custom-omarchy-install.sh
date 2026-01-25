@@ -63,6 +63,12 @@ if ! command -v diff-so-fancy &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed diff-so-fancy ===\e[0m"
 fi
 
+# Install fnm
+if ! command -v fnm &>/dev/null; then
+    yay -S --noconfirm --needed fnm-bin
+    echo -e "\e[1;32;4;40m=== Installed fnm ===\e[0m"
+fi
+
 # Install bibata cursor theme
 # Use binary
 if ! yay -Q "bibata-cursor-theme-bin" >/dev/null 2>&1; then
