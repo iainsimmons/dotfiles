@@ -4,7 +4,6 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
-tap "joshmedeski/sesh"
 tap "noahgorstein/tap"
 tap "noborus/tap"
 # General-purpose data compression with high compression ratio
@@ -111,8 +110,6 @@ brew "guile"
 brew "gum"
 # Powerful, lightweight programming language
 brew "lua"
-# Convert source code to formatted text with syntax highlighting
-brew "highlight"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # C/C++ and Java libraries for Unicode and globalization
@@ -171,8 +168,6 @@ brew "svgo"
 brew "tcl-tk"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
-# Terminal multiplexer
-brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
 # Internet file retriever
@@ -187,27 +182,17 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Git in your tmux status bar.
-brew "arl/arl/gitmux"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
-# Smart terminal session manager
-brew "joshmedeski/sesh/sesh"
 # a TUI playground to experiment and play with jq
 brew "noahgorstein/tap/jqp"
 # Feature rich terminal pager
 brew "noborus/tap/ov"
 # Command-line interface for 1Password
 cask "1password-cli"
-# Virtual monitor for screen sharing
-cask "deskpad"
 cask "font-symbols-only-nerd-font"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
-# Android file transfer
-cask "openmtp"
 # Modified browser that helps in responsive web development
 cask "responsively"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
