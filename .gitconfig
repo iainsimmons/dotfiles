@@ -46,6 +46,7 @@
 	last = log -1 HEAD
 	diffw = diff --word-diff
 	wdiff = diff --word-diff
+	d = difftool -y --tool=oy
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -74,7 +75,9 @@
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
-	tool = delta
+	tool = oy
+[difftool "oy"]
+	cmd = oy "$LOCAL" "$REMOTE"
 [difftool]
 	prompt = false
 [fetch]

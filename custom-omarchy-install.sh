@@ -69,6 +69,12 @@ if ! command -v fnm &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed fnm ===\e[0m"
 fi
 
+# Install oyo
+if ! command -v oy &>/dev/null; then
+    yay -S --noconfirm --needed oyo
+    echo -e "\e[1;32;4;40m=== Installed oyo ===\e[0m"
+fi
+
 # Install bibata cursor theme
 # Use binary
 if ! yay -Q "bibata-cursor-theme-bin" >/dev/null 2>&1; then
