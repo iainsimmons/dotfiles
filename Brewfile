@@ -1,4 +1,5 @@
 tap "1password/tap"
+tap "ahkohd/oyo"
 tap "arl/arl"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -20,6 +21,8 @@ brew "jpeg-xl"
 brew "aom"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# Library for command-line editing
+brew "readline"
 # C library implementing the SSH2 protocol
 brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -46,6 +49,8 @@ brew "docker-credential-helper"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
 # Validating, recursive, caching DNS resolver
@@ -56,12 +61,8 @@ brew "gnutls"
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
 brew "openjpeg"
-# Library for command-line editing
-brew "readline"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
 # Create thumbnails for your video files
 brew "ffmpegthumbnailer"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -72,8 +73,6 @@ brew "fnm"
 brew "fpp"
 # Libraries to talk to Microsoft SQL Server and Sybase databases
 brew "freetds"
-# Platform built on V8 to build network applications
-brew "node", link: false
 # Terminal JSON viewer
 brew "fx", args: ["HEAD"]
 # Command-line fuzzy finder written in Go
@@ -96,7 +95,7 @@ brew "git-filter-repo"
 brew "glow"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Library access to GnuPG
 brew "gpgme"
@@ -108,32 +107,38 @@ brew "pkgconf"
 brew "guile"
 # Tool for glamorous shell scripts
 brew "gum"
-# Powerful, lightweight programming language
-brew "lua"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@76"
 # ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
-# Library for reading RAW files from digital photo cameras
-brew "libraw"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# TUI playground to experiment and play with jq
+brew "jqp"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Postgres C API library
 brew "libpq"
+# Library for reading RAW files from digital photo cameras
+brew "libraw"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Powerful, lightweight programming language
+brew "lua"
 # Package manager for the Lua programming language
 brew "luarocks"
+# Like sed, awk, cut, join & sort for name-indexed data such as CSV
+brew "miller"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node", link: false
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Open Visual Inference And Optimization toolkit for AI inference
@@ -156,6 +161,8 @@ brew "qemu"
 brew "reattach-to-user-namespace"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
 # Cross-shell prompt for astronauts
@@ -168,6 +175,8 @@ brew "svgo"
 brew "tcl-tk"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Terminal multiplexer
+brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
 # Internet file retriever
@@ -182,10 +191,10 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Step-through diff viewer for the terminal
+brew "ahkohd/oyo/oy"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
-# a TUI playground to experiment and play with jq
-brew "noahgorstein/tap/jqp"
 # Feature rich terminal pager
 brew "noborus/tap/ov"
 # Command-line interface for 1Password
@@ -197,3 +206,4 @@ cask "notunes"
 cask "responsively"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+go "github.com/ChausseBenjamin/termpicker"
