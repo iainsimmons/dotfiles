@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Configuration: mini monitor's workspace ID to exclude
+KIOSK_ID=10
+
+# 1. Get a unique, sorted list of active workspace IDs that are NOT the kiosk
+# Filter for IDs > 0 (ignores special workspaces) and < KIOSK_ID
+mapfile -t active_workspaces < <(hyprctl clients -j | jq -r "[.[] | select(.workspace.id > 0 and .workspace.id < $KIOSK_ID) | .workspace.id] | unique | .[]" | sort -n)
+
+# 2. Get the current workspace ID
+current=$(hyprctl activeworkspace -j | jq '.id')
+
+# 3. Find our current position in that array
+index=-1
+for i in "${!active_workspaces[@]}"; do
+    if [[ "${active_workspaces[$i]}" == "$current" ]]; then
+        index=$i
+    break
+fi
+done
+
+# 4. Handle edge cases (e.g., if on empty workspace not in the list)
+count=${#active_workspaces[@]}
+if [ "$count" -eq 0 ]; then exit 0; fi # Do nothing if no windows are open
+
+if [ "$index" -eq -1 ]; then
+    # If current isn't in the list, go to the first available workspace
+    hyprctl dispatch workspace "${active_workspaces[0]}"
+    exit 0
+fi
+
+# 5. Calculate next/prev with wrap-around math
+if [ "$1" == "next" ]; then
+    next_index=$(( (index + 1) % count ))
+else
+    next_index=$(( (index - 1 + count) % count ))
+fi
+
+
+# 6. Execute the jump
+hyprctl dispatch workspace "${active_workspaces[$next_index]}"
