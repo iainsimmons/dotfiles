@@ -1,10 +1,8 @@
 #!/bin/sh
 
 is_mini_monitor_connected=$(hyprctl monitors -j | jq '.[] | select(.model == "CL07-HDMI")')
-# echo $is_mini_monitor_connected
 
 if [[ $is_mini_monitor_connected != "null" ]]; then
-	# echo "connected"
 	omarchy-launch-webapp "https://ticktick.com/webapp/#q/all/tasks" &
 fi
 
