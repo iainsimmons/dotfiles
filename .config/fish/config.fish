@@ -174,6 +174,8 @@ abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.c
 # abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
 abbr discord_update 'sudo pacman -Syu discord'
+abbr monitors 'hyprctl monitors -j | fx'
+abbr clients 'hyprctl clients -j | fx'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
