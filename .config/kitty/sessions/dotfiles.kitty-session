@@ -5,6 +5,6 @@ layout tall
 # Set the working directory for windows in the current tab
 cd ~/dotfiles
 # Create the "main" window and run an editor in it to edit the project files
-launch --title "nvim" nvim
+launch --title "nvim" /opt/homebrew/bin/nvim
 focus
 focus_os_window
