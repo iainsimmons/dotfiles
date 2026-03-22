@@ -133,6 +133,10 @@ function csv2psv -d "Convert CSV to PSV (pipe-separated-values)" -a input_file -
     mlr --icsv --ocsv --ofs pipe cat "$input_file" >"$output_file"
 end
 
+function urlencode -d "URL Encode String" -a str
+    echo "$str" | jq -sRr @uri | string replace "%2B" "+" | string replace "%0A" ""
+end
+
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
