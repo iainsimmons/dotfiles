@@ -7,16 +7,17 @@ tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "noahgorstein/tap"
 tap "noborus/tap"
+tap "tonisives/tap"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # TIFF library and utilities
 brew "libtiff"
 # Color management engine supporting ICC profiles
 brew "little-cms2"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
 # New file format for still image compression
 brew "jpeg-xl"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
 # Codec library for encoding and decoding AV1 video streams
 brew "aom"
 # Cryptography and SSL/TLS Toolkit
@@ -135,6 +136,8 @@ brew "luarocks"
 brew "miller"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Deep clean and optimize your Mac
+brew "mole"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
@@ -179,6 +182,8 @@ brew "tealdeer"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
+# Parser generator tool
+brew "tree-sitter-cli"
 # Internet file retriever
 brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -200,10 +205,15 @@ brew "noborus/tap/ov"
 # Command-line interface for 1Password
 cask "1password-cli"
 cask "font-symbols-only-nerd-font"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# System-wide Vim mode for macOS
+cask "tonisives/tap/ovim"
 # Modified browser that helps in responsive web development
 cask "responsively"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+go "github.com/joshmedeski/sesh/v2"
 go "github.com/ChausseBenjamin/termpicker"
