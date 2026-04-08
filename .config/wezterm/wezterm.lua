@@ -45,7 +45,6 @@ config.scrollback_lines = 5000
 -- config.front_end = "WebGpu"
 -- config.webgpu_power_preference = "HighPerformance"
 config.background = {
-  -- w.get_wallpaper(),
   {
     source = {
       Color = "#000",
