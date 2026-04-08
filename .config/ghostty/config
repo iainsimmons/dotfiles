@@ -1,0 +1,67 @@
+# https://ghostty.org/docs/config/reference
+
+###########
+## shell ##
+###########
+command = "/usr/bin/fish --login"
+initial-command = "/usr/bin/fish --login -c 'tm'"
+shell-integration = fish
+shell-integration-features = "no-cursor,sudo,title"
+
+#################
+## UI / window ##
+#################
+adjust-cell-height = 20%
+background = #000000
+background-opacity = 0.8
+bold-is-bright = true
+mouse-hide-while-typing = true
+window-theme = auto
+window-padding-x = 8
+window-padding-y = 0
+window-save-state = always
+# maximise by default
+window-width = 9999
+window-height = 9999
+
+##########
+## font ##
+##########
+# Unicode Codepoints for Emoji
+# Basic Multilingual Plane (BMP):
+#   - U+1F600 to U+1F64F (Emoticons)
+#   - U+1F300 to U+1F5FF (Miscellaneous Symbols and Pictographs)
+#   - U+1F680 to U+1F6FF (Transport and Map Symbols)
+#   - U+1F700 to U+1F77F (Alchemical Symbols)
+#   - U+1F780 to U+1F7FF (Geometric Shapes Extended)
+# Supplementary Multilingual Plane (SMP):
+#    - U+1F900 to U+1F9FF (Supplemental Symbols and Pictographs)
+#    - U+1FA00 to U+1FA6F (Chess Symbols and other symbols)
+# Other Ranges:
+#    - U+2600 to U+26FF (Miscellaneous Symbols)
+#    - U+2700 to U+27BF (Dingbats)
+
+font-codepoint-map = "U+1F600-U+1F64F,U+1F300-U+1F5FF,U+1F680-U+1F6FF,U+1F700-U+1F77F,U+1F780-U+1F7FF,U+1F900-U+1F9FF,U+1FA00-U+1FA6F,U+2600-U+26FF,U+2700-U+27BF=Noto Color Emoji"
+font-family = "CommitMono"
+font-family = "Noto Color Emoji"
+font-feature = -liga
+font-feature = -dlig
+font-size = 14
+freetype-load-flags = force-autohint
+
+###########
+## theme ##
+###########
+theme = TokyoNight Night
+
+###############
+## clipboard ##
+###############
+clipboard-read = "allow"
+clipboard-trim-trailing-spaces = true
+clipboard-write = "allow"
+
+#################
+## keybindings ##
+#################
+config-file = keybinds
