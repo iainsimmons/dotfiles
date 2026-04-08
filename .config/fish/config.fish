@@ -31,7 +31,8 @@ status is-interactive; and zoxide init fish | source
 status is-interactive; and direnv hook fish | source
 
 set -U fish_greeting # disable fish greeting
-set -U fish_key_bindings fish_vi_key_bindings
+set --erase --universal fish_key_bindings
+set --global fish_key_bindings fish_vi_key_bindings
 
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux VISUAL nvim
@@ -47,9 +48,6 @@ set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
 set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
-
-# slumber config
-set -gx SLUMBER_CONFIG_PATH "$XDG_CONFIG_HOME/slumber/config.yml"
 
 #fish_add_path "$HOME/.rvm/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
@@ -79,28 +77,22 @@ function tm
     # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
 end
 
+# only use command name (not dir) for terminal title
+function fish_title
+    # get command (first arg) or fallback to "fish"
+    set -q argv[1]; or set argv fish
+    echo $argv
+end
+
 function mcd # Makes new Dir and jumps inside
     mkdir -p "$1" && cd "$1"
-end
-
-function trash # Moves a file to the MacOS trash
-    command mv "$argv" ~/.Trash
-end
-
-function ql # Opens any file in MacOS Quicklook Preview
-    qlmanage -p "$argv" >&/dev/null
 end
 
 function sshkey # generate ssh key in directory
     mkdir -p "$1" && cd "$1" && ssh-keygen -t rsa -N '' -f cid_rsa
 end
 
-function wezterm-switch-workspace -d "Switch WezTerm workspace"
-    set args (jq -n --arg workspace "$argv[1]" --arg cwd "$argv[2]" '{"workspace":$workspace,"cwd":$cwd}' | base64)
-    printf "\033]1337;SetUserVar=%s=%s\007" switch-workspace $args
-end
-
-function clone -d "Clone and open WezTerm workspace for given repo" -a repo_arg -a parent_arg -a dir_name_arg
+function clone -d "Clone and open tmux window for given repo" -a repo_arg -a parent_arg -a dir_name_arg
     if test -n "$repo_arg"
         string match -rq '\/(?<repo_name>.+?)\.git$' -- $repo_arg
     else
@@ -120,9 +112,7 @@ function clone -d "Clone and open WezTerm workspace for given repo" -a repo_arg 
         set dir_name (string trim "$repo_name")
     end
 
-    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && wezterm cli spawn --new-window --workspace "$dir_name" --cwd "$parent_dir/$dir_name" --
-
-    wezterm-switch-workspace "$dir_name" "$parent_dir/$dir_name"
+    cd "$parent_dir" && git clone "$repo_arg" "$dir_name" && sesh connect "$parent_dir/$dir_name"
 end
 
 function compress_img -d "Compress images with ImageMagick" -a input_path -a output_path -a output_width
@@ -165,8 +155,9 @@ abbr z zoxide
 abbr za zoxide add
 abbr zz zi
 abbr find fd
+abbr v nvim
 abbr y yazi
-# Hide/show all desktop icons (useful when presenting)
+# # Hide/show all desktop icons (useful when presenting)
 abbr hidedesktop 'defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
 abbr showdesktop 'defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 # delete item from history, use fzf to select
@@ -179,8 +170,6 @@ abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
-alias nvim 'TERM=wezterm /opt/homebrew/bin/nvim'
-alias v 'TERM=wezterm /opt/homebrew/bin/nvim'
 alias ls lsd # Use lsd instead of ls
 alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
 alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
