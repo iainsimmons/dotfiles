@@ -13,8 +13,6 @@ keybind = alt+right=unbind
 # move to start and end of line
 keybind = cmd+left=csi:H
 keybind = cmd+right=csi:F
-# delete to start of line
-keybind = cmd+backspace=text:\x15
 
 # reload configuration
 keybind = cmd+shift+r=reload_config
