@@ -3,8 +3,8 @@
 ###########
 ## shell ##
 ###########
-command = "/usr/bin/fish --login"
-initial-command = "/usr/bin/fish --login -c 'tm'"
+command = "/opt/homebrew/bin/fish --login"
+initial-command = "/opt/homebrew/bin/fish --login -c 'tm'"
 shell-integration = fish
 shell-integration-features = "no-cursor,sudo,title"
 
@@ -14,7 +14,9 @@ shell-integration-features = "no-cursor,sudo,title"
 adjust-cell-height = 20%
 background = #000000
 background-opacity = 0.8
+background-blur = 15
 bold-is-bright = true
+macos-titlebar-style = hidden
 mouse-hide-while-typing = true
 window-theme = auto
 window-padding-x = 8
@@ -47,7 +49,6 @@ font-family = "Noto Color Emoji"
 font-feature = -liga
 font-feature = -dlig
 font-size = 14
-freetype-load-flags = force-autohint
 
 ###########
 ## theme ##

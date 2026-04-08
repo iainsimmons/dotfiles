@@ -17,6 +17,9 @@ keybind = cmd+right=csi:F
 # reload configuration
 keybind = cmd+shift+r=reload_config
 
+# quick terminal
+keybind = global:cmd+alt+grave_accent=toggle_quick_terminal
+
 # save in vim/Neovim
 keybind = super+s=text:\x1b\x1b:w\x0a
 
