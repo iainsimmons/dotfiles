@@ -13,7 +13,7 @@ shell-integration-features = "no-cursor,sudo,title"
 #################
 adjust-cell-height = 20%
 background = #000000
-background-opacity = 0.8
+background-opacity = 0.9
 background-blur = 15
 bold-is-bright = true
 macos-titlebar-style = hidden
