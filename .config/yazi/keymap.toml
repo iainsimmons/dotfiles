@@ -1,5 +1,4 @@
 [[mgr.prepend_keymap]]
 on   = "!"
-run  = 'shell --orphan -- wezterm cli spawn --cwd "$(dirname "$(reallink -f $0)")"'
-
-desc = "Open shell here in new WezTerm tab"
+run  = 'shell --orphan -- tmux new-window -c "%d"'
+desc = "Open shell here in new tmux window"
