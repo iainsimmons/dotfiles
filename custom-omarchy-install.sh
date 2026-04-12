@@ -14,11 +14,22 @@ if ! command -v fish &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed fish ===\e[0m"
 fi
 
-# Install wezterm,
-# prefer nightly binary because building it takes FOREVER
-if ! command -v wezterm &>/dev/null; then
-    yay -S --noconfirm --needed wezterm-nightly-bin
-    echo -e "\e[1;32;4;40m=== Installed wezterm-nightly-bin ===\e[0m"
+# Install ghostty
+if ! command -v ghostty &>/dev/null; then
+    yay -S --noconfirm --needed ghostty
+    echo -e "\e[1;32;4;40m=== Installed ghostty ===\e[0m"
+fi
+
+# Install tmux
+if ! command -v tmux &>/dev/null; then
+    yay -S --noconfirm --needed tmux
+    echo -e "\e[1;32;4;40m=== Installed tmux ===\e[0m"
+fi
+
+# Install sesh
+if ! command -v sesh &>/dev/null; then
+    yay -S --noconfirm --needed sesh-bin
+    echo -e "\e[1;32;4;40m=== Installed sesh ===\e[0m"
 fi
 
 # Install lsd
@@ -75,6 +86,12 @@ if ! command -v oy &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed oyo ===\e[0m"
 fi
 
+# Install hyprmoncfg
+if ! command -v hyprmoncfg &>/dev/null; then
+    yay -S --noconfirm --needed hyprmoncfg
+    echo -e "\e[1;32;4;40m=== Installed hyprmoncfg ===\e[0m"
+fi
+
 # Install bibata cursor theme
 # Use binary
 if ! yay -Q "bibata-cursor-theme-bin" >/dev/null 2>&1; then
@@ -88,7 +105,12 @@ if ! yay -Q "helium-browser-bin" >/dev/null 2>&1; then
     yay -S --noconfirm --needed helium-browser-bin
     echo -e "\e[1;32;4;40m=== Installed helium-browser-bin ===\e[0m"
     # Set as default browser
-    xdg-settings set default-web-browser helium-browser.desktop
+    xdg-settings set default-web-browser helium.desktop
+    # Also set common MIME handlers
+    xdg-mime default helium.desktop x-scheme-handler/http
+    xdg-mime default helium.desktop x-scheme-handler/https
+    xdg-mime default helium.desktop text/html
+
     echo -e "\e[1;32;4;40m=== Set helium as default web browser ===\e[0m"
 fi
 
