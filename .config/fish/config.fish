@@ -54,9 +54,14 @@ set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-pag
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
 
+# pnpm
+set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
 #fish_add_path "$HOME/.rvm/bin"
-# set -gx PNPM_HOME /Users/isimmons/Library/pnpm
-# fish_add_path "$PNPM_HOME"
 # fish_add_path "$HOME/.yarn/bin"
 # fish_add_path "$HOME/.config/yarn/global/node_modules/.bin"
 # # bun
