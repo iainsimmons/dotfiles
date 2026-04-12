@@ -1,0 +1,103 @@
+{
+  "name": "main-only",
+  "created_at": "2026-04-12T10:51:24.628674008Z",
+  "updated_at": "2026-04-12T10:51:24.628962981Z",
+  "outputs": [
+    {
+      "key": "dell inc.|dell u2422he|37ypnm3",
+      "name": "HDMI-A-2",
+      "make": "Dell Inc.",
+      "model": "DELL U2422HE",
+      "serial": "37YPNM3",
+      "enabled": true,
+      "mode": "1920x1080@60.00Hz",
+      "width": 1920,
+      "height": 1080,
+      "refresh": 60,
+      "x": 0,
+      "y": 100,
+      "scale": 1,
+      "transform": 0
+    },
+    {
+      "key": "daewoo electronics company ltd|cl07-hdmi|1901001",
+      "name": "HDMI-A-1",
+      "make": "Daewoo Electronics Company Ltd",
+      "model": "CL07-HDMI",
+      "serial": "1901001",
+      "enabled": false,
+      "mode": "1024x600@59.82Hz",
+      "width": 1024,
+      "height": 600,
+      "refresh": 59.82,
+      "x": 600,
+      "y": 1080,
+      "scale": 1,
+      "transform": 0
+    }
+  ],
+  "workspaces": {
+    "enabled": true,
+    "strategy": "sequential",
+    "max_workspaces": 10,
+    "group_size": 10,
+    "monitor_order": [
+      "dell inc.|dell u2422he|37ypnm3",
+      "daewoo electronics company ltd|cl07-hdmi|1901001"
+    ],
+    "rules": [
+      {
+        "workspace": "1",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2",
+        "default": true
+      },
+      {
+        "workspace": "2",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "3",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "4",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "5",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "6",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "7",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "8",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "9",
+        "output_key": "dell inc.|dell u2422he|37ypnm3",
+        "output_name": "HDMI-A-2"
+      },
+      {
+        "workspace": "10",
+        "output_key": "daewoo electronics company ltd|cl07-hdmi|1901001",
+        "output_name": "HDMI-A-1",
+        "default": true
+      }
+    ]
+  }
+}
