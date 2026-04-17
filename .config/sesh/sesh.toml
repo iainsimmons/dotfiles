@@ -1,5 +1,5 @@
-# blacklist regex from v2.14.0
-# blacklist = ["^scratch$", "^__"]
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+cache = true
 
 [default_session]
 name = "dotfiles"
@@ -10,9 +10,11 @@ name = "nvim-config"
 path = "~/.config/nvim"
 startup_command = "nvim"
 
-[[session]]
+[[wildcard]]
 name = "Squiz"
-path = "~/dev/Squiz/"
+pattern = "~/dev/Squiz/**"
+startup_command = "fnm use default && nvim"
+windows = [ "node" ]
 
 [[session]]
 name = "Downloads"
@@ -23,18 +25,6 @@ startup_command = "yazi"
 name = "Trash"
 path = "~/.Trash"
 startup_command = "yazi"
-
-[[session]]
-name = "une-ccts-2017"
-path = "~/dev/Squiz/une-ccts-2017/"
-startup_command = "fnm use default && nvim"
-windows = [ "node" ]
-
-[[session]]
-name = "une-cauc-generator"
-path = "~/dev/Squiz/une/une-cauc-generator/"
-startup_command = "fnm use default && nvim"
-windows = [ "node" ]
 
 [[window]]
 name = "nvim"
