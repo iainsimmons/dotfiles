@@ -6,7 +6,7 @@
 command = "/opt/homebrew/bin/fish --login"
 initial-command = "/opt/homebrew/bin/fish --login -c 'tm'"
 shell-integration = fish
-shell-integration-features = "no-cursor,sudo,title"
+shell-integration-features = "no-cursor,sudo,title,ssh-env,no-ssh-terminfo"
 
 #################
 ## UI / window ##
