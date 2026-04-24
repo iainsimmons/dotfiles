@@ -69,8 +69,8 @@ end
 # set --export PATH $BUN_INSTALL/bin $PATH
 # fish_add_path "$BUN_INSTALL/bin"
 #
-# # go
-# fish_add_path /usr/local/go/bin
+# go
+fish_add_path "$HOME/.local/share/mise/installs/go/1.26.2/bin"
 #
 # rust
 # fish_add_path "$HOME/.cargo/bin"
