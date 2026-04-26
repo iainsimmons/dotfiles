@@ -32,6 +32,12 @@ if ! command -v sesh &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed sesh ===\e[0m"
 fi
 
+# Install tree-sitter-cli
+if ! command -v tree-sitter-cli &>/dev/null; then
+    yay -S --noconfirm --needed tree-sitter-cli
+    echo -e "\e[1;32;4;40m=== Installed tree-sitter-cli ===\e[0m"
+fi
+
 # Install lsd
 if ! command -v lsd &>/dev/null; then
     yay -S --noconfirm --needed lsd
