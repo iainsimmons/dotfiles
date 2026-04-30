@@ -1,0 +1,16 @@
+#!/bin/bash
+# Wrapper to detect if this is the first kitty window
+# If it's the only kitty window, launch tm session
+# Otherwise, just start an interactive fish shell
+
+# Small delay to ensure window is registered
+sleep 0.1
+
+kitty_count=$(hyprctl clients -j 2>/dev/null | jq 'map(select(.class == "kitty")) | length' 2>/dev/null || echo "0")
+
+# If only 1 kitty window (this one), it's the first/only window
+if [ "$kitty_count" = "1" ]; then
+  exec fish -l -c tm
+else
+  exec fish -l
+fi
