@@ -14,3 +14,4 @@
 .config/tmux/plugins
 .config/omarchy
 .cargo
+/.config/hypr/monitors.conf
