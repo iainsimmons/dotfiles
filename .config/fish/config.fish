@@ -127,6 +127,10 @@ function urlencode -d "URL Encode String" -a str
     echo "$str" | jq -sRr @uri | string replace "%2B" "+" | string replace "%0A" ""
 end
 
+function csphash -d "Hash for CSP header with SHA256" -a str
+    echo "$str" | openssl sha256 -binary | openssl base64
+end
+
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation
