@@ -1,4 +1,4 @@
 [[mgr.prepend_keymap]]
-on   = "!"
-run  = 'shell --orphan -- tmux new-window -c "%d"'
+on = "!"
+run = 'shell --orphan -- tmux new-window -c "%d"'
 desc = "Open shell here in new tmux window"
