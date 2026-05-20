@@ -127,5 +127,8 @@ append_rules = [
 
 [plugin]
 prepend_previewers = [
-  { url = "*.md", run = "glow" }, # ./plugins/glow.yazi/
+  {
+    url = "*.md",
+    run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"',
+  },
 ]
