@@ -35,9 +35,9 @@ prepend_rules = [
     "reveal",
     "clipboard",
   ] },
-  # Text
-  { mime = "text/*", use = [
-    "edit",
+  # Log files
+  { url = "*.log", use = [
+    "log",
     "clipboard",
     "reveal",
   ] },
@@ -113,9 +113,9 @@ prepend_rules = [
     "clipboard",
     "reveal",
   ] },
-  # Log files
-  { url = "*.log", use = [
-    "log",
+  # Text
+  { mime = "text/*", use = [
+    "edit",
     "clipboard",
     "reveal",
   ] },
