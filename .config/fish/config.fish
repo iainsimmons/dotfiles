@@ -57,7 +57,7 @@ set fzf_preview_dir_cmd lsd -aghl
 # pnpm
 set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
 if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
+    set -gx PATH "$PNPM_HOME/bin" $PATH
 end
 # pnpm end
 
@@ -105,7 +105,7 @@ end
 
 function clone -d "Clone and open tmux window for given repo" -a repo_arg -a parent_arg -a dir_name_arg
     if test -n "$repo_arg"
-        string match -rq '\/(?<repo_name>.+?)\.git$' -- $repo_arg
+        string match -rq '\/(?<repo_name>[^\/]+?)\.git$' -- $repo_arg
     else
         echo "Please specify a git repo to clone"
         return 1
@@ -114,7 +114,7 @@ function clone -d "Clone and open tmux window for given repo" -a repo_arg -a par
     if test -n "$parent_arg"
         set parent_dir "$parent_arg"
     else
-        set parent_dir ~/dev/Squiz/
+        set parent_dir ~/coding/
     end
 
     if test -n "$dir_name_arg"
