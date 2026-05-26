@@ -2,3 +2,9 @@
 on = "!"
 run = 'shell --orphan -- tmux new-window -c "%d"'
 desc = "Open shell here in new tmux window"
+
+[[mgr.prepend_keymap]]
+on = ["M","s"]
+run = "plugin sshfs -- menu"
+desc = "Open SSHFS options"
+
