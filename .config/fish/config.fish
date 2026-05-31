@@ -15,6 +15,7 @@ fish_add_path $HOME/bin
 # fish_add_path $HOME/go/bin
 fish_add_path $HOME/.local/share/omarchy/bin
 fish_add_path $HOME/.local/share/mise
+fish_add_path $HOME/coding/yt-pl-dl
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
