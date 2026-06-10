@@ -1,7 +1,7 @@
 # dotfiles
 
-![fastfetch output](./.config/screenshots/iainsimmons_fastfetch_2025-09-28.png)
-![Neovim colorscheme](./.config/screenshots/iainsimmons_neovim_dashboard_2025-09-28.png)
+![fastfetch output](./screenshots/iainsimmons_fastfetch_2026-06-10.png)
+![Neovim colorscheme](./screenshots/iainsimmons_neovim_dashboard_2026-06-10.png)
 
 Here's some configuration and stuff I use… for now.
 
@@ -10,6 +10,18 @@ Here's some configuration and stuff I use… for now.
 Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
 
 ## Updates
+
+### May 2026
+
+Ghostty is great, but I didn't particularly like how it was configured, and for whatever reason it was getting occasionally flagged as insecure software or something at work, so I switched to [kitty](https://sw.kovidgoyal.net/kitty/) and have stuck with it since.
+
+### April 2026
+
+Switched back to [tmux](https://github.com/tmux/tmux) and [sesh](https://github.com/joshmedeski/sesh). WezTerm was becoming increasingly buggy, so I switched to Ghostty (but also configured a basic setup for kitty), which works really well with tmux.
+
+### March 2026
+
+Started using [Vicinae](https://www.vicinae.com/) as my app launcher (basically Raycast for Linux).
 
 ### September 2025
 
