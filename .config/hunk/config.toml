@@ -1,0 +1,57 @@
+mode = "auto" # auto, split, stack
+vcs = "git" # git, jj, sl
+watch = false
+exclude_untracked = false
+line_numbers = true
+wrap_lines = false
+agent_notes = false
+transparent_background = true
+theme = "custom"
+
+[custom_theme]
+base = "catppuccin-mocha" # graphite, midnight, paper, ember, catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha, zenburn
+label = "Tokyo Night"
+background = "#1a1b26"
+panel = "#16161e"
+panelAlt = "#1e2030"
+border = "#32344a"
+accent = "#7dcfff"
+accentMuted = "#2b4455"
+text = "#a9b1d6"
+muted = "#565f89"
+addedBg = "#1f3d2a"
+removedBg = "#3d262a"
+movedAddedBg = "#1c3348"
+movedRemovedBg = "#2f2640"
+contextBg = "#1e2030"
+addedContentBg = "#2a4a36"
+removedContentBg = "#4d2e32"
+contextContentBg = "#222436"
+addedSignColor = "#9ece6a"
+removedSignColor = "#f7768e"
+lineNumberBg = "#16161e"
+lineNumberFg = "#32344a"
+selectedHunk = "#3b4d6b"
+badgeAdded = "#9ece6a"
+badgeRemoved = "#f7768e"
+badgeNeutral = "#565f89"
+fileNew = "#9ece6a"
+fileDeleted = "#f7768e"
+fileRenamed = "#e0af68"
+fileModified = "#bb9af7"
+fileUntracked = "#7dcfff"
+noteBorder = "#bb9af7"
+noteBackground = "#242136"
+noteTitleBackground = "#312a4a"
+noteTitleText = "#a9b1d6"
+
+[custom_theme.syntax]
+default = "#a9b1d6"
+keyword = "#7aa2f7"
+string = "#9ece6a"
+comment = "#565f89"
+number = "#ff9e64"
+function = "#7aa2f7"
+property = "#7dcfff"
+type = "#e0af68"
+punctuation = "#565f89"

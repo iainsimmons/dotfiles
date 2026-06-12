@@ -67,7 +67,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.config/lazygit/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = hunk pager
 [credential]
 	helper = osxkeychain
 [diff]
