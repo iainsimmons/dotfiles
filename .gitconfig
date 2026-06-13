@@ -91,7 +91,7 @@
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [merge]
-	tool = vimdiff3
+	tool = diffconflicts
 [mergetool "vimdiff3"]
 	path = nvim
 [pager]
@@ -116,3 +116,8 @@
 [includeIf "gitdir:~/dev/Squiz/**"]
 	path = ~/dev/Squiz/.gitconfig
 
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
