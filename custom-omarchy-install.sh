@@ -33,7 +33,7 @@ if ! command -v sesh &>/dev/null; then
 fi
 
 # Install tree-sitter-cli
-if ! command -v tree-sitter-cli &>/dev/null; then
+if ! command -v tree-sitter &>/dev/null; then
     yay -S --noconfirm --needed tree-sitter-cli
     echo -e "\e[1;32;4;40m=== Installed tree-sitter-cli ===\e[0m"
 fi
@@ -119,6 +119,14 @@ if ! yay -Q "bibata-cursor-theme-bin" >/dev/null 2>&1; then
     echo -e "\e[1;32;4;40m=== Installed bibata-cursor-theme-bin ===\e[0m"
 fi
 
+# Install custom CommitMono fonts
+if [ ! -d ~/.local/share/fonts/CommitMono ]; then
+    mkdir -p ~/.local/share/fonts/CommitMono
+    cp CommitMono_iainsimmonsV143/*.otf ~/.local/share/fonts/CommitMono/
+    omarchy-font-set CommitMono_iainsimmons
+    echo -e "\e[1;32;4;40m=== Installed custom CommitMono fonts ===\e[0m"
+fi
+
 # Install Helium browser
 # Use binary
 if ! yay -Q "helium-browser-bin" >/dev/null 2>&1; then
@@ -141,11 +149,15 @@ if ! yay -Q "vesktop-bin" >/dev/null 2>&1; then
     echo -e "\e[1;32;4;40m=== Installed vesktop-bin ===\e[0m"
 fi
 
-# Install Steam
+# Install Steam (skip on Apple MacBooks)
 # Use Omarchy script
 if ! yay -Q "steam" >/dev/null 2>&1; then
-    omarchy-install-steam
-    echo -e "\e[1;32;4;40m=== Installed steam ===\e[0m"
+    if [ ! -f /sys/class/dmi/id/sys_vendor ] || ! grep -q "Apple Inc." /sys/class/dmi/id/sys_vendor 2>/dev/null; then
+        omarchy-install-gaming-steam
+        echo -e "\e[1;32;4;40m=== Installed steam ===\e[0m"
+    else
+        echo -e "\e[1;33;4;40m=== Skipping steam install on Apple MacBook ===\e[0m"
+    fi
 fi
 
 if ! bat --list-themes | grep tokyonight &>/dev/null; then
