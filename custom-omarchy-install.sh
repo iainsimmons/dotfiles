@@ -86,6 +86,12 @@ if ! command -v fnm &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed fnm ===\e[0m"
 fi
 
+# Install pnpm
+if ! command -v pnpm &>/dev/null; then
+    yay -S --noconfirm --needed pnpm
+    echo -e "\e[1;32;4;40m=== Installed pnpm ===\e[0m"
+fi
+
 # Install oyo
 if ! command -v oy &>/dev/null; then
     yay -S --noconfirm --needed oyo
