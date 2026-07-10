@@ -14,10 +14,10 @@ if ! command -v fish &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed fish ===\e[0m"
 fi
 
-# Install ghostty
-if ! command -v ghostty &>/dev/null; then
-    yay -S --noconfirm --needed ghostty
-    echo -e "\e[1;32;4;40m=== Installed ghostty ===\e[0m"
+# Install kitty
+if ! command -v kitty &>/dev/null; then
+    yay -S --noconfirm --needed kitty
+    echo -e "\e[1;32;4;40m=== Installed kitty ===\e[0m"
 fi
 
 # Install tmux
@@ -96,6 +96,20 @@ fi
 if ! command -v hyprmoncfg &>/dev/null; then
     yay -S --noconfirm --needed hyprmoncfg
     echo -e "\e[1;32;4;40m=== Installed hyprmoncfg ===\e[0m"
+fi
+
+# Install vicinae
+if ! command -v vicinae &>/dev/null; then
+    yay -S --noconfirm --needed vicinae-bin
+    echo -e "\e[1;32;4;40m=== Installed vicinae ===\e[0m"
+fi
+
+# Install evremap
+if ! command -v evremap &>/dev/null; then
+    yay -S --noconfirm --needed evremap-git
+    chmod +x .config/evremap/setup_evremap.sh
+    .config/evremap/setup_evremap.sh
+    echo -e "\e[1;32;4;40m=== Installed evremap ===\e[0m"
 fi
 
 # Install bibata cursor theme
