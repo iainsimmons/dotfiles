@@ -48,6 +48,8 @@ fi
 if ! command -v yazi &>/dev/null; then
     yay -S --noconfirm --needed yazi
     echo -e "\e[1;32;4;40m=== Installed yazi ===\e[0m"
+    ya pkg install
+    echo -e "\e[1;32;4;40m=== Installed yazi packages ===\e[0m"
 fi
 
 # Install atuin
