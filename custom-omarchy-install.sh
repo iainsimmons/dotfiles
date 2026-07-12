@@ -178,4 +178,9 @@ if ! bat --list-themes | grep tokyonight &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Added tokyonight bat theme ===\e[0m"
 fi
 
+if ! grep -i "Name=TickTick" ~/.local/share/applications/*.desktop &>/dev/null; then
+    omarchy-webapp-install TickTick "https://ticktick.com/webapp" ""
+    echo -e "\e[1;32;4;40m=== Installed TickTick as a webapp ===\e[0m"
+fi
+
 echo -e "\e[1;32;4;40m=== Done! ===\e[0m"
