@@ -49,6 +49,7 @@ set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-pag
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_preview_dir_cmd lsd -aghl
 
+set -gx NODE_EXTRA_CA_CERTS /usr/local/share/ca-certificates/Cloudflare_CA.pem
 #fish_add_path "$HOME/.rvm/bin"
 set -gx PNPM_HOME /Users/isimmons/Library/pnpm
 fish_add_path "$PNPM_HOME"
