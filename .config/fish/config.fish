@@ -16,6 +16,7 @@ fish_add_path $HOME/bin
 fish_add_path $HOME/go/bin
 
 eval (/opt/homebrew/bin/brew shellenv)
+fish_add_path $HOME/.local/share/nvpm/bin
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
