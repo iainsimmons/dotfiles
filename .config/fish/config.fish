@@ -74,6 +74,8 @@ set -gx PYTHON python
 # status --is-interactive; and pyenv init - | source
 # status --is-interactive; and pyenv virtualenv-init - | source
 
+set -gx NVPM_HOME "$HOME/.config/nvpm"
+
 function tm
     sesh connect dotfiles
     # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
