@@ -85,6 +85,8 @@ fish_add_path "$HOME/.local/share/mise/installs/go/1.26.2/bin"
 # # status --is-interactive; and pyenv virtualenv-init - | source
 #
 
+set -gx NVPM_HOME "$HOME/.config/nvpm"
+
 function tm
     sesh connect dotfiles
     # tmux a -t dotfiles || exec tmux new -c ~ -s dotfiles
