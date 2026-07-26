@@ -171,7 +171,7 @@ abbr showdesktop 'defaults write com.apple.finder CreateDesktop -bool true && ki
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css'
-abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
+abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force'
 abbr admin '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
 abbr privileges '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
 abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'

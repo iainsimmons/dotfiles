@@ -1,23 +1,16 @@
-tap "1password/tap"
-tap "ahkohd/oyo"
-tap "arl/arl"
+tap "1password/tap", trusted: true
+tap "ahkohd/oyo", trusted: true
+tap "arl/arl", trusted: true
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
+tap "brevity1swos/tap", trusted: true
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "jesseduffield/lazydocker"
-tap "jesseduffield/lazygit"
-tap "noahgorstein/tap"
-tap "noborus/tap"
-tap "tonisives/tap"
-# General-purpose data compression with high compression ratio
-brew "xz"
-# TIFF library and utilities
-brew "libtiff"
-# Color management engine supporting ICC profiles
-brew "little-cms2"
-# New file format for still image compression
-brew "jpeg-xl"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
+tap "jesseduffield/lazydocker", trusted: true
+tap "jesseduffield/lazygit", trusted: true
+tap "modem-dev/tap"
+tap "noahgorstein/tap", trusted: true
+tap "noborus/tap", trusted: true
+tap "tonisives/tap", trusted: true
 # Codec library for encoding and decoding AV1 video streams
 brew "aom"
 # Cryptography and SSL/TLS Toolkit
@@ -38,6 +31,8 @@ brew "cmake"
 brew "lima"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Load/unload environment variables based on $PWD
@@ -46,6 +41,8 @@ brew "direnv"
 brew "docker"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
+# Modern, maintained replacement for ls
+brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -54,16 +51,22 @@ brew "fd"
 brew "ffmpeg"
 # International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
+# TIFF library and utilities
+brew "libtiff"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# New file format for still image compression
+brew "jpeg-xl"
 # Library for JPEG-2000 image manipulation
 brew "openjpeg"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # Create thumbnails for your video files
 brew "ffmpegthumbnailer"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -126,8 +129,6 @@ brew "lazygit"
 brew "libpq"
 # Library for reading RAW files from digital photo cameras
 brew "libraw"
-# Clone of ls with colorful output, file type icons, and more
-brew "lsd"
 # Powerful, lightweight programming language
 brew "lua"
 # Package manager for the Lua programming language
@@ -160,20 +161,30 @@ brew "poppler"
 brew "pyenv"
 # Generic machine emulator and virtualizer
 brew "qemu"
+# Better WHOIS and domain intelligence toolkit
+brew "quien"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
+# SVG rendering tool and library
+brew "resvg"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup"
+# Smart session manager for the terminal
+brew "sesh"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Terminal based spreadsheet tool
+brew "sheets"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Nodejs-based tool for optimizing SVG vector graphics files
 brew "svgo"
+# TOML toolkit written in Rust
+brew "taplo"
 # Tool Command Language
 brew "tcl-tk"
 # Very fast implementation of tldr in Rust
@@ -198,8 +209,12 @@ brew "zoxide"
 brew "zsh"
 # Step-through diff viewer for the terminal
 brew "ahkohd/oyo/oy"
+# A terminal regex tester with real-time matching, multi-engine support, and plain-English explanations
+brew "brevity1swos/tap/rgx"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
+# Desktop-inspired terminal diff viewer for agent-authored changesets
+brew "modem-dev/tap/hunk", trusted: true
 # Feature rich terminal pager
 brew "noborus/tap/ov"
 # Command-line interface for 1Password
@@ -207,13 +222,22 @@ cask "1password-cli"
 cask "font-symbols-only-nerd-font"
 # Menu bar manager
 cask "jordanbaird-ice"
+# Clipboard manager
+cask "maccy"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
-# System-wide Vim mode for macOS
-cask "tonisives/tap/ovim"
 # Modified browser that helps in responsive web development
 cask "responsively"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+# Menu bar manager
+cask "thaw"
+vscode "asvetliakov.vscode-neovim"
+vscode "eamodio.gitlens"
+vscode "enkia.tokyo-night"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "sdras.night-owl"
+vscode "vscodevim.vim"
 go "github.com/joshmedeski/sesh/v2"
 go "github.com/ChausseBenjamin/termpicker"
+npm "@squiz/dxp-cli-next"
+npm "corepack"
