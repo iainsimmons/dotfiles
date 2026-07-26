@@ -17,7 +17,7 @@ source ~/.local/share/omarchy/default/bash/rc
 export PATH=/home/iain/.opencode/bin:$PATH
 
 # Add local bin directory to PATH
-export PATH=/home/iain/.local/bin:/home/iain/.local/share/mise/installs/node/25.0.0/bin:/home/iain/.local/share/mise/installs/python/3.14.4/bin:/home/iain/coding/yt-pl-dl:/home/iain/.local/share/mise/installs/go/1.26.2/bin:/home/iain/.cargo/bin:/home/iain/.local/share/mise:/home/iain/.local/share/omarchy/bin:/home/iain/bin:/usr/local/bin:/home/iain/.local/share/pnpm/bin:/home/iain/.local/share/mise/shims:/usr/bin:/home/iain/.local/share/../bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=/home/iain/bin:/home/iain/.local/bin:/home/iain/.local/share/mise/installs/node/25.0.0/bin:/home/iain/.local/share/mise/installs/python/3.14.4/bin:/home/iain/coding/yt-pl-dl:/home/iain/.local/share/mise/installs/go/1.26.2/bin:/home/iain/.cargo/bin:/home/iain/.local/share/mise:/home/iain/.local/share/omarchy/bin:/home/iain/bin:/usr/local/bin:/home/iain/.local/share/pnpm/bin:/home/iain/.local/share/mise/shims:/usr/bin:/home/iain/.local/share/../bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 # nvpm
 source <(nvpm env)
