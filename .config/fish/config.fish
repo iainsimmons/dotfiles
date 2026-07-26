@@ -54,7 +54,7 @@ set fzf_history_opts --reverse --preview 'echo {}' --preview-window down:3:hidde
 set fzf_fd_opts --type f --hidden --exclude .git --no-ignore --max-depth 5
 set fzf_git_log_opts --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
-set fzf_preview_dir_cmd lsd -aghl
+set fzf_preview_dir_cmd eza -aghl --icons=auto
 
 # pnpm
 set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
@@ -182,8 +182,8 @@ abbr clients 'hyprctl clients -j | fx'
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
-alias ls lsd # Use lsd instead of ls
-alias ll 'lsd -aghl' # Preferred 'ls'/'lsd' implementation
+alias ls 'eza --icons=auto' # Use eza instead of ls
+alias ll 'eza -aghl --icons=auto' # Preferred 'ls'/'eza' implementation
 alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
 alias color termpicker
 alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"

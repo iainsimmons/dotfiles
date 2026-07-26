@@ -38,12 +38,6 @@ if ! command -v tree-sitter &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed tree-sitter-cli ===\e[0m"
 fi
 
-# Install lsd
-if ! command -v lsd &>/dev/null; then
-    yay -S --noconfirm --needed lsd
-    echo -e "\e[1;32;4;40m=== Installed lsd ===\e[0m"
-fi
-
 # Install yazi
 if ! command -v yazi &>/dev/null; then
     yay -S --noconfirm --needed yazi
