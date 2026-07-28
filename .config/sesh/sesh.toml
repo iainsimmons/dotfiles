@@ -5,15 +5,29 @@ cache = true
 prompt = "⚡ "
 placeholder = "Pick a sesh…"
 show_icons = true
+show_windows = true
+preview = false
+alias_auto_connect_delay = "250ms"
+alias_filter_prefix = ";"
 
-[default_session]
+[[session]]
 name = "dotfiles"
 path = "~/.dotfiles"
+alias = "df"
+alias_auto_connect = true
 
 [[session]]
 name = "nvim-config"
 path = "~/.config/nvim"
+alias = "nv"
+alias_auto_connect = true
 startup_command = "nvim"
+
+[[session]]
+name = "Squiz"
+path = "~/dev/Squiz"
+alias = "sq"
+alias_auto_connect = true
 
 [[wildcard]]
 name = "Squiz"
@@ -24,6 +38,8 @@ windows = [ "node" ]
 [[session]]
 name = "Downloads"
 path = "~/Downloads"
+alias = "dl"
+alias_auto_connect = true
 startup_command = "yazi"
 
 [[session]]
