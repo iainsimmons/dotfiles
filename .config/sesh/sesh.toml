@@ -5,17 +5,35 @@ cache = true
 prompt = "⚡ "
 placeholder = "Pick a sesh…"
 show_icons = true
+show_windows = true
+preview = false
+alias_auto_connect_delay = "150ms"
+alias_filter_prefix = ";"
 
-[default_session]
+[[session]]
 name = "dotfiles"
 path = "~/.dotfiles"
+alias = "df"
 
 [[session]]
 name = "nvim-config"
 path = "~/.config/nvim"
+alias = "n"
 startup_command = "nvim"
 
 [[session]]
 name = "Downloads"
 path = "~/Downloads"
+alias = "dl"
 startup_command = "yazi"
+
+[[session]]
+name = "today-iain-learned"
+path = "~/today-iain-learned/"
+alias = "til"
+startup_command = "nvim"
+
+[[session]]
+name = "coding"
+path = "~/coding/"
+alias = "cd"
