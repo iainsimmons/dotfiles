@@ -37,6 +37,9 @@ status is-interactive; and mise activate fish | source
 # atuin config, only run in interactive shells
 status is-interactive; and atuin init fish | source
 
+# nvpm config
+nvpm env fish | source
+
 set -U fish_greeting # disable fish greeting
 set --erase --universal fish_key_bindings
 set --global fish_key_bindings fish_vi_key_bindings
