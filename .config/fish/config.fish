@@ -14,9 +14,9 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/go/bin
+fish_add_path $HOME/.local/share/nvpm/bin
 
 eval (/opt/homebrew/bin/brew shellenv)
-fish_add_path $HOME/.local/share/nvpm/bin
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
@@ -30,6 +30,9 @@ status is-interactive; and zoxide init fish | source
 
 # direnv config, only run in interactive shells
 status is-interactive; and direnv hook fish | source
+
+# nvpm config
+nvpm env fish | source
 
 set -U fish_greeting # disable fish greeting
 set --erase --universal fish_key_bindings
