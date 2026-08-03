@@ -138,6 +138,26 @@ function csphash -d "Hash for CSP header with SHA256" -a str
     echo "$str" | openssl sha256 -binary | openssl base64
 end
 
+function nvpm-pick -d "Pick and install an nvpm package by category" -a category -a lang
+    set -l source_ids (nvpm ls --all --output=json --only-categories=$category "$lang" | jq -r '.packages[].source_id')
+    if test (count $source_ids) -eq 0
+        echo "No $category package found for '$lang'"
+        return 1
+    end
+    set source_id (printf '%s\n' $source_ids | gum choose --header "Select a $category package to install" --limit 1)
+    if test -n "$source_id"
+        nvpm add --force "$source_id"
+    end
+end
+
+function nvpm-ts -d "Install a tree-sitter parser for a language"
+    nvpm-pick tree-sitter $argv
+end
+
+function nvpm-lsp -d "Install an LSP server for a language"
+    nvpm-pick lsp $argv
+end
+
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 abbr cp 'cp -iv' # Preferred 'cp' implementation
 abbr mv 'mv -iv' # Preferred 'mv' implementation

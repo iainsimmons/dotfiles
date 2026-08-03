@@ -445,6 +445,11 @@
     {
       "sourceId": "npm:vscode-langservers-extracted",
       "version": "4.10.0"
+    },
+    {
+      "sourceId": "github:ram02z/tree-sitter-fish",
+      "version": "3.7.0",
+      "commit": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
