@@ -12,7 +12,7 @@ alias_filter_prefix = ";"
 
 [[session]]
 name = "dotfiles"
-path = "~/.dotfiles"
+path = "~/dotfiles"
 alias = "df"
 alias_auto_connect = true
 
