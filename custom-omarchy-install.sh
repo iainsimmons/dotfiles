@@ -58,6 +58,12 @@ if ! command -v fx &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed fx ===\e[0m"
 fi
 
+# Install gum
+if ! command -v gum &>/dev/null; then
+    yay -S --noconfirm --needed gum
+    echo -e "\e[1;32;4;40m=== Installed gum ===\e[0m"
+fi
+
 # Install ov
 if ! command -v ov &>/dev/null; then
     yay -S --noconfirm --needed ov
