@@ -450,6 +450,10 @@
       "sourceId": "github:ram02z/tree-sitter-fish",
       "version": "3.7.0",
       "commit": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788"
+    },
+    {
+      "sourceId": "npm:hunkdiff",
+      "version": "0.17.7"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
