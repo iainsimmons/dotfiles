@@ -46,7 +46,7 @@
 	last = log -1 HEAD
 	diffw = diff --word-diff
 	wdiff = diff --word-diff
-	d = difftool -y --tool=oy
+	d = difftool -y
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -75,11 +75,9 @@
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
-	tool = oy
-[difftool "oy"]
-	cmd = oy "$LOCAL" "$REMOTE"
-[difftool]
-	prompt = false
+	tool = codediff
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff --exit-on-close file $LOCAL $REMOTE\"
 [fetch]
 	all = true
 	prune = true
@@ -94,8 +92,6 @@
 	tool = diffconflicts
 [mergetool "vimdiff3"]
 	path = nvim
-[pager]
-	difftool = true
 [pull]
 	rebase = true
 [push]
