@@ -32,6 +32,12 @@ if ! command -v sesh &>/dev/null; then
     echo -e "\e[1;32;4;40m=== Installed sesh ===\e[0m"
 fi
 
+# Install nvpm
+if ! command -v nvpm &>/dev/null; then
+    curl -sSL https://nvpm.dev/install.sh | sh
+    echo -e "\e[1;32;4;40m=== Installed nvpm ===\e[0m"
+fi
+
 # Install tree-sitter-cli
 if ! command -v tree-sitter &>/dev/null; then
     yay -S --noconfirm --needed tree-sitter-cli
@@ -92,12 +98,6 @@ fi
 if ! command -v pnpm &>/dev/null; then
     yay -S --noconfirm --needed pnpm
     echo -e "\e[1;32;4;40m=== Installed pnpm ===\e[0m"
-fi
-
-# Install oyo
-if ! command -v oy &>/dev/null; then
-    yay -S --noconfirm --needed oyo
-    echo -e "\e[1;32;4;40m=== Installed oyo ===\e[0m"
 fi
 
 # Install hyprmoncfg
