@@ -9,7 +9,7 @@ hl.config({
     kb_options = "compose:rctrl",
 
     -- Increase sensitivity for mouse/trackpad (default: 0).
-    sensitivity = -0.75,
+    sensitivity = 0,
 
     -- 2 - Cursor focus will be detached from keyboard focus. Clicking on a
     -- window will move keyboard focus to that window.
@@ -25,6 +25,8 @@ hl.config({
     },
   },
 })
+
+
 
 -- Scroll faster in the terminal.
 o.window("org.wezfurlong.wezterm", { scroll_touchpad = 1.5 })
