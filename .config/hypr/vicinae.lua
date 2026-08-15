@@ -3,7 +3,7 @@
 o.exec_on_start("vicinae server")
 
 -- Use whatever shortcut floats your boat.
-o.bind("SUPER + SPACE", "Vicinae toggle", "vicinae toggle")
+o.bind("SUPER + ALT + SPACE", "Vicinae toggle", "vicinae toggle")
 o.bind("SUPER + CTRL + C", "Vicinae clipboard history", "vicinae vicinae://launch/clipboard/history")
 
 -- Blur.
