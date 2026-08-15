@@ -213,3 +213,6 @@ alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=dow
 
 # nub
 set -gx PATH "$HOME/.nub/bin" $PATH
+
+# peon-ping quick controls
+function peon; bash /home/iain/.claude/hooks/peon-ping/peon.sh $argv; end

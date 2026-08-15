@@ -108,3 +108,7 @@ tm() {
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 
 . "$HOME/.local/bin/env"
+
+# peon-ping quick controls
+alias peon="bash /home/iain/.claude/hooks/peon-ping/peon.sh"
+[ -f /home/iain/.claude/hooks/peon-ping/completions.bash ] && source /home/iain/.claude/hooks/peon-ping/completions.bash

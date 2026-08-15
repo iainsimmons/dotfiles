@@ -1,0 +1,243 @@
+# peon-ping tab completion for fish shell
+
+# Helper: true when no subcommand has been given yet
+function __peon_no_subcommand
+  set -l cmd (commandline -opc)
+  test (count $cmd) -eq 1
+end
+
+# Helper: true when the given subcommand is active
+function __peon_using_subcommand
+  set -l cmd (commandline -opc)
+  test (count $cmd) -ge 2; and test $cmd[2] = $argv[1]
+end
+
+# Helper: true when packs subcommand is active and second arg matches
+function __peon_packs_subcommand
+  set -l cmd (commandline -opc)
+  test (count $cmd) -ge 3; and test $cmd[2] = packs; and test $cmd[3] = $argv[1]
+end
+
+# Disable file completions
+complete -c peon -f
+
+# Top-level commands (only when no subcommand given)
+complete -c peon -n __peon_no_subcommand -a pause -d "Mute sounds"
+complete -c peon -n __peon_no_subcommand -a resume -d "Unmute sounds"
+complete -c peon -n __peon_no_subcommand -a mute -d "Alias for 'pause' — mute sounds"
+complete -c peon -n __peon_no_subcommand -a unmute -d "Alias for 'resume' — unmute sounds"
+complete -c peon -n __peon_no_subcommand -a toggle -d "Toggle mute on/off"
+complete -c peon -n __peon_no_subcommand -a status -d "Show current status"
+complete -c peon -n "__peon_using_subcommand status" -l verbose -d "Show full details"
+complete -c peon -n __peon_no_subcommand -a volume -d "Get or set volume level"
+complete -c peon -n __peon_no_subcommand -a rotation -d "Get or set pack rotation mode"
+complete -c peon -n __peon_no_subcommand -a packs -d "Manage sound packs"
+complete -c peon -n __peon_no_subcommand -a sounds -d "Enable/disable individual sounds in a pack"
+complete -c peon -n __peon_no_subcommand -a notifications -d "Control desktop notifications"
+complete -c peon -n __peon_no_subcommand -a mobile -d "Configure mobile push notifications"
+complete -c peon -n __peon_no_subcommand -a debug -d "Toggle debug logging"
+complete -c peon -n __peon_no_subcommand -a logs -d "View or manage log files"
+complete -c peon -n __peon_no_subcommand -a relay -d "Start audio relay for devcontainers"
+complete -c peon -n __peon_no_subcommand -a trainer -d "Exercise trainer mode"
+complete -c peon -n __peon_no_subcommand -a create -d "Draft a new sound pack via your own Claude Code"
+complete -c peon -n __peon_no_subcommand -a eval -d "Open the eval gate to audition/reroll/approve a draft"
+complete -c peon -n __peon_no_subcommand -a update -d "Update peon-ping and refresh sound packs"
+complete -c peon -n __peon_no_subcommand -a help -d "Show help message"
+
+# packs subcommands
+complete -c peon -n "__peon_using_subcommand packs" -a list -d "List installed sound packs"
+complete -c peon -n "__peon_using_subcommand packs" -a use -d "Switch to a specific pack"
+complete -c peon -n "__peon_using_subcommand packs" -a next -d "Cycle to the next pack"
+complete -c peon -n "__peon_using_subcommand packs" -a install -d "Download and install new packs"
+complete -c peon -n "__peon_using_subcommand packs" -a install-local -d "Install a pack from a local directory" -F
+complete -c peon -n "__peon_using_subcommand packs" -a remove -d "Remove specific packs"
+complete -c peon -n "__peon_using_subcommand packs" -a rotation -d "Manage pack rotation list"
+complete -c peon -n "__peon_using_subcommand packs" -a bind -d "Bind a pack to the current directory"
+complete -c peon -n "__peon_using_subcommand packs" -a unbind -d "Remove pack binding for current directory"
+complete -c peon -n "__peon_using_subcommand packs" -a bindings -d "List all directory-to-pack bindings"
+complete -c peon -n "__peon_using_subcommand packs" -a ide-bind -d "Bind a pack to an IDE id"
+complete -c peon -n "__peon_using_subcommand packs" -a ide-unbind -d "Remove an IDE binding"
+complete -c peon -n "__peon_using_subcommand packs" -a ide-bindings -d "List all IDE-to-pack bindings"
+complete -c peon -n "__peon_using_subcommand packs" -a exclude -d "Manage path exclusions for path_rules"
+complete -c peon -n "__peon_using_subcommand packs" -a community -d "List all packs from registry"
+complete -c peon -n "__peon_using_subcommand packs" -a search -d "Search registry packs by name"
+
+# packs rotation subcommands
+complete -c peon -n "__peon_packs_subcommand rotation" -a list -d "Show current rotation list and mode"
+complete -c peon -n "__peon_packs_subcommand rotation" -a add -d "Add pack(s) to rotation"
+complete -c peon -n "__peon_packs_subcommand rotation" -a remove -d "Remove pack(s) from rotation"
+complete -c peon -n "__peon_packs_subcommand rotation" -a clear -d "Clear all packs from rotation"
+
+# packs rotation add --install flag
+function __peon_rotation_add
+  set -l cmd (commandline -opc)
+  test (count $cmd) -ge 4; and test $cmd[2] = packs; and test $cmd[3] = rotation; and test $cmd[4] = add
+end
+complete -c peon -n __peon_rotation_add -a "--install" -d "Install from registry if needed"
+
+# packs install options
+complete -c peon -n "__peon_packs_subcommand install" -a "--all" -d "Install all packs from registry"
+complete -c peon -n "__peon_packs_subcommand install" -a "--lang" -d "Filter packs by language (e.g. --lang=en,fr)"
+
+# packs list options
+complete -c peon -n "__peon_packs_subcommand list" -a "--registry" -d "List all available packs from registry"
+complete -c peon -n "__peon_packs_subcommand list" -a "--lang" -d "Filter by language (e.g. --lang=en)"
+
+# Pack name completions for 'packs use' and 'packs remove'
+complete -c peon -n "__peon_packs_subcommand use" -a "(
+  set -l packs_dir (set -q CLAUDE_PEON_DIR; and echo \$CLAUDE_PEON_DIR; or echo \$HOME/.claude/hooks/peon-ping)/packs
+  if not test -d \$packs_dir; and test -d \$HOME/.openpeon/packs
+    set packs_dir \$HOME/.openpeon/packs
+  end
+  if test -d \$packs_dir
+    for manifest in \$packs_dir/*/manifest.json \$packs_dir/*/openpeon.json
+      basename (dirname \$manifest)
+    end
+  end
+)"
+complete -c peon -n "__peon_packs_subcommand bind" -a "(
+  set -l packs_dir (set -q CLAUDE_PEON_DIR; and echo \$CLAUDE_PEON_DIR; or echo \$HOME/.claude/hooks/peon-ping)/packs
+  if not test -d \$packs_dir; and test -d \$HOME/.openpeon/packs
+    set packs_dir \$HOME/.openpeon/packs
+  end
+  if test -d \$packs_dir
+    for manifest in \$packs_dir/*/manifest.json \$packs_dir/*/openpeon.json
+      basename (dirname \$manifest)
+    end
+  end
+)"
+complete -c peon -n "__peon_packs_subcommand ide-bind" -a "claude codex cursor opencode kilo kiro gemini copilot windsurf kimi antigravity amp deepagents openclaw rovodev"
+complete -c peon -n "__peon_packs_subcommand ide-unbind" -a "claude codex cursor opencode kilo kiro gemini copilot windsurf kimi antigravity amp deepagents openclaw rovodev"
+complete -c peon -n "__peon_packs_subcommand ide-bind; and test (count (commandline -opc)) -eq 4" -a "(
+  set -l packs_dir (set -q CLAUDE_PEON_DIR; and echo \$CLAUDE_PEON_DIR; or echo \$HOME/.claude/hooks/peon-ping)/packs
+  if not test -d \$packs_dir; and test -d \$HOME/.openpeon/packs
+    set packs_dir \$HOME/.openpeon/packs
+  end
+  if test -d \$packs_dir
+    for manifest in \$packs_dir/*/manifest.json \$packs_dir/*/openpeon.json
+      basename (dirname \$manifest)
+    end
+  end
+)"
+complete -c peon -n "__peon_packs_subcommand ide-bind; and test (count (commandline -opc)) -eq 5" -a "--install" -d "Install from registry if needed"
+complete -c peon -n "__peon_packs_subcommand exclude" -a "add remove list"
+complete -c peon -n "__peon_packs_subcommand remove" -a "(
+  set -l packs_dir (set -q CLAUDE_PEON_DIR; and echo \$CLAUDE_PEON_DIR; or echo \$HOME/.claude/hooks/peon-ping)/packs
+  if not test -d \$packs_dir; and test -d \$HOME/.openpeon/packs
+    set packs_dir \$HOME/.openpeon/packs
+  end
+  if test -d \$packs_dir
+    for manifest in \$packs_dir/*/manifest.json \$packs_dir/*/openpeon.json
+      basename (dirname \$manifest)
+    end
+  end
+)"
+
+# debug subcommands
+complete -c peon -n "__peon_using_subcommand debug" -a on -d "Enable debug logging"
+complete -c peon -n "__peon_using_subcommand debug" -a off -d "Disable debug logging"
+complete -c peon -n "__peon_using_subcommand debug" -a status -d "Show debug logging status"
+
+# logs subcommands
+complete -c peon -n "__peon_using_subcommand logs" -a "--last" -d "Show last N lines from latest log"
+complete -c peon -n "__peon_using_subcommand logs" -a "--session" -d "Show entries for a session"
+complete -c peon -n "__peon_using_subcommand logs" -a "--prune" -d "Delete old log files"
+complete -c peon -n "__peon_using_subcommand logs" -a "--clear" -d "Delete all log files"
+
+# mobile subcommands
+complete -c peon -n "__peon_using_subcommand mobile" -a ntfy -d "Set up ntfy.sh notifications"
+complete -c peon -n "__peon_using_subcommand mobile" -a pushover -d "Set up Pushover notifications"
+complete -c peon -n "__peon_using_subcommand mobile" -a telegram -d "Set up Telegram notifications"
+complete -c peon -n "__peon_using_subcommand mobile" -a on -d "Enable mobile notifications"
+complete -c peon -n "__peon_using_subcommand mobile" -a off -d "Disable mobile notifications"
+complete -c peon -n "__peon_using_subcommand mobile" -a status -d "Show mobile config"
+complete -c peon -n "__peon_using_subcommand mobile" -a test -d "Send test notification"
+
+# rotation subcommands
+complete -c peon -n "__peon_using_subcommand rotation" -a random -d "Pick a random pack each session (default)"
+complete -c peon -n "__peon_using_subcommand rotation" -a round-robin -d "Cycle through packs in order"
+complete -c peon -n "__peon_using_subcommand rotation" -a shuffle -d "Pick a random pack for every sound event"
+complete -c peon -n "__peon_using_subcommand rotation" -a session_override -d "Assign pack per session via /peon-ping-use"
+
+# Helper: true when notifications subcommand is active and second arg matches
+function __peon_notif_subcommand
+  set -l cmd (commandline -opc)
+  test (count $cmd) -ge 3; and test $cmd[2] = notifications; and test $cmd[3] = $argv[1]
+end
+
+# notifications subcommands
+complete -c peon -n "__peon_using_subcommand notifications" -a on -d "Enable desktop notifications"
+complete -c peon -n "__peon_using_subcommand notifications" -a off -d "Disable desktop notifications"
+complete -c peon -n "__peon_using_subcommand notifications" -a overlay -d "Use large overlay banners"
+complete -c peon -n "__peon_using_subcommand notifications" -a standard -d "Use standard system notifications"
+complete -c peon -n "__peon_using_subcommand notifications" -a position -d "Get or set overlay position"
+complete -c peon -n "__peon_using_subcommand notifications" -a dismiss -d "Get or set auto-dismiss time"
+complete -c peon -n "__peon_using_subcommand notifications" -a label -d "Get, set, or reset notification label"
+complete -c peon -n "__peon_using_subcommand notifications" -a test -d "Send test notification"
+
+# notifications position values
+complete -c peon -n "__peon_notif_subcommand position" -a "top-center" -d "Top center (default)"
+complete -c peon -n "__peon_notif_subcommand position" -a "top-right" -d "Top right corner"
+complete -c peon -n "__peon_notif_subcommand position" -a "top-left" -d "Top left corner"
+complete -c peon -n "__peon_notif_subcommand position" -a "bottom-right" -d "Bottom right corner"
+complete -c peon -n "__peon_notif_subcommand position" -a "bottom-left" -d "Bottom left corner"
+complete -c peon -n "__peon_notif_subcommand position" -a "bottom-center" -d "Bottom center"
+
+# notifications label values
+complete -c peon -n "__peon_notif_subcommand label" -a reset -d "Clear label override"
+
+# logs --session --all (conditional: only after --session)
+complete -c peon -n "__peon_using_subcommand logs; and __fish_seen_argument -l session" -a "--all" -d "Search across all log files"
+
+# trainer subcommands
+complete -c peon -n "__peon_using_subcommand trainer" -a on -d "Enable trainer mode"
+complete -c peon -n "__peon_using_subcommand trainer" -a off -d "Disable trainer mode"
+complete -c peon -n "__peon_using_subcommand trainer" -a status -d "Show today's progress"
+complete -c peon -n "__peon_using_subcommand trainer" -a log -d "Log completed reps"
+complete -c peon -n "__peon_using_subcommand trainer" -a goal -d "Set exercise goals"
+complete -c peon -n "__peon_using_subcommand trainer" -a help -d "Show trainer help"
+
+# Helper: true when trainer goal subcommand is active
+function __peon_trainer_goal
+  set -l cmd (commandline -opc)
+  test (count $cmd) -ge 3; and test $cmd[2] = trainer; and test $cmd[3] = goal
+end
+
+# sounds subcommands
+complete -c peon -n "__peon_using_subcommand sounds" -a list -d "List sounds in a pack"
+complete -c peon -n "__peon_using_subcommand sounds" -a disable -d "Disable an individual sound"
+complete -c peon -n "__peon_using_subcommand sounds" -a enable -d "Re-enable an individual sound"
+
+# create flags
+complete -c peon -n "__peon_using_subcommand create" -l name -d "Pack name (lowercase letters/digits/-/_)"
+complete -c peon -n "__peon_using_subcommand create" -l flavor -d "sfx (wordless) or voice (spoken)"
+complete -c peon -n "__peon_using_subcommand create" -l vibe -d "One-line vibe description"
+complete -c peon -n "__peon_using_subcommand create; and __fish_seen_argument -l flavor" -a "sfx voice"
+
+# eval: complete draft names and installed pack names
+complete -c peon -n "__peon_using_subcommand eval" -a "(
+  set -l drafts_dir \$HOME/.peon-ping/drafts
+  if test -d \$drafts_dir
+    for d in \$drafts_dir/*/
+      basename \$d
+    end
+  end
+  set -l packs_dir (set -q CLAUDE_PEON_DIR; and echo \$CLAUDE_PEON_DIR; or echo \$HOME/.claude/hooks/peon-ping)/packs
+  if not test -d \$packs_dir; and test -d \$HOME/.openpeon/packs
+    set packs_dir \$HOME/.openpeon/packs
+  end
+  if test -d \$packs_dir
+    for manifest in \$packs_dir/*/manifest.json \$packs_dir/*/openpeon.json
+      basename (dirname \$manifest)
+    end
+  end
+)"
+
+# trainer goal weekday completions (short names)
+complete -c peon -n __peon_trainer_goal -a mon -d "Monday"
+complete -c peon -n __peon_trainer_goal -a tue -d "Tuesday"
+complete -c peon -n __peon_trainer_goal -a wed -d "Wednesday"
+complete -c peon -n __peon_trainer_goal -a thu -d "Thursday"
+complete -c peon -n __peon_trainer_goal -a fri -d "Friday"
+complete -c peon -n __peon_trainer_goal -a sat -d "Saturday"
+complete -c peon -n __peon_trainer_goal -a sun -d "Sunday"
