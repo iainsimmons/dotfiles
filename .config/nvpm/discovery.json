@@ -1,5 +1,14 @@
 {
   "first_seen_unix": {
-    "npm:tree-sitter-cli@0.26.11": 1784899870
+    "github:tree-sitter/tree-sitter-regex@v1.0.0+17a3293714312c691ef14217f60593a3d093381c": 1786170500,
+    "npm:@astrojs/language-server@2.16.13": 1786177730,
+    "npm:@astrojs/language-server@2.16.14": 1786675679,
+    "npm:@fsouza/prettierd@0.29.0": 1785567386,
+    "npm:@mistweaverco/kulala-fmt@4.5.2": 1785567386,
+    "npm:@mistweaverco/kulala-fmt@4.5.3": 1786170500,
+    "npm:eslint@10.8.0": 1785567386,
+    "npm:tree-sitter-cli@0.26.11": 1784899870,
+    "npm:typescript@7": 1785568424,
+    "npm:typescript@7.0.2": 1786748333
   }
 }
