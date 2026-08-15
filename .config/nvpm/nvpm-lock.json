@@ -376,10 +376,6 @@
       }
     },
     {
-      "sourceId": "npm:@astrojs/language-server",
-      "version": "2.16.13"
-    },
-    {
       "sourceId": "npm:css-variables-language-server",
       "version": "2.8.4"
     },
@@ -389,7 +385,7 @@
     },
     {
       "sourceId": "npm:eslint",
-      "version": "10.7.0"
+      "version": "10.8.1\nnpm notice\nnpm notice New minor version of npm available! 11.6.2 -\u003e 11.19.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v11.19.0\nnpm notice To update run: npm install -g npm@11.19.0\nnpm notice"
     },
     {
       "sourceId": "npm:@glint/core",
@@ -418,7 +414,7 @@
     },
     {
       "sourceId": "npm:@fsouza/prettierd",
-      "version": "0.28.0"
+      "version": "0.29.0"
     },
     {
       "sourceId": "github:lukas-reineke/cbfmt",
@@ -449,11 +445,43 @@
     {
       "sourceId": "github:ram02z/tree-sitter-fish",
       "version": "3.7.0",
-      "commit": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788"
+      "commit": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788",
+      "extras": {
+        "integrations": [
+          "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "fish",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-fish",
+            "ref": "f0169b456cfac82c47c579da30ad35520e06526d"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:hunkdiff",
       "version": "0.17.7"
+    },
+    {
+      "sourceId": "npm:@astrojs/language-server",
+      "version": "2.16.14",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:@astrojs/ts-plugin",
+            "version": "1.10.10"
+          },
+          {
+            "id": "npm:typescript",
+            "version": "6.0.3"
+          }
+        ]
+      }
+    },
+    {
+      "sourceId": "npm:typescript",
+      "version": "7.0.2"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
