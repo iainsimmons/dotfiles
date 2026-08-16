@@ -26,6 +26,7 @@ hl.unbind("SUPER + SHIFT + X")
 hl.unbind("PRINT")
 hl.unbind("SUPER + PRINT")
 hl.unbind("SUPER + BACKSPACE")
+hl.unbind("SUPER + RETURN")
 
 -- Remove the Omarchy "move window to workspace" defaults; they are replaced by
 -- SUPER+SHIFT+CTRL+code below.
@@ -80,7 +81,7 @@ o.bind("SUPER + CTRL + SHIFT + ALT + E", "Files", "uwsm app -- nautilus --new-wi
 o.bind(
   "SUPER + CTRL + SHIFT + ALT + B",
   "Browser",
-  "omarchy-launch-or-focus helium uwsm app -- helium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland"
+  'omarchy-launch-or-focus helium "uwsm app -- helium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland"'
 )
 o.bind("SUPER + CTRL + SHIFT + ALT + M", "Music", "uwsm app -- spotify")
 o.bind("SUPER + CTRL + SHIFT + ALT + N", "Neovim", "omarchy-launch-tui nvim")
