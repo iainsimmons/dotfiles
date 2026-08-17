@@ -1,19 +1,5 @@
 -- Change the default Omarchy look'n'feel.
 
--- Misc/xwayland overrides from the old hyprland.conf that Omarchy defaults do
--- not set.
-hl.config({
-  misc = {
-    enable_swallow = true,
-    swallow_regex = "(foot|kitty|allacritty|Alacritty|helium)",
-    session_lock_xray = true,
-  },
-
-  xwayland = {
-    use_nearest_neighbor = false,
-  },
-})
-
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 -- hl.config({
 --   general = {
