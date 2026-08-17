@@ -389,11 +389,27 @@
     },
     {
       "sourceId": "npm:@glint/core",
-      "version": "1.5.2"
+      "version": "1.5.2",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:typescript",
+            "version": "6.0.3"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "5.3.0"
+      "version": "5.3.0",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:typescript",
+            "version": "6.0.3"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:yaml-language-server",
@@ -410,7 +426,15 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.18.3"
+      "version": "0.18.3",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:typescript-svelte-plugin",
+            "version": "0.3.52"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:@fsouza/prettierd",
