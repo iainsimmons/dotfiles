@@ -50,10 +50,15 @@ hl.bind("SUPER + CTRL + SHIFT + ALT + K", hl.dsp.focus({ direction = "u" }), { d
 hl.bind("SUPER + CTRL + SHIFT + ALT + L", hl.dsp.focus({ direction = "r" }), { description = "Focus on right window" })
 
 -- Cycle through workspaces
+o.bind("SUPER + CTRL + TAB", "Workspace overview", "omarchy-shell shell summon mirador '{}'")
 o.bind("SUPER + TAB", "Cycle workspace next", "~/bin/cycle-active-workspaces next")
 o.bind("SUPER + SHIFT + TAB", "Cycle workspace prev", "~/bin/cycle-active-workspaces prev")
 hl.bind("SUPER + CTRL + SHIFT + ALT + LEFT", hl.dsp.focus({ workspace = "-1" }), { description = "Previous workspace" })
-hl.bind("SUPER + CTRL + SHIFT + ALT + DOWN", hl.dsp.focus({ workspace = "emptynm" }), { description = "Empty next workspace" })
+hl.bind(
+  "SUPER + CTRL + SHIFT + ALT + DOWN",
+  hl.dsp.focus({ workspace = "emptynm" }),
+  { description = "Empty next workspace" }
+)
 hl.bind("SUPER + CTRL + SHIFT + ALT + UP", hl.dsp.focus({ workspace = "1" }), { description = "First workspace" })
 hl.bind("SUPER + CTRL + SHIFT + ALT + RIGHT", hl.dsp.focus({ workspace = "+1" }), { description = "Next workspace" })
 
@@ -76,16 +81,40 @@ for workspace = 1, 10 do
 end
 
 -- Swap active window with CMD + SHIFT + CTRL + arrow keys
-hl.bind("SUPER + SHIFT + CTRL + LEFT", hl.dsp.window.swap({ direction = "l" }), { description = "Swap window to the left" })
-hl.bind("SUPER + SHIFT + CTRL + RIGHT", hl.dsp.window.swap({ direction = "r" }), { description = "Swap window to the right" })
+hl.bind(
+  "SUPER + SHIFT + CTRL + LEFT",
+  hl.dsp.window.swap({ direction = "l" }),
+  { description = "Swap window to the left" }
+)
+hl.bind(
+  "SUPER + SHIFT + CTRL + RIGHT",
+  hl.dsp.window.swap({ direction = "r" }),
+  { description = "Swap window to the right" }
+)
 hl.bind("SUPER + SHIFT + CTRL + UP", hl.dsp.window.swap({ direction = "u" }), { description = "Swap window up" })
 hl.bind("SUPER + SHIFT + CTRL + DOWN", hl.dsp.window.swap({ direction = "d" }), { description = "Swap window down" })
 
 -- Resize active window
-hl.bind("SUPER + CTRL + MINUS", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { description = "Resize active window -100 0" })
-hl.bind("SUPER + CTRL + EQUAL", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { description = "Resize active window 100 0" })
-hl.bind("SUPER + SHIFT + CTRL + MINUS", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { description = "Resize active window 0 -100" })
-hl.bind("SUPER + SHIFT + CTRL + EQUAL", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { description = "Resize active window 0 100" })
+hl.bind(
+  "SUPER + CTRL + MINUS",
+  hl.dsp.window.resize({ x = -100, y = 0, relative = true }),
+  { description = "Resize active window -100 0" }
+)
+hl.bind(
+  "SUPER + CTRL + EQUAL",
+  hl.dsp.window.resize({ x = 100, y = 0, relative = true }),
+  { description = "Resize active window 100 0" }
+)
+hl.bind(
+  "SUPER + SHIFT + CTRL + MINUS",
+  hl.dsp.window.resize({ x = 0, y = -100, relative = true }),
+  { description = "Resize active window 0 -100" }
+)
+hl.bind(
+  "SUPER + SHIFT + CTRL + EQUAL",
+  hl.dsp.window.resize({ x = 0, y = 100, relative = true }),
+  { description = "Resize active window 0 100" }
+)
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window" })
