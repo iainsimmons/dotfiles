@@ -102,10 +102,10 @@ o.bind(
 o.bind("SUPER + SHIFT + code:11", "Color picker", "pkill hyprpicker || hyprpicker -a") -- CMD SHIFT 2
 
 -- Screenshots (map to same as macOS)
-o.bind("SUPER + SHIFT + code:12", "Screenshot with editing", "omarchy-cmd-screenshot") -- CMD SHIFT 3
-o.bind("SUPER + SHIFT + code:13", "Screenshot to clipboard", "omarchy-cmd-screenshot smart clipboard") -- CMD SHIFT 4
+o.bind("SUPER + SHIFT + code:12", "Screenshot", "omarchy capture screenshot smart") -- CMD SHIFT 3
+o.bind("SUPER + SHIFT + code:13", "Capture menu", "omarchy menu summon capture") -- CMD SHIFT 4
 -- Screen recording
-o.bind("SUPER + SHIFT + code:14", "Screenrecording", "omarchy-menu screenrecord") -- CMD SHIFT 5
+o.bind("SUPER + SHIFT + code:14", "Screenrecording", "omarchy capture screenrecording") -- CMD SHIFT 5
 
 -- Will switch to a submap called social.
 hl.bind("SUPER + CTRL + SHIFT + ALT + S", hl.dsp.submap("social"), { description = "Social submap" })

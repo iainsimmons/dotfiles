@@ -26,9 +26,6 @@ hl.config({
   },
 })
 
--- Scroll faster in the terminal.
-o.window("org.wezfurlong.wezterm", { scroll_touchpad = 1.5 })
-
 -- Enable touchpad gestures for changing workspaces.
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Gestures/
 -- hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
