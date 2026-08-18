@@ -1,31 +1,17 @@
 -- Change the default Omarchy look'n'feel.
 
--- Misc/xwayland overrides from the old hyprland.conf that Omarchy defaults do
--- not set.
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 hl.config({
-  misc = {
-    enable_swallow = true,
-    swallow_regex = "(foot|kitty|allacritty|Alacritty|helium)",
-    session_lock_xray = true,
-  },
+  general = {
+    -- No gaps between windows or borders.
+    gaps_in = 2,
+    gaps_out = 2,
+    border_size = 4,
 
-  xwayland = {
-    use_nearest_neighbor = false,
+    -- Change to niri-like side-scrolling layout.
+    -- layout = "scrolling",
   },
 })
-
--- https://wiki.hypr.land/Configuring/Basics/Variables/#general
--- hl.config({
---   general = {
---     -- No gaps between windows or borders.
---     gaps_in = 0,
---     gaps_out = 0,
---     border_size = 0,
---
---     -- Change to niri-like side-scrolling layout.
---     layout = "scrolling",
---   },
--- })
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
 -- hl.config({
