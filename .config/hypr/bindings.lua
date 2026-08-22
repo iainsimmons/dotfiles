@@ -77,6 +77,7 @@ hl.bind(
 )
 
 o.bind("SUPER + CTRL + SHIFT + ALT + RETURN", "Terminal", "omarchy-launch-or-focus kitty")
+o.bind("SUPER + CTRL + SHIFT + ALT + SLASH", "TickTick (Omarchy Shell)", "omarchy-shell siam.ticktick toggle")
 o.bind("SUPER + CTRL + SHIFT + ALT + E", "Files", "uwsm app -- nautilus --new-window")
 o.bind(
   "SUPER + CTRL + SHIFT + ALT + B",
