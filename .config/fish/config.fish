@@ -9,7 +9,7 @@
 # https://fishshell.com/
 # env vars
 set -gx XDG_CONFIG_HOME "/home/iain/.config"
-set -gx OMARCHY_PATH /usr/share/omarchy
+set -gx OMARCHY_PATH "$HOME/.local/share/omarchy"
 
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
