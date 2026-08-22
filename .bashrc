@@ -32,6 +32,8 @@ export PATH=/home/iain/bin:/home/iain/.local/bin:/home/iain/.local/share/mise/in
 export NVPM_HOME=/home/iain/.config/nvpm
 source <(nvpm env)
 
+# sesh
+alias tm="sesh connect dotfiles"
 
 # peon-ping quick controls
 alias peon="bash /home/iain/.claude/hooks/peon-ping/peon.sh"
