@@ -35,9 +35,6 @@ status is-interactive; and zoxide init fish | source
 # mise config, only run in interactive shells
 status is-interactive; and mise activate fish | source
 
-# atuin config, only run in interactive shells
-status is-interactive; and atuin init fish | source
-
 # nvpm config
 nvpm env fish | source
 
