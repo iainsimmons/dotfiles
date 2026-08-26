@@ -41,3 +41,36 @@ startup_command = "nvim"
 name = "coding"
 path = "~/coding/"
 alias = "cd"
+alias_auto_connect = true
+
+[[session]]
+name = "habit-tracker"
+path = "~/coding/habit-tracker/"
+alias = "ha"
+alias_auto_connect = true
+startup_command = "nvim docs/TASKS.md"
+windows = ["opencode", "lazygit", "fish"]
+
+[[session]]
+name = "die-tanzwerkstatt"
+path = "~/coding/die-tanzwerkstatt/"
+alias = "tanz"
+alias_auto_connect = true
+startup_command = "nvim PLAN.md"
+windows = ["opencode", "lazygit", "fish"]
+
+[[window]]
+name = "nvim"
+startup_script = "fnm use default && nvim"
+
+[[window]]
+name = "opencode"
+startup_script = "opencode"
+
+[[window]]
+name = "lazygit"
+startup_script = "lazygit"
+
+[[window]]
+name = "fish"
+startup_script = ""
