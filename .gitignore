@@ -12,3 +12,5 @@
 .config/fish/fish_variables
 .config/yazi/plugins
 .config/tmux/plugins
+/.config/espanso/match/secret.yml
+/.config/espanso/espanso
