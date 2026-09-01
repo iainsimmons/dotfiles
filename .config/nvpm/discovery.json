@@ -1,5 +1,6 @@
 {
   "first_seen_unix": {
+    "npm:live-server@1.2.2": 1788222013,
     "npm:tree-sitter-cli@0.26.11": 1784899870
   }
 }

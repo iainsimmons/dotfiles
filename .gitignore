@@ -14,3 +14,5 @@
 .config/tmux/plugins
 /.config/espanso/match/secret.yml
 /.config/espanso/espanso
+/.config/nvpm/bin
+/.config/nvpm/packages/npm

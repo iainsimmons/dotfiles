@@ -454,6 +454,10 @@
     {
       "sourceId": "npm:hunkdiff",
       "version": "0.17.7"
+    },
+    {
+      "sourceId": "npm:live-server",
+      "version": "1.2.2"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
