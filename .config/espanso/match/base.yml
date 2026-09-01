@@ -29,12 +29,7 @@ global_vars:
   - name: mysignature
     type: echo
     params:
-      echo: |
-        Regards,
-
-        {{myname}}  
-        {{mytitle}}  
-        {{myemail}}
+      echo: "Regards,\n\n{{myname}}  \n{{mytitle}}  \n{{myemail}}"
 
 matches:
   # Simple text replacement
@@ -74,9 +69,9 @@ matches:
   - trigger: "..."
     replace: "…"
   - trigger: ":sig"
-    replace: "{{mysignature}}"
+    markdown: "{{mysignature}}"
   - trigger: ":uat"
-    replace: |
+    markdown: |
       Hi ,
 
       This feature is ready for UAT. Please see the **Description** field for all testing information.
@@ -94,12 +89,12 @@ matches:
       {{mysignature}}
 
   - trigger: ":resolve"
-    replace: |
+    markdown: |
       I'll close this ticket now, but as always, please don't hesitate to reach out if you have any further questions or concerns.
 
       {{mysignature}}
   - trigger: ":review"
-    replace: |
+    markdown: |
       Hi ,
 
       This ticket is ready for your review. Please review the Functional Requirements, as well as the Acceptance Criteria with your team and ensure this aligns with your expectation. Any questions or concerns, please provide detail in a comment and we will adjust the specification as required.
