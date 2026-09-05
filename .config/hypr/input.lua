@@ -65,5 +65,10 @@ hl.config({
     -- 2 - Cursor focus will be detached from keyboard focus. Clicking on a
     -- window will move keyboard focus to that window.
     follow_mouse = 2,
+
+    touchpad = {
+      disable_while_typing = true,
+      tap_to_click = false,
+    },
   },
 })
