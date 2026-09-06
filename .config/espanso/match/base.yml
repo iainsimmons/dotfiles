@@ -1,0 +1,104 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+imports:
+  - secret.yml
+
+global_vars:
+  ## set the following in secret.yml:
+  # - name: myname
+  #   type: echo
+  #   params:
+  #     echo: Firstname Lastname
+  # - name: myemail
+  #   type: echo
+  #   params:
+  #     echo: email@example.com
+  # - name: mytitle
+  #   type: echo
+  #   params:
+  #     echo: Web Master
+  - name: mysignature
+    type: echo
+    params:
+      echo: "Regards,\n\n{{myname}}  \n{{mytitle}}  \n{{myemail}}"
+
+matches:
+  # Simple text replacement
+  # - trigger: ":espanso"
+  #   replace: "Hi there!"
+
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Print the output of a shell command
+  # - trigger: ":shell"
+  #   replace: "{{output}}"
+  #   vars:
+  #     - name: output
+  #       type: shell
+  #       params:
+  #         cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
+  #
+  - trigger: ":force"
+    replace: "/_admin?FORCE_BACKUP_LOGIN=1"
+  - trigger: ":sso"
+    replace: "/_admin?FORCE_BACKUP_LOGIN=1&matrix-sso-type=dxp"
+  - trigger: "shruggie"
+    replace: "¯\_(ツ)_/¯"
+  - trigger: "..."
+    replace: "…"
+  - trigger: ":sig"
+    markdown: "{{mysignature}}"
+  - trigger: ":uat"
+    markdown: |
+      Hi ,
+
+      This feature is ready for UAT. Please see the **Description** field for all testing information.
+
+      If you are happy with the implementation, you can simply update the ticket workflow to mark this as “Done”.
+
+      If issues have been detected, then the ticket workflow should be marked back to “In Progress”, assigned to the project manager and a comment placed on the ticket. In order to ensure rectification occurs as efficiently as possible the comment should include (where appropriate):
+
+      - URLs
+      - Asset ID
+      - Description of the error
+      - Browser or device used when the issue arose
+      - Screenshots of the issue
+
+      {{mysignature}}
+
+  - trigger: ":resolve"
+    markdown: |
+      I'll close this ticket now, but as always, please don't hesitate to reach out if you have any further questions or concerns.
+
+      {{mysignature}}
+  - trigger: ":review"
+    markdown: |
+      Hi ,
+
+      This ticket is ready for your review. Please review the Functional Requirements, as well as the Acceptance Criteria with your team and ensure this aligns with your expectation. Any questions or concerns, please provide detail in a comment and we will adjust the specification as required.
+
+      Once you are happy with the detail, please adjust the workflow to 'Approved to Commence'.
+
+      {{mysignature}}

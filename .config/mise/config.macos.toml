@@ -1,28 +1,135 @@
 # macOS-only dotfiles and host packages (auto-loaded via auto_env on macOS).
-# Ported from the `main` branch's macOS setup — formula names should be verified
-# during the macOS port (several need Homebrew taps, e.g. sesh, ov).
+# Cross-platform equivalents live in config.toml / config.linux.toml.
+# Ported from the `main` branch's macOS setup (the Brewfile).
+
+# Tools that only need to exist on macOS (installed by mise, not Homebrew).
+# Runtime/toolchain versions (node, go, python, gh, opencode, codex) are shared
+# in config.toml, so they are not repeated here.
+[tools]
+"go:github.com/ChausseBenjamin/termpicker" = "latest"
+"npm:@squiz/dxp-cli-next" = "latest"
+"npm:corepack" = "latest"
 
 [dotfiles]
 "~/.zshrc" = {}
 "~/.config/karabiner" = {}
+"~/.config/espanso" = {}
+"~/.config/skhd" = {}
 "~/.config/svgo.config.mjs" = {}
-# "~/.config/espanso" = {}   # port from main branch
 # "~/.config/ghostty" = {}   # deleted — kitty is the terminal everywhere
 
-[bootstrap.packages]
-"brew:fish" = "latest"
-"brew:kitty" = "latest"
-"brew:tmux" = "latest"
-"brew:yazi" = "latest"
-"brew:tree-sitter" = "latest"
-"brew:fx" = "latest"
-"brew:gum" = "latest"
-"brew:sevenzip" = "latest"
-"brew:diff-so-fancy" = "latest"
-"brew:fastfetch" = "latest"
-"brew:fnm" = "latest"
-"brew-cask:vesktop" = { os = "macos" }
-"brew-cask:steam" = { os = "macos" }
+# Note: kitty is the terminal everywhere but is not in the Brewfile — it is
+# installed separately (on macOS via `brew install --cask kitty`), so it has no
+# entry here. Do not add `brew:kitty` (no such formula).
 
-# Apple MacBook branch overrides steam with state = "absent" (mirrors the old
-# /sys/class/dmi check in custom-omarchy-install.sh).
+# Third-party Homebrew taps used by the formulas/casks below. mise reads each
+# tap's published API metadata directly; these sources are only needed where
+# the conventional GitHub URL cannot be inferred.
+[bootstrap.brew.taps]
+"jesseduffield/lazydocker" = "https://github.com/jesseduffield/homebrew-lazydocker.git"
+"jesseduffield/lazygit" = "https://github.com/jesseduffield/homebrew-lazygit.git"
+"joshmedeski/sesh" = "https://github.com/joshmedeski/homebrew-sesh.git"
+"noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
+"noborus/tap" = "https://github.com/noborus/homebrew-tap.git"
+
+[bootstrap.packages]
+# Homebrew formulae (verified against the Brewfile from the `main` branch).
+"brew:xz" = "latest"
+"brew:libtiff" = "latest"
+"brew:little-cms2" = "latest"
+"brew:webp" = "latest"
+"brew:jpeg-xl" = "latest"
+"brew:aom" = "latest"
+"brew:openssl@3" = "latest"
+"brew:libssh2" = "latest"
+"brew:bat" = "latest"
+"brew:glib" = "latest"
+"brew:cloc" = "latest"
+"brew:cmake" = "latest"
+"brew:lima" = "latest"
+"brew:colima" = "latest"
+"brew:diff-so-fancy" = "latest"
+"brew:direnv" = "latest"
+"brew:docker" = "latest"
+"brew:docker-credential-helper" = "latest"
+"brew:fastfetch" = "latest"
+"brew:fd" = "latest"
+"brew:libidn2" = "latest"
+"brew:unbound" = "latest"
+"brew:gnutls" = "latest"
+"brew:harfbuzz" = "latest"
+"brew:openjpeg" = "latest"
+"brew:readline" = "latest"
+"brew:libass" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:ffmpegthumbnailer" = "latest"
+"brew:fish" = "latest"
+"brew:fnm" = "latest"
+"brew:fpp" = "latest"
+"brew:freetds" = "latest"
+"brew:fx" = "latest"
+"brew:fzf" = "latest"
+"brew:gcc" = "latest"
+"brew:gd" = "latest"
+"brew:ghostscript" = "latest"
+"brew:git" = "latest"
+"brew:git-delta" = "latest"
+"brew:git-filter-repo" = "latest"
+"brew:glow" = "latest"
+"brew:gnu-sed" = "latest"
+"brew:gnupg" = "latest"
+"brew:gpgme" = "latest"
+"brew:grep" = "latest"
+"brew:pkgconf" = "latest"
+"brew:guile" = "latest"
+"brew:gum" = "latest"
+"brew:lua" = "latest"
+"brew:highlight" = "latest"
+"brew:httpie" = "latest"
+"brew:icu4c@76" = "latest"
+"brew:libheif" = "latest"
+"brew:libraw" = "latest"
+"brew:imagemagick" = "latest"
+"brew:jq" = "latest"
+"brew:lazygit" = "latest"
+"brew:libpq" = "latest"
+"brew:lsd" = "latest"
+"brew:luarocks" = "latest"
+"brew:mkcert" = "latest"
+"brew:neovim" = "latest"
+"brew:nss" = "latest"
+"brew:openvino" = "latest"
+"brew:pandoc" = "latest"
+"brew:pcre" = "latest"
+"brew:php" = "latest"
+"brew:pnpm" = "latest"
+"brew:poppler" = "latest"
+"brew:pyenv" = "latest"
+"brew:qemu" = "latest"
+"brew:reattach-to-user-namespace" = "latest"
+"brew:ripgrep" = "latest"
+"brew:sevenzip" = "latest"
+"brew:starship" = "latest"
+"brew:svgo" = "latest"
+"brew:tcl-tk" = "latest"
+"brew:tealdeer" = "latest"
+"brew:tmux" = "latest"
+"brew:trash" = "latest"
+"brew:tree-sitter-cli" = "latest"
+"brew:wget" = "latest"
+"brew:yazi" = "latest"
+"brew:yq" = "latest"
+"brew:zlib" = "latest"
+"brew:zoxide" = "latest"
+"brew:zsh" = "latest"
+# From taps.
+"brew:jesseduffield/lazydocker/lazydocker" = "latest"
+"brew:joshmedeski/sesh/sesh" = "latest"
+"brew:noahgorstein/tap/jqp" = "latest"
+"brew:noborus/tap/ov" = "latest"
+
+# Homebrew casks (macOS-only GUI apps and fonts).
+"brew-cask:1password-cli" = { os = "macos" }
+"brew-cask:font-symbols-only-nerd-font" = { os = "macos" }
+"brew-cask:notunes" = { os = "macos" }
+"brew-cask:openmtp" = { os = "macos" }

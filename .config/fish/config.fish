@@ -57,9 +57,11 @@ set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:prev
 set fzf_preview_dir_cmd eza -aghl --icons=auto
 
 # pnpm
-set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-    set -gx PATH "$PNPM_HOME/bin" $PATH
+if not test (uname) = Darwin
+    set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
+    if not string match -q -- "$PNPM_HOME/bin" $PATH
+        set -gx PATH "$PNPM_HOME/bin" $PATH
+    end
 end
 # pnpm end
 
@@ -134,8 +136,12 @@ function compress_img -d "Compress images with ImageMagick" -a input_path -a out
     mogrify -path "$output_path" -filter Triangle -define filter:support=2 -thumbnail "$output_width" -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$input_path"
 end
 
-function open
-    xdg-open "$argv" >/dev/null 2>&1
+# On Linux, macOS's native `open` is absent (xdg-open reimplements it). On
+# macOS keep the built-in open.
+if test (uname) != Darwin
+    function open
+        xdg-open "$argv" >/dev/null 2>&1
+    end
 end
 
 function nvpm-pick -d "Pick and install an nvpm package by category" -a category -a lang
