@@ -24,7 +24,7 @@
 "pacman:fastfetch" = "latest"
 "pacman:uwsm" = "latest"
 "pacman:walker" = "latest"          # omarchy repo
-"pacman:steam" = { os = "linux" }   # macbook branch overrides this with state = "absent"
+# steam is desktop-only — declared in config.desktop.toml (MISE_ENV=desktop)
 # AUR (requires yay or paru). The `aur` manager ships with recent mise builds;
 # the 2026-09-02 build on this box may still flag it as unknown — harmless here
 # since every aur: package below is already installed (yay -Qm). Upgrading mise

@@ -1,0 +1,9 @@
+# Desktop-specific tool/package overrides (loaded with MISE_ENV=desktop).
+# The desktop is the same Arch/Omarchy setup, but with the gaming/entertainment
+# tools that the MacBook omits. Shared Linux packages live in config.linux.toml.
+
+[tools]
+
+[bootstrap.packages]
+# Gaming on the desktop only (the MacBook does not get Steam).
+"pacman:steam" = { os = "linux" }
