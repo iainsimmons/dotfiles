@@ -3,7 +3,6 @@
 .config/gatsby
 .config/git
 .config/htop
-.config/lazygit/config.yml
 .config/alacritty
 .config/tinted-theming
 .config/nvim-kickstart

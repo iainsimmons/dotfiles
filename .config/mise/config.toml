@@ -1,0 +1,106 @@
+min_version = "2026.9.1"
+
+[settings]
+dotfiles.root = "~/dotfiles"
+dotfiles.default_mode = "symlink"
+
+[tools]
+codex = "latest"
+gh = "latest"
+go = "latest"
+node = "25.0.0"
+opencode = "latest"
+python = "3.14.4"
+
+[dotfiles]
+# Root files and dirs (shared across Linux and macOS).
+"~/.bashrc" = {}
+"~/.gitconfig" = {}
+"~/.cargo" = {}
+"~/bin" = {}
+"~/screenshots" = {}
+"~/CommitMono_iainsimmonsV143" = {}
+"~/keychron_v5_ansi_knob.layout.json" = {}
+"~/epomaker_split65.layout.json" = {}
+# ~/.config (shared across platforms).
+# Whole-dir symlink mode (our stow arrangement) for dirs currently symlinked,
+# symlink-each for dirs that also carry machine-generated/untracked files.
+"~/.config/mise" = {}
+"~/.config/bat" = {}
+"~/.config/commit-mono-font" = {}
+"~/.config/fastfetch" = { mode = "symlink-each" }
+"~/.config/fish" = {}
+"~/.config/hunk" = { mode = "symlink-each" }
+"~/.config/kitty" = {}
+# nvpm and hyprmoncfg rewrite their config via atomic rename, which silently
+# replaces symlinks — so manage these as real files (copy mode).
+"~/.config/lazygit" = { mode = "symlink-each" }
+"~/.config/nvpm" = { mode = "copy", exclude = ["bin", "artifacts", "packages", "plugins"] }
+"~/.config/opencode" = {}
+"~/.config/ov" = {}
+"~/.config/sesh" = {}
+"~/.config/starship.toml" = {}
+"~/.config/tmux" = {}
+"~/.config/tree-sitter" = {}
+"~/.config/yazi" = {}
+
+[tasks.bootstrap]
+run = """
+set -euo pipefail
+
+# nvpm: Neovim package manager (curled into ~/.local/bin/... — all platforms).
+if ! command -v nvpm >/dev/null 2>&1; then
+  echo "Installing nvpm..."
+  curl -sSL https://nvpm.dev/install.sh | sh
+fi
+
+# yazi plugin packages (deployed to ~/.cache/yazi/packages; only right after a
+# fresh yazi install / cleared cache).
+if command -v yazi >/dev/null 2>&1 && command -v ya >/dev/null 2>&1 && \
+   [ ! -d "$HOME/.cache/yazi/packages" ]; then
+  echo "Installing yazi packages..."
+  ya pkg install
+fi
+
+# bat: Tokyo Night theme + rebuild cache.
+if command -v bat >/dev/null 2>&1 && ! bat --list-themes 2>/dev/null | grep -q tokyonight; then
+  echo "Adding tokyonight bat theme..."
+  mkdir -p "$(bat --config-dir)/themes"
+  curl -sSLo "$(bat --config-dir)/themes/tokyonight_night.tmTheme" \
+    https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+  bat cache --build
+fi
+
+# Fonts dir (Linux: ~/.local/share/fonts, macOS: ~/Library/Fonts).
+if [ "$(uname -s)" = "Darwin" ]; then
+  FONT_DEST="$HOME/Library/Fonts/CommitMono"
+else
+  FONT_DEST="$HOME/.local/share/fonts/CommitMono"
+fi
+if [ ! -d "$FONT_DEST" ]; then
+  echo "Installing CommitMono fonts..."
+  mkdir -p "$FONT_DEST"
+  cp "$HOME/dotfiles/CommitMono_iainsimmonsV143/"*.otf "$FONT_DEST/"
+fi
+if [ "$(uname -s)" != "Darwin" ]; then
+  command -v fc-cache >/dev/null 2>&1 && fc-cache -f >/dev/null 2>&1 || true
+  command -v omarchy-font-set >/dev/null 2>&1 && omarchy-font-set CommitMono_iainsimmons || true
+fi
+
+# Helium as the default browser (Linux desktop, if its .desktop file exists).
+if [ "$(uname -s)" = "Linux" ] && command -v xdg-settings >/dev/null 2>&1 && \
+   [ -f /usr/share/applications/helium.desktop ]; then
+  echo "Setting Helium as default browser..."
+  xdg-settings set default-web-browser helium.desktop
+  xdg-mime default helium.desktop x-scheme-handler/http
+  xdg-mime default helium.desktop x-scheme-handler/https
+  xdg-mime default helium.desktop text/html
+fi
+
+# TickTick as a webapp (Linux omarchy tooling).
+if [ "$(uname -s)" = "Linux" ] && command -v omarchy-webapp-install >/dev/null 2>&1 && \
+   ! grep -i "Name=TickTick" "$HOME"/.local/share/applications/*.desktop >/dev/null 2>&1; then
+  echo "Installing TickTick webapp..."
+  omarchy-webapp-install TickTick "https://ticktick.com/webapp" ""
+fi
+"""

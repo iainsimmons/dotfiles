@@ -1,0 +1,28 @@
+# macOS-only dotfiles and host packages (auto-loaded via auto_env on macOS).
+# Ported from the `main` branch's macOS setup — formula names should be verified
+# during the macOS port (several need Homebrew taps, e.g. sesh, ov).
+
+[dotfiles]
+"~/.zshrc" = {}
+"~/.config/karabiner" = {}
+"~/.config/svgo.config.mjs" = {}
+# "~/.config/espanso" = {}   # port from main branch
+# "~/.config/ghostty" = {}   # deleted — kitty is the terminal everywhere
+
+[bootstrap.packages]
+"brew:fish" = "latest"
+"brew:kitty" = "latest"
+"brew:tmux" = "latest"
+"brew:yazi" = "latest"
+"brew:tree-sitter" = "latest"
+"brew:fx" = "latest"
+"brew:gum" = "latest"
+"brew:sevenzip" = "latest"
+"brew:diff-so-fancy" = "latest"
+"brew:fastfetch" = "latest"
+"brew:fnm" = "latest"
+"brew-cask:vesktop" = { os = "macos" }
+"brew-cask:steam" = { os = "macos" }
+
+# Apple MacBook branch overrides steam with state = "absent" (mirrors the old
+# /sys/class/dmi check in custom-omarchy-install.sh).

@@ -19,11 +19,6 @@
             "ref": "de9093861c758c7fc145492cddaddad5bb51380c"
           },
           {
-            "language": "astro",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html",
-            "ref": "9d72f6d2983e4d523156f21e927d2c92adcaf003"
-          },
-          {
             "language": "html_tags",
             "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html_tags",
             "ref": "402a2b822ccb6fcd1b0ad71fdcc5ef35b92ac7df"
@@ -67,8 +62,8 @@
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-diff",
-      "version": "v0.1.0",
-      "commit": "2520c3f934b3179bb540d23e0ef45f75304b5fed",
+      "version": "v0.2.0",
+      "commit": "ada384ac7bfc1307f32de474620120add29998fb",
       "extras": {
         "integrations": [
           "neovim"
@@ -101,8 +96,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-javascript",
-      "version": "v0.25.0",
-      "commit": "44c892e0be055ac465d5eeddae6d3e194424e7de",
+      "version": "master",
+      "commit": "58404d8cf191d69f2674a8fd507bd5776f46cb11",
       "extras": {
         "integrations": [
           "neovim"
@@ -145,8 +140,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-json",
-      "version": "v0.24.8",
-      "commit": "ee35a6ebefcef0c5c416c0d1ccec7370cfca5a24",
+      "version": "master",
+      "commit": "254c42a6476413b776221e03982ac8ae159eeb72",
       "extras": {
         "integrations": [
           "neovim"
@@ -162,8 +157,8 @@
     },
     {
       "sourceId": "github:Joakker/tree-sitter-json5",
-      "version": "v0.1.0",
-      "commit": "8cb4114a4d7e5bab75d74466422e032de31d83df",
+      "version": "master",
+      "commit": "248b8564567087d7866be76569b182f6dd7e14e9",
       "extras": {
         "integrations": [
           "neovim"
@@ -196,8 +191,8 @@
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-luadoc",
-      "version": "v1.1.0",
-      "commit": "818acda56809f994274de64a42f97f509b3c0ad2",
+      "version": "master",
+      "commit": "4d04632a3a398b78af52e83be074883e722f40be",
       "extras": {
         "integrations": [
           "neovim"
@@ -296,8 +291,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-typescript",
-      "version": "v0.23.2",
-      "commit": "f975a621f4e7f532fe322e13c4f79495e0a7b2e7",
+      "version": "master",
+      "commit": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
       "extras": {
         "integrations": [
           "neovim"
@@ -333,8 +328,8 @@
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-vim",
-      "version": "v0.8.1",
-      "commit": "3092fcd99eb87bbd0fc434aa03650ba58bd5b43b",
+      "version": "master",
+      "commit": "039c8d0aa1deae00ddeb0374dd70bcc0ec56938d",
       "extras": {
         "integrations": [
           "neovim"
@@ -423,7 +418,7 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-fmt",
-      "version": "4.5.0"
+      "version": "4.5.3"
     },
     {
       "sourceId": "github:johnnymorganz/stylua",
@@ -444,8 +439,8 @@
     },
     {
       "sourceId": "github:ram02z/tree-sitter-fish",
-      "version": "3.7.0",
-      "commit": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788",
+      "version": "master",
+      "commit": "b7f1d682941e0c62dfcd6bf9ef481638351bab16",
       "extras": {
         "integrations": [
           "neovim"
@@ -482,6 +477,10 @@
     {
       "sourceId": "npm:typescript",
       "version": "7.0.2"
+    },
+    {
+      "sourceId": "npm:@ticktick/ticktick-cli",
+      "version": "0.1.13"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"

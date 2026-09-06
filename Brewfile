@@ -1,5 +1,4 @@
 tap "1password/tap"
-tap "arl/arl"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jesseduffield/lazydocker"
@@ -163,8 +162,6 @@ brew "ripgrep"
 brew "sevenzip"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
-brew "stow"
 # Nodejs-based tool for optimizing SVG vector graphics files
 brew "svgo"
 # Tool Command Language
@@ -187,8 +184,6 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Git in your tmux status bar.
-brew "arl/arl/gitmux"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # Smart terminal session manager
@@ -202,13 +197,9 @@ cask "1password-cli"
 # Virtual monitor for screen sharing
 cask "deskpad"
 cask "font-symbols-only-nerd-font"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
 # Android file transfer
 cask "openmtp"
 # Modified browser that helps in responsive web development
 cask "responsively"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
