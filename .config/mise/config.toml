@@ -41,7 +41,6 @@ python = "3.14.4"
 "~/.config/sesh" = {}
 "~/.config/starship.toml" = {}
 "~/.config/tmux" = {}
-"~/.config/tree-sitter" = {}
 "~/.config/yazi" = {}
 
 [tasks.bootstrap]
