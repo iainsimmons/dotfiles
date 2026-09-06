@@ -78,7 +78,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
-export PNPM_HOME="/Users/isimmons/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -110,5 +110,7 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 . "$HOME/.local/bin/env"
 
 # peon-ping quick controls
-alias peon="bash /home/iain/.claude/hooks/peon-ping/peon.sh"
-[ -f /home/iain/.claude/hooks/peon-ping/completions.bash ] && source /home/iain/.claude/hooks/peon-ping/completions.bash
+if [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
+  alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
+  [ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
+fi

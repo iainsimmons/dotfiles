@@ -23,18 +23,20 @@ source "$OMARCHY_PATH/default/bash/rc"
 . "$HOME/.local/share/../bin/env"
 
 # opencode
-export PATH=/home/iain/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # Add local bin directory to PATH
-export PATH=/home/iain/bin:/home/iain/.local/bin:/home/iain/.local/share/mise/installs/node/25.0.0/bin:/home/iain/.local/share/mise/installs/python/3.14.4/bin:/home/iain/coding/yt-pl-dl:/home/iain/.local/share/mise/installs/go/1.26.2/bin:/home/iain/.cargo/bin:/home/iain/.local/share/mise:/home/iain/.local/share/omarchy/bin:/home/iain/bin:/usr/local/bin:/home/iain/.local/share/pnpm/bin:/home/iain/.local/share/mise/shims:/usr/bin:/home/iain/.local/share/../bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.local/share/mise/installs/node/25.0.0/bin:$HOME/.local/share/mise/installs/python/3.14.4/bin:$HOME/coding/yt-pl-dl:$HOME/.local/share/mise/installs/go/1.26.2/bin:$HOME/.cargo/bin:$HOME/.local/share/mise:$HOME/.local/share/omarchy/bin:$HOME/bin:/usr/local/bin:$HOME/.local/share/pnpm/bin:$HOME/.local/share/mise/shims:/usr/bin:$HOME/.local/share/../bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # nvpm
-export NVPM_HOME=/home/iain/.config/nvpm
+export NVPM_HOME="$HOME/.config/nvpm"
 source <(nvpm env)
 
 # sesh
 alias tm="sesh connect dotfiles"
 
 # peon-ping quick controls
-alias peon="bash /home/iain/.claude/hooks/peon-ping/peon.sh"
-[ -f /home/iain/.claude/hooks/peon-ping/completions.bash ] && source /home/iain/.claude/hooks/peon-ping/completions.bash
+if [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
+  alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
+  [ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
+fi
