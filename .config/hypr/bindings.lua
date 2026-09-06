@@ -90,7 +90,7 @@ o.bind("SUPER + CTRL + SHIFT + ALT + D", "Discord", "omarchy-launch-or-focus ves
 o.bind("SUPER + CTRL + SHIFT + ALT + T", "Steam", "omarchy-launch-or-focus steam")
 o.bind("SUPER + CTRL + SHIFT + ALT + O", "Obsidian", 'omarchy-launch-or-focus obsidian "uwsm-app -- obsidian"')
 o.bind("SUPER + CTRL + SHIFT + ALT + BACKSLASH", "1Password", "uwsm app -- 1password")
--- Use Vicinae for clipboard history, see hypr/vicinae.lua
+-- Clipboard history (commented out): cliphist + walker
 -- o.bind("SUPER + CTRL + C", "Clipboard", "cliphist list | walker -m clipboard | cliphist decode | wl-copy")
 
 o.bind(
