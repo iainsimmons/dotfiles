@@ -11,6 +11,16 @@ Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config
 
 ## Updates
 
+### September 2026
+
+Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [Mise Dotfiles](https://mise.jdx.dev/) for managing this repo. Dotfiles are now described in `~/.config/mise/config*.toml` (a shared `config.toml` plus `config.linux.toml` / `config.macos.toml` per platform) and applied with `mise bootstrap dotfiles apply`. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`), with the MacBook-specific bits still to port.
+
+Also dropped the configs and packages for tools I am no longer using: Vicinae (no longer installed), plus ghostty, wezterm, lf, waybar, oyo, posting, slumber, discord, vivaldi and gitmux. kitty is the terminal everywhere now.
+
+### May 2026
+
+Ghostty is great, but I did not particularly like how it was configured, and for whatever reason it was occasionally getting flagged as insecure software or something at work, so I switched to [kitty](https://sw.kovidgoyal.net/kitty/) and have stuck with it since.
+
 ### May 2026
 
 Ghostty is great, but I didn't particularly like how it was configured, and for whatever reason it was getting occasionally flagged as insecure software or something at work, so I switched to [kitty](https://sw.kovidgoyal.net/kitty/) and have stuck with it since.
@@ -21,7 +31,7 @@ Switched back to [tmux](https://github.com/tmux/tmux) and [sesh](https://github.
 
 ### March 2026
 
-Started using [Vicinae](https://www.vicinae.com/) as my app launcher (basically Raycast for Linux).
+Started using [Vicinae](https://www.vicinae.com/) as my app launcher (basically Raycast for Linux). No longer used or installed as of September 2026.
 
 ### September 2025
 

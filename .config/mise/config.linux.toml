@@ -1,0 +1,45 @@
+# Linux-only dotfiles and host packages (auto-loaded via auto_env on linux).
+# Cross-platform equivalents live in config.toml / config.macos.toml.
+
+[dotfiles]
+"~/.config/hypr" = { mode = "symlink-each" }   # real dir; per-file links (Omarchy quattro layout)
+"~/.config/hyprmoncfg" = { mode = "copy" }     # hyprmoncfg rewrites profiles in place — keep real files
+"~/.config/uwsm" = { mode = "symlink-each" }
+"~/.config/walker" = {}
+# evremap is the Linux keyboard remapper used on the Apple MacBook branch.
+# Keep the entry disabled here so it stays out of this desktop's setup:
+# "~/.config/evremap" = {}
+
+[bootstrap.packages]
+# Official repo (extra / multilib / omarchy).
+"pacman:fish" = "latest"
+"pacman:kitty" = "latest"
+"pacman:tmux" = "latest"
+"pacman:tree-sitter-cli" = "latest"
+"pacman:yazi" = "latest"
+"pacman:fx" = "latest"
+"pacman:gum" = "latest"
+"pacman:7zip" = "latest"
+"pacman:diff-so-fancy" = "latest"
+"pacman:fastfetch" = "latest"
+"pacman:uwsm" = "latest"
+"pacman:walker" = "latest"          # omarchy repo
+"pacman:steam" = { os = "linux" }   # macbook branch overrides this with state = "absent"
+# AUR (requires yay or paru). The `aur` manager ships with recent mise builds;
+# the 2026-09-02 build on this box may still flag it as unknown — harmless here
+# since every aur: package below is already installed (yay -Qm). Upgrading mise
+# restores full status/upgrade coverage.
+"aur:sesh-bin" = "latest"
+"aur:ov" = "latest"
+"aur:hyprmoncfg" = "latest"
+"aur:helium-browser-bin" = { os = "linux" }
+"aur:vesktop-bin" = { os = "linux" }
+"aur:bibata-cursor-theme-bin" = { os = "linux" }
+"aur:fnm-bin" = "latest"
+"aur:pnpm-bin" = "latest"
+# evremap: disabled — used by the archlinux-macbook branch.
+# "aur:evremap-git" = { os = "linux" }
+
+[bootstrap.linux.systemd.units]
+# evremap: disabled — used by the archlinux-macbook branch.
+# evremap = { description = "evremap key remapper", exec_start = "~/.config/evremap/setup_evremap.sh", restart = "on-failure" }
