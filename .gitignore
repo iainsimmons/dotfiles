@@ -16,3 +16,6 @@
 /.config/hypr/monitors.conf
 /.config/opencode/skills
 /.config/espanso/match/secret.yml
+/.config/espanso/espanso
+/.config/nvpm/bin
+/.config/nvpm/packages/npm
