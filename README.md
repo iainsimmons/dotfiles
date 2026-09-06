@@ -9,11 +9,67 @@ Here's some configuration and stuff I use… for now.
 
 Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
 
+## Setup
+
+This repo is applied with [mise dotfiles](https://mise.jdx.dev/dotfiles.html#dotfiles). Described in `~/.config/mise/config*.toml`, which is symlinked to this repo's `.config/mise/`. There's a shared `config.toml`, an OS file loaded automatically via `auto_env` ([config.linux.toml](https://mise.jdx.dev/configuration/environments.html#platform-environments) on Arch, [`config.macos.toml`](https://mise.jdx.dev/configuration/environments.html#platform-environments) on macOS), and a per-machine overlay selected with `MISE_ENV` ([config environments](https://mise.jdx.dev/configuration/environments.html)).
+
+### Which machine are you setting up?
+
+| Machine     | OS                   | Extra config loaded                        | Differences                                                                                            |
+| ----------- | -------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| Desktop     | Arch Linux + Omarchy | `config.desktop.toml` (`MISE_ENV=desktop`) | Gaming/entertainment tools (Steam); no keyboard remapper                                               |
+| Old MacBook | Arch Linux + Omarchy | `config.macbook.toml` (`MISE_ENV=macbook`) | [evremap](https://github.com/wez/evremap) key remapper + systemd unit; no Steam                        |
+| Work Mac    | macOS                | `config.macos.toml` (auto, no `MISE_ENV`)  | Homebrew formulae + casks (ported from the old `Brewfile`), zsh, karabiner, skhd, espanso, macOS prefs |
+
+Both Arch machines share everything in `config.toml` and `config.linux.toml`; the Mac differs mainly in package manager (Homebrew vs pacman/AUR) and the macOS-only tools.
+
+### Before applying
+
+1. Install mise (see [getting started](https://mise.jdx.dev/getting-started.html)) — the config requires `min_version = 2026.9.1`:
+
+   ```sh
+   curl https://mise.run | sh
+   ```
+
+2. Clone this repo and link the mise config so mise can read it:
+
+   ```sh
+   git clone git@github.com:iainsimmons/dotfiles.git ~/dotfiles
+   mkdir -p ~/.config
+   ln -s ~/dotfiles/.config/mise ~/.config/mise
+   ```
+
+3. Activate mise in your shell ([docs](https://mise.jdx.dev/getting-started.html)) — the fish config in this repo already runs `mise activate fish`; do the equivalent for bash/zsh.
+
+4. Export the machine environment so the right overlay is loaded (persist it in your shell config):
+
+   ```sh
+   export MISE_ENV=desktop   # desktop Arch machine
+   # export MISE_ENV=macbook # old MacBook running Arch
+   # (leave unset on macOS — auto_env loads config.macos.toml)
+   ```
+
+### Apply
+
+`mise bootstrap` runs the whole pipeline ([docs](https://mise.jdx.dev/bootstrap.html)): installs `[bootstrap.packages]` (pacman/AUR on Arch, Homebrew formulae/casks on macOS), applies the `[dotfiles]` entries, sets up the evremap systemd unit on the MacBook running Arch Linux, installs the shared `[tools]`, and runs the `bootstrap` task (fonts, bat theme, nvpm, etc.):
+
+```sh
+mise bootstrap
+```
+
+Or apply just the dotfiles, e.g. after pulling updates:
+
+```sh
+mise bootstrap dotfiles apply
+```
+
+See [mise dotfiles commands](https://mise.jdx.dev/dotfiles.html#commands) for checking status (`mise bootstrap dotfiles status`) and previewing changes (`mise bootstrap dotfiles diff`) before applying.
+
 ## Updates
 
 ### September 2026
 
-Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [Mise Dotfiles](https://mise.jdx.dev/) for managing this repo. Dotfiles are now described in `~/.config/mise/config*.toml` (a shared `config.toml` plus `config.linux.toml` / `config.macos.toml` per platform) and applied with `mise bootstrap dotfiles apply`. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`), with the MacBook-specific bits still to port.
+Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [Mise Dotfiles](https://mise.jdx.dev/) for managing this repo. Dotfiles are now described in `~/.config/mise/config*.toml` (a shared `config.toml` plus `config.linux.toml` / `config.macos.toml` per platform) and applied with `mise bootstrap dotfiles apply`. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`). The Mac (Apple) and MacBook Arch configs are per-machine overlays selected with `MISE_ENV` — see [Setup](#setup).
 
 Also dropped the configs and packages for tools I am no longer using: Vicinae (no longer installed), plus ghostty, wezterm, lf, waybar, oyo, posting, slumber, discord, vivaldi and gitmux. kitty is the terminal everywhere now.
 
