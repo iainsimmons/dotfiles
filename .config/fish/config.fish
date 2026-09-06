@@ -8,7 +8,7 @@
 # A smart and user-friendly command line
 # https://fishshell.com/
 # env vars
-set -gx XDG_CONFIG_HOME "/home/iain/.config"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
