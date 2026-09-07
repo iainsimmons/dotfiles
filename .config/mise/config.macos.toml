@@ -28,7 +28,6 @@
 [bootstrap.brew.taps]
 "jesseduffield/lazydocker" = "https://github.com/jesseduffield/homebrew-lazydocker.git"
 "jesseduffield/lazygit" = "https://github.com/jesseduffield/homebrew-lazygit.git"
-"joshmedeski/sesh" = "https://github.com/joshmedeski/homebrew-sesh.git"
 "noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
 "noborus/tap" = "https://github.com/noborus/homebrew-tap.git"
 
@@ -124,7 +123,6 @@
 "brew:zsh" = "latest"
 # From taps.
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
-"brew:joshmedeski/sesh/sesh" = "latest"
 "brew:noahgorstein/tap/jqp" = "latest"
 "brew:noborus/tap/ov" = "latest"
 

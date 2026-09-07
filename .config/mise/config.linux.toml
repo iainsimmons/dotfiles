@@ -29,7 +29,6 @@
 # the 2026-09-02 build on this box may still flag it as unknown — harmless here
 # since every aur: package below is already installed (yay -Qm). Upgrading mise
 # restores full status/upgrade coverage.
-"aur:sesh-bin" = "latest"
 "aur:ov" = "latest"
 "aur:hyprmoncfg" = "latest"
 "aur:helium-browser-bin" = { os = "linux" }

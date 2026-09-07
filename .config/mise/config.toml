@@ -8,6 +8,10 @@ dotfiles.default_mode = "symlink"
 codex = "latest"
 gh = "latest"
 go = "latest"
+# sesh ships prebuilt binaries in GitHub releases; AUR (sesh-bin) and
+# Homebrew (joshmedeski/sesh) lag behind, so install straight from the
+# tagged releases instead.
+"github:joshmedeski/sesh" = "latest"
 node = "25.0.0"
 opencode = "latest"
 python = "3.14.4"
