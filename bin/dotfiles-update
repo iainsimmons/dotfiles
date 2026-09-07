@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Update everything managed by this mise setup: the dotfiles repo (which
+# describes the config), the shared [tools], the host [bootstrap.packages],
+# the bootstrap task, and mise itself.
+#
+# Run from any interactive shell so MISE_ENV (desktop/macbook/…), the active
+# shell and the package managers on PATH are inherited.
+
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
+
+has() { command -v "$1" >/dev/null 2>&1; }
+
+if has gum; then
+  step() { gum style --foreground 12 --bold "$1"; }
+  ok()   { gum style --foreground 10 "$1"; }
+else
+  step() { printf '\n== %s ==\n' "$1"; }
+  ok()   { printf '%s\n' "$1"; }
+fi
+
+if ! has mise; then
+  echo "mise is not installed — run: curl https://mise.run | sh" >&2
+  exit 1
+fi
+
+cd "$DOTFILES_DIR"
+
+step "Pulling the dotfiles repo"
+git pull --ff-only
+
+step "Applying dotfiles (mise bootstrap dotfiles apply)"
+mise bootstrap dotfiles apply
+
+step "Updating mise itself (mise self-update)"
+if ! mise self-update -y; then
+  echo "mise is installed via a package manager — update it with that instead."
+fi
+
+step "Upgrading tools (mise upgrade)"
+mise outdated || true
+mise upgrade
+
+step "Upgrading bootstrap packages (mise bootstrap packages upgrade)"
+if [ -t 0 ]; then
+  mise bootstrap packages upgrade
+else
+  echo "Skipping — needs sudo, which requires a TTY. Run it manually in a terminal."
+fi
+
+step "Re-running the bootstrap task (mise run bootstrap)"
+mise run bootstrap
+
+ok "Done — everything managed by mise is up to date."

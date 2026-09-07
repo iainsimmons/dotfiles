@@ -65,6 +65,32 @@ mise bootstrap dotfiles apply
 
 See [mise dotfiles commands](https://mise.jdx.dev/dotfiles.html#commands) for checking status (`mise bootstrap dotfiles status`) and previewing changes (`mise bootstrap dotfiles diff`) before applying.
 
+### Updating
+
+Everything managed by this mise setup — the dotfiles repo itself, mise, the shared `[tools]`, the host `[bootstrap.packages]`, and the `bootstrap` task — is updated with one command:
+
+```sh
+dotfiles-update
+```
+
+That runs: `git pull --ff-only` → `mise bootstrap dotfiles apply` → `mise self-update` → `mise outdated`/`mise upgrade` → `mise bootstrap packages upgrade` → `mise run bootstrap`. Or do it step by step:
+
+```sh
+git -C ~/dotfiles pull --ff-only            # 1. pick up new config
+mise bootstrap dotfiles apply               # 2. apply any new dotfiles
+mise self-update                            # 3. update mise itself
+mise outdated && mise upgrade               # 4. upgrade [tools]
+mise bootstrap packages upgrade             # 5. upgrade system packages (needs sudo)
+mise run bootstrap                          # 6. re-run the bootstrap task
+```
+
+Notes:
+
+- `mise upgrade` respects the configured version range, so pinned tools (`node = "25.0.0"`, `python = "3.14.4"`) stay put; `mise upgrade --bump` rewrites the pin.
+- Tools from the `github:` backend (e.g. `"github:joshmedeski/sesh"` in `[tools]`) install the latest GitHub tagged release when set to `"latest"`. Pin a specific release with `mise use github:joshmedeski/sesh@2.29.0`.
+- `dotfiles-update` skips the system-package step when it has no TTY for the `sudo` prompt (e.g. under cron) — run `mise bootstrap packages upgrade` in a terminal yourself. It also skips `mise self-update` if mise is installed via a package manager (AUR/Homebrew), which disables self-update.
+- Removing a tool from `[tools]` does not uninstall it — clean up with `mise uninstall <tool>`. `mise bootstrap packages prune` prunes Homebrew packages no longer declared in `[bootstrap.packages]`.
+
 ## Updates
 
 ### September 2026
