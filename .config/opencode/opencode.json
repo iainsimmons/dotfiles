@@ -4,11 +4,7 @@
   "mcp": {
     "chrome-devtools": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest"
-      ]
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
     },
     "cloudflare": {
       "type": "remote",
@@ -36,5 +32,19 @@
       "enabled": true
     }
   },
-  "shell": "/usr/bin/fish"
+  "shell": "/usr/bin/fish",
+  "permission": {
+    "read": {
+      "*": "ask",
+      "/tmp/opencode/**": "allow"
+    },
+    "edit": {
+      "*": "ask",
+      "/tmp/opencode/**": "allow"
+    },
+    "external_directory": {
+      "*": "ask",
+      "/tmp/opencode/**": "allow"
+    }
+  }
 }
