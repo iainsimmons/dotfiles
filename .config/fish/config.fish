@@ -57,11 +57,13 @@ set fzf_directory_opts --reverse --bind "ctrl-u:preview-half-page-up,ctrl-d:prev
 set fzf_preview_dir_cmd eza -aghl --icons=auto
 
 # pnpm
-if not test (uname) = Darwin
+if test (uname) = Darwin
+    set -gx PNPM_HOME /Users/isimmons/Library/pnpm
+else
     set -gx PNPM_HOME "/home/iain/.local/share/pnpm"
-    if not string match -q -- "$PNPM_HOME/bin" $PATH
-        set -gx PATH "$PNPM_HOME/bin" $PATH
-    end
+end
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+    set -gx PATH "$PNPM_HOME/bin" $PATH
 end
 # pnpm end
 
