@@ -3,6 +3,9 @@ min_version = "2026.9.1"
 [settings]
 dotfiles.root = "~/dotfiles"
 dotfiles.default_mode = "symlink"
+# Let mise read `.nvmrc` / `.node-version` in a project directory and
+# auto-switch the active node version there (replaces fnm --use-on-cd).
+idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
 codex = "latest"
@@ -12,7 +15,7 @@ go = "latest"
 # Homebrew (joshmedeski/sesh) lag behind, so install straight from the
 # tagged releases instead.
 "github:joshmedeski/sesh" = "latest"
-node = "25.0.0"
+node = "24"
 opencode = "latest"
 python = "3.14.4"
 

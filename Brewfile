@@ -66,8 +66,6 @@ brew "ffmpeg"
 brew "ffmpegthumbnailer"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
-# Fast and simple Node.js version manager
-brew "fnm"
 # CLI program that accepts piped input and presents files for selection
 brew "fpp"
 # Libraries to talk to Microsoft SQL Server and Sybase databases
