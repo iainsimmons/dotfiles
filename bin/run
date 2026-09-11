@@ -9,7 +9,7 @@ set -e
 
 # First, check if the jq and fzf commands are available
 # AND there is a package.json file in the current directory
-if command -v jq &>/dev/null && command -v fzf &>/dev/null [[ -f "package.json" ]]; then
+if command -v jq &>/dev/null && command -v fzf &>/dev/null && [[ -f "package.json" ]]; then
   if [ $# -eq 0 ]; then
     # if no arguments were passed to the script
     # then get the list of scripts from package.json
@@ -39,22 +39,28 @@ if [ -f "run" ]; then
 	exit 0
 fi
 
-if [ -f yarn.lock ]; then
+if command -v yarn &>/dev/null && [ -f yarn.lock ]; then
 	echo "yarn $DEV_SCRIPT"
 	yarn "$DEV_SCRIPT"
 	exit 0
 fi
 
-if [ -f pnpm-lock.yaml ]; then
+if command -v pnpm &>/dev/null && [ -f pnpm-lock.yaml ]; then
 	echo "pnpm run $DEV_SCRIPT"
 	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
-if [ -f bun.lockb ]; then
+if command -v bun &>/dev/null && [ -f bun.lockb ]; then
 	echo "bun $DEV_SCRIPT"
-	pnpm run "$DEV_SCRIPT"
+	bun run "$DEV_SCRIPT"
 	exit 0
+fi
+
+if command -v nub &>/dev/null && [ -f package-lock.json ]; then
+  echo "nub run $DEV_SCRIPT"
+  nub run "$DEV_SCRIPT"
+  exit 0
 fi
 
 if [ -f package-lock.json ]; then
