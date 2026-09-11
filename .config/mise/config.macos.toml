@@ -12,10 +12,13 @@
 
 [dotfiles]
 "~/.zshrc" = {}
-"~/.config/karabiner" = {}
 "~/.config/espanso" = {}
 "~/.config/skhd" = {}
 "~/.config/svgo.config.mjs" = {}
+# karabiner: NOT a dotfile — Karabiner Elements rewrites karabiner.json on
+# device connect/disconnect, so it stays machine-owned. The caps_lock
+# complex_modification is seeded/merged into it by bin/karabiner-apply-rule.sh
+# (wired into the `bootstrap` task) from .config/karabiner/karabiner.seed.json
 # "~/.config/ghostty" = {}   # deleted — kitty is the terminal everywhere
 
 # Note: kitty is the terminal everywhere but is not in the Brewfile — it is

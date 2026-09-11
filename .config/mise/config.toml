@@ -108,4 +108,11 @@ if [ "$(uname -s)" = "Linux" ] && command -v omarchy-webapp-install >/dev/null 2
   echo "Installing TickTick webapp..."
   omarchy-webapp-install TickTick "https://ticktick.com/webapp" ""
 fi
+
+# Karabiner (macOS): seed/merge the caps_lock complex_modification into the
+# machine-owned karabiner.json that Karabiner rewrites on device changes.
+if [ "$(uname -s)" = "Darwin" ] && [ -x "$HOME/dotfiles/bin/karabiner-apply-rule.sh" ]; then
+  echo "Applying Karabiner complex_modifications..."
+  "$HOME/dotfiles/bin/karabiner-apply-rule.sh"
+fi
 """

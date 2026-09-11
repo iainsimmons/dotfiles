@@ -8,6 +8,7 @@
 .config/nvim-kickstart
 .config/base16-shell
 .config/karabiner/automatic_backups
+.config/karabiner/karabiner.json
 .config/fish/fish_variables
 .config/yazi/plugins
 .config/tmux/plugins
