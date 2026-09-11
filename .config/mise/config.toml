@@ -37,7 +37,7 @@ python = "3.14.4"
 "~/.config/fish" = {}
 "~/.config/hunk" = { mode = "symlink-each" }
 "~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
-"~/.config/kitty/tokyonight_night.conf" = {}
+"~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
 # nvpm and hyprmoncfg rewrite their config via atomic rename, which silently
 # replaces symlinks — so manage these as real files (copy mode).
 "~/.config/lazygit" = { mode = "symlink-each" }
