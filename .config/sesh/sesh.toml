@@ -61,7 +61,7 @@ windows = ["opencode", "lazygit", "fish"]
 
 [[window]]
 name = "nvim"
-startup_script = "fnm use default && nvim"
+startup_script = "mise exec node@24 -- nvim"
 
 [[window]]
 name = "opencode"

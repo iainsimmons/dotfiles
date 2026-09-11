@@ -36,7 +36,6 @@
 "aur:helium-browser-bin" = { os = "linux" }
 "aur:vesktop-bin" = { os = "linux" }
 "aur:bibata-cursor-theme-bin" = { os = "linux" }
-"aur:fnm-bin" = "latest"
 "aur:pnpm-bin" = "latest"
 # evremap: disabled — used by the archlinux-macbook branch.
 # "aur:evremap-git" = { os = "linux" }
