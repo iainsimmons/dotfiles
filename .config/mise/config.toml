@@ -32,7 +32,7 @@ python = "3.14.4"
 "~/.config/mise" = {}
 "~/.config/bat" = {}
 "~/.config/commit-mono-font" = {}
-"~/.config/fastfetch/.prettierrc" = {}
+"~/.config/fastfetch/.prettierrc" = { mode = "copy" }
 "~/.config/fastfetch/config.jsonc" = { source = "../fastfetch/config.jsonc.tmpl", mode = "template" }
 "~/.config/fish" = {}
 "~/.config/hunk" = { mode = "symlink-each" }
