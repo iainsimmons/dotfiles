@@ -25,10 +25,12 @@
 "pacman:uwsm" = "latest"
 "pacman:walker" = "latest"          # omarchy repo
 # steam is desktop-only — declared in config.desktop.toml (MISE_ENV=desktop)
-# AUR (requires yay or paru). The `aur` manager ships with recent mise builds;
-# the 2026-09-02 build on this box may still flag it as unknown — harmless here
-# since every aur: package below is already installed (yay -Qm). Upgrading mise
-# restores full status/upgrade coverage.
+# AUR (requires yay or paru). `aur` is a built-in manager in mise main since
+# 2026-09-03 (jdx/mise#12718) but is not in any released build yet, so the
+# current mise-bin 2026.9.1 warns "unknown bootstrap package manager 'aur'" on
+# every config load. Harmless here — every aur: package below is already
+# installed (yay -Qm) — and clears once the next mise release ships and
+# mise-bin is updated (yay -S mise-bin; mise self-update can't rewrite it).
 "aur:ov" = "latest"
 "aur:hyprmoncfg" = "latest"
 "aur:helium-browser-bin" = { os = "linux" }

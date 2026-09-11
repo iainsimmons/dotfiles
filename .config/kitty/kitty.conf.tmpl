@@ -1,4 +1,8 @@
+{% if os() == "macos" %}
+include tokyonight_night.conf
+{% else %}
 include ~/.local/state/omarchy/current/theme/kitty.conf
+{% endif %}
 
 ############
 ### Font ###
@@ -8,7 +12,11 @@ font_family CommitMono_iainsimmons
 bold_font auto
 italic_font auto
 bold_italic_font auto
+{% if os() == "macos" %}
+font_size 18.0
+{% else %}
 font_size 14.0
+{% endif %}
 modify_font cell_height 120%
 
 
@@ -152,5 +160,7 @@ map super+apostrophe send_text all \x02s
 map super+shift+period send_text all \x02$
 
 
+{% if os() != "macos" %}
 # Allow cwd lookup from global keybindings
 listen_on unix:${XDG_RUNTIME_DIR}/omarchy-kitty-{kitty_pid}
+{% endif %}
