@@ -229,3 +229,6 @@ function peon
         return 1
     end
 end
+
+# nub node shim
+set -gx PATH (test -n "$XDG_DATA_HOME"; and echo $XDG_DATA_HOME; or echo $HOME/.local/share)/nub/node-shim $PATH
