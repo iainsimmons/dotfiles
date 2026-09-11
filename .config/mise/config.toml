@@ -22,9 +22,7 @@ python = "3.14.4"
 "~/.gitconfig" = {}
 "~/.cargo" = {}
 "~/bin" = {}
-"~/screenshots" = {}
 "~/CommitMono_iainsimmonsV143" = {}
-"~/keychron_v5_ansi_knob.layout.json" = {}
 "~/epomaker_split65.layout.json" = {}
 # ~/.config (shared across platforms).
 # Whole-dir symlink mode (our stow arrangement) for dirs currently symlinked,

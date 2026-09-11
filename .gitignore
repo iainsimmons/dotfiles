@@ -10,6 +10,8 @@
 .config/karabiner/automatic_backups
 .config/karabiner/karabiner.json
 .config/fish/fish_variables
+.config/fastfetch/config.jsonc
+.config/kitty/kitty.conf
 .config/yazi/plugins
 .config/tmux/plugins
 .config/omarchy
