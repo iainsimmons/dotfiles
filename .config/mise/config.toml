@@ -19,6 +19,7 @@ node = "24"
 opencode = "latest"
 python = "3.14.4"
 "aqua:modem-dev/hunk" = "latest"
+"npm:playwright" = "latest"
 
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
