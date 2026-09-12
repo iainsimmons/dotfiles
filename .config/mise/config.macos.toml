@@ -133,3 +133,12 @@
 "brew-cask:font-symbols-only-nerd-font" = { os = "macos" }
 "brew-cask:notunes" = { os = "macos" }
 "brew-cask:openmtp" = { os = "macos" }
+
+[bootstrap.macos.dock]
+autohide_delay = 1000
+
+[bootstrap.macos.keyboard]
+press_and_hold = false
+
+[bootstrap.hooks.post-defaults]
+run = "killall Dock || true"
