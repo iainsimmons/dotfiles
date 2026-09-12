@@ -219,13 +219,15 @@ alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=dow
 # nub
 set -gx PATH "$HOME/.nub/bin" $PATH
 
-# peon-ping quick controls
-function peon
-    set -l peon_script "$HOME/.claude/hooks/peon-ping/peon.sh"
-    if test -f "$peon_script"
-        bash "$peon_script" $argv
-    else
-        echo "peon: script not found at $peon_script" >&2
-        return 1
+# peon-ping quick controls (desktop only)
+if test "$MISE_ENV" = "desktop"
+    function peon
+        set -l peon_script "$HOME/.claude/hooks/peon-ping/peon.sh"
+        if test -f "$peon_script"
+            bash "$peon_script" $argv
+        else
+            echo "peon: script not found at $peon_script" >&2
+            return 1
+        end
     end
 end

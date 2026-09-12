@@ -36,6 +36,10 @@ python = "3.14.4"
 "~/.config/fastfetch/.prettierrc" = { mode = "copy" }
 "~/.config/fastfetch/config.jsonc" = { source = "../fastfetch/config.jsonc.tmpl", mode = "template" }
 "~/.config/fish" = {}
+# opencode: symlink each tracked file so per-machine plugins (e.g. peon-ping,
+# desktop-only via config.desktop.toml) can be added/omitted per machine.
+# node_modules / package*.json / bun.lock are gitignored machine-owned files.
+"~/.config/opencode" = { mode = "symlink-each", exclude = ["node_modules", "package.json", "package-lock.json", "bun.lock"] }
 "~/.config/hunk" = { mode = "symlink-each" }
 "~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
 "~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
@@ -43,7 +47,6 @@ python = "3.14.4"
 # replaces symlinks — so manage these as real files (copy mode).
 "~/.config/lazygit" = { mode = "symlink-each" }
 "~/.config/nvpm" = { mode = "copy", exclude = ["bin", "artifacts", "packages", "plugins"] }
-"~/.config/opencode" = {}
 "~/.config/ov" = {}
 "~/.config/sesh" = {}
 "~/.config/starship.toml" = {}

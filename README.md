@@ -17,8 +17,8 @@ This repo is applied with [mise dotfiles](https://mise.jdx.dev/dotfiles.html#dot
 
 | Machine     | OS                   | Extra config loaded                        | Differences                                                                                            |
 | ----------- | -------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Desktop     | Arch Linux + Omarchy | `config.desktop.toml` (`MISE_ENV=desktop`) | Gaming/entertainment tools (Steam); no keyboard remapper                                               |
-| Old MacBook | Arch Linux + Omarchy | `config.macbook.toml` (`MISE_ENV=macbook`) | [evremap](https://github.com/wez/evremap) key remapper + systemd unit; no Steam                        |
+| Desktop     | Arch Linux + Omarchy | `config.desktop.toml` (`MISE_ENV=desktop`) | Gaming/entertainment tools (Steam); [peon-ping](https://peonping.com) opencode plugin + shell controls; no keyboard remapper |
+| Old MacBook | Arch Linux + Omarchy | `config.macbook.toml` (`MISE_ENV=macbook`) | [evremap](https://github.com/wez/evremap) key remapper + systemd unit; faster touchpad tracking (`~/.config/hypr/input.macbook.lua`); no Steam, no peon-ping |
 | Work Mac    | macOS                | `config.macos.toml` (auto, no `MISE_ENV`)  | Homebrew formulae + casks (ported from the old `Brewfile`), zsh, karabiner, skhd, espanso, macOS prefs |
 
 Both Arch machines share everything in `config.toml` and `config.linux.toml`; the Mac differs mainly in package manager (Homebrew vs pacman/AUR) and the macOS-only tools.
@@ -62,6 +62,23 @@ Or apply just the dotfiles, e.g. after pulling updates:
 ```sh
 mise bootstrap dotfiles apply
 ```
+
+> **One-time migration (September 2026):** `~/.config/opencode` and
+> `~/.config/uwsm` switched from whole-dir symlinks to per-file
+> `symlink-each` management so machine-specific files (the peon-ping opencode
+> plugin on the desktop, etc.) can differ per machine. If a machine still has
+> the old whole-dir symlink, `apply` writes the per-file links *through* it
+> into the repo (self-referencing links). On each Arch machine that was set up
+> with the old layout, remove the stale symlink once, then apply:
+
+```sh
+rm ~/.config/opencode ~/.config/uwsm
+mise bootstrap dotfiles apply --force
+```
+
+> After that, applies are routine. `~/.config/hypr/input.macbook.lua` is
+> likewise only installed on the MacBook via the `config.macbook.toml` overlay
+> and loaded conditionally by `hyprland.lua`, so it is a no-op on the desktop.
 
 See [mise dotfiles commands](https://mise.jdx.dev/dotfiles.html#commands) for checking status (`mise bootstrap dotfiles status`) and previewing changes (`mise bootstrap dotfiles diff`) before applying.
 

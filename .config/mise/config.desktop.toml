@@ -4,6 +4,13 @@
 
 [tools]
 
+[dotfiles]
+# peon-ping (opencode sound/hooks plugin): desktop only. The plugin source
+# lives at ~/dotfiles/.config/desktop/..., a path mise never syncs; it is
+# symlinked into the shared opencode plugins dir here so the MacBook never
+# sees it.
+"~/.config/opencode/plugins/peon-ping.ts" = { source = "../desktop/opencode/plugins/peon-ping.ts", mode = "symlink" }
+
 [bootstrap.packages]
 # Gaming on the desktop only (the MacBook does not get Steam).
 "pacman:steam" = { os = "linux" }

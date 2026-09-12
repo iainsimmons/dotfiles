@@ -35,8 +35,8 @@ source <(nvpm env)
 # sesh
 alias tm="sesh connect dotfiles"
 
-# peon-ping quick controls
-if [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
+# peon-ping quick controls (desktop only)
+if [ "$MISE_ENV" = "desktop" ] && [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
   alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
   [ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
 fi

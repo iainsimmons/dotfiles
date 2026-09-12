@@ -1,4 +1,7 @@
-# peon-ping tab completion for fish shell
+# peon-ping tab completion for fish shell (desktop only)
+if test "$MISE_ENV" != "desktop"
+    exit 0
+end
 
 # Helper: true when no subcommand has been given yet
 function __peon_no_subcommand

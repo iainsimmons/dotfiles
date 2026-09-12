@@ -9,6 +9,12 @@
 
 [tools]
 
+[dotfiles]
+# MacBook-only Hyprland input override. The shared input.lua keeps the
+# desktop-mouse sensitivity (-0.75); this restores faster touchpad tracking.
+# Loaded from hyprland.lua only when this file is present (no-op elsewhere).
+"~/.config/hypr/input.macbook.lua" = { source = "../macbook/hypr/input.macbook.lua", mode = "symlink" }
+
 [bootstrap.packages]
 # Keyboard remapper used specifically on the MacBook (disabled on the desktop
 # in config.linux.toml).

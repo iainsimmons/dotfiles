@@ -28,8 +28,26 @@ require("hypr.workspaces")
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")
 
+-- Load the MacBook-only input override (installed via the config.macbook.toml
+-- mise overlay). Only present on the MacBook, so this no-ops on the desktop.
+do
+  local path = os.getenv("HOME") .. "/.config/hypr/input.macbook.lua"
+  local file = io.open(path, "r")
+  if file then
+    file:close()
+    dofile(path)
+  end
+end
+
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
 
 -- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
-do local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"; local file = io.open(path, "r"); if file then file:close(); dofile(path) end end
+do
+  local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"
+  local file = io.open(path, "r")
+  if file then
+    file:close()
+    dofile(path)
+  end
+end

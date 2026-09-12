@@ -109,8 +109,8 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 
 . "$HOME/.local/bin/env"
 
-# peon-ping quick controls
-if [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
+# peon-ping quick controls (desktop only)
+if [ "$MISE_ENV" = "desktop" ] && [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]; then
   alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
   [ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
 fi
