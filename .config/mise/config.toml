@@ -18,6 +18,7 @@ go = "latest"
 node = "24"
 opencode = "latest"
 python = "3.14.4"
+"aqua:modem-dev/hunk" = "latest"
 
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).

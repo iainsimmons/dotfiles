@@ -63,16 +63,17 @@ Or apply just the dotfiles, e.g. after pulling updates:
 mise bootstrap dotfiles apply
 ```
 
-> **One-time migration (September 2026):** `~/.config/opencode` and
-> `~/.config/uwsm` switched from whole-dir symlinks to per-file
+> **One-time migration (September 2026):** `~/.config/opencode`, `~/.config/uwsm`
+> and `~/.config/hunk` switched from whole-dir symlinks to per-file
 > `symlink-each` management so machine-specific files (the peon-ping opencode
 > plugin on the desktop, etc.) can differ per machine. If a machine still has
 > the old whole-dir symlink, `apply` writes the per-file links *through* it
-> into the repo (self-referencing links). On each Arch machine that was set up
-> with the old layout, remove the stale symlink once, then apply:
+> into the repo (self-referencing links that break the config, e.g. hunk's).
+> On each Arch machine that was set up with the old layout, remove the stale
+> symlinks once, then apply:
 
 ```sh
-rm ~/.config/opencode ~/.config/uwsm
+rm ~/.config/opencode ~/.config/uwsm ~/.config/hunk
 mise bootstrap dotfiles apply --force
 ```
 
