@@ -21,6 +21,12 @@ python = "3.14.4"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
 
+[bootstrap.secrets]
+gitlab_instance = "GITLAB_INSTANCE"
+
+[bootstrap.files]
+"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", template = true, replace = true}
+
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
 "~/.bashrc" = {}
@@ -45,9 +51,9 @@ python = "3.14.4"
 "~/.config/hunk" = { mode = "symlink-each" }
 "~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
 "~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
+"~/.config/lazygit/.gitignore" = { mode = "copy" }
 # nvpm and hyprmoncfg rewrite their config via atomic rename, which silently
 # replaces symlinks — so manage these as real files (copy mode).
-"~/.config/lazygit" = { mode = "symlink-each" }
 "~/.config/nvpm" = { mode = "copy", exclude = ["bin", "artifacts", "packages", "plugins"] }
 "~/.config/ov" = {}
 "~/.config/sesh" = {}

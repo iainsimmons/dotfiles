@@ -1,4 +1,4 @@
-customCommands:
+{% raw %}customCommands:
   - command: "git push --force-with-lease"
     context: "global"
     description: "Force Push (with lease)"
@@ -15,7 +15,7 @@ git:
 os:
   edit: "nvim {{filename}}"
   editAtLine: "nvim +{{line}} -- {{filename}}"
-	open: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
-  openLink: open -u "$(echo {{link}} | sed 's/%2F/\//g')"
+  open: 'tmux new-window -c "#{pane_current_path}" nvim -- {{filename}}'
+  openLink: open -u "$(echo {{link}} | sed 's/%2F/\//g')"{% endraw %}
 services:
-  "gitlab.example.com": "gitlab:gitlab.example.com" # add custom GitLab instance
+  "{{secret(name="gitlab_instance")}}": "gitlab:{{secret(name="gitlab_instance")}}" # add custom GitLab instance

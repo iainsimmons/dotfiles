@@ -30,6 +30,9 @@ cd "$DOTFILES_DIR"
 step "Pulling the dotfiles repo"
 git pull --ff-only
 
+step "Applying bootstrap.files with secrets prompt (mise bootstrap files apply -E desktop --prompt-secrets)"
+mise bootstrap files apply -E desktop --prompt-secrets
+
 step "Applying dotfiles (mise bootstrap dotfiles apply)"
 mise bootstrap dotfiles apply
 
