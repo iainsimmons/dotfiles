@@ -183,8 +183,6 @@ abbr path 'echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
 abbr show_options shopt # Show_options: display bash options settings
 abbr fix_stty 'stty sane' # fix_stty:     Restore terminal settings when screwed up
 abbr cic 'set completion-ignore-case On' # cic:          Make tab-completion case-insensitive
-# abbr flushDNS 'dscacheutil -flushcache' # flushDNS:     Flush out the DNS Cache
-# abbr flushDNS_all 'dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 abbr hosts 'sudo nvim /etc/hosts' # hosts:        Edit the local hosts file
 abbr git_sync "git pull -r && git push"
 abbr pn pnpm
@@ -196,17 +194,14 @@ abbr zz zi
 abbr find fd
 abbr v nvim
 abbr y yazi
-# # Hide/show all desktop icons (useful when presenting)
-# abbr hidedesktop 'defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
-# abbr showdesktop 'defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 # delete item from history, use fzf to select
 abbr hd "history delete --exact --case-sensitive (history | fzf-tmux -p -m --reverse)"
 abbr obsidian_styles 'nvim ~/Dropbox/Obsidian\ Vault/.obsidian/snippets/styles.css'
-# abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force --describe'
 abbr kulala '~/.local/share/nvim/lazy/kulala.nvim/lua/cli/kulala_cli.lua'
-abbr discord_update 'sudo pacman -Syu discord'
-abbr monitors 'hyprctl monitors -j | fx'
-abbr clients 'hyprctl clients -j | fx'
+if test (uname) != Darwin
+    abbr monitors 'hyprctl monitors -j | fx'
+    abbr clients 'hyprctl clients -j | fx'
+end
 
 alias c clear # c:            Clear terminal display
 alias cd z # use zoxide for cd (change directory)
@@ -220,7 +215,7 @@ alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=dow
 set -gx PATH "$HOME/.nub/bin" $PATH
 
 # peon-ping quick controls (desktop only)
-if test "$MISE_ENV" = "desktop"
+if test "$MISE_ENV" = desktop
     function peon
         set -l peon_script "$HOME/.claude/hooks/peon-ping/peon.sh"
         if test -f "$peon_script"

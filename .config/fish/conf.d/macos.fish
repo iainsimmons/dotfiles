@@ -40,8 +40,8 @@ if test (uname) = Darwin
     abbr bbd 'cd ~/dotfiles/ && brew bundle dump --force'
 
     # Privileges (temporary admin rights).
-    abbr admin '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
-    abbr privileges '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
+    abbr admin '/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add'
+    abbr privileges "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add"
 
     # macOS DNS cache flush.
     abbr flushDNS 'dscacheutil -flushcache'
