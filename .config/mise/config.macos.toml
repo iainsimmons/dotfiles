@@ -54,6 +54,7 @@
 "brew:direnv" = "latest"
 "brew:docker" = "latest"
 "brew:docker-credential-helper" = "latest"
+"brew:exiftool" = "latest"
 "brew:fastfetch" = "latest"
 "brew:fd" = "latest"
 "brew:libidn2" = "latest"
