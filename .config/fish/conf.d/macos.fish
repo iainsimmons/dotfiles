@@ -11,6 +11,18 @@ if test (uname) = Darwin
     # Cloudflare corporate CA (used by work tooling).
     set -gx NODE_EXTRA_CA_CERTS /usr/local/share/ca-certificates/Cloudflare_CA.pem
 
+    # Exclude files like .DS_Store etc from archives
+    set -gx COPYFILE_DISABLE 1
+
+    # Create a gzip tar archive without macOS metadata (._*, .DS_Store).
+    function targz -d "Create a gzip tar archive without macOS metadata (._*, .DS_Store)"
+        if test (count $argv) -lt 2
+            echo "Usage: targz <archive.tar.gz> <path> [path ...]" >&2
+            return 1
+        end
+        env COPYFILE_DISABLE=1 tar --exclude='._*' --exclude='.DS_Store' -czf $argv[1] $argv[2..]
+    end
+
     # macOS pnpm global binaries (brew pnpm + corepack).
     set -gx PNPM_HOME "$HOME/Library/pnpm"
     fish_add_path "$PNPM_HOME"
