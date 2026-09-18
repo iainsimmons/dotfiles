@@ -38,7 +38,19 @@ mise bootstrap dotfiles apply
 
 step "Updating mise itself (mise self-update)"
 if ! mise self-update -y; then
-  echo "mise is installed via a package manager — update it with that instead."
+  echo "mise is installed via a package manager — updating with it instead."
+  if [ "$(uname -s)" = "Darwin" ] && has brew; then
+    brew upgrade mise
+  elif command -v paru >/dev/null 2>&1 || has yay || has pikaur; then
+    pkg="$(pacman -Qq 2>/dev/null | grep '^mise' | head -1 || true)"
+    if [ -n "$pkg" ]; then
+      "$(command -v paru || command -v yay || command -v pikaur)" -S --needed "$pkg"
+    else
+      echo "mise is not installed via pacman — update it manually."
+    fi
+  else
+    echo "Unknown package manager — update mise manually."
+  fi
 fi
 
 step "Upgrading tools (mise upgrade)"
