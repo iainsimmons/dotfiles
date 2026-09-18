@@ -211,9 +211,6 @@ alias svgo 'npx svgo --config $XDG_CONFIG_HOME/svgo.config.mjs'
 alias color termpicker
 alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"
 
-# nub
-set -gx PATH "$HOME/.nub/bin" $PATH
-
 # peon-ping quick controls (desktop only)
 if test "$MISE_ENV" = desktop
     function peon

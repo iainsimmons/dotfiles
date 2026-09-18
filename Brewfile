@@ -80,8 +80,6 @@ brew "fzf"
 brew "gcc"
 # Graphics library to dynamically manipulate images
 brew "gd"
-# GitHub command-line tool
-brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
 # Distributed revision control system
@@ -199,5 +197,3 @@ cask "font-symbols-only-nerd-font"
 cask "notunes"
 # Android file transfer
 cask "openmtp"
-# Modified browser that helps in responsive web development
-cask "responsively"

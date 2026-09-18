@@ -10,8 +10,7 @@ dotfiles.default_mode = "symlink"
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
-# codex, gh, and opencode are only used on Linux (Arch), not macOS.
-codex = { version = "latest", os = ["linux"] }
+# gh and opencode are only used on Linux (Arch), not macOS.
 gh = { version = "latest", os = ["linux"] }
 go = "latest"
 # sesh ships prebuilt binaries in GitHub releases; AUR (sesh-bin) and
@@ -19,6 +18,8 @@ go = "latest"
 # tagged releases instead.
 "github:joshmedeski/sesh" = "latest"
 node = "24"
+# Official mise registry shorthand → npm:@nubjs/nub (same on macOS and Linux).
+nub = "latest"
 opencode = { version = "latest", os = ["linux"] }
 python = "3.14.4"
 "aqua:modem-dev/hunk" = "latest"

@@ -4,11 +4,15 @@
 
 # Tools that only need to exist on macOS (installed by mise, not Homebrew).
 # Runtime/toolchain versions (node, go, python) are shared in config.toml;
-# gh, codex, and opencode are Linux-only (os = ["linux"]), so none belong here.
+# gh and opencode are Linux-only (os = ["linux"]), so none belong here.
+# uv + pipx:httpx: macOS-only; mise's pipx backend uses `uv tool install` when
+# uv is available, so httpx lands the same way as a manual `uv tool install`.
 [tools]
 "go:github.com/ChausseBenjamin/termpicker" = "latest"
 "npm:@squiz/dxp-cli-next" = "latest"
 "npm:corepack" = "latest"
+uv = "latest"
+"pipx:httpx" = "latest"
 
 [dotfiles]
 "~/.zshrc" = {}
@@ -31,10 +35,12 @@
 [bootstrap.brew.taps]
 # skhd lives in KO-E/asmvik's homebrew tap, not homebrew-core.
 "asmvik/formulae" = "https://github.com/asmvik/homebrew-formulae.git"
+"brevity1swos/tap" = "https://github.com/brevity1swos/homebrew-tap.git"
 "jesseduffield/lazydocker" = "https://github.com/jesseduffield/homebrew-lazydocker.git"
 "jesseduffield/lazygit" = "https://github.com/jesseduffield/homebrew-lazygit.git"
 "noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
 "noborus/tap" = "https://github.com/noborus/homebrew-tap.git"
+"westpoint-io/lazyrsync" = "https://github.com/westpoint-io/homebrew-lazyrsync.git"
 
 [bootstrap.packages]
 # Homebrew formulae (verified against the Brewfile from the `main` branch).
@@ -57,6 +63,7 @@
 "brew:docker" = "latest"
 "brew:docker-credential-helper" = "latest"
 "brew:exiftool" = "latest"
+"brew:eza" = "latest"
 "brew:fastfetch" = "latest"
 "brew:fd" = "latest"
 "brew:libidn2" = "latest"
@@ -99,10 +106,14 @@
 "brew:libpq" = "latest"
 "brew:lsd" = "latest"
 "brew:luarocks" = "latest"
+"brew:miller" = "latest"
 "brew:mkcert" = "latest"
+"brew:mole" = "latest"
 "brew:neovim" = "latest"
 "brew:nss" = "latest"
 "brew:openvino" = "latest"
+"brew:ov" = "latest"
+"brew:oxfmt" = "latest"
 "brew:pandoc" = "latest"
 "brew:pcre" = "latest"
 "brew:php" = "latest"
@@ -110,11 +121,16 @@
 "brew:poppler" = "latest"
 "brew:pyenv" = "latest"
 "brew:qemu" = "latest"
+"brew:quien" = "latest"
 "brew:reattach-to-user-namespace" = "latest"
+"brew:resvg" = "latest"
 "brew:ripgrep" = "latest"
+"brew:rustup" = "latest"
 "brew:sevenzip" = "latest"
+"brew:sheets" = "latest"
 "brew:starship" = "latest"
 "brew:svgo" = "latest"
+"brew:taplo" = "latest"
 "brew:tcl-tk" = "latest"
 "brew:tealdeer" = "latest"
 "brew:tmux" = "latest"
@@ -128,9 +144,10 @@
 "brew:zsh" = "latest"
 # From taps.
 "brew:asmvik/formulae/skhd" = "latest"
+"brew:brevity1swos/tap/rgx" = "latest"
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
 "brew:noahgorstein/tap/jqp" = "latest"
-"brew:noborus/tap/ov" = "latest"
+"brew:westpoint-io/lazyrsync/lazyrsync" = "latest"
 
 # Homebrew casks (macOS-only GUI apps and fonts).
 "brew-cask:1password-cli" = { os = "macos" }
