@@ -8,24 +8,33 @@ dotfiles.default_mode = "symlink"
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
-codex = "latest"
-gh = "latest"
+# codex, gh, and opencode are only used on Linux (Arch), not macOS.
+codex = { version = "latest", os = ["linux"] }
+gh = { version = "latest", os = ["linux"] }
 go = "latest"
 # sesh ships prebuilt binaries in GitHub releases; AUR (sesh-bin) and
 # Homebrew (joshmedeski/sesh) lag behind, so install straight from the
 # tagged releases instead.
 "github:joshmedeski/sesh" = "latest"
 node = "24"
-opencode = "latest"
+opencode = { version = "latest", os = ["linux"] }
 python = "3.14.4"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
+# Username that should own the lazygit config. Defaults to the user who ran
+# the bootstrap (iain on this Linux box) unless LAZYGIT_OWNER is set (e.g. a
+# different username on macOS). Enforced by the bootstrap task below.
+lazygit_owner = "LAZYGIT_OWNER"
 
 [bootstrap.files]
-"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", template = true, replace = true}
+# Home-dir file: mise writes it as the invoking user (a user-writable ~ path is
+# never escalated), so it stays owned by whoever ran the bootstrap. No
+# owner/group pins (those are literal usernames and would break under a
+# different account, e.g. macOS); ownership is re-enforced by the bootstrap task.
+"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", template = true, replace = true, mode = "0644" }
 
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
@@ -126,5 +135,14 @@ fi
 if [ "$(uname -s)" = "Darwin" ] && [ -x "$HOME/dotfiles/bin/karabiner-apply-rule.sh" ]; then
   echo "Applying Karabiner complex_modifications..."
   "$HOME/dotfiles/bin/karabiner-apply-rule.sh"
+fi
+
+# Ensure the lazygit config is owned by the user who ran this bootstrap (or
+# $LAZYGIT_OWNER if set). No-op when it's already owned by that user; silently
+# skipped if we lack permission. Only meaningful after the bootstrap ever ran
+# under sudo (then $SUDO_USER holds the original account).
+if [ -f "$HOME/.config/lazygit/config.yml" ]; then
+  cfg_owner="${LAZYGIT_OWNER:-${SUDO_USER:-${USER:-$(id -un)}}}"
+  chown "$cfg_owner" "$HOME/.config/lazygit/config.yml" 2>/dev/null || true
 fi
 """

@@ -3,8 +3,8 @@
 # Ported from the `main` branch's macOS setup (the Brewfile).
 
 # Tools that only need to exist on macOS (installed by mise, not Homebrew).
-# Runtime/toolchain versions (node, go, python, gh, opencode, codex) are shared
-# in config.toml, so they are not repeated here.
+# Runtime/toolchain versions (node, go, python) are shared in config.toml;
+# gh, codex, and opencode are Linux-only (os = ["linux"]), so none belong here.
 [tools]
 "go:github.com/ChausseBenjamin/termpicker" = "latest"
 "npm:@squiz/dxp-cli-next" = "latest"
@@ -29,6 +29,8 @@
 # tap's published API metadata directly; these sources are only needed where
 # the conventional GitHub URL cannot be inferred.
 [bootstrap.brew.taps]
+# skhd lives in KO-E/asmvik's homebrew tap, not homebrew-core.
+"asmvik/formulae" = "https://github.com/asmvik/homebrew-formulae.git"
 "jesseduffield/lazydocker" = "https://github.com/jesseduffield/homebrew-lazydocker.git"
 "jesseduffield/lazygit" = "https://github.com/jesseduffield/homebrew-lazygit.git"
 "noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
@@ -125,12 +127,14 @@
 "brew:zoxide" = "latest"
 "brew:zsh" = "latest"
 # From taps.
+"brew:asmvik/formulae/skhd" = "latest"
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
 "brew:noahgorstein/tap/jqp" = "latest"
 "brew:noborus/tap/ov" = "latest"
 
 # Homebrew casks (macOS-only GUI apps and fonts).
 "brew-cask:1password-cli" = { os = "macos" }
+"brew-cask:espanso" = { os = "macos" }
 "brew-cask:font-symbols-only-nerd-font" = { os = "macos" }
 "brew-cask:notunes" = { os = "macos" }
 "brew-cask:openmtp" = { os = "macos" }
