@@ -14,6 +14,7 @@ fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 # fish_add_path $HOME/go/bin
 fish_add_path $HOME/.local/share/omarchy/bin
+fish_add_path $HOME/.local/bin/mise
 fish_add_path $HOME/.local/share/mise
 fish_add_path $HOME/coding/yt-pl-dl
 fish_add_path $HOME/.local/share/nvpm/bin
