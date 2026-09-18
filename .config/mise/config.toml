@@ -1,6 +1,8 @@
 min_version = "2026.9.1"
 
 [settings]
+# only install versions released more than 7 days ago
+minimum_release_age = "7d"
 dotfiles.root = "~/dotfiles"
 dotfiles.default_mode = "symlink"
 # Let mise read `.nvmrc` / `.node-version` in a project directory and
