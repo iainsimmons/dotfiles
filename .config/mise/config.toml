@@ -24,6 +24,7 @@ opencode = { version = "latest", os = ["linux"] }
 python = "3.14.4"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
+codex = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
@@ -31,13 +32,6 @@ gitlab_instance = "GITLAB_INSTANCE"
 # the bootstrap (iain on this Linux box) unless LAZYGIT_OWNER is set (e.g. a
 # different username on macOS). Enforced by the bootstrap task below.
 lazygit_owner = "LAZYGIT_OWNER"
-
-[bootstrap.files]
-# Home-dir file: mise writes it as the invoking user (a user-writable ~ path is
-# never escalated), so it stays owned by whoever ran the bootstrap. No
-# owner/group pins (those are literal usernames and would break under a
-# different account, e.g. macOS); ownership is re-enforced by the bootstrap task.
-"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", template = true, replace = true, mode = "0644" }
 
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
@@ -64,6 +58,7 @@ lazygit_owner = "LAZYGIT_OWNER"
 "~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
 "~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
 "~/.config/lazygit/.gitignore" = { mode = "copy" }
+"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template"}
 # nvpm and hyprmoncfg rewrite their config via atomic rename, which silently
 # replaces symlinks — so manage these as real files (copy mode).
 "~/.config/nvpm" = { mode = "copy", exclude = ["bin", "artifacts", "packages", "plugins"] }
