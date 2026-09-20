@@ -26,27 +26,30 @@
 	upstream = !git branch --set-upstream-to=origin/$(git current) $(git current)
 	pushup = !git push --set-upstream origin $(git current)
 	repo=!git remote -v | grep '@.*fetch' | sed 's/.*:\\(.*\\).git.*/\\1/g'
-	pr=!open https://github.com/$(git repo)/compare/$(git current)?expand=1
 	ls = !git ls-files -m
 #fzf Fuzzy find
 	ch= !BRANCH=`git recent | fzf` && git checkout ${BRANCH}
 	fadd= !FILES=`git status -s | awk '{ print $2 }' | fzf -x -m` && git add --all ${FILES}
 	ffix= !HASH=`git log --pretty=oneline | head | fzf` && git fixit `echo ${HASH} | awk '{ print $1 }'`
 	fshow= !HASH=`git log --pretty=oneline | head | fzf` && git show `echo ${HASH} | awk '{ print $1 }'`
-	flog= !HASH=`git log --pretty=oneline | head | fzf` && echo ${HASH} | awk '{ print $1 }' | xargs echo -n | pbcopy
 	frebase= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && git rebase -i `echo ${HASH} | awk '{ print $1 }'`^
 	fvim= !FILES=`git status -s | awk '{ print $2 }' | fzf -x -m` && vim ${FILES}
 	fgrep= !sh -c 'FILES=`git grep -l -A 0 -B 0 $1 $2 | fzf -x -m` && vim `echo ${FILES} | cut -d':' -f1 | xargs`' -
 	fvimlog= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && HASHZ=`echo ${HASH} | awk '{ print $1 }'` && FILES=`git show --pretty='format:'  --name-only $HASHZ | fzf -x -m` && vim ${FILES}
 	freset= !HASH=`git log --pretty=oneline | head -n 50 | fzf` && git reset --soft `echo ${HASH} | awk '{ print $1 }'`^
-	prebom = pull --rebase origin master
-	prebod = pull --rebase origin dev
-	prebodd = pull --rebase origin develop
 	fpush = push --force-with-lease
 	last = log -1 HEAD
 	diffw = diff --word-diff
 	wdiff = diff --word-diff
 	d = difftool -y
+{% if os() == "macos" %}
+	flog= !HASH=`git log --pretty=oneline | head | fzf` && echo ${HASH} | awk '{ print $1 }' | xargs echo -n | pbcopy
+	prebom = pull --rebase origin master
+	prebod = pull --rebase origin dev
+	prebodd = pull --rebase origin develop
+{% else %}
+	pr=!open https://github.com/$(git repo)/compare/$(git current)?expand=1
+{% endif %}
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -68,8 +71,10 @@
 	editor = nvim
 	excludesfile = ~/.config/lazygit/.gitignore
 	pager = hunk pager
+{% if os() == "macos" %}
 [credential]
 	helper = osxkeychain
+{% endif %}
 [diff]
 	algorithm = histogram
 	colorMoved = plain
@@ -85,7 +90,7 @@
 [help]
 	autocorrect = prompt
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [merge]
@@ -107,10 +112,12 @@
 [tag]
 	sort = version:refname
 [user]
-	email = emptiful@gmail.com
+	email = {{ secret(name="git_user_email") }}
 	name = Iain Simmons
+{% if os() == "macos" %}
 [includeIf "gitdir:~/dev/Squiz/**"]
 	path = ~/dev/Squiz/.gitconfig
+{% endif %}
 
 [mergetool "diffconflicts"]
 	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"

@@ -31,6 +31,8 @@ codex = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
+# Email used in git commits (user.email, rendered into .gitconfig.tmpl).
+git_user_email = "GIT_USER_EMAIL"
 # Username that should own the lazygit config. Defaults to the user who ran
 # the bootstrap (iain on this Linux box) unless LAZYGIT_OWNER is set (e.g. a
 # different username on macOS). Enforced by the bootstrap task below.
@@ -39,7 +41,9 @@ lazygit_owner = "LAZYGIT_OWNER"
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
 "~/.bashrc" = {}
-"~/.gitconfig" = {}
+# Rendered from `.gitconfig.tmpl`; macOS-only bits (osxkeychain, pbcopy/open
+# aliases, ~/dev/Squiz includeIf) are OS-gated in the template.
+"~/.gitconfig" = { source = "../../.gitconfig.tmpl", mode = "template" }
 "~/.cargo" = {}
 "~/bin" = {}
 "~/CommitMono_iainsimmonsV143" = {}
