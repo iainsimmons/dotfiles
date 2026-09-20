@@ -24,3 +24,4 @@
 /.config/nvpm/bin
 /.config/nvpm/packages/npm
 /.config/lazygit/config.yml
+.DS_Store
