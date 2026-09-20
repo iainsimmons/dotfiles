@@ -9,6 +9,9 @@ dotfiles.default_mode = "symlink"
 # auto-switch the active node version there (replaces fnm --use-on-cd).
 idiomatic_version_file_enable_tools = ["node"]
 
+[settings.upgrade]
+auto_prune = false
+
 [tools]
 # gh and opencode are only used on Linux (Arch), not macOS.
 gh = { version = "latest", os = ["linux"] }
@@ -45,6 +48,10 @@ lazygit_owner = "LAZYGIT_OWNER"
 # Whole-dir symlink mode (our stow arrangement) for dirs currently symlinked,
 # symlink-each for dirs that also carry machine-generated/untracked files.
 "~/.config/mise" = {}
+# dotfiles-mise opencode skill: whole-dir symlink so every machine's
+# ~/.agents/skills gets the same copy (source lives at repo root, above
+# .config/mise/).
+"~/.agents/skills/dotfiles-mise" = { source = "../../.agents/skills/dotfiles-mise", mode = "symlink" }
 "~/.config/bat" = {}
 "~/.config/commit-mono-font" = {}
 "~/.config/fastfetch/.prettierrc" = { mode = "copy" }
