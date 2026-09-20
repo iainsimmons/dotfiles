@@ -27,6 +27,16 @@ fi
 
 cd "$DOTFILES_DIR"
 
+# Load machine-local values (e.g. the bootstrap secrets): export everything
+# from .env so the bare `mise bootstrap`/`mise run` calls below see them.
+if [ -f "$DOTFILES_DIR/.env" ]; then
+  set -a
+  # shellcheck disable=SC1091
+  # shellcheck source=/dev/null
+  . "$DOTFILES_DIR/.env"
+  set +a
+fi
+
 step "Pulling the dotfiles repo"
 git pull --ff-only
 

@@ -1,3 +1,4 @@
+.env
 .config/configstore
 .config/dxp
 .config/gatsby
