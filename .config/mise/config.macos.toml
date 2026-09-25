@@ -4,7 +4,6 @@
 
 # Tools that only need to exist on macOS (installed by mise, not Homebrew).
 # Runtime/toolchain versions (node, go, python) are shared in config.toml;
-# gh and opencode are Linux-only (os = ["linux"]), so none belong here.
 # uv + pipx:httpx: macOS-only; mise's pipx backend uses `uv tool install` when
 # uv is available, so httpx lands the same way as a manual `uv tool install`.
 [tools]
@@ -23,7 +22,6 @@ uv = "latest"
 # device connect/disconnect, so it stays machine-owned. The caps_lock
 # complex_modification is seeded/merged into it by bin/karabiner-apply-rule.sh
 # (wired into the `bootstrap` task) from .config/karabiner/karabiner.seed.json
-# "~/.config/ghostty" = {}   # deleted — kitty is the terminal everywhere
 
 # Note: kitty is the terminal everywhere but is not in the Brewfile — it is
 # installed separately (on macOS via `brew install --cask kitty`), so it has no
@@ -43,7 +41,6 @@ uv = "latest"
 "westpoint-io/lazyrsync" = "https://github.com/westpoint-io/homebrew-lazyrsync.git"
 
 [bootstrap.packages]
-# Homebrew formulae (verified against the Brewfile from the `main` branch).
 "brew:xz" = "latest"
 "brew:libtiff" = "latest"
 "brew:little-cms2" = "latest"
@@ -143,18 +140,18 @@ uv = "latest"
 "brew:zlib" = "latest"
 "brew:zoxide" = "latest"
 "brew:zsh" = "latest"
-# From taps.
+# From taps:
 "brew:asmvik/formulae/skhd" = "latest"
 "brew:brevity1swos/tap/rgx" = "latest"
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
 "brew:westpoint-io/lazyrsync/lazyrsync" = "latest"
 
 # Homebrew casks (macOS-only GUI apps and fonts).
-"brew-cask:1password-cli" = { os = "macos" }
-"brew-cask:espanso" = { os = "macos" }
-"brew-cask:font-symbols-only-nerd-font" = { os = "macos" }
-"brew-cask:notunes" = { os = "macos" }
-"brew-cask:openmtp" = { os = "macos" }
+"brew-cask:1password-cli" = "latest"
+"brew-cask:espanso" = "latest"
+"brew-cask:font-symbols-only-nerd-font" = "latest"
+"brew-cask:notunes" = "latest"
+"brew-cask:openmtp" = "latest"
 
 [bootstrap.macos.dock]
 autohide_delay = 1000

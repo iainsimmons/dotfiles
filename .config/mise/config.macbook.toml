@@ -1,13 +1,6 @@
 # MacBook-specific tool/package overrides (loaded with MISE_ENV=macbook).
 # The MacBook is the same Arch/Omarchy setup as the desktop, but lighter on
 # gaming/entertainment tools and with the keyboard remapper enabled.
-#
-# Tools/packages that the desktop has but the MacBook does NOT need are simply
-# not declared here — mise packages are additive and cannot express "absent".
-# Steam lives in config.desktop.toml (MISE_ENV=desktop), so it never installs
-# here.
-
-[tools]
 
 [dotfiles]
 # MacBook-only Hyprland input override. The shared input.lua keeps the
@@ -18,7 +11,7 @@
 [bootstrap.packages]
 # Keyboard remapper used specifically on the MacBook (disabled on the desktop
 # in config.linux.toml).
-"aur:evremap-git" = { os = "linux" }
+"aur:evremap-git" = "latest"
 
 [bootstrap.linux.systemd.units]
 # evremap key remapper, enabled only on the MacBook.
