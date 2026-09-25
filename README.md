@@ -5,25 +5,29 @@
 
 Here's some configuration and stuff I use… for now.
 
+Also see my [/uses slash page on my website](https://til.iainsimmons.com/uses/).
+
 ## Neovim
 
 Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config](https://github.com/iainsimmons/nvim-config).
 
 ## Setup
 
-This repo is applied with [mise dotfiles](https://mise.jdx.dev/dotfiles.html#dotfiles). Described in `~/.config/mise/config*.toml`, which is symlinked to this repo's `.config/mise/`. There's a shared `config.toml`, an OS file loaded automatically via `auto_env` ([config.linux.toml](https://mise.jdx.dev/configuration/environments.html#platform-environments) on Arch, [`config.macos.toml`](https://mise.jdx.dev/configuration/environments.html#platform-environments) on macOS), and a per-machine overlay selected with `MISE_ENV` ([config environments](https://mise.jdx.dev/configuration/environments.html)).
+This core of this setup is [mise dotfiles](https://mise.jdx.dev/dotfiles.html#dotfiles).
 
-### Which machine are you setting up?
+The `.config/mise/config*.toml` files in this repo are the mise config files that get symlinked to `~/.config/mise/`. There's a shared `config.toml`, and then an OS-specific file that is loaded automatically via [`auto_env`](https://mise.jdx.dev/configuration/environments.html#platform-environments) (`config.linux.toml` for Omarchy/Arch Linux, `config.macos.toml` for macOS), and an additional config selected with a `MISE_ENV` env var for either of the two machines running Omarchy, my mini PC or old MacBook Air. See [config environments](https://mise.jdx.dev/configuration/environments.html).
 
-| Machine     | OS                   | Extra config loaded                        | Differences                                                                                            |
+Environment variables like `MISE_ENV` and the [bootstrap secrets](https://mise.jdx.dev/bootstrap/secrets.html) live in a git ignored `.env` (see `.env.example`, copy and rename to `.env` to use as a base). [`dotfiles-update`](#updating) sources it before running any mise command.
+
+### Config differences
+
+| Machine | OS | Extra config loaded | Differences |
 | ----------- | -------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Desktop     | Arch Linux + Omarchy | `config.desktop.toml` (`MISE_ENV=desktop`) | Gaming/entertainment tools (Steam); [peon-ping](https://peonping.com) opencode plugin + shell controls; no keyboard remapper |
-| Old MacBook | Arch Linux + Omarchy | `config.macbook.toml` (`MISE_ENV=macbook`) | [evremap](https://github.com/wez/evremap) key remapper + systemd unit; faster touchpad tracking (`~/.config/hypr/input.macbook.lua`); no Steam, no peon-ping |
-| Work Mac    | macOS                | `config.macos.toml` (auto, no `MISE_ENV`)  | Homebrew formulae + casks (ported from the old `Brewfile`), zsh, karabiner, skhd, espanso, macOS prefs |
+| Mini PC | Omarchy (Arch Linux) | `config.desktop.toml` (`MISE_ENV=desktop`) | Steam, no keyboard remapper (using mechanical keyboard) |
+| Old MacBook Air | Omarchy (Arch Linux) | `config.macbook.toml` (`MISE_ENV=macbook`) | [evremap](https://github.com/wez/evremap) key remapper for laptop keyboard; faster touchpad tracking (`~/.config/hypr/input.macbook.lua`); no Steam |
+| Work MacBook Pro | macOS | `config.macos.toml` | Homebrew, zsh, karabiner, skhd, espanso, macOS prefs, no Steam |
 
-Both Arch machines share everything in `config.toml` and `config.linux.toml`; the Mac differs mainly in package manager (Homebrew vs pacman/AUR) and the macOS-only tools.
-
-### Before applying
+### Installation
 
 1. Install mise (see [getting started](https://mise.jdx.dev/getting-started.html)) — the config requires `min_version = 2026.9.1`:
 
@@ -39,83 +43,75 @@ Both Arch machines share everything in `config.toml` and `config.linux.toml`; th
    ln -s ~/dotfiles/.config/mise ~/.config/mise
    ```
 
-3. Activate mise in your shell ([docs](https://mise.jdx.dev/getting-started.html)) — the fish config in this repo already runs `mise activate fish`; do the equivalent for bash/zsh.
+3. Activate mise in your shell (see the [mise getting started docs](https://mise.jdx.dev/getting-started.html)). My fish config already runs `mise activate fish`, follow the mise docs for other shells like bash or zsh.
 
-4. Export the machine environment so the right overlay is loaded (persist it in your shell config):
+4. Create the local `.env` from the example and set `MISE_ENV` (plus the bootstrap secrets) for the specific machine:
 
    ```sh
-   export MISE_ENV=desktop   # desktop Arch machine
-   # export MISE_ENV=macbook # old MacBook running Arch
-   # (leave unset on macOS — auto_env loads config.macos.toml)
+   cp ~/dotfiles/.env.example ~/dotfiles/.env
    ```
 
-### Apply
+   Then edit `~/dotfiles/.env`. On a Linux machine, pick the additional environment. On macOS, `MISE_ENV` is not needed (`auto_env` loads `config.macos.toml`):
 
-`mise bootstrap` runs the whole pipeline ([docs](https://mise.jdx.dev/bootstrap.html)): installs `[bootstrap.packages]` (pacman/AUR on Arch, Homebrew formulae/casks on macOS), applies the `[dotfiles]` entries, sets up the evremap systemd unit on the MacBook running Arch Linux, installs the shared `[tools]`, and runs the `bootstrap` task (fonts, bat theme, nvpm, etc.):
+   ```sh
+   MISE_ENV=desktop   # desktop mini PC running Omarchy
+   # MISE_ENV=macbook # old MacBook Air running Omarchy
+   ```
+
+5. Optionally export `MISE_ENV` in your shell so other individual `mise` commands (e.g. `mise bootstrap`) will pick up the machine-specific config:
+
+   ```sh
+   export MISE_ENV=desktop   # or macbook
+   ```
+
+### Bootstrapping
+
+`mise bootstrap` works the magic (see the [mise bootstrap docs](https://mise.jdx.dev/bootstrap.html)). It installs packages via `[bootstrap.packages]` (using pacman/AUR on Arch Linux and Homebrew on macOS), applies the `[dotfiles]` entries (symlinking, copying or templating config files), sets up the `evremap` service on the MacBook Air running Omarchy/Arch Linux, installs the shared `[tools]` (mostly dev tools), and runs the `bootstrap` task (CLI commands for installing fonts, `bat` theme, `nvpm`, etc.):
 
 ```sh
 mise bootstrap
 ```
 
-Or apply just the dotfiles, e.g. after pulling updates:
+Or apply just the `dotfiles`, e.g. after pulling updates. Here with `--prompt-secrets`. Also see [Updating](#updating) below.
 
 ```sh
-mise bootstrap dotfiles apply
+mise bootstrap dotfiles apply --prompt-secrets
 ```
-
-> **One-time migration (September 2026):** `~/.config/opencode`, `~/.config/uwsm`
-> and `~/.config/hunk` switched from whole-dir symlinks to per-file
-> `symlink-each` management so machine-specific files (the peon-ping opencode
-> plugin on the desktop, etc.) can differ per machine. If a machine still has
-> the old whole-dir symlink, `apply` writes the per-file links *through* it
-> into the repo (self-referencing links that break the config, e.g. hunk's).
-> On each Arch machine that was set up with the old layout, remove the stale
-> symlinks once, then apply:
-
-```sh
-rm ~/.config/opencode ~/.config/uwsm ~/.config/hunk
-mise bootstrap dotfiles apply --force
-```
-
-> After that, applies are routine. `~/.config/hypr/input.macbook.lua` is
-> likewise only installed on the MacBook via the `config.macbook.toml` overlay
-> and loaded conditionally by `hyprland.lua`, so it is a no-op on the desktop.
 
 See [mise dotfiles commands](https://mise.jdx.dev/dotfiles.html#commands) for checking status (`mise bootstrap dotfiles status`) and previewing changes (`mise bootstrap dotfiles diff`) before applying.
 
 ### Updating
 
-Everything managed by this mise setup — the dotfiles repo itself, mise, the shared `[tools]`, the host `[bootstrap.packages]`, and the `bootstrap` task — is updated with one command:
+Everything in this mise setup, including the repo itself, mise, the shared `[tools]`, the relevant `[bootstrap.packages]`, and the `bootstrap` task, is updated with one command:
 
 ```sh
 dotfiles-update
 ```
 
-That runs: `git pull --ff-only` → `mise bootstrap dotfiles apply` → `mise self-update` → `mise outdated`/`mise upgrade` → `mise bootstrap packages upgrade` → `mise run bootstrap`. Or do it step by step:
+It does the following:
 
-```sh
-git -C ~/dotfiles pull --ff-only            # 1. pick up new config
-mise bootstrap dotfiles apply               # 2. apply any new dotfiles
-mise self-update                            # 3. update mise itself
-mise outdated && mise upgrade               # 4. upgrade [tools]
-mise bootstrap packages upgrade             # 5. upgrade system packages (needs sudo)
-mise run bootstrap                          # 6. re-run the bootstrap task
-```
+1. sources the env vars via the `.env` file
+2. pulls the latest commit from this repo: `git pull --ff-only`
+3. applies the dotfiles (for the relevant OS/machine): `mise bootstrap dotfiles apply --prompt-secrets`
+4. updates mise itself: `mise self-update`
+5. upgrade tools (like Node.js): `mise outdated`/`mise upgrade`
+6. upgrades configured packages via the relevant package manager: `mise bootstrap packages upgrade`
+7. runs the bootstrap task to ensure things are configured correctly: `mise run bootstrap`
 
-Notes:
-
-- `mise upgrade` respects the configured version range, so pinned tools (`node = "25.0.0"`, `python = "3.14.4"`) stay put; `mise upgrade --bump` rewrites the pin.
-- Tools from the `github:` backend (e.g. `"github:joshmedeski/sesh"` in `[tools]`) install the latest GitHub tagged release when set to `"latest"`. Pin a specific release with `mise use github:joshmedeski/sesh@2.29.0`.
-- `dotfiles-update` skips the system-package step when it has no TTY for the `sudo` prompt (e.g. under cron) — run `mise bootstrap packages upgrade` in a terminal yourself. It also skips `mise self-update` if mise is installed via a package manager (AUR/Homebrew), which disables self-update.
-- Removing a tool from `[tools]` does not uninstall it — clean up with `mise uninstall <tool>`. `mise bootstrap packages prune` prunes Homebrew packages no longer declared in `[bootstrap.packages]`.
+> [!note]
+>
+> - `mise upgrade` for upgrading tools like Node.js, respects the configured version range, so pinned tools (`node = "25.0.0"`, `python = "3.14.4"`) stay put; `mise upgrade --bump` updates the pinned version.
+> - Tools using the `github:` source (e.g. `"github:joshmedeski/sesh"`) install the latest GitHub tagged release when set to `"latest"`. Pin a specific release with `mise use github:joshmedeski/sesh@2.29.0`.
+> - `dotfiles-update` is intended to run in an interactive shell and may skip steps if automated
+> - Removing a tool from `[tools]` does not uninstall it when this is run. Clean up tools with `mise uninstall <tool>`. `mise bootstrap packages prune` prunes packages no longer declared in `[bootstrap.packages]`.
 
 ## Updates
 
 ### September 2026
 
-Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [Mise Dotfiles](https://mise.jdx.dev/) for managing this repo. Dotfiles are now described in `~/.config/mise/config*.toml` (a shared `config.toml` plus `config.linux.toml` / `config.macos.toml` per platform) and applied with `mise bootstrap dotfiles apply`. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`). The Mac (Apple) and MacBook Arch configs are per-machine overlays selected with `MISE_ENV` — see [Setup](#setup).
+Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [mise dotfiles](https://mise.jdx.dev/) for managing dotfiles across all OSes and machines that I use. Configs are now in `~/.config/mise/`, including a shared `config.toml`, `config.linux.toml` for Omarchy/Arch Linux and `config.macos.toml` for macOS. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`). See [Setup](#setup).
 
-Also dropped the configs and packages for tools I am no longer using: Vicinae (no longer installed), plus ghostty, wezterm, lf, waybar, oyo, posting, slumber, discord, vivaldi and gitmux. kitty is the terminal everywhere now.
+I also removed the configs and packages for stuff I'm not using anymore: Vicinae, Ghostty, WezTerm, lf, waybar, oyo, Posting, Slumber, Discord, Vivaldi and gitmux. I'm only using [kitty](https://sw.kovidgoyal.net/kitty/) as my terminal everywhere now.
 
 ### May 2026
 
