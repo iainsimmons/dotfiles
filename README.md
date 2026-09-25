@@ -13,7 +13,7 @@ Looking for my Neovim config? You can find that over at [iainsimmons/nvim-config
 
 ## Setup
 
-This core of this setup is [mise dotfiles](https://mise.jdx.dev/dotfiles.html#dotfiles).
+This core of this setup is [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 The `.config/mise/config*.toml` files in this repo are the mise config files that get symlinked to `~/.config/mise/`. There's a shared `config.toml`, and then an OS-specific file that is loaded automatically via [`auto_env`](https://mise.jdx.dev/configuration/environments.html#platform-environments) (`config.linux.toml` for Omarchy/Arch Linux, `config.macos.toml` for macOS), and an additional config selected with a `MISE_ENV` env var for either of the two machines running Omarchy, my mini PC or old MacBook Air. See [config environments](https://mise.jdx.dev/configuration/environments.html).
 
@@ -109,7 +109,7 @@ It does the following:
 
 ### September 2026
 
-Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [mise dotfiles](https://mise.jdx.dev/) for managing dotfiles across all OSes and machines that I use. Configs are now in `~/.config/mise/`, including a shared `config.toml`, `config.linux.toml` for Omarchy/Arch Linux and `config.macos.toml` for macOS. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`). See [Setup](#setup).
+Replaced [GNU Stow](https://www.gnu.org/software/stow/) with [mise bootstrap](https://mise.jdx.dev/) for managing dotfiles across all OSes and machines that I use. Configs are now in `~/.config/mise/`, including a shared `config.toml`, `config.linux.toml` for Omarchy/Arch Linux and `config.macos.toml` for macOS. The old `custom-omarchy-install.sh` became the `[bootstrap.packages]` section plus the `bootstrap` task (`mise task run bootstrap`). See [Setup](#setup).
 
 I also removed the configs and packages for stuff I'm not using anymore: Vicinae, Ghostty, WezTerm, lf, waybar, oyo, Posting, Slumber, Discord, Vivaldi and gitmux. I'm only using [kitty](https://sw.kovidgoyal.net/kitty/) as my terminal everywhere now.
 

@@ -40,8 +40,8 @@ fi
 step "Pulling the dotfiles repo"
 git pull --ff-only
 
-step "Applying dotfiles (mise bootstrap dotfiles apply --prompt-secrets)"
-mise bootstrap dotfiles apply --prompt-secrets
+step "Applying dotfiles (mise dot apply --prompt-secrets)"
+mise dot apply --prompt-secrets
 
 step "Updating mise itself (mise self-update)"
 if ! mise self-update -y; then
