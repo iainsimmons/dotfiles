@@ -105,7 +105,7 @@ It does the following:
 > - `dotfiles-update` is intended to run in an interactive shell and may skip steps if automated
 > - Removing a tool from `[tools]` does not uninstall it when this is run. Clean up tools with `mise uninstall <tool>`. `mise bootstrap packages prune` prunes packages no longer declared in `[bootstrap.packages]`.
 
-## Updates
+## Changelog
 
 ### September 2026
 
