@@ -92,7 +92,7 @@ It does the following:
 
 1. sources the env vars via the `.env` file
 2. pulls the latest commit from this repo: `git pull --ff-only`
-3. applies the dotfiles (for the relevant OS/machine): `mise bootstrap dotfiles apply --prompt-secrets`
+3. applies the dotfiles (for the relevant OS/machine): `mise dot apply --prompt-secrets`
 4. updates mise itself: `mise self-update`
 5. upgrade tools (like Node.js): `mise outdated`/`mise upgrade`
 6. upgrades configured packages via the relevant package manager: `mise bootstrap packages upgrade`
