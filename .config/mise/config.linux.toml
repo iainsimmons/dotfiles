@@ -2,7 +2,7 @@
 # Cross-platform equivalents live in config.toml / config.macos.toml.
 
 [dotfiles]
-"~/.config/hypr" = { mode = "symlink-each" }   # real dir; per-file links (Omarchy quattro layout)
+"~/.config/hypr" = { mode = "symlink-each", exclude = ["monitors.lua"] }   # real dir; per-file links (Omarchy quattro layout)
 "~/.config/hyprmoncfg" = { mode = "copy" }     # hyprmoncfg rewrites profiles in place — keep real files
 "~/.config/uwsm" = { mode = "symlink-each" }
 "~/.config/walker" = {}
