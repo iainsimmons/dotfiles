@@ -17,6 +17,7 @@
 "pacman:tmux" = "latest"
 "pacman:tree-sitter-cli" = "latest"
 "pacman:yazi" = "latest"
+"pacman:eza" = "latest"
 "pacman:fx" = "latest"
 "pacman:gum" = "latest"
 "pacman:7zip" = "latest"
