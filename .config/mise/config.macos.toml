@@ -154,7 +154,7 @@ uv = "latest"
 "brew-cask:font-symbols-only-nerd-font" = "latest"
 "brew-cask:notunes" = "latest"
 "brew-cask:openmtp" = "latest"
-"brew-cask:tinycast" = "latest"
+"brew-cask:abue-ammar/tinycast/tinycast" = "latest"
 
 [bootstrap.macos.dock]
 autohide_delay = 1000
