@@ -25,3 +25,6 @@
 /.config/nvpm/packages/npm
 /.config/lazygit/config.yml
 .DS_Store
+/.config/nvpm/.bootstrapped
+/.config/nvpm/artifacts
+/.config/nvpm/packages
