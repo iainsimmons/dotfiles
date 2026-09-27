@@ -53,6 +53,16 @@ mise outdated || true
 mise upgrade
 
 step "Upgrading bootstrap packages (mise bootstrap packages upgrade)"
+# Some AUR packages ship build trees with read-only dirs — hyprmoncfg's bundled
+# Go module cache is 0555/0444 — and yay extracts the next version's sources
+# over the previous build without clearing it, so every upgrade fails with a
+# wall of "rm: cannot remove ...: Permission denied". Restore the write bits
+# before pacman/yay get there. Linux only: that's where yay runs.
+if [ "$(uname -s)" = "Linux" ] && has yay; then
+  # Unmatched globs stay literal here; the guard swallows the resulting error.
+  # shellcheck disable=SC2035
+  chmod -R u+w "$HOME"/.cache/yay/*/src 2>/dev/null || true
+fi
 if [ -t 0 ]; then
   mise bootstrap packages upgrade
 else
@@ -61,5 +71,14 @@ fi
 
 step "Re-running the bootstrap task (mise run bootstrap)"
 mise run bootstrap
+
+# `nvpm sync packages` (in the bootstrap task) can't approve the extra packages
+# some entries want: `sync` has no --always-trust flag, so it skips them. `nvpm
+# up` prompts instead, so run it interactively to approve them.
+if has nvpm; then
+  step "nvpm packages"
+  ok "Run this to review package updates and approve any extra packages:"
+  ok "  nvpm up --all"
+fi
 
 ok "Done — everything managed by mise is up to date."

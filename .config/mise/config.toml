@@ -86,6 +86,17 @@ if ! command -v nvpm >/dev/null 2>&1; then
   curl -sSL https://nvpm.dev/install.sh | sh
 fi
 
+# nvpm packages: ensure everything in nvpm-lock.json is installed at the exact
+# locked versions. Idempotent — no-op when everything is already in place, and
+# a no-op for a fresh machine with no lockfile yet.
+if command -v nvpm >/dev/null 2>&1 && [ -f "$HOME/.config/nvpm/nvpm-lock.json" ]; then
+  echo "Syncing nvpm packages..."
+  # --external-treesitter-queries=always: bootstrap is non-interactive, so the
+  # "ask" default can't be answered. Don't fail the whole task on partial
+  # failures (nvpm reports them in its summary but still exits 0).
+  nvpm sync packages --external-treesitter-queries always
+fi
+
 # yazi plugin packages (deployed to ~/.cache/yazi/packages; only right after a
 # fresh yazi install / cleared cache).
 if command -v yazi >/dev/null 2>&1 && command -v ya >/dev/null 2>&1 && \
