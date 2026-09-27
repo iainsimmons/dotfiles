@@ -39,6 +39,7 @@ uv = "latest"
 "noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
 "noborus/tap" = "https://github.com/noborus/homebrew-tap.git"
 "westpoint-io/lazyrsync" = "https://github.com/westpoint-io/homebrew-lazyrsync.git"
+"abue-ammar/tinycast" = "https://github.com/abue-ammar/homebrew-tinycast.git"
 
 [bootstrap.packages]
 "brew:xz" = "latest"
@@ -113,6 +114,7 @@ uv = "latest"
 "brew:ov" = "latest"
 "brew:oxfmt" = "latest"
 "brew:pandoc" = "latest"
+"brew:PeonPing/tap/peon-ping" = "latest"
 "brew:pcre" = "latest"
 "brew:php" = "latest"
 "brew:pnpm" = "latest"
@@ -152,6 +154,7 @@ uv = "latest"
 "brew-cask:font-symbols-only-nerd-font" = "latest"
 "brew-cask:notunes" = "latest"
 "brew-cask:openmtp" = "latest"
+"brew-cask:tinycast" = "latest"
 
 [bootstrap.macos.dock]
 autohide_delay = 1000
