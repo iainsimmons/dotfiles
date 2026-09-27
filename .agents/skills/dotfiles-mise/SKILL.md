@@ -70,6 +70,16 @@ Caveats baked into `dotfiles-update` (see the [bootstrap docs](https://mise.jdx.
   `mise upgrade --bump`.
 - `mise bootstrap` re-runs tasks/hooks even when resources are unchanged, so
   edit `[tasks.bootstrap]` only with idempotent commands (it already is).
+- **`nvpm` package sync is first-run-only in `[tasks.bootstrap]`.** The task
+  gates `nvpm sync packages` behind `~/.config/nvpm/.bootstrapped` (written only
+  when the sync exits 0) because it costs ~80s re-verifying all 40 packages plus
+  31 external tree-sitter query clones. `dotfiles-update` therefore prints
+  `nvpm up --all` instead of running it. `nvpm sync` has no `--always-trust`, so
+  the extra-packages prompt for `@astrojs/language-server`, `@glint/core`,
+  `svelte-language-server` and `typescript-language-server` can never be
+  answered in bootstrap — those 4 fail every run by design, don't chase them.
+  `nvpm sync --external-treesitter-queries never` clones the *same* 31 query
+  repos as `always` (measured), so that flag is not a performance lever.
 
 Never edit dotfiles by hand on the machine as an alternative to applying —
 apply is what owns the installed files.
@@ -98,10 +108,21 @@ Troubleshooting patterns:
   rename) and silently breaks a symlink. The repo solves this with
   `mode = "copy"` for those entries — if the user reports a link that's become
   a real file, switch (or keep) the entry as `mode = "copy"`.
+- **`copy` must be per-file if the tool's edits must flow back to the repo.**
+  `mise dot add --changed` copies changed live files into `dotfiles.root`, but
+  it *skips directory copies*. A `copy` entry on a whole directory therefore
+  silently drifts: the tool rewrites the live file, `apply` later reverts it,
+  and `--changed` reports "no changed copy-mode files". `nvpm` is the worked
+  example — `nvpm-lock.json` and `discovery.json` are separate per-file entries
+  for exactly this reason. A per-file entry nested inside a directory entry for
+  the same tree is a hard error ("conflicting dotfile declarations"), so split
+  the directory entry rather than adding alongside it. Workflow after changing
+  plugins: `nvpm up --all` → `mise dot add --changed` → commit `.config/nvpm/`.
 - **Whole-dir symlinks vs per-file**: omit `mode` for whole-dir symlinks;
   use `mode = "symlink-each"` for dirs that also hold untracked/machine files
   (`opencode` excludes `node_modules`/`package*.json`/`bun.lock`; `hunk`,
-  `hypr`, `uwsm` use it). Dirs whose tools rewrite files in place use copy.
+  `hypr`, `uwsm` use it). Dirs whose tools rewrite files in place use copy —
+  per-file copy when the tool's edits need capturing.
 - **After an apply that broke self-referencing symlinks** (the one-time
   `symlink-each` migration): remove the stale whole-dir links in
   `~/.config` (`opencode`, `uwsm`, `hunk`) then re-apply with `--force`.

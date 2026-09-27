@@ -307,12 +307,12 @@
     "github:Joakker/tree-sitter-json5": {
       "version": "master",
       "commit": "248b8564567087d7866be76569b182f6dd7e14e9",
-      "checked_unix": 1788668250
+      "checked_unix": 1790488495
     },
     "github:artempyanykh/marksman": {
       "version": "2026-02-08",
       "commit": "4340227338f8d2b369bf38d19f029f1effb532f6",
-      "checked_unix": 1788668207
+      "checked_unix": 1790488537
     },
     "github:johnnymorganz/stylua": {
       "version": "v2.5.2",
@@ -322,87 +322,97 @@
     "github:lukas-reineke/cbfmt": {
       "version": "v0.2.0",
       "commit": "2a8e3563373fe34f53e81ee8fd6ef1743fed2b42",
-      "checked_unix": 1788668211
+      "checked_unix": 1790488540
     },
     "github:ram02z/tree-sitter-fish": {
       "version": "master",
       "commit": "b7f1d682941e0c62dfcd6bf9ef481638351bab16",
-      "checked_unix": 1788668219
+      "checked_unix": 1790488547
     },
     "github:serenadeai/tree-sitter-scss": {
       "version": "v1.0.0",
       "commit": "c478c6868648eff49eb04a4df90d703dc45b312a",
-      "checked_unix": 1788668266
+      "checked_unix": 1790488510
     },
     "github:shunsambongi/tree-sitter-gitignore": {
       "version": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
       "commit": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
-      "checked_unix": 1788668308
+      "checked_unix": 1790488482
     },
     "github:tree-sitter-grammars/tree-sitter-diff": {
       "version": "v0.2.0",
       "commit": "ada384ac7bfc1307f32de474620120add29998fb",
-      "checked_unix": 1788668305
+      "checked_unix": 1790488480
     },
     "github:tree-sitter-grammars/tree-sitter-lua": {
       "version": "v0.5.0",
       "commit": "10fe0054734eec83049514ea2e718b2a56acd0c9",
-      "checked_unix": 1788668252
+      "checked_unix": 1790488497
     },
     "github:tree-sitter-grammars/tree-sitter-luadoc": {
       "version": "master",
       "commit": "4d04632a3a398b78af52e83be074883e722f40be",
-      "checked_unix": 1788668255
+      "checked_unix": 1790488499
+    },
+    "github:tree-sitter-grammars/tree-sitter-markdown": {
+      "version": "v0.5.3",
+      "commit": "f969cd3ae3f9fbd4e43205431d0ae286014c05b5",
+      "checked_unix": 1790488238
     },
     "github:tree-sitter-grammars/tree-sitter-toml": {
       "version": "v0.7.0",
       "commit": "64b56832c2cffe41758f28e05c756a3a98d16f41",
-      "checked_unix": 1788668268
+      "checked_unix": 1790488512
     },
     "github:tree-sitter-grammars/tree-sitter-vim": {
       "version": "master",
       "commit": "039c8d0aa1deae00ddeb0374dd70bcc0ec56938d",
-      "checked_unix": 1788668196
+      "checked_unix": 1790488527
+    },
+    "github:tree-sitter-grammars/tree-sitter-xml": {
+      "version": "v0.7.0",
+      "commit": "4b64dd3a03ec002258d6268d712fd93716d6ab57",
+      "checked_unix": 1790488248
     },
     "github:tree-sitter/tree-sitter-bash": {
       "version": "v0.25.1",
       "commit": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
-      "checked_unix": 1788668301
+      "checked_unix": 1790488475
     },
     "github:tree-sitter/tree-sitter-css": {
       "version": "v0.25.0",
       "commit": "dda5cfc5722c429eaba1c910ca32c2c0c5bb1a3f",
-      "checked_unix": 1788668303
+      "checked_unix": 1790488477
     },
     "github:tree-sitter/tree-sitter-javascript": {
       "version": "master",
       "commit": "58404d8cf191d69f2674a8fd507bd5776f46cb11",
-      "checked_unix": 1788668243
+      "checked_unix": 1790488487
     },
     "github:tree-sitter/tree-sitter-jsdoc": {
       "version": "v0.25.0",
       "commit": "658d18dcdddb75c760363faa4963427a7c6b52db",
-      "checked_unix": 1788668245
+      "checked_unix": 1790488490
     },
     "github:tree-sitter/tree-sitter-json": {
       "version": "master",
       "commit": "254c42a6476413b776221e03982ac8ae159eeb72",
-      "checked_unix": 1788668248
+      "checked_unix": 1790488492
     },
     "github:tree-sitter/tree-sitter-regex": {
       "version": "v0.25.0",
       "commit": "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b",
-      "checked_unix": 1788668262
+      "checked_unix": 1790488506
     },
     "github:tree-sitter/tree-sitter-typescript": {
       "version": "master",
       "commit": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
-      "checked_unix": 1788668191
+      "checked_unix": 1790488523
     },
     "github:virchau13/tree-sitter-astro": {
       "version": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee",
       "commit": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee",
-      "checked_unix": 1788668297
+      "checked_unix": 1790488471
     }
   }
 }

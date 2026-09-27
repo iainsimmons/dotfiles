@@ -19,6 +19,11 @@
             "ref": "de9093861c758c7fc145492cddaddad5bb51380c"
           },
           {
+            "language": "astro",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html",
+            "ref": "9d72f6d2983e4d523156f21e927d2c92adcaf003"
+          },
+          {
             "language": "html_tags",
             "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html_tags",
             "ref": "402a2b822ccb6fcd1b0ad71fdcc5ef35b92ac7df"

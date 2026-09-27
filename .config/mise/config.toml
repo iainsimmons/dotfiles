@@ -92,15 +92,27 @@ if ! command -v nvpm >/dev/null 2>&1; then
   curl -sSL https://nvpm.dev/install.sh | sh
 fi
 
-# nvpm packages: ensure everything in nvpm-lock.json is installed at the exact
-# locked versions. Idempotent — no-op when everything is already in place, and
-# a no-op for a fresh machine with no lockfile yet.
-if command -v nvpm >/dev/null 2>&1 && [ -f "$HOME/.config/nvpm/nvpm-lock.json" ]; then
-  echo "Syncing nvpm packages..."
-  # --external-treesitter-queries=always: bootstrap is non-interactive, so the
-  # "ask" default can't be answered. Don't fail the whole task on partial
-  # failures (nvpm reports them in its summary but still exits 0).
-  nvpm sync packages --external-treesitter-queries always
+# nvpm packages: FIRST RUN ONLY. `nvpm sync packages` takes ~80s to verify and
+# Neovim-integrate all 40 packages and re-clones 31 external tree-sitter query
+# repos, and `sync` has no --always-trust, so the extra-packages prompt for
+# @astrojs/language-server, @glint/core, svelte-language-server and
+# typescript-language-server is unanswerable here and fails on every run.
+# So routine updates skip this: bin/dotfiles-update prints the interactive
+# commands instead (nvpm up --all, then mise dot add --changed).
+#
+# No --external-treesitter-queries flag: `never` clones the same 31 query repos
+# as `always` (measured), so it only affects the `add`-time prompt, not sync.
+#
+# The marker is written when sync completes, not when every package succeeds —
+# nvpm exits 0 despite those 4 unfixable failures, so requiring a clean sync
+# would re-run this on every bootstrap forever. An interrupted or errored sync
+# exits non-zero, leaves no marker, and is retried on the next bootstrap.
+if command -v nvpm >/dev/null 2>&1 && [ -f "$HOME/.config/nvpm/nvpm-lock.json" ] &&
+   [ ! -f "$HOME/.config/nvpm/.bootstrapped" ]; then
+  echo "Syncing nvpm packages (first run)..."
+  if nvpm sync packages; then
+    : > "$HOME/.config/nvpm/.bootstrapped"
+  fi
 fi
 
 # yazi plugin packages (deployed to ~/.cache/yazi/packages; only right after a
