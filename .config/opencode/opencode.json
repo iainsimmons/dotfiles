@@ -2,6 +2,26 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
   "shell": "/usr/bin/fish",
+  "mcp": {
+    "ariadne": {
+      "type": "local",
+      "command": ["ariadne-mcp"],
+      "enabled": true,
+      "timeout": 60000
+    },
+    "grepika": {
+      "type": "local",
+      "command": ["grepika", "--mcp"],
+      "enabled": true,
+      "timeout": 60000
+    },
+    "tilth": {
+      "type": "local",
+      "command": ["tilth", "--mcp"],
+      "enabled": true,
+      "timeout": 60000
+    }
+  },
   "permission": {
     "read": {
       "*": "ask",
