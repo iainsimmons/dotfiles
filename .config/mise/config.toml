@@ -3,6 +3,7 @@ min_version = "2026.9.1"
 [settings]
 # only install versions released more than 7 days ago
 minimum_release_age = "7d"
+# assume this repo is cloned to this path:
 dotfiles.root = "~/dotfiles"
 dotfiles.default_mode = "symlink"
 # Let mise read `.nvmrc` / `.node-version` in a project directory and
@@ -49,13 +50,9 @@ lazygit_owner = "LAZYGIT_OWNER"
 "~/CommitMono_iainsimmonsV143" = {}
 "~/epomaker_split65.layout.json" = {}
 # ~/.config (shared across platforms).
-# Whole-dir symlink mode (our stow arrangement) for dirs currently symlinked,
+# Whole-dir symlink mode for dirs currently symlinked,
 # symlink-each for dirs that also carry machine-generated/untracked files.
 "~/.config/mise" = {}
-# dotfiles-mise opencode skill: whole-dir symlink so every machine's
-# ~/.agents/skills gets the same copy (source lives at repo root, above
-# .config/mise/).
-"~/.agents/skills/dotfiles-mise" = { source = "../../.agents/skills/dotfiles-mise", mode = "symlink" }
 "~/.config/bat" = {}
 "~/.config/commit-mono-font" = {}
 "~/.config/fastfetch/.prettierrc" = { mode = "copy" }
@@ -71,7 +68,7 @@ lazygit_owner = "LAZYGIT_OWNER"
 "~/.config/lazygit/.gitignore" = { mode = "copy" }
 "~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template"}
 # nvpm and hyprmoncfg rewrite their config via atomic rename, which silently
-# replaces symlinks — so manage these as real files (copy mode).
+# replaces symlinks, so manage these as real files (copy mode).
 "~/.config/nvpm" = { mode = "copy", exclude = ["bin", "artifacts", "packages", "plugins"] }
 "~/.config/ov" = {}
 "~/.config/sesh" = {}

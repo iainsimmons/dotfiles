@@ -5,7 +5,7 @@ description: Manage the ~/dotfiles repo and the machines it configures via mise 
 
 # Managing dotfiles with mise
 
-`~/dotfiles` is applied with **mise dotfiles + bootstrap**, not Stow. A
+`~/dotfiles` is applied with **mise dotfiles + bootstrap**. A
 `~/.config/mise` symlink points at the repo's `.config/mise/`, so editing the
 repo is editing the live config. Config lives in `config.toml` plus per-platform
 and per-machine overlays; anything the user calls "a dotfile" is a
@@ -22,12 +22,12 @@ how `mode = "template"` renders).
 ## Where config lives
 
 | File | Loaded when | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | `~/.config/mise/config.toml` | always | Shared tools, **all** shared dotfiles, `[tasks.bootstrap]`, `[bootstrap.secrets]`, settings |
 | `config.linux.toml` | auto on Linux (`auto_env`) | Linux dotfiles + pacman/AUR `[bootstrap.packages]` |
 | `config.macos.toml` | auto on macOS | Homebrew formulae/casks, taps, macOS dotfiles, `[bootstrap.macos.*]` prefs |
 | `config.desktop.toml` | `MISE_ENV=desktop` overlay | Desktop (Arch gaming box): Steam, peon-ping opencode plugin |
-| `config.macbook.toml` | `MISE_ENV=macbook` overlay | Old Apple MacBook running Arch: evremap + systemd unit, touchpad override, no Steam/peon-ping |
+| `config.macbook.toml` | `MISE_ENV=macbook` overlay | Old Apple MacBook running Arch: evremap + systemd unit, touchpad override, no Steam |
 
 Machines today: **Desktop** (Arch+Omarchy, `MISE_ENV=desktop`), **Old MacBook**
 (Arch+Omarchy, `MISE_ENV=macbook`), **Work Mac** (macOS, no `MISE_ENV` — `auto_env`
@@ -45,13 +45,13 @@ The one-command path (in `~/dotfiles/bin/dotfiles-update`, synced to `~/bin`):
 dotfiles-update
 ```
 
-It runs, in order: `git pull --ff-only` → `mise bootstrap dotfiles apply
+It runs, in order: `git pull --ff-only` → `mise dot apply
 --prompt-secrets` → `mise self-update` → `mise outdated` / `mise upgrade` →
 `mise bootstrap packages upgrade` → `mise run bootstrap`. Step by step:
 
 ```bash
 git -C ~/dotfiles pull --ff-only            # 1. pick up new config
-mise bootstrap dotfiles apply --prompt-secrets   # 2. apply dotfiles, ask for missing secrets
+mise dot apply --prompt-secrets   # 2. apply dotfiles, ask for missing secrets
 mise self-update                            # 3. update mise itself
 mise outdated && mise upgrade               # 4. upgrade [tools]
 mise bootstrap packages upgrade             # 5. upgrade system packages (needs sudo/TTY)
@@ -77,12 +77,12 @@ apply is what owns the installed files.
 ## Applying / checking dotfiles
 
 ```bash
-mise bootstrap dotfiles status            # what's applied / what differs
-mise bootstrap dotfiles diff              # preview before applying
-mise bootstrap dotfiles apply             # apply; prompts before overwriting conflicts
-mise bootstrap dotfiles apply --force     # overwrite conflicting existing files
-mise bootstrap dotfiles apply --dry-run   # show actions without writing
-mise bootstrap dotfiles apply <target>    # just one [dotfiles] key
+mise dot status            # what's applied / what differs
+mise dot diff              # preview before applying
+mise dot apply             # apply; prompts before overwriting conflicts
+mise dot apply --force     # overwrite conflicting existing files
+mise dot apply --dry-run   # show actions without writing
+mise dot apply <target>    # just one [dotfiles] key
 ```
 
 State/preview commands are part of the [bootstrap command surface](https://mise.jdx.dev/bootstrap.html#inspecting-state):
@@ -111,7 +111,7 @@ Troubleshooting patterns:
 Secrets are declared in `[bootstrap.secrets]` in `config.toml` (currently
 `gitlab_instance = "GITLAB_INSTANCE"` and `lazygit_owner = "LAZYGIT_OWNER"`).
 They are referenced in templates as `{{ secret(name="gitlab_instance") }}`.
-`mise bootstrap dotfiles apply --prompt-secrets` prompts (securely) for any
+`mise dot apply --prompt-secrets` prompts (securely) for any
 missing secrets; bootstrap [resolves secrets in a preflight](https://mise.jdx.dev/bootstrap.html#how-it-runs)
 before touching the host. Docs: [bootstrap secrets](https://mise.jdx.dev/bootstrap/secrets.html).
 The lazygit template bakes `gitlab_instance` into
@@ -158,11 +158,11 @@ decide whether it belongs in `config.linux.toml` (both Arch machines) or in the
 ## Do / Don't
 
 - **Do** run `dotfiles-update` for routine "update my dotfiles" requests.
-- **Do** check `mise bootstrap dotfiles diff` before big config edits, and
+- **Do** check `mise dot diff` before big config edits, and
   apply with `--prompt-secrets` when secrets may be new.
 - **Do** keep `[tasks.bootstrap]` idempotent and safe to re-run — bootstrap
   re-runs it even when nothing changed.
-- **Do** use `mise bootstrap dotfiles apply <target>` to isolate an apply to
+- **Do** use `mise dot apply <target>` to isolate an apply to
   one entry when debugging.
 - **Don't** hand-edit installed files under `~/.config` that mise owns; fix the
   repo and apply. (Exception: genuinely machine-owned files like
