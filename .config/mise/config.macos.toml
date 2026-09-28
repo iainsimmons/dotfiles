@@ -3,7 +3,7 @@
 # Ported from the `main` branch's macOS setup (the Brewfile).
 
 # Tools that only need to exist on macOS (installed by mise, not Homebrew).
-# Runtime/toolchain versions (node, go, python, uv, pipx:httpx) are shared
+# Runtime/toolchain versions (node, go, python, uv) are shared
 # in config.toml.
 [tools]
 "go:github.com/ChausseBenjamin/termpicker" = "latest"

@@ -29,11 +29,9 @@ python = "3.14.4"
 uv = "latest"
 # mise's pipx backend uses `uv tool install` when uv is available, so httpx
 # lands the same way as a manual `uv tool install`.
-"pipx:httpx" = "latest"
 "pipx:posting" = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
-codex = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
@@ -67,12 +65,17 @@ lazygit_owner = "LAZYGIT_OWNER"
 # desktop-only via config.desktop.toml) can be added/omitted per machine.
 # node_modules / package*.json / bun.lock are gitignored machine-owned files.
 "~/.agents/skills" = { mode = "symlink-each", exclude = ["dotfiles-mise"] }
-"~/.config/opencode" = { mode = "symlink-each", exclude = ["node_modules", "package.json", "package-lock.json", "bun.lock"] }
+"~/.config/opencode" = { mode = "symlink-each", exclude = [
+  "node_modules",
+  "package.json",
+  "package-lock.json",
+  "bun.lock",
+] }
 "~/.config/hunk" = { mode = "symlink-each" }
 "~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
 "~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
 "~/.config/lazygit/.gitignore" = { mode = "copy" }
-"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template"}
+"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template" }
 "~/.config/ov" = {}
 "~/.config/sesh" = {}
 "~/.config/starship.toml" = {}
