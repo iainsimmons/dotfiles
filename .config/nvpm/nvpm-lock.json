@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.11"
+      "version": "0.27.0"
     },
     {
       "sourceId": "github:virchau13/tree-sitter-astro",
@@ -410,7 +410,7 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.18.3"
+      "version": "0.18.4"
     },
     {
       "sourceId": "npm:@fsouza/prettierd",
@@ -466,18 +466,7 @@
     {
       "sourceId": "npm:@astrojs/language-server",
       "version": "2.16.14",
-      "extras": {
-        "extra_packages": [
-          {
-            "id": "npm:@astrojs/ts-plugin",
-            "version": "1.10.10"
-          },
-          {
-            "id": "npm:typescript",
-            "version": "6.0.3"
-          }
-        ]
-      }
+      "extras": {}
     },
     {
       "sourceId": "npm:typescript",
