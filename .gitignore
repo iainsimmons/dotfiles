@@ -21,10 +21,5 @@
 /.config/opencode/skills
 /.config/espanso/match/secret.yml
 /.config/espanso/espanso
-/.config/nvpm/bin
-/.config/nvpm/packages/npm
 /.config/lazygit/config.yml
 .DS_Store
-/.config/nvpm/.bootstrapped
-/.config/nvpm/artifacts
-/.config/nvpm/packages

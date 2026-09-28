@@ -28,10 +28,6 @@ export PATH="$HOME/.opencode/bin:$PATH"
 # Add local bin directory to PATH
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.local/share/mise/installs/node/25.0.0/bin:$HOME/.local/share/mise/installs/python/3.14.4/bin:$HOME/coding/yt-pl-dl:$HOME/.local/share/mise/installs/go/1.26.2/bin:$HOME/.cargo/bin:$HOME/.local/share/mise:$HOME/.local/share/omarchy/bin:$HOME/bin:/usr/local/bin:$HOME/.local/share/pnpm/bin:$HOME/.local/share/mise/shims:/usr/bin:$HOME/.local/share/../bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
-# nvpm
-export NVPM_HOME="$HOME/.config/nvpm"
-source <(nvpm env)
-
 # sesh
 alias tm="sesh connect dotfiles"
 

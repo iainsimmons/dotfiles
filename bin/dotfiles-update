@@ -72,21 +72,4 @@ fi
 step "Re-running the bootstrap task (mise run bootstrap)"
 mise run bootstrap
 
-# nvpm is deliberately NOT synced here. `mise run bootstrap` above only syncs
-# nvpm on a machine's first run (marker: ~/.config/nvpm/.bootstrapped), because
-# `nvpm sync packages` costs ~80s and its extra-packages prompt is unanswerable
-# non-interactively. `nvpm up` does prompt, so it is the interactive command.
-# The second command captures nvpm's rewritten lock back into the repo, which
-# only works because ~/.config/nvpm/* are per-file copy entries — `mise dot add
-# --changed` skips directory copies.
-if has nvpm; then
-  step "nvpm packages"
-  ok "Not synced automatically. To update plugins and save the result:"
-  ok "  nvpm up --all"
-  ok "  mise dot add --changed    # then commit .config/nvpm/ if it changed"
-  ok "Always-failing here (not worth chasing): tree-sitter-markdown and"
-  ok "tree-sitter-xml fail Neovim query validation; stylua can fail with"
-  ok "'text file busy' while a stylua process holds the binary."
-fi
-
 ok "Done — everything managed by mise is up to date."

@@ -66,7 +66,7 @@ Environment variables like `MISE_ENV` and the [bootstrap secrets](https://mise.j
 
 ### Bootstrapping
 
-`mise bootstrap` works the magic (see the [mise bootstrap docs](https://mise.jdx.dev/bootstrap.html)). It installs packages via `[bootstrap.packages]` (using pacman/AUR on Arch Linux and Homebrew on macOS), applies the `[dotfiles]` entries (symlinking, copying or templating config files), sets up the `evremap` service on the MacBook Air running Omarchy/Arch Linux, installs the shared `[tools]` (mostly dev tools), and runs the `bootstrap` task (CLI commands for installing fonts, `bat` theme, `nvpm`, etc.):
+`mise bootstrap` works the magic (see the [mise bootstrap docs](https://mise.jdx.dev/bootstrap.html)). It installs packages via `[bootstrap.packages]` (using pacman/AUR on Arch Linux and Homebrew on macOS), applies the `[dotfiles]` entries (symlinking, copying or templating config files), sets up the `evremap` service on the MacBook Air running Omarchy/Arch Linux, installs the shared `[tools]` (mostly dev tools), and runs the `bootstrap` task (CLI commands for installing fonts, `bat` theme, etc.):
 
 ```sh
 mise bootstrap

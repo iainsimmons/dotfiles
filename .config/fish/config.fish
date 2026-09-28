@@ -17,7 +17,6 @@ fish_add_path $HOME/.local/share/omarchy/bin
 fish_add_path $HOME/.local/bin/mise
 fish_add_path $HOME/.local/share/mise
 fish_add_path $HOME/coding/yt-pl-dl
-fish_add_path $HOME/.local/share/nvpm/bin
 
 source $XDG_CONFIG_HOME/fish/themes/tokyonight_night.fish
 
@@ -34,9 +33,6 @@ status is-interactive; and zoxide init fish | source
 
 # mise config, only run in interactive shells
 status is-interactive; and mise activate fish | source
-
-# nvpm config
-nvpm env fish | source
 
 set -U fish_greeting # disable fish greeting
 set --erase --universal fish_key_bindings
@@ -89,8 +85,6 @@ fish_add_path "$HOME/.local/share/mise/installs/go/1.26.2/bin"
 # # status --is-interactive; and pyenv init - | source
 # # status --is-interactive; and pyenv virtualenv-init - | source
 #
-
-set -gx NVPM_HOME "$HOME/.config/nvpm"
 
 function tm
     sesh connect dotfiles
@@ -145,26 +139,6 @@ if test (uname) != Darwin
     function open
         xdg-open "$argv" >/dev/null 2>&1
     end
-end
-
-function nvpm-pick -d "Pick and install an nvpm package by category" -a category -a lang
-    set -l source_ids (nvpm ls --all --output=json --only-categories=$category "$lang" | jq -r '.packages[].source_id')
-    if test (count $source_ids) -eq 0
-        echo "No $category package found for '$lang'"
-        return 1
-    end
-    set source_id (printf '%s\n' $source_ids | gum choose --header "Select a $category package to install" --limit 1)
-    if test -n "$source_id"
-        nvpm add --force "$source_id"
-    end
-end
-
-function nvpm-ts -d "Install a tree-sitter parser for a language"
-    nvpm-pick tree-sitter $argv
-end
-
-function nvpm-lsp -d "Install an LSP server for a language"
-    nvpm-pick lsp $argv
 end
 
 abbr myip "ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
