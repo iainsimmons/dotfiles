@@ -3,15 +3,12 @@
 # Ported from the `main` branch's macOS setup (the Brewfile).
 
 # Tools that only need to exist on macOS (installed by mise, not Homebrew).
-# Runtime/toolchain versions (node, go, python) are shared in config.toml;
-# uv + pipx:httpx: macOS-only; mise's pipx backend uses `uv tool install` when
-# uv is available, so httpx lands the same way as a manual `uv tool install`.
+# Runtime/toolchain versions (node, go, python, uv, pipx:httpx) are shared
+# in config.toml.
 [tools]
 "go:github.com/ChausseBenjamin/termpicker" = "latest"
 "npm:@squiz/dxp-cli-next" = "latest"
 "npm:corepack" = "latest"
-uv = "latest"
-"pipx:httpx" = "latest"
 
 [dotfiles]
 "~/.zshrc" = {}

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Launch Posting for the current directory, picking a local *.env file via gum.
+set -euo pipefail
+
+if ! command -v gum >/dev/null 2>&1; then
+  echo "gum is required but not found in PATH" >&2
+  exit 1
+fi
+
+if ! command -v posting >/dev/null 2>&1; then
+  echo "posting is required but not found in PATH" >&2
+  exit 1
+fi
+
+collection="${PWD}"
+
+# Collect *.env files in the current directory (non-recursive).
+env_files=()
+while IFS= read -r -d '' file; do
+  env_files+=("$(basename "$file")")
+done < <(find "$collection" -maxdepth 1 -type f -name '*.env' -print0 | sort -z)
+
+if [[ ${#env_files[@]} -eq 0 ]]; then
+  echo "No *.env files found in ${collection}" >&2
+  exit 1
+fi
+
+if [[ ${#env_files[@]} -eq 1 ]]; then
+  chosen="${env_files[0]}"
+  gum style --foreground 212 "Using ${chosen}"
+else
+  chosen="$(printf '%s\n' "${env_files[@]}" | gum choose --header "Select environment")" || exit 1
+fi
+
+if [[ -z "${chosen}" ]]; then
+  exit 1
+fi
+
+exec posting --collection "$collection" --env "${collection}/${chosen}" "$@"

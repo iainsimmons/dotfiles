@@ -26,6 +26,11 @@ node = "24"
 nub = "latest"
 opencode = { version = "latest", os = ["linux"] }
 python = "3.14.4"
+uv = "latest"
+# mise's pipx backend uses `uv tool install` when uv is available, so httpx
+# lands the same way as a manual `uv tool install`.
+"pipx:httpx" = "latest"
+"pipx:posting" = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
 codex = "latest"
