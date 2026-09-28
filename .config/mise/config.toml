@@ -32,6 +32,9 @@ uv = "latest"
 "pipx:posting" = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
+"npm:@agentika/grepika" = "latest"
+"npm:tilth" = "latest"
+"npm:@ariadnejs/mcp" = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
