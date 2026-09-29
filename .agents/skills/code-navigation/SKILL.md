@@ -1,6 +1,53 @@
+---
+name: code-navigation
+description: |
+  Use for navigating codebases and minimising context consumption. Read outlines first, then targeted sections. Be surgical.
+
+  Trigger for the following types of questions:
+
+  - "Find files about X topic" → **grepika** (NL search)
+  - "Where is Y defined?" → **tilth** (structural)
+  - "What calls Z?" → **tilth** (callers)
+  - "Main entry points?" → **ariadne**
+  - "Full call chain from A?" → **ariadne**
+  - Regex/text pattern → **grepika** (grep mode)
+
+  DO NOT trigger for:
+
+  - Config, JSON, small files: use built-in `Read` tool instead
+  - Markdown/docs: scan headers with `rg` first, read targeted sections
+---
+
 # Code Navigation & File Reading
 
-Full tool reference for navigating codebases. The AGENTS.md quick-reference table covers tool selection; this skill provides detailed usage patterns, workflows, and edge cases.
+**Primary principle: minimize context consumption.** Read outlines first, then targeted sections. Be surgical.
+
+## Tool Hierarchy
+
+| Need                 | Primary Tool | Approach                          |
+| -------------------- | ------------ | --------------------------------- |
+| Directory overview   | grepika      | `toc`                             |
+| Find code (NL/regex) | grepika      | `search` (requires index)         |
+| File structure       | grepika      | `outline` → `get` with line range |
+| Symbol definitions   | tilth        | `search` — definition-first       |
+| What calls X?        | tilth        | `search kind:callers`             |
+| Entry points         | ariadne      | `list_entrypoints`                |
+| Call graph depth     | ariadne      | `show_call_graph_neighborhood`    |
+
+## Quick Decision
+
+- "Find files about X topic" → **grepika** (NL search)
+- "Where is Y defined?" → **tilth** (structural)
+- "What calls Z?" → **tilth** (callers)
+- "Main entry points?" → **ariadne**
+- "Full call chain from A?" → **ariadne**
+- Regex/text pattern → **grepika** (grep mode)
+
+## Non-Code Files
+
+- Config, JSON, small files: built-in `Read` tool
+- Markdown/docs: scan headers with `rg` first, read targeted sections
+- Fallback: built-in `Read` tool
 
 ## Grepika — Default Exploration Tool
 
@@ -26,7 +73,7 @@ Repeat as necessary. This keeps context lean.
 
 ## Tilth — Structural / Definition Queries
 
-When you need to know *where something is defined* or *what calls what*, prefer tilth over grepika.
+When you need to know _where something is defined_ or _what calls what_, prefer tilth over grepika.
 
 ### Commands
 
@@ -69,15 +116,15 @@ For high-level structure understanding and tracing call chains beyond immediate 
 
 ## Decision Flowchart
 
-| Question | Tool | Why |
-| ---------- | ------ | ----- |
-| "Find files about X topic" | grepika search | NL relevance ranking |
-| "Where is Y defined?" | tilth search | Definition-first structural |
-| "What calls Z?" | tilth search (callers) | Tree-sitter structural matching |
-| "Main entry points?" | ariadne list_entrypoints | Ranks by call tree complexity |
-| "Full call chain from A?" | ariadne call_graph | Bidirectional with depth |
-| Regex/text pattern match | grepika search (grep mode) | Fast text search |
-| "What would break if I change X?" | tilth deps | Blast-radius analysis |
+| Question                          | Tool                       | Why                             |
+| --------------------------------- | -------------------------- | ------------------------------- |
+| "Find files about X topic"        | grepika search             | NL relevance ranking            |
+| "Where is Y defined?"             | tilth search               | Definition-first structural     |
+| "What calls Z?"                   | tilth search (callers)     | Tree-sitter structural matching |
+| "Main entry points?"              | ariadne list_entrypoints   | Ranks by call tree complexity   |
+| "Full call chain from A?"         | ariadne call_graph         | Bidirectional with depth        |
+| Regex/text pattern match          | grepika search (grep mode) | Fast text search                |
+| "What would break if I change X?" | tilth deps                 | Blast-radius analysis           |
 
 ## Anti-Patterns
 
