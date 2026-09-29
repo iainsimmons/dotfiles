@@ -48,43 +48,44 @@ lazygit_owner = "LAZYGIT_OWNER"
 
 [dotfiles]
 # Root files and dirs (shared across Linux and macOS).
+"~/.agents/skills" = { mode = "symlink-each", exclude = ["dotfiles-mise"] }
 "~/.bashrc" = {}
-# Rendered from `.gitconfig.tmpl`; macOS-only bits (osxkeychain, pbcopy/open
-# aliases, ~/dev/Squiz includeIf) are OS-gated in the template.
-"~/.gitconfig" = { source = "../../.gitconfig.tmpl", mode = "template" }
 "~/.cargo" = {}
-"~/bin" = {}
-"~/CommitMono_iainsimmonsV143" = {}
-"~/epomaker_split65.layout.json" = {}
 # ~/.config (shared across platforms).
 # Whole-dir symlink mode for dirs currently symlinked,
 # symlink-each for dirs that also carry machine-generated/untracked files.
-"~/.config/mise" = {}
 "~/.config/bat" = {}
 "~/.config/commit-mono-font" = {}
 "~/.config/fastfetch/.prettierrc" = { mode = "copy" }
 "~/.config/fastfetch/config.jsonc" = { source = "../fastfetch/config.jsonc.tmpl", mode = "template" }
 "~/.config/fish" = {}
+"~/.config/hunk" = { mode = "symlink-each" }
+"~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
+"~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
+"~/.config/lazygit/.gitignore" = { mode = "copy" }
+"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template" }
+"~/.config/mise" = {}
 # opencode: symlink each tracked file so per-machine plugins (e.g. peon-ping,
 # desktop-only via config.desktop.toml) can be added/omitted per machine.
 # node_modules / package*.json / bun.lock are gitignored machine-owned files.
-"~/.agents/skills" = { mode = "symlink-each", exclude = ["dotfiles-mise"] }
 "~/.config/opencode" = { mode = "symlink-each", exclude = [
   "node_modules",
   "package.json",
   "package-lock.json",
   "bun.lock",
 ] }
-"~/.config/hunk" = { mode = "symlink-each" }
-"~/.config/kitty/kitty.conf" = { source = "../kitty/kitty.conf.tmpl", mode = "template" }
-"~/.config/kitty/tokyonight_night.conf" = { mode = "copy" }
-"~/.config/lazygit/.gitignore" = { mode = "copy" }
-"~/.config/lazygit/config.yml" = { source = "templates/lazygit.config.yml", mode = "template" }
 "~/.config/ov" = {}
 "~/.config/sesh" = {}
 "~/.config/starship.toml" = {}
 "~/.config/tmux" = {}
 "~/.config/yazi" = {}
+"~/.cursor/rules" = {}
+# Rendered from `.gitconfig.tmpl`; macOS-only bits (osxkeychain, pbcopy/open
+# aliases, ~/dev/Squiz includeIf) are OS-gated in the template.
+"~/.gitconfig" = { source = "../../.gitconfig.tmpl", mode = "template" }
+"~/bin" = {}
+"~/CommitMono_iainsimmonsV143" = {}
+"~/epomaker_split65.layout.json" = {}
 
 [tasks.bootstrap]
 run = """
