@@ -25,7 +25,11 @@ Standard behaviors that OpenCode should always follow.
 
 ### Conciseness
 
-Be extremely concise in all interactions and commit messages. Sacrifice grammar for brevity.
+- Be extremely concise in all interactions and commit messages. Sacrifice grammar for brevity.
+- Lead with the result. No preamble, no recap of what you just did.
+- After editing files, list the paths, one per line. Do not describe the edits.
+- For yes/no questions: yes or no, then one sentence.
+- Skip the "next steps" section unless I ask for it.
 
 ### Anti-Sycophancy
 
@@ -150,15 +154,15 @@ Minimize comments. Self-documenting code preferred.
 
 ### Tool Hierarchy
 
-| Need | Primary Tool | Approach |
-| ------ | -------------- | ---------- |
-| Directory overview | grepika | `toc` |
-| Find code (NL/regex) | grepika | `search` (requires index) |
-| File structure | grepika | `outline` → `get` with line range |
-| Symbol definitions | tilth | `search` — definition-first |
-| What calls X? | tilth | `search kind:callers` |
-| Entry points | ariadne | `list_entrypoints` |
-| Call graph depth | ariadne | `show_call_graph_neighborhood` |
+| Need                 | Primary Tool | Approach                          |
+| -------------------- | ------------ | --------------------------------- |
+| Directory overview   | grepika      | `toc`                             |
+| Find code (NL/regex) | grepika      | `search` (requires index)         |
+| File structure       | grepika      | `outline` → `get` with line range |
+| Symbol definitions   | tilth        | `search` — definition-first       |
+| What calls X?        | tilth        | `search kind:callers`             |
+| Entry points         | ariadne      | `list_entrypoints`                |
+| Call graph depth     | ariadne      | `show_call_graph_neighborhood`    |
 
 ### Quick Decision
 
