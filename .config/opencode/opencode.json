@@ -35,5 +35,6 @@
       "*": "ask",
       "/tmp/opencode/**": "allow"
     }
-  }
+  },
+  "plugin": ["@tarquinen/opencode-dcp@latest", "opencode-history-search"]
 }

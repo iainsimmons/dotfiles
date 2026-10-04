@@ -33,8 +33,8 @@ uv = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "npm:playwright" = "latest"
 "npm:@agentika/grepika" = "latest"
-"npm:tilth" = "latest"
 "npm:@ariadnejs/mcp" = "latest"
+"cargo:tilth" = "latest"
 
 [bootstrap.secrets]
 gitlab_instance = "GITLAB_INSTANCE"
