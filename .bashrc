@@ -36,3 +36,6 @@ if [ "$MISE_ENV" = "desktop" ] && [ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]
   alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
   [ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
 fi
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.config/vite-plus/env"

@@ -28,11 +28,16 @@ status is-interactive; and starship init fish | source
 # 'ajeetdsouza/zoxide'
 status is-interactive; and zoxide init fish | source
 
-# direnv config, only run in interactive shells
-# status is-interactive; and direnv hook fish | source
-
 # mise config, only run in interactive shells
 status is-interactive; and mise activate fish | source
+
+# vite-plus config, only run in interactive shells
+# 'vp' isn't on PATH until env.fish adds it, so test the binary rather than `command -q vp`
+status is-interactive; and test -x "$HOME/.local/share/vite-plus/bin/vp"; and source "$HOME/.config/vite-plus/env.fish"
+
+# Cloudflare CLI completions, only run in interactive shells
+# https://developers.cloudflare.com/cli/
+status is-interactive; and type -q cf; and cf complete fish | source
 
 set -U fish_greeting # disable fish greeting
 set --erase --universal fish_key_bindings

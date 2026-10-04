@@ -15,6 +15,7 @@ auto_prune = false
 
 [tools]
 # gh and opencode are only used on Linux (Arch), not macOS.
+"cloudflare-cf" = { version = "latest", os = ["linux"] }
 gh = { version = "latest", os = ["linux"] }
 go = "latest"
 # sesh ships prebuilt binaries in GitHub releases; AUR (sesh-bin) and
@@ -153,5 +154,12 @@ fi
 if [ -f "$HOME/.config/lazygit/config.yml" ]; then
   cfg_owner="${LAZYGIT_OWNER:-${SUDO_USER:-${USER:-$(id -un)}}}"
   chown "$cfg_owner" "$HOME/.config/lazygit/config.yml" 2>/dev/null || true
+fi
+
+# vite-plus (Linux only). Tests the install path rather than `command -v vp`,
+# because `vp` is not on PATH until ~/.config/vite-plus/env.fish is sourced.
+if [ "$(uname -s)" = "Linux" ] && [ ! -x "$HOME/.local/share/vite-plus/bin/vp" ]; then
+  echo "Installing vite-plus..."
+  curl -fsSL https://vite.plus | bash
 fi
 """
