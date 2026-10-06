@@ -15,7 +15,6 @@ auto_prune = false
 
 [tools]
 # gh and opencode are only used on Linux (Arch), not macOS.
-"cloudflare-cf" = { version = "latest", os = ["linux"] }
 gh = { version = "latest", os = ["linux"] }
 go = "latest"
 # sesh ships prebuilt binaries in GitHub releases; AUR (sesh-bin) and
@@ -34,6 +33,7 @@ uv = "latest"
 "pipx:posting" = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "aqua:rust-lang/rustup" = "latest"
+"npm:cf" = { version = "latest", prerelease = true, minimum_release_age = "0s", os = ["linux"] }
 "npm:playwright" = "latest"
 "npm:@agentika/grepika" = "latest"
 "npm:@ariadnejs/mcp" = "latest"
