@@ -147,11 +147,12 @@
 
 # Homebrew casks (macOS-only GUI apps and fonts).
 "brew-cask:1password-cli" = "latest"
+"brew-cask:abue-ammar/tinycast/tinycast" = "latest"
 "brew-cask:espanso" = "latest"
 "brew-cask:font-symbols-only-nerd-font" = "latest"
+"brew-cask:kitty" = "latest"
 "brew-cask:notunes" = "latest"
 "brew-cask:openmtp" = "latest"
-"brew-cask:abue-ammar/tinycast/tinycast" = "latest"
 
 [bootstrap.macos.dock]
 autohide_delay = 1000
