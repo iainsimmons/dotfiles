@@ -15,6 +15,7 @@
 "~/.config/espanso" = {}
 "~/.config/skhd" = {}
 "~/.config/svgo.config.mjs" = {}
+"~/.cursor/rules" = {}
 # karabiner: NOT a dotfile — Karabiner Elements rewrites karabiner.json on
 # device connect/disconnect, so it stays machine-owned. The caps_lock
 # complex_modification is seeded/merged into it by bin/karabiner-apply-rule.sh

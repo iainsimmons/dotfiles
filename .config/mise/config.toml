@@ -70,7 +70,6 @@ lazygit_owner = "LAZYGIT_OWNER"
 "~/.config/starship.toml" = {}
 "~/.config/tmux" = {}
 "~/.config/yazi" = {}
-"~/.cursor/rules" = {}
 # Rendered from `.gitconfig.tmpl`; macOS-only bits (osxkeychain, pbcopy/open
 # aliases, ~/dev/Squiz includeIf) are OS-gated in the template.
 "~/.gitconfig" = { source = "../../.gitconfig.tmpl", mode = "template" }
