@@ -2,8 +2,19 @@
 # Cross-platform equivalents live in config.toml / config.macos.toml.
 
 [dotfiles]
-"~/.config/hypr" = { mode = "symlink-each", exclude = ["monitors.lua"] }   # real dir; per-file links (Omarchy quattro layout)
-"~/.config/hyprmoncfg" = { mode = "copy" }     # hyprmoncfg rewrites profiles in place — keep real files
+"~/.config/hypr" = { mode = "symlink-each", exclude = [
+  "monitors.lua",
+] } # real dir; per-file links (Omarchy quattro layout)
+"~/.config/hyprmoncfg" = { mode = "copy" } # hyprmoncfg rewrites profiles in place — keep real files
+# opencode: symlink each tracked file so per-machine plugins (e.g. peon-ping,
+# desktop-only via config.desktop.toml) can be added/omitted per machine.
+# node_modules / package*.json / bun.lock are gitignored machine-owned files.
+"~/.config/opencode" = { mode = "symlink-each", exclude = [
+  "node_modules",
+  "package.json",
+  "package-lock.json",
+  "bun.lock",
+] }
 "~/.config/uwsm" = { mode = "symlink-each" }
 "~/.config/walker" = {}
 # vite-plus is Linux-only. config.json is tracked; the env/env.* shell files are
