@@ -68,6 +68,8 @@ matches:
     replace: "¯\_(ツ)_/¯"
   - trigger: "..."
     replace: "…"
+  - trigger: ":iife"
+    replace: "(function () { $|$ })();"
   - trigger: ":sig"
     markdown: "{{mysignature}}"
   - trigger: ":uat"
