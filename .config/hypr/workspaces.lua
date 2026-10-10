@@ -61,6 +61,9 @@ o.window("^(?i).*pinta.*", { workspace = "7" })
 -- workspace-8 = office
 o.window("^(?i).*office.*", { workspace = "8" })
 
+-- workspace-9 = photo editing
+o.window("^(?i).*darktable.*", { workspace = "9" })
+
 -- workspace-10 = Tick Tick (tasks)
 hl.window_rule({
   name = "tick-tick",
@@ -86,3 +89,5 @@ o.window("(Alacritty|kitty|com.mitchellh.ghostty|org.wezfurlong.wezterm)", { tag
 hl.window_rule({ match = { tag = "terminal" }, tag = "-default-opacity" })
 hl.window_rule({ match = { tag = "terminal" }, opacity = "0.9 override 0.9 override 1.0 override" })
 hl.window_rule({ match = { class = "^(?i).*helium.*" }, opacity = "1.0 override 1.0 override 1.0 override" })
+hl.window_rule({ match = { class = "^(?i).*darktable.*" }, opacity = "1.0 override 1.0 override 1.0 override" })
+hl.window_rule({ match = { class = "^(?i).*nautilus.*" }, opacity = "1.0 override 1.0 override 1.0 override" })
