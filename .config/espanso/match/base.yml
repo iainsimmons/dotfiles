@@ -65,7 +65,7 @@ matches:
   - trigger: ":sso"
     replace: "/_admin?FORCE_BACKUP_LOGIN=1&matrix-sso-type=dxp"
   - trigger: "shruggie"
-    replace: "¯\_(ツ)_/¯"
+    replace: "¯\\_(ツ)_/¯"
   - trigger: "..."
     replace: "…"
   - trigger: ":iife"
