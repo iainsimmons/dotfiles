@@ -139,6 +139,16 @@ function compress_img -d "Compress images with ImageMagick" -a input_path -a out
     mogrify -path "$output_path" -filter Triangle -define filter:support=2 -thumbnail "$output_width" -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$input_path"
 end
 
+function http_server -d "Run a local http server from the current or provided directory" -a dir
+    if test -n "$dir"
+        set serve_dir "$dir"
+    else
+        set serve_dir (pwd)
+    end
+
+    python3 -m http.server 8000 --bind 127.0.0.1 --directory "$serve_dir"
+end
+
 # On Linux, macOS's native `open` is absent (xdg-open reimplements it). On
 # macOS keep the built-in open.
 if test (uname) != Darwin
