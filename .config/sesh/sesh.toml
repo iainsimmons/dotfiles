@@ -7,6 +7,7 @@ placeholder = "Pick a sesh…"
 show_icons = true
 show_windows = true
 preview = false
+group_separator = true
 alias_auto_connect_delay = "250ms"
 alias_filter_prefix = ";"
 
