@@ -77,17 +77,18 @@ hl.bind(
 )
 
 o.bind("SUPER + CTRL + SHIFT + ALT + RETURN", "Terminal", "omarchy-launch-or-focus kitty")
-o.bind("SUPER + CTRL + SHIFT + ALT + E", "Files", "uwsm app -- nautilus --new-window")
 o.bind(
   "SUPER + CTRL + SHIFT + ALT + B",
   "Browser",
   'omarchy-launch-or-focus helium "uwsm app -- helium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland"'
 )
+o.bind("SUPER + CTRL + SHIFT + ALT + D", "Discord", "omarchy-launch-or-focus vesktop")
+o.bind("SUPER + CTRL + SHIFT + ALT + E", "Files", "uwsm app -- nautilus --new-window")
 o.bind("SUPER + CTRL + SHIFT + ALT + M", "Music", "uwsm app -- spotify")
 o.bind("SUPER + CTRL + SHIFT + ALT + N", "Neovim", "omarchy-launch-tui nvim")
-o.bind("SUPER + CTRL + SHIFT + ALT + D", "Discord", "omarchy-launch-or-focus vesktop")
-o.bind("SUPER + CTRL + SHIFT + ALT + T", "Steam", "omarchy-launch-or-focus steam")
 o.bind("SUPER + CTRL + SHIFT + ALT + O", "Obsidian", 'omarchy-launch-or-focus obsidian "uwsm-app -- obsidian"')
+o.bind("SUPER + CTRL + SHIFT + ALT + R", "RapidRAW", "omarchy-launch-or-focus RapidRAW")
+o.bind("SUPER + CTRL + SHIFT + ALT + T", "Steam", "omarchy-launch-or-focus steam")
 o.bind("SUPER + CTRL + SHIFT + ALT + BACKSLASH", "1Password", "uwsm app -- 1password")
 -- Clipboard history (commented out): cliphist + walker
 -- o.bind("SUPER + CTRL + C", "Clipboard", "cliphist list | walker -m clipboard | cliphist decode | wl-copy")
