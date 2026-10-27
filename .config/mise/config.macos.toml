@@ -143,6 +143,7 @@
 # From taps:
 "brew:asmvik/formulae/skhd" = "latest"
 "brew:brevity1swos/tap/rgx" = "latest"
+"brew:darrenburns/homebrew/posting@beta" = "latest"
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
 "brew:westpoint-io/lazyrsync/lazyrsync" = "latest"
 

@@ -28,9 +28,6 @@ opencode = { version = "latest", os = ["linux"] }
 python = "3.14.4"
 rust = "latest"
 uv = "latest"
-# mise's pipx backend uses `uv tool install` when uv is available, so httpx
-# lands the same way as a manual `uv tool install`.
-"pipx:posting" = "latest"
 "aqua:modem-dev/hunk" = "latest"
 "aqua:rust-lang/rustup" = "latest"
 "npm:cf" = { version = "latest", prerelease = true, minimum_release_age = "0s", os = ["linux"] }
