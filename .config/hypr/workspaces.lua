@@ -63,6 +63,11 @@ o.window("^(?i).*office.*", { workspace = "8" })
 
 -- workspace-9 = photo editing
 o.window("^(?i).*rapidraw.*", { workspace = "9" })
+hl.window_rule({
+  name = "EXIF Date Editor",
+  match = { title = "^(?i).*EXIF Date Editor.*" },
+  workspace = "9",
+})
 
 -- workspace-10 = Tick Tick (tasks)
 hl.window_rule({
