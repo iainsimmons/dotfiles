@@ -89,7 +89,7 @@ o.window("^(?i).*messages.*", { no_screen_share = true })
 o.window("^(?i).*messenger.*", { no_screen_share = true })
 o.window("^(?i).*zoom.*", { no_screen_share = true })
 
-o.window(".*", { opacity = "0.97 0.9" })
+o.window(".*", { opacity = "1.0 1.0" })
 o.window("(Alacritty|kitty|com.mitchellh.ghostty|org.wezfurlong.wezterm)", { tag = "+terminal" })
 hl.window_rule({ match = { tag = "terminal" }, tag = "-default-opacity" })
 hl.window_rule({ match = { tag = "terminal" }, opacity = "0.9 override 0.9 override 1.0 override" })
