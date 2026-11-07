@@ -1,1 +1,2 @@
 auto_env = true
+ignored_config_paths = ["/etc/mise/conf.d/omarchy-tools.toml"]

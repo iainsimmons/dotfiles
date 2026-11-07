@@ -6,6 +6,9 @@
   "monitors.lua",
 ] } # real dir; per-file links (Omarchy quattro layout)
 "~/.config/hyprmoncfg" = { mode = "copy" } # hyprmoncfg rewrites profiles in place — keep real files
+# Cloned workspaces bar widget (numbers + active underline). Tracked file-by-file
+# so machine-installed plugins next to it stay untracked.
+"~/.config/omarchy/plugins/iain.workspaces" = { mode = "symlink-each" }
 # opencode: symlink each tracked file so per-machine plugins (e.g. peon-ping,
 # desktop-only via config.desktop.toml) can be added/omitted per machine.
 # node_modules / package*.json / bun.lock are gitignored machine-owned files.

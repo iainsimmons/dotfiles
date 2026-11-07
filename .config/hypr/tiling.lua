@@ -5,9 +5,6 @@
 hl.unbind("SUPER + TAB")
 hl.unbind("SUPER + SHIFT + TAB")
 hl.unbind("SUPER + F")
-for workspace = 10, 19 do
-  hl.unbind("SUPER + code:" .. tostring(workspace))
-end
 hl.unbind("SUPER + J")
 hl.unbind("SUPER + L")
 hl.unbind("SUPER + O")

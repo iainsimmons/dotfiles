@@ -15,7 +15,10 @@
 .config/kitty/kitty.conf
 .config/yazi/plugins
 .config/tmux/plugins
-.config/omarchy
+.config/omarchy/*
+!.config/omarchy/plugins/
+.config/omarchy/plugins/*
+!.config/omarchy/plugins/iain.workspaces/
 .cargo
 /.config/hypr/monitors.conf
 /.config/opencode/skills

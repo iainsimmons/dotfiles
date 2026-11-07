@@ -28,6 +28,12 @@ hl.unbind("SUPER + PRINT")
 hl.unbind("SUPER + BACKSPACE")
 hl.unbind("SUPER + RETURN")
 
+-- Free SUPER + 1-9 for terminals; workspaces use Hyper + [0-9] instead.
+-- hyprmoncfg re-binds these last, so hyprland.lua unbinds them again after it loads.
+for workspace = 1, 9 do
+  hl.unbind("SUPER + " .. tostring(workspace))
+end
+
 -- Remove the Omarchy "move window to workspace" defaults; they are replaced by
 -- SUPER+SHIFT+CTRL+code below.
 for workspace = 10, 19 do

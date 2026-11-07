@@ -43,3 +43,12 @@ end
 
 -- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
 do local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"; local file = io.open(path, "r"); if file then file:close(); dofile(path) end end
+
+-- hyprmoncfg re-binds SUPER + 1-9 to global workspaces last, so free them here.
+for workspace = 1, 9 do
+  hl.unbind("SUPER + code:" .. tostring(workspace + 9))
+end
+
+-- hyprmoncfg also replaces SUPER + TAB, so restore cycling through active workspaces.
+o.rebind("SUPER + TAB", "Cycle workspace next", "~/bin/cycle-active-workspaces next")
+o.rebind("SUPER + SHIFT + TAB", "Cycle workspace prev", "~/bin/cycle-active-workspaces prev")
