@@ -5,7 +5,10 @@
   "mcp": {
     "ariadne": {
       "type": "local",
-      "command": ["ariadne-mcp"],
+      "command": [
+        "node",
+        "/home/iain/.local/share/ariadne-mcp/node_modules/@ariadnejs/mcp/dist/cli.js"
+      ],
       "enabled": true,
       "timeout": 60000
     },
@@ -36,5 +39,5 @@
       "/tmp/opencode/**": "allow"
     }
   },
-  "plugin": ["@tarquinen/opencode-dcp@latest", "opencode-history-search"]
+  "plugin": ["@tarquinen/opencode-dcp@latest"]
 }
