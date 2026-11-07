@@ -21,7 +21,7 @@ go = "latest"
 # Homebrew (joshmedeski/sesh) lag behind, so install straight from the
 # tagged releases instead.
 "github:joshmedeski/sesh" = "latest"
-node = "24"
+node = "26"
 # Official mise registry shorthand → npm:@nubjs/nub (same on macOS and Linux).
 nub = "latest"
 opencode = { version = "latest", os = ["linux"] }
@@ -33,7 +33,6 @@ uv = "latest"
 "npm:cf" = { version = "latest", prerelease = true, minimum_release_age = "0s", os = ["linux"] }
 "npm:playwright" = "latest"
 "npm:@agentika/grepika" = "latest"
-"npm:@ariadnejs/mcp" = "latest"
 "cargo:tilth" = "latest"
 
 [bootstrap.secrets]

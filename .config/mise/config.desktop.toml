@@ -14,3 +14,4 @@
 [bootstrap.packages]
 # Gaming on the desktop only (the MacBook does not get Steam).
 "pacman:steam" = { os = "linux" }
+"pacman:obsidian" = { os = "linux" }
