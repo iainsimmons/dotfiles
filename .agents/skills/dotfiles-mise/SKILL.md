@@ -94,19 +94,19 @@ cover `status` / `diff` specifically.
 
 Troubleshooting patterns:
 
-- **A tool rewrites its config in place** (e.g. `hyprmoncfg` via atomic
-  rename) and silently breaks a symlink. The repo solves this with
-  `mode = "copy"` for those entries — if the user reports a link that's become
-  a real file, switch (or keep) the entry as `mode = "copy"`.
+- **A tool rewrites its config in place** (via atomic rename) and silently
+  breaks a symlink. The repo solves this with `mode = "copy"` for those
+  entries — if the user reports a link that's become a real file, switch (or
+  keep) the entry as `mode = "copy"`.
 - **`copy` must be per-file if the tool's edits must flow back to the repo.**
   `mise dot add --changed` copies changed live files into `dotfiles.root`, but
   it *skips directory copies*. A `copy` entry on a whole directory therefore
   silently drifts: the tool rewrites the live file, `apply` later reverts it,
-  and `--changed` reports "no changed copy-mode files". `hyprmoncfg` is the
-  current example — a per-file entry, not a directory copy, for exactly this
-  reason. A per-file entry nested inside a directory entry for the same tree
-  is a hard error ("conflicting dotfile declarations"), so split the directory
-  entry rather than adding alongside it.
+  and `--changed` reports "no changed copy-mode files". Split the directory
+  entry into per-file entries for exactly this reason. A per-file entry nested
+  inside a directory entry for the same tree is a hard error ("conflicting
+  dotfile declarations"), so split the directory entry rather than adding
+  alongside it.
 - **Whole-dir symlinks vs per-file**: omit `mode` for whole-dir symlinks;
   use `mode = "symlink-each"` for dirs that also hold untracked/machine files
   (`opencode` excludes `node_modules`/`package*.json`/`bun.lock`; `hunk`,
@@ -179,7 +179,7 @@ decide whether it belongs in `config.linux.toml` (both Arch machines) or in the
   `karabiner.json`, which the config deliberately leaves alone.)
 - **Don't** use `mode = "symlink"` (or the default symlink mode) for tools that
   rewrite their config with atomic rename — use `mode = "copy"` or
-  `symlink-each` as the repo already does for `hyprmoncfg`.
+  `symlink-each` for those entries.
 - **Don't** try to "uninstall" something by omitting it — comment entries out
   per-overlay, and use `mise uninstall <tool>` / `mise bootstrap packages prune`
   for cleanup.

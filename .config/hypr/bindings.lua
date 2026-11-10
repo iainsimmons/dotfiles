@@ -29,9 +29,9 @@ hl.unbind("SUPER + BACKSPACE")
 hl.unbind("SUPER + RETURN")
 
 -- Free SUPER + 1-9 for terminals; workspaces use Hyper + [0-9] instead.
--- hyprmoncfg re-binds these last, so hyprland.lua unbinds them again after it loads.
+-- Omarchy's defaults bind these as keycodes, so unbind the code form.
 for workspace = 1, 9 do
-  hl.unbind("SUPER + " .. tostring(workspace))
+  hl.unbind("SUPER + code:" .. tostring(workspace + 9))
 end
 
 -- Remove the Omarchy "move window to workspace" defaults; they are replaced by

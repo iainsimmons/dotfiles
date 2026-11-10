@@ -1,5 +1,18 @@
 -- Workspace and window rules.
 
+-- Keep workspaces global (1-9 on the Dell, 10 on the Daewoo) rather than
+-- Omarchy's per-monitor 1-10 blocks, matching the rules below.
+o.workspaces.reconcile = function() end
+o.workspaces.workspace_id = function(_, slot)
+  return slot
+end
+o.workspaces.focus = function(slot)
+  return hl.dsp.focus({ workspace = slot })
+end
+o.workspaces.move_window = function(slot, follow)
+  return hl.dsp.window.move({ workspace = slot, follow = follow ~= false })
+end
+
 -- Assign workspaces to monitors.
 -- 1-7 on the Dell (HDMI-A-2), 8-10 on the Daewoo mini-monitor (HDMI-A-1).
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-2", default = true })

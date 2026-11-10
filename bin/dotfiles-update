@@ -53,11 +53,11 @@ mise outdated || true
 mise upgrade
 
 step "Upgrading bootstrap packages (mise bootstrap packages upgrade)"
-# Some AUR packages ship build trees with read-only dirs — hyprmoncfg's bundled
-# Go module cache is 0555/0444 — and yay extracts the next version's sources
-# over the previous build without clearing it, so every upgrade fails with a
-# wall of "rm: cannot remove ...: Permission denied". Restore the write bits
-# before pacman/yay get there. Linux only: that's where yay runs.
+# Some AUR packages ship build trees with read-only dirs (a bundled Go module
+# cache is 0555/0444) and yay extracts the next version's sources over the
+# previous build without clearing it, so every upgrade fails with a wall of
+# "rm: cannot remove ...: Permission denied". Restore the write bits before
+# pacman/yay get there. Linux only: that's where yay runs.
 if [ "$(uname -s)" = "Linux" ] && has yay; then
   # Unmatched globs stay literal here; the guard swallows the resulting error.
   # shellcheck disable=SC2035
