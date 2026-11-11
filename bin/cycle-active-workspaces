@@ -4,8 +4,8 @@
 KIOSK_ID=10
 
 # 1. Get a unique, sorted list of active workspace IDs that are NOT the kiosk
-# Filter for IDs > 0 (ignores special workspaces) and < KIOSK_ID
-mapfile -t active_workspaces < <(hyprctl clients -j | jq -r "[.[] | select(.workspace.id > 0 and .workspace.id < $KIOSK_ID) | .workspace.id] | unique | .[]" | sort -n)
+# Filter for positive IDs (ignores special workspaces) and exclude the kiosk.
+mapfile -t active_workspaces < <(hyprctl clients -j | jq -r "[.[] | select(.workspace.id > 0 and .workspace.id != $KIOSK_ID) | .workspace.id] | unique | .[]" | sort -n)
 
 # 2. Get the current workspace ID
 current=$(hyprctl activeworkspace -j | jq '.id')

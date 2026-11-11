@@ -12,9 +12,19 @@ end
 o.workspaces.move_window = function(slot, follow)
   return hl.dsp.window.move({ workspace = slot, follow = follow ~= false })
 end
+-- Moving a workspace between monitors must keep its number, not renumber it into
+-- the target monitor's block.
+o.workspaces.move_to_monitor = function(direction)
+  return function()
+    local target = hl.get_monitor(direction)
+    if target then
+      hl.dispatch(hl.dsp.workspace.move({ monitor = target.name }))
+    end
+  end
+end
 
 -- Assign workspaces to monitors.
--- 1-7 on the Dell (HDMI-A-2), 8-10 on the Daewoo mini-monitor (HDMI-A-1).
+-- 1-9 on the Dell (HDMI-A-2), 10 on the Daewoo mini-monitor (HDMI-A-1).
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-2", default = true })
 hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-2" })
 hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-2" })
@@ -22,8 +32,8 @@ hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-2" })
 hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-2" })
 hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-2" })
 hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-2" })
 hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-1", default = true })
 
 -- workspace-1 = browsers
