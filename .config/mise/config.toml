@@ -51,6 +51,9 @@ lazygit_owner = "LAZYGIT_OWNER"
 # ~/.config (shared across platforms).
 # Whole-dir symlink mode for dirs currently symlinked,
 # symlink-each for dirs that also carry machine-generated/untracked files.
+# Manifest for the ariadne MCP runtime; the bootstrap task installs it into
+# ~/.local/share/ariadne-mcp (nothing is written back into this dir).
+"~/.config/ariadne-mcp" = {}
 "~/.config/bat" = {}
 "~/.config/commit-mono-font" = {}
 "~/.config/fastfetch/.prettierrc" = { mode = "copy" }
@@ -77,6 +80,32 @@ lazygit_owner = "LAZYGIT_OWNER"
 [tasks.bootstrap]
 run = """
 set -euo pipefail
+
+# ariadne MCP server. The published @ariadnejs/mcp pins tree-sitter 0.25.0,
+# which ships no prebuilt bindings and needs C++20 flags to compile on Node 26;
+# the override in ~/.config/ariadne-mcp/package.json forces 0.25.1, whose napi
+# prebuilds (linux/darwin, x64/arm64) need no toolchain. Install into a stable
+# prefix so Node upgrades can't delete it, and skip lifecycle scripts since
+# nothing here compiles.
+ARIADNE_PREFIX="$HOME/.local/share/ariadne-mcp"
+ARIADNE_MANIFEST="$HOME/.config/ariadne-mcp/package.json"
+if [ -f "$ARIADNE_MANIFEST" ] && command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
+  mkdir -p "$ARIADNE_PREFIX"
+  if [ ! -f "$ARIADNE_PREFIX/node_modules/@ariadnejs/mcp/dist/cli.js" ] ||
+     ! cmp -s "$ARIADNE_MANIFEST" "$ARIADNE_PREFIX/package.json"; then
+    echo "Installing ariadne MCP server..."
+    cp "$ARIADNE_MANIFEST" "$ARIADNE_PREFIX/package.json"
+    (cd "$ARIADNE_PREFIX" && npm install --no-audit --no-fund --ignore-scripts)
+  fi
+fi
+
+# A global install would shadow bin/ariadne-mcp on PATH (mise puts node's bin
+# dir ahead of ~/bin) and gets wiped on every Node bump. The prefix above is
+# authoritative, so drop any stray global copy.
+if command -v npm >/dev/null 2>&1 && npm ls -g --depth=0 @ariadnejs/mcp >/dev/null 2>&1; then
+  echo "Removing stray global @ariadnejs/mcp..."
+  npm uninstall -g @ariadnejs/mcp >/dev/null 2>&1 || true
+fi
 
 # yazi plugin packages (deployed to ~/.cache/yazi/packages; only right after a
 # fresh yazi install / cleared cache).

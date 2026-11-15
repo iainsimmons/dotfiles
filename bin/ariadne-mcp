@@ -1,0 +1,22 @@
+#!/bin/sh
+# Ariadne MCP server. The runtime is installed into a stable prefix by the
+# bootstrap task in .config/mise/config.toml, from the manifest in
+# .config/ariadne-mcp/package.json. This wrapper exists so MCP client configs
+# don't have to hardcode an absolute path.
+set -eu
+
+# GUI apps (Cursor on macOS) don't inherit the shell PATH; fall back to mise's
+# shims so `node` resolves anyway.
+if ! command -v node >/dev/null 2>&1; then
+  PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+  export PATH
+fi
+
+CLI="${ARIADNE_MCP_CLI:-$HOME/.local/share/ariadne-mcp/node_modules/@ariadnejs/mcp/dist/cli.js}"
+
+if [ ! -f "$CLI" ]; then
+  echo "ariadne-mcp: $CLI is missing; run 'mise run bootstrap' to install it." >&2
+  exit 1
+fi
+
+exec node "$CLI" "$@"

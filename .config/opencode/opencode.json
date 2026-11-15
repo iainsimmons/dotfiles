@@ -5,12 +5,9 @@
   "mcp": {
     "ariadne": {
       "type": "local",
-      "command": [
-        "node",
-        "/home/iain/.local/share/ariadne-mcp/node_modules/@ariadnejs/mcp/dist/cli.js"
-      ],
+      "command": ["ariadne-mcp"],
       "enabled": true,
-      "timeout": 60000
+      "timeout": 120000
     },
     "grepika": {
       "type": "local",

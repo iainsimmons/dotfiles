@@ -1,0 +1,10 @@
+{
+  "name": "ariadne-mcp-runtime",
+  "private": true,
+  "dependencies": {
+    "@ariadnejs/mcp": "0.3.0"
+  },
+  "overrides": {
+    "tree-sitter": "0.25.1"
+  }
+}
