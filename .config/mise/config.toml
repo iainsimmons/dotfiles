@@ -111,16 +111,6 @@ if [ "$(uname -s)" != "Darwin" ]; then
   command -v omarchy-font-set >/dev/null 2>&1 && omarchy-font-set CommitMono_iainsimmons || true
 fi
 
-# Helium as the default browser (Linux desktop, if its .desktop file exists).
-if [ "$(uname -s)" = "Linux" ] && command -v xdg-settings >/dev/null 2>&1 && \
-   [ -f /usr/share/applications/helium.desktop ]; then
-  echo "Setting Helium as default browser..."
-  xdg-settings set default-web-browser helium.desktop
-  xdg-mime default helium.desktop x-scheme-handler/http
-  xdg-mime default helium.desktop x-scheme-handler/https
-  xdg-mime default helium.desktop text/html
-fi
-
 # TickTick as a webapp (Linux omarchy tooling).
 if [ "$(uname -s)" = "Linux" ] && command -v omarchy-webapp-install >/dev/null 2>&1 && \
    ! grep -i "Name=TickTick" "$HOME"/.local/share/applications/*.desktop >/dev/null 2>&1; then

@@ -39,7 +39,6 @@
 "pacman:uwsm" = "latest"
 "pacman:walker" = "latest"
 "aur:ov" = "latest"
-"aur:helium-browser-bin" = "latest"
 "aur:vesktop-bin" = "latest"
 "aur:bibata-cursor-theme-bin" = "latest"
 "aur:pnpm-bin" = "latest"

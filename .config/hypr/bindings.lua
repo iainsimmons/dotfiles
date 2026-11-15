@@ -83,11 +83,7 @@ hl.bind(
 )
 
 o.bind("SUPER + CTRL + SHIFT + ALT + RETURN", "Terminal", "omarchy-launch-or-focus kitty")
-o.bind(
-  "SUPER + CTRL + SHIFT + ALT + B",
-  "Browser",
-  'omarchy-launch-or-focus helium "uwsm app -- helium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland"'
-)
+o.bind("SUPER + CTRL + SHIFT + ALT + B", "Browser", { omarchy = "browser" })
 o.bind("SUPER + CTRL + SHIFT + ALT + D", "Discord", "omarchy-launch-or-focus vesktop")
 o.bind("SUPER + CTRL + SHIFT + ALT + E", "Files", "uwsm app -- nautilus --new-window")
 o.bind("SUPER + CTRL + SHIFT + ALT + M", "Music", "uwsm app -- spotify")
