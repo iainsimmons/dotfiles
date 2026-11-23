@@ -13,6 +13,7 @@
 [dotfiles]
 "~/.zshrc" = {}
 "~/.config/espanso" = {}
+"~/.config/rex/init.lua" = { mode = "copy" }
 "~/.config/skhd" = {}
 "~/.config/svgo.config.mjs" = {}
 "~/.cursor/rules" = {}
