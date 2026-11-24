@@ -13,7 +13,8 @@
 [dotfiles]
 "~/.zshrc" = {}
 "~/.config/espanso" = {}
-"~/.config/rex/init.lua" = { mode = "copy" }
+"~/.config/resh" = {}
+"~/.config/rex" = {}
 "~/.config/skhd" = {}
 "~/.config/svgo.config.mjs" = {}
 "~/.cursor/rules" = {}
@@ -33,6 +34,7 @@
 # skhd lives in KO-E/asmvik's homebrew tap, not homebrew-core.
 "asmvik/formulae" = "https://github.com/asmvik/homebrew-formulae.git"
 "brevity1swos/tap" = "https://github.com/brevity1swos/homebrew-tap.git"
+"crueladdict/tap" = "https://github.com/CruelAddict/homebrew-tap.git"
 "jesseduffield/lazydocker" = "https://github.com/jesseduffield/homebrew-lazydocker.git"
 "jesseduffield/lazygit" = "https://github.com/jesseduffield/homebrew-lazygit.git"
 "noahgorstein/tap" = "https://github.com/noahgorstein/homebrew-tap.git"
@@ -144,6 +146,7 @@
 # From taps:
 "brew:asmvik/formulae/skhd" = "latest"
 "brew:brevity1swos/tap/rgx" = "latest"
+"brew:crueladdict/tap/resh" = "latest"
 "brew:darrenburns/homebrew/posting@beta" = "latest"
 "brew:jesseduffield/lazydocker/lazydocker" = "latest"
 "brew:westpoint-io/lazyrsync/lazyrsync" = "latest"
