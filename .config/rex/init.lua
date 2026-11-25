@@ -1,11 +1,3 @@
--- >>> resh >>>
-local resh_dir = os.getenv("HOME") .. "/Library/Application Support/resh"
-dofile(resh_dir .. "/resh.lua")
-rex.exec.start({ resh_dir .. "/resh", "service", "start" }, { detach = true, stdout = false, stderr = false })
--- <<< resh <<<
-
-rex.bind("cmd+shift+[KeyJ]", "resh") -- Open or close the resh picker
-
 -- >>> rex-open: a picker for the files, folders, links, commands and SQL in a pane's output.
 require("rex_open").setup({
   -- Alt+Cmd+O opens a picker: the focused pane's directory, then the files,
@@ -65,7 +57,7 @@ local function vim_action(name, title, keys)
   })
 end
 
-local REX_CLI = "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex"
+local REX_CLI = "/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex"
 
 local function window_action(name, title, program)
   rex.action({
