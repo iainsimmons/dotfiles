@@ -98,6 +98,69 @@ vim_action("nvim_buffer_force_close", "Neovim: Close Buffer Without Saving", ESC
 window_action("lazygit_window", "Lazygit in New Window", "lazygit")
 window_action("yazi_window", "Yazi in New Window", "yazi")
 
+-- Lists the existing sessions, then the zoxide directories under $HOME that
+-- have no session of the same name. Picking a session switches to it; picking
+-- a directory opens it as a session named after its last path segment.
+-- $0 is the Rex CLI. List rows are display, kind, id or directory, label.
+local SESSIONIZE = [=[
+export PATH="/opt/homebrew/bin:$PATH"
+rex=$0
+fail() { printf '%s\n' "$1"; sleep 2; exit 1; }
+sessions=$("$rex" session ls --json | awk -F'"' '
+  {
+    for (i = 1; i < NF; i++) {
+      if ($i == "session_id") id = $(i + 2)
+      if ($i == "label") print id "\t" $(i + 2)
+    }
+  }')
+pick=$({
+  printf '%s\n' "$sessions" | awk -F'\t' 'NF { printf "\033[32m%s\033[0m  \033[2msession\033[0m\tsession\t%s\t%s\n", $2, $1, $2 }'
+  zoxide query -l --base-dir "$HOME" | S="$sessions" awk '
+    BEGIN {
+      n = split(ENVIRON["S"], rows, "\n")
+      for (i = 1; i <= n; i++) { split(rows[i], f, "\t"); if (f[2] != "") have[f[2]] = 1 }
+    }
+    { name = $0; sub(".*/", "", name); if (!(name in have)) printf "%s\tdir\t%s\t%s\n", $0, $0, name }'
+} | fzf --ansi --reverse --no-sort --scheme=path --delimiter='\t' --with-nth=1 --prompt='session> ')
+[ -n "$pick" ] || exit 0
+kind=$(printf '%s' "$pick" | cut -f2)
+target=$(printf '%s' "$pick" | cut -f3)
+name=$(printf '%s' "$pick" | cut -f4)
+if [ "$kind" = session ]; then
+  id=$target
+else
+  id=$("$rex" session new "$name" -c "$target" --json -- /opt/homebrew/bin/fish -l -i | tr -d ' \n' | sed -n 's/.*"session_id":"\([^"]*\)".*/\1/p')
+fi
+[ -n "$id" ] || fail "Couldn't create session $name"
+i=0
+while [ $i -lt 20 ]; do
+  "$rex" do session.select session_id="$id" >/dev/null 2>&1 && exit 0
+  sleep 0.1
+  i=$((i + 1))
+done
+fail "Couldn't open session $name"
+]=]
+
+rex.action({
+  name = "zoxide_session",
+  title = "New Session from Zoxide Directory",
+  run = function()
+    local view, err = rex.session.view({})
+    if not view then error(err, 0) end
+    local r
+    r, err = rex.session.new_layer({
+      window_id = view.active_window_id,
+      bounds = { 0.2, 0.15, 0.6, 0.55 },
+      focus = true,
+      layout = rex.layout.block({
+        flavor = SHELL,
+        options = { command = { "/bin/sh", "-c", SESSIONIZE, REX_CLI }, cwd = os.getenv("HOME") },
+      }),
+    })
+    if not r then error(err, 0) end
+  end,
+})
+
 rex.bind("cmd+shift+r", "client.config.reload")
 rex.bind("cmd+s", "nvim_save")
 rex.bind("cmd+p", "nvim_smart_picker")
@@ -105,3 +168,4 @@ rex.bind("cmd+b", "nvim_buffer_close")
 rex.bind("cmd+shift+b", "nvim_buffer_force_close")
 rex.bind("cmd+g", "lazygit_window")
 rex.bind("cmd+y", "yazi_window")
+rex.bind("cmd+shift+j", "zoxide_session")
